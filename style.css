@@ -520,7 +520,13 @@ h4 {
 .aboutTitle{
     margin: auto;
     text-align: center; 
-    width: 60%;
+}
+
+.blueLine {
+    position: relative;
+    color: #027BFF;
+    font-size: 65px;
+    bottom: 4px;
 }
 
 /* PROJECT 01 */
