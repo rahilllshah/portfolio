@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html>
+    
+	<head>
+        
+		<meta charset="utf-8">
+        <title>Rahil Shah</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <link rel="icon" href="Images/R%20black.png" sizes="16x16" type="image/png">
+        <link rel="stylesheet" type= "text/css" href="style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+        <script src="particles.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <script src="jquery-1.10.2.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+	
+    </head>
+	
+    <body>
+
+        <script>  
+            function openSlideMenu(){
+            document.getElementById('navMenu').style.marginLeft = '34px';
+            }
+        </script>
+        
+        <div id="particleContainer"></div>
+        
+        <script>    
+            particlesJS.load('particleContainer','particlesjs-config.json');  
+        </script>
+         
+        <div id="blueBar"></div>
+        
+        <div class="navBackground"></div>
+        
+        <div id="nav-iconWeb">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        
+        <script>
+            window.onload = function(){ 
+            $('#nav-iconWeb').toggleClass('open');
+        }
+        </script>
+        
+        <script> $(document).ready(function(){
+            $('#nav-iconMobile').hover(function(){
+                $(this).toggleClass('open');
+	       });});
+        </script>        
+
+        <div id="navMenu">
+            <span class="slide">     
+                <a href="#" onclick="openSlideMenu()">     
+                    <i class="mobileOpen">
+                        <div id="nav-iconMobile">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </i>      
+                </a> 
+            </span>
+            <div class="nav">          
+                <a href="#section1" class="section1-marker navElement active"><i class="fas fa-home navFont"></i></a>       
+                <a href="#section3" class="section3-marker navElement"> <span class="navFont"> 1 </span></a>  
+                <a href="#section4" class="section4-marker navElement"> <span class="navFont"> 2 </span></a>    
+                <a href="#section5" class="section5-marker navElement"> <span class="navFont"> 3 </span></a>   
+                <a href="#section6" class="section6-marker navElement last"> <span class="navFont"> 4 </span></a>   
+                <a href=# onclick="return false;" class="navClose"> <span class="navFont"><i class="arrowLeft"></i></span></a>   
+            </div> 
+        </div>
+        
+         <div id="navSocial">
+            <div class = "nav2">
+                <a href="mailto: rahil190@gmail.com" target="_blank" class="navElementSocial"><i class="fas fa-envelope navFontBlack"></i></a>  
+                <a href="https://www.linkedin.com/in/rahilllshah" target="_blank" class="navElementSocial"><i class="fab fa-linkedin-in navFontBlack"></i></a>  
+                <a href="https://www.behance.net/rahil190be83" target="_blank" class="navElementSocial"><i class="fab fa-behance navFontBlack"></i></a>
+            </div>
+        </div>
+        
+        <script>
+            $('.mobileOpen').on('click', function(e){
+                e.preventDefault();
+            });
+        </script>  
+        
+        <script>
+            window.addEventListener('mouseup', function(event){   
+                var box = document.getElementById('navMenu');    
+                if (event.target != box && event.target.parentNode != box){    
+                    box.style.marginLeft = '-34px'; 
+                }  
+            }); 
+        </script>
+                
+        <section class="section1" id="section1">    
+            <div class="landing">
+                <div class="landingWrapper">  
+                    <div class="landingL">                   
+                        <img class='RahilShah' src="Images/Rahil%20Shah.png">              
+                        <h3 class="HomeText">Hello! Welcome to <span class="blue">my portfolio.</span> I'm currently the <span class="blue">Head of Design</span> for DeltaHacks, McMaster's annual Hackathon. I’m also a <span class="blue">Front-End Developer</span> working for a professor and was previously a <span class="blue">Web Design Intern</span> at Nova Solutions. Check out some of my work below.</h3>           
+                    </div>                     
+                    <div class="landingR">                     
+                        <img class='Rahil' src="Images/r.png">            
+                    </div>                         
+                    <div class="arrowDown"></div>   
+                </div>       
+            </div>
+        </section>
+                
+        <section class="section1" id="section2">          
+            <div class="about">             
+                <h2 class="aboutTitle">Projects</h2> 
+            </div>
+        </section>
+        
+        <section class="section3" id="section3">           
+            <div class="project clearfix">       
+                <div class="projectText">                   
+                    <h1>Ravn OS</h1>	
+                        <h4>UI/UX Design</h4>
+                        <div>
+                            <a href="https://www.behance.net/gallery/83341779/Ravn-OS" target="_blank" class="viewButton"><span class="viewFont">View</span></a>
+                        </div>
+                </div> 
+                <img src="Images/Ravn%20OS%20Cover-min.png" class="projectImage">   
+            </div>  
+        </section>
+        
+        <section class="section4" id="section4">      
+             <div class="project2 clearfix">  
+                <div class="projectText">
+                    <h1>Instagram Redesign</h1> 
+                        <h4>UI/UX Design</h4>
+                        <div>
+                            <a href="https://www.behance.net/gallery/83411589/Instagram-Redesign" target="_blank" class="viewButton"><span class="viewFont">View</span></a>
+                        </div>
+                </div>
+                <img src="Images/Instagram%20Redesign%20Cover-min.png" class="projectImage">   
+            </div>     
+        </section>
+        
+        <section class="section5" id="section5">  
+            <div class="project3 clearfix">
+                <div class="projectText">  
+                    <h1>happy</h1>
+                        <h4>UI/UX Design</h4>
+                        <div>
+                            <a href="https://www.behance.net/gallery/83085003/happy" target="_blank" class="viewButton"><span class="viewFont">View</span></a>
+                        </div>
+                </div>
+                <img src="Images/happy%20Cover-min.png" class="projectImage">   
+            </div>        
+        </section>
+        
+        <section class="section6" id="section6">
+            <div class="project4 clearfix">
+                <div class="projectText">
+                    <h1>DeltaHacks VI Design Journey</h1>
+                        <h4>Interaction Design</h4>
+                        <div>
+                            <a href="https://www.behance.net/gallery/91565049/DeltaHacks-VI-Design-Journey" target="_blank" class="viewButton"><span class="viewFont">View</span></a>
+                        </div>
+                </div>
+                <img src="Images/DH%20Cover.png" class="projectImage">   
+            </div>        
+        </section>
+        
+        <div class="footer">
+        <h3>Designed and developed with 💙 by Rahil Shah</h3>
+        </div>
+        
+		<script>
+			(function() {
+                var navLinks = $('.nav a.navElement'),
+                    navH = $('.nav').height(),
+                    section = $('section'),
+                    documentEl = $(document);
+                documentEl.on('scroll', function() {
+                    var currentScrollPos = documentEl.scrollTop();
+                    section.each(function() {
+                        var self = $(this);
+                        if ( self.offset().top < (currentScrollPos + navH) && (currentScrollPos + navH) < (self.offset().top + self.outerHeight()) ) {
+                            var targetClass = '.' + self.attr('class') + '-marker';
+                            navLinks.removeClass('active');
+                            $(targetClass).addClass('active');
+                        }
+                    });  
+                });
+			})();
+		</script>
+
+        <script>
+        $(document).ready(function(){ 
+            $('.nav a.navElement').click(function() { 
+                if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) { 
+                    var $target = $(this.hash); 
+                    $target = $target.length && $target || $('[name=' + this.hash.slice(1) +']'); 
+                    if ($target.length) { 
+                        var targetOffset = $target.offset().top; 
+                        $('html,body') .animate({scrollTop: targetOffset}, 1000); return false; 
+                    } 
+                } 
+            }); 
+        });
+        </script>
+        
+        <script> 
+            $(function() {     
+                var documentEl = $(document),
+                    fadeElem = $('.section1');      
+                documentEl.on('scroll', function() {
+                    var currScrollPos = documentEl.scrollTop();          
+                    fadeElem.each(function() {
+                        var $this = $(this),
+                            elemOffsetTop = $this.offset().top;
+                        if (currScrollPos > elemOffsetTop) $this.css('opacity', 1 - (currScrollPos-elemOffsetTop)/400);
+                    }); 
+                });  
+            });
+        </script>
+        
+        <script>
+            $(function() {
+                var documentEl = $(document),
+                    fadeElem = $('.section3'); 
+                documentEl.on('scroll', function() {
+                    var currScrollPos = documentEl.scrollTop();     
+                    fadeElem.each(function() {
+                        var $this = $(this),
+                            elemOffsetTop = $this.offset().top;
+                        if (currScrollPos > elemOffsetTop) $this.css('opacity', 1 - (currScrollPos-elemOffsetTop)/400);
+                    }); 
+                });
+            });
+        </script>
+        
+        <script>
+            $(function() {   
+                var documentEl = $(document),
+                    fadeElem = $('.section4'); 
+                documentEl.on('scroll', function() {
+                    var currScrollPos = documentEl.scrollTop(); 
+                    fadeElem.each(function() {
+                        var $this = $(this),
+                            elemOffsetTop = $this.offset().top;
+                        if (currScrollPos > elemOffsetTop) $this.css('opacity', 1 - (currScrollPos-elemOffsetTop)/400);
+                    }); 
+                });
+            });
+        </script>
+        
+        <script>
+            $(function() {
+                var documentEl = $(document),
+                    fadeElem = $('.section5');
+                documentEl.on('scroll', function() {
+                    var currScrollPos = documentEl.scrollTop();
+                    fadeElem.each(function() {
+                        var $this = $(this),
+                            elemOffsetTop = $this.offset().top;
+                        if (currScrollPos > elemOffsetTop) $this.css('opacity', 1 - (currScrollPos-elemOffsetTop)/400);
+                    }); 
+                });
+            });
+        </script>       
+        
+        <script>
+            $(function() {
+                var documentEl = $(document),
+                    fadeElem = $('.section6');
+                documentEl.on('scroll', function() {
+                    var currScrollPos = documentEl.scrollTop();   
+                    fadeElem.each(function() {
+                        var $this = $(this),
+                            elemOffsetTop = $this.offset().top;
+                        if (currScrollPos > elemOffsetTop) $this.css('opacity', 1 - (currScrollPos-elemOffsetTop)/400);
+                    }); 
+                }); 
+            });
+        </script>       
+
+	</body>
+    
+</html>
