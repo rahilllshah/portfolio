@@ -55,7 +55,7 @@ h3 {
     color: black;
     opacity: 0.75;
     font-size: 14px;
-    font-weight: 200;
+    font-weight: 300;
 }
 
 h4 {
@@ -430,13 +430,38 @@ h4 {
 }
 
 .landingL{
-    margin: auto;
     padding-top: 10%;
-    width: 40%;
+    width: 35%;
+    margin-left: 20vh;
 }
 
-.landingR{
-    margin: auto;
+.landingR1{
+    z-index: 3;
+    margin-top: 10vh;
+    margin-left: 60%;
+    height: 80vh;
+    width: 30%;
+    background-image: url(Images/DHA.png);
+    position: absolute;
+    background-size: contain;
+    background-position: right;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+
+}
+
+.landingR2{
+    z-index: 4;
+    margin-top: 45vh;
+    margin-left: 55%;
+    height: 25vh;
+    width: 30%;
+    background-image: url(Images/DHB.png);
+    position: absolute;
+    background-size: contain;
+    background-position: right;
+    background-repeat: no-repeat;
+
 }
 
 .Rahil{
@@ -453,7 +478,11 @@ h4 {
 
 @media screen and (max-width: 768px) {
     
-    .landingR{
+    .landingR1{
+        display: none;
+    }
+    
+    .landingR2{
         display: none;
     }
     
