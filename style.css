@@ -412,13 +412,17 @@ h4 {
 
 /* LANDING */
 
-#blueBar {
+.blueBar {
     height: 14px;
     background: #027BFF;
     width: 100%;
     margin-left: auto;
     position: fixed;
-    z-index: 3;
+    z-index: 10;
+}
+
+.section1{
+    transition: 0.5s;
 }
 
 .landing {

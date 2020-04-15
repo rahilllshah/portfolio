@@ -12,6 +12,9 @@
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
         <script src="particles.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+        
+        
+        
 	
     </head>
 	
@@ -30,7 +33,7 @@
             }
         </script>
          
-        <div id="blueBar"></div>
+        <div class="blueBar"></div>
         
         <div class="navBackground"></div>
         
@@ -213,81 +216,6 @@
             }); 
         });
         </script>
-        
-        <script> 
-            $(function() {     
-                var documentEl = $(document),
-                    fadeElem = $('.section1');      
-                documentEl.on('scroll', function() {
-                    var currScrollPos = documentEl.scrollTop();          
-                    fadeElem.each(function() {
-                        var $this = $(this),
-                            elemOffsetTop = $this.offset().top;
-                        if (currScrollPos > elemOffsetTop) $this.css('opacity', 1 - (currScrollPos-elemOffsetTop)/400);
-                    }); 
-                });  
-            });
-        </script>
-        
-        <script>
-            $(function() {
-                var documentEl = $(document),
-                    fadeElem = $('.section3'); 
-                documentEl.on('scroll', function() {
-                    var currScrollPos = documentEl.scrollTop();     
-                    fadeElem.each(function() {
-                        var $this = $(this),
-                            elemOffsetTop = $this.offset().top;
-                        if (currScrollPos > elemOffsetTop) $this.css('opacity', 1 - (currScrollPos-elemOffsetTop)/400);
-                    }); 
-                });
-            });
-        </script>
-        
-        <script>
-            $(function() {   
-                var documentEl = $(document),
-                    fadeElem = $('.section4'); 
-                documentEl.on('scroll', function() {
-                    var currScrollPos = documentEl.scrollTop(); 
-                    fadeElem.each(function() {
-                        var $this = $(this),
-                            elemOffsetTop = $this.offset().top;
-                        if (currScrollPos > elemOffsetTop) $this.css('opacity', 1 - (currScrollPos-elemOffsetTop)/400);
-                    }); 
-                });
-            });
-        </script>
-        
-        <script>
-            $(function() {
-                var documentEl = $(document),
-                    fadeElem = $('.section5');
-                documentEl.on('scroll', function() {
-                    var currScrollPos = documentEl.scrollTop();
-                    fadeElem.each(function() {
-                        var $this = $(this),
-                            elemOffsetTop = $this.offset().top;
-                        if (currScrollPos > elemOffsetTop) $this.css('opacity', 1 - (currScrollPos-elemOffsetTop)/400);
-                    }); 
-                });
-            });
-        </script>       
-        
-        <script>
-            $(function() {
-                var documentEl = $(document),
-                    fadeElem = $('.section6');
-                documentEl.on('scroll', function() {
-                    var currScrollPos = documentEl.scrollTop();   
-                    fadeElem.each(function() {
-                        var $this = $(this),
-                            elemOffsetTop = $this.offset().top;
-                        if (currScrollPos > elemOffsetTop) $this.css('opacity', 1 - (currScrollPos-elemOffsetTop)/400);
-                    }); 
-                }); 
-            });
-        </script>       
 
 	</body>
 </html>
