@@ -3,20 +3,17 @@
     padding: 0;
 }
 
-html {
-    font-family: Montserrat, San Francisco, Helvetica Neue, sans-serif;
+html, body {
+    max-width: 87%;
+    overflow-x: hidden;
+    margin: auto;
 }
 
 #particleContainer{
     position: fixed;
     width: 100vmax;
     height: 100vmax;
-}
-
-.clearfix::after {
-    content: "";
-    clear: both;
-    display: table;
+    z-index: -1;
 }
 
 .blue {
@@ -26,42 +23,28 @@ html {
 .navFont{
     color: white;
     font-size: 12px;
-    font-weight: 300;
 }
 
 .navFontBlack{
     color: black;
     font-size: 12px;
-    font-weight: 300;
+}
+
+.interestFont{
+    color: black;
+    font-size: 48px;
+}
+
+.interestTitle{
+    margin-bottom: 28px;
 }
 
 .viewFont {
     color: white;
-    font-weight: 300;
 }
 
-h1 {
-    font-size: 42px;
-    font-weight: 500;
-}
-
-h2 {
-    color: black;
-    font-size: 70px;
-    font-weight: 500;
-}
-
-h3 {
-    color: black;
-    opacity: 0.75;
-    font-size: 14px;
-    font-weight: 300;
-}
-
-h4 {
-    color: #D1D3D4;
-    font-size: 14px;
-    font-weight: 500;
+p {
+    font-weight: 100;
 }
 
 /* NAV */
@@ -78,8 +61,8 @@ h4 {
 
  #nav-iconWeb {
     z-index: 3;
-        position: fixed;
-        cursor: pointer;
+    position: fixed;
+    cursor: pointer;
     left: 22px;
     top: 28px;
     z-index: 3;
@@ -163,13 +146,10 @@ h4 {
 }
 
 .nav a.navElement{
-    text-decoration: none;
+    text-decoration: none !important;
     background-color: #027BFF;
     text-align: center;
-    vertical-align: center;
-    display: block;
     transition: 1s;
-    width: 14px;
     line-height: 5vh;
     padding: 10px;
 }
@@ -196,7 +176,7 @@ h4 {
 }
 
 .nav2 a.navElementSocial {
-    text-decoration: none;
+    text-decoration: none !important;
     background-color: #f1f2f2;
     text-align: center;
     display: block;
@@ -221,10 +201,29 @@ h4 {
     display: none;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1000px) {
     
-    html{
-        overflow-x: none;
+    html, body {
+    max-width: 100%;
+}
+    
+    .landingLeft{
+        width: 100% !important;
+         margin: auto;
+        text-align: center;
+    }
+    
+    .RahilShah{
+        width: 100% !important;
+       
+    }
+    
+      .landingR1{
+        display: none;
+    }
+    
+    .landingR2{
+        display: none;
     }
     
     #nav-iconMobile {
@@ -312,15 +311,11 @@ h4 {
     }
     
     .nav a.navClose {
-        text-decoration: none;
+        text-decoration: none !important;
         background-color: #027BFF;
         text-align: center;
-        vertical-align: center;
-        display: block;
-        width: 14px;
         transition: 1s;
         padding: 10px;
-        opacity: 1;
         line-height: 2vh;
         border-top-right-radius: 14px;
         border-bottom-right-radius: 14px;
@@ -348,7 +343,6 @@ h4 {
     .nav{
         position: fixed;
         transition: 1s;
-        margin-left: -34px;
     }
       
     .mobileOpen{
@@ -357,6 +351,12 @@ h4 {
         top: 28px;
         left: 22px;
     }  
+    
+    .arrowDown::after{
+      margin-top: 62vh;
+    }
+
+
 }
 
 @media only screen and (min-width: 768px) {
@@ -371,84 +371,44 @@ h4 {
         left:0;
     }
 }
-
-.viewButton {
-    text-decoration: none;
-    background-color: #027BFF;
-    text-align: center;
-    color: white;
-    border-radius: 14px;  
-    transition: 1s;
-    line-height: 56px;
-    padding: 10px;
-}
-
-.viewButton:hover {
-    background-color: #D1D3D4;
-    transition: 1s;
-}
-
-.viewButton:active {
-    background-color: black;
-    transition: 1s;
-}
-
-#section2 {
-    padding-top: 40vh;
-    padding-bottom: 40vh;
-}
             
-#section3, #section4, #section5, #section6, #section7 {
-    padding-top: 20vh;
-    padding-bottom: 20vh;
+#section2, #section3, #section4 {
+    padding-top: 5vh;
+    padding-bottom: 5vh;
 }
 
-@media screen and (max-width: 768px) {
-            
-    #section3, #section4, #section5, #section6, #section7 {
-        padding-top: 40vh;
-    }
-}
 
 /* LANDING */
 
 .blueBar {
     height: 14px;
     background: #027BFF;
-    width: 100%;
-    margin-left: auto;
     position: fixed;
+    left: 10px;
+    width: 100vw;
     z-index: 10;
-}
-
-.section1{
-    transition: 0.5s;
 }
 
 .landing {
     height: 100vh;
 }
 
-.landingWrapper{
-    display: flex;
+.landingLeft{
+    padding-top: 15%;
 }
 
-.landingL{
-    padding-top: 10%;
-    width: 35%;
-    margin-left: 20vh;
-}
 
 .landingR1{
     z-index: 3;
+    left: 0px;
     margin-top: 10vh;
-    margin-left: 60%;
+    margin-left: 52%;
     height: 80vh;
-    width: 30%;
+    width: 50%;
     background-image: url(Images/DHA.png);
     position: absolute;
     background-size: contain;
-    background-position: right;
+    background-position: 80% 80%;
     background-attachment: fixed;
     background-repeat: no-repeat;
 
@@ -457,7 +417,7 @@ h4 {
 .landingR2{
     z-index: 4;
     margin-top: 45vh;
-    margin-left: 55%;
+    margin-left: 38%;
     height: 25vh;
     width: 30%;
     background-image: url(Images/DHB.png);
@@ -468,42 +428,8 @@ h4 {
 
 }
 
-.Rahil{
-    z-index: 3;
-    position: fixed;
-    bottom: 0;
-    right: 10%;
-    height: 90%;
-}
-
 .RahilShah{
     width: 60%;
-}
-
-@media screen and (max-width: 768px) {
-    
-    .landingR1{
-        display: none;
-    }
-    
-    .landingR2{
-        display: none;
-    }
-    
-    .landingL{
-        width: 60%; 
-        text-align: center; 
-        margin: auto;
-    }
-    
-    .RahilShah{
-        width: 80%;
-    }
-    
-    h2{
-    font-size: 56px;
-    }
-    
 }
 
 .arrowDown::after{
@@ -514,7 +440,7 @@ h4 {
     height: 42px;
     left: 0;
     right: 0;
-    margin-top: 70vh;
+    margin-top: 75vh;
     border-right: 7px solid #D1D3D4;
     border-bottom: 7px solid #D1D3D4;
     -webkit-transform: rotate(45deg);
@@ -542,129 +468,150 @@ h4 {
     }
 }
 
-@media screen and (max-width: 768px) {
-
-  .arrowDown::after{
-      margin-top: 62vh;
-   }
+.section2 .button-group button{
+    background: transparent;
+    border: none;
+    text-transform: uppercase;
 }
 
-/* ABOUT */
-
-.aboutTitle{
-    margin: auto;
-    text-align: center; 
+.section2 .button-group button::after{
+    content:'';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #027BFF;
+    transition: width .5s;
 }
 
-.blueLine {
-    position: relative;
-    color: #027BFF;
-    font-size: 65px;
-    bottom: 4px;
+.section2 .button-group button:hover::after{
+    width: 100%;
+    transition: width .5s;
 }
 
-/* PROJECT 01 */
 
-.project{
-    margin: auto;
-    position: relative;
-    width: 60%;
-}
 
-.project > .projectText{
-    position: absolute;
-    margin-top: 14px;
-    top: -70px;
-}
-
-.project > .projectImage{
-    float: right;
-    width: 85%;
-    margin-top: 28px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
-
-/* PROJECT 02 */
-
-.project2{
-    margin: auto;
-    position: relative;
-    width: 60%;
-}
-
-.project2 > .projectText{
-    position: absolute;
-    text-align: right;
-    margin-top: 14px;
-    top: -70px;
-    right: 0;
-}
-
-.project2 > .projectImage{
-    float: left;
-    width: 85%;
-    margin-top: 28px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
-
-@media screen and (max-width: 768px) {
-    .project2 > .projectText{
-        top: -126px;
-    }
-}
-
-/* PROJECT 03 */
-
-.project3{
-    margin: auto;
-    position: relative;
-    width: 60%;
-}
-
-.project3 > .projectText{
-    position: absolute;
-    margin-top: 14px;
-    top: -70px;
-}
-
-.project3 > .projectImage{
-    float: right;
-    width: 85%;
-    margin-top: 28px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
-
-/* PROJECT 04 */
-
-.project4{
-    margin: auto;
-    position: relative;
-    width: 60%;
-}
-
-.project4 > .projectText{
-    position: absolute;
-    text-align: right;
-    margin-top: 14px;
-    top: -70px;
-    right: 0;
-}
-
-.project4 > .projectImage{
-    float: left;
-    width: 85%;
-    margin-top: 28px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
+.section2 .button-group button.active{
+    background: #027BFF;
+    color: white;
+    border-radius: 10px;
+    padding: 14px;
+    transition: .5s;
     
-@media screen and (max-width: 768px) {
-    .project4 > .projectText{
-        top: -126px;
+}
+
+.section2 .button-group button + button{
+    margin-left: 28px;
+    margin-bottom: 28px;
+    padding: 5px;
+}
+
+.section2 .grid .our-project > .title h4{
+    
+}
+
+.section2 .grid .our-project .img a:hover img{
+    transition: 1s;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.section2 .grid .our-project .img a img{
+    transition: 1s;
+}
+
+    
+
+
+li {
+    position: relative;
+    list-style: none;
+    margin: 50px;
+    margin-left: -14px;
+    width: 100%;
+}
+
+li:before {
+    content: "";
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 0;
+    width: 100%;
+    background-color: #f1f2f2;
+}
+
+li:after {
+    content: "";
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: #027BFF;
+    animation-duration: 1s;
+    animation-timing-function: ease;
+    animation-fill-mode: forwards;
+}
+
+li.skill1:after {
+    animation-name: skill1;
+}
+
+@keyframes skill1 {
+    to {
+        width: 100%;
     }
 }
+
+
+
+li.skill2:after {
+    animation-name: skill2;
+}
+
+@keyframes skill2 {
+    to {
+        width: 100%;
+    }
+}
+
+
+
+li.skill3 {
+    padding-top: 14px;
+}
+
+li.skill3:after {
+    animation-name: skill3;
+}
+
+@keyframes skill3 {
+    to {
+        width: 100%;
+    }
+}
+
+
+
+li.skill4 {
+    padding-top: 14px;
+}
+
+li.skill4:after {
+    animation-name: skill4;
+}
+
+@keyframes skill4 {
+    to {
+        width: 100%;
+    }
+}
+
+
+
+
+
+
 
 .footer{
-    margin: auto;
     text-align: center;
     padding-bottom: 20vh;
 }

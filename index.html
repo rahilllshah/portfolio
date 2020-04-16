@@ -7,14 +7,12 @@
         <title>Rahil Shah</title>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
         <link rel="icon" href="Images/R%20black.png" sizes="16x16" type="image/png">
+        <link href="bootstrap-4.0.0-dist/css/bootstrap.min.css" rel="stylesheet">
         <link rel="stylesheet" type= "text/css" href="style.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
         <script src="particles.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-        
-        
-        
 	
     </head>
 	
@@ -29,7 +27,7 @@
         
         <script>  
             function openSlideMenu(){
-            document.getElementById('navMenu').style.marginLeft = '34px';
+            document.getElementById('navMenu').style.marginLeft = '0px';
             }
         </script>
          
@@ -72,14 +70,13 @@
                     </i>      
                 </a> 
             </span>
-            <div class="nav">          
+            <nav class="nav flex-column">          
                 <a href="#section1" class="section1-marker navElement active"><i class="fas fa-home navFont"></i></a>       
-                <a href="#section3" class="section3-marker navElement"> <span class="navFont"> 1 </span></a>  
-                <a href="#section4" class="section4-marker navElement"> <span class="navFont"> 2 </span></a>    
-                <a href="#section5" class="section5-marker navElement"> <span class="navFont"> 3 </span></a>   
-                <a href="#section6" class="section6-marker navElement last"> <span class="navFont"> 4 </span></a>   
+                <a href="#section2" class="section2-marker navElement"><i class="fas fa-project-diagram navFont"></i></a>  
+                <a href="#section3" class="section3-marker navElement"><i class="fas fa-play navFont"></i></a>    
+                <a href="#section4" class="section4-marker navElement last"><i class="fas fa-shapes navFont"></i></a>   
                 <a href=# onclick="return false;" class="navClose"> <span class="navFont"><i class="arrowLeft"></i></span></a>   
-            </div> 
+            </nav> 
         </div>
         
          <div id="navSocial">
@@ -101,85 +98,336 @@
             window.addEventListener('mouseup', function(event){   
                 var box = document.getElementById('navMenu');    
                 if (event.target != box && event.target.parentNode != box){    
-                    box.style.marginLeft = '-34px'; 
+                    box.style.marginLeft = '-50px'; 
                 }  
             }); 
         </script>
                 
-        <section class="section1" id="section1">    
+        <section class="section1" id="section1">  
+            <div class="container">
             <div class="landing">
-                <div class="landingWrapper">  
-                    <div class="landingL">                   
-                        <img class='RahilShah' src="Images/Rahil%20Shah.png">              
-                        <h3 class="HomeText">Hello! Welcome to <span class="blue">my portfolio.</span> I'm currently the <span class="blue">Co-Director</span> (x-Product Design Lead) of DeltaHacks, McMaster's annual hackathon. I’m also a freelance <span class="blue">Front-End Developer</span> working for two professors and was previously a <span class="blue">Web Designer</span> at Nova Solutions. Check out some of my work below.</h3>           
-                    </div>
-                    <div class="landingR1"></div> 
-                    <div class="landingR2"></div>                         
-                    <div class="arrowDown"></div>   
+                <div class="row">  
+                    <div class="col-6 landingLeft">
+                        <img class="RahilShah" src="Images/Rahil%20Shah.png">
+                        <p>Hello! Welcome to <span class="blue">my portfolio.</span> I'm currently the <span class="blue">Co-Director</span> (x-Product Design Lead) of DeltaHacks, McMaster's annual hackathon. I’m also a freelance <span class="blue">Front-End Developer</span> working for two professors and was previously a <span class="blue">Web Designer</span> at Nova Solutions. Check out some of my work below.</p></div>
+                    <div class="landingR1"></div>
+                    <div class="landingR2"></div>                      
+                    <div class="arrowDown"></div> 
+                    
                 </div>       
             </div>
+                </div>
         </section>
-                
-        <section class="section1" id="section2">          
-            <div id="about">   
-                <h2 class="aboutTitle"><span class="blue">/</span> PROJECTS</h2>
+        
+        
+        <script src="vendor/isotope/isotope.min.js"></script>
+        
+        <script>
+        
+            $(document).ready(function () {
+
+
+    let $btns = $('.section2 .button-group button');
+
+
+    $btns.click(function (e) {
+
+        $('.section2 .button-group button').removeClass('active');
+        e.target.classList.add('active');
+
+        let selector = $(e.target).attr('data-filter');
+        $('.section2 .grid').isotope({
+            filter: selector
+        });
+
+        return false;
+    })
+    
+    
+});
+        
+        </script>
+    
+         <section class="section2" id="section2">
+            <div class="container">
+                <div class="project-title pb-5">
+                    <h1><span class="blue">/</span> PROJECTS</h1>
+                </div>
+
+                <div class="button-group">
+                    <button type="button" class="active" id="btn1" data-filter="*">All</button>
+                    <button type="button" data-filter=".UIUX">UI/UX</button>
+                    <button type="button" data-filter=".web">Web Design</button>
+                    <button type="button" data-filter=".graphic">Graphic Design</button>
+                    <button type="button" data-filter=".logo">Logo Design</button>
+                </div>
+
+                <div class="row grid">
+                    <div class="col-sm-6 element-item UIUX">
+                        <div class="our-project">
+                            <div class="img">
+                                <a href="https://www.behance.net/gallery/83341779/Ravn-OS" target="_blank">
+                                    <img src="Images/Ravn%20OS%20Cover-min.png" class="img-fluid">
+                                </a>
+                            </div>
+                            <div class="title py-4">
+                                <h4>Ravn OS</h4>
+                                <span class="text-secondary">UI/UX</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 element-item UIUX">
+                        <div class="our-project">
+                            <div class="img">
+                                <a href="https://www.behance.net/gallery/83411589/Instagram-Redesign" target="_blank">
+                                    <img src="Images/Instagram%20Redesign%20Cover-min.png" class="img-fluid">
+                                </a>
+                            </div>
+                            <div class="title py-4">
+                                <h4>Instagram Redesign</h4>
+                                <span class="text-secondary">UI/UX</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 element-item UIUX">
+                        <div class="our-project">
+                            <div class="img">
+                                <a href="https://www.behance.net/gallery/83085003/happy" target="_blank">
+                                    <img src="Images/happy%20Cover-min.png" class="img-fluid">
+                                </a>
+                            </div>
+                            <div class="title py-4">
+                                <h4>happy</h4>
+                                <span class="text-secondary">UI/UX</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 element-item UIUX">
+                        <div class="our-project">
+                            <div class="img">
+                                <a href="https://docs.google.com/presentation/d/1HS1e4gjjpbUcHX_LirR7e7VUbFOOErwTdoOPH6lKqsg/edit?usp=sharing" target="_blank">
+                                    <img src="Images/Xperience%20Cover.png" class="img-fluid">
+                                </a>
+                            </div>
+                            <div class="title py-4">
+                                <h4>Xperience</h4>
+                                <span class="text-secondary">UI/UX</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 element-item web">
+                        <div class="our-project">
+                            <div class="img">
+                                <a href="https://flatten.ca" target="_blank">
+                                    <img src="Images/Flatten%20Cover.png" class="img-fluid">
+                                </a>
+                            </div>
+                            <div class="title py-4">
+                                <h4>flatten.ca</h4>
+                                <span class="text-secondary">Web Design</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 element-item logo">
+                        <div class="our-project">
+                            <div class="img">
+                                <a>
+                                    <img src="IMAGES/CMS%20Cover.png" class="img-fluid">
+                                </a>
+                            </div>
+                            <div class="title py-4">
+                                <h4>Computational Materials Society</h4>
+                                <span class="text-secondary">Logo Design</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 element-item graphic">
+                        <div class="our-project">
+                            <div class="img">
+                                <a>
+                                    <img src="Images/Engagement%20Cover.png" alt="portfolio-7" class="img-fluid">
+                                </a>
+                            </div>
+                            <div class="title py-4">
+                                <h4>Engagement Cards</h4>
+                                <span class="text-secondary">Graphic Design</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 element-item graphic">
+                        <div class="our-project">
+                            <div class="img">
+                                <a>
+                                    <img src="Images/Poster1%20Cover.png" alt="portfolio-7" class="img-fluid">
+                                </a>
+                            </div>
+                            <div class="title py-4">
+                                <h4>Promotional Poster</h4>
+                                <span class="text-secondary">Graphic Design</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 element-item graphic">
+                        <div class="our-project">
+                            <div class="img">
+                                <a>
+                                    <img src="Images/dh7%20post%20cover.png" alt="portfolio-7" class="img-fluid">
+                                </a>
+                            </div>
+                            <div class="title py-4">
+                                <h4>Social Media Recruitment Posts</h4>
+                                <span class="text-secondary">Graphic Design</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 element-item graphic">
+                        <div class="our-project">
+                            <div class="img">
+                                <a>
+                                    <img src="Images/gift%20card%20cover.png" alt="portfolio-7" class="img-fluid">
+                                </a>
+                            </div>
+                            <div class="title py-4">
+                                <h4>Gift Cards</h4>
+                                <span class="text-secondary">Graphic Design</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 element-item web">
+                        <div class="our-project">
+                            <div class="img">
+                                <a href="https://lglab.ca" target="_blank">
+                                    <img src="Images/lglab%20cover.png" alt="portfolio-7" class="img-fluid">
+                                </a>
+                            </div>
+                            <div class="title py-4">
+                                <h4>The Gunaratnam Lab</h4>
+                                <span class="text-secondary">Web Design</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 element-item logo">
+                        <div class="our-project">
+                            <div class="img">
+                                <a>
+                                    <img src="Images/commut%20cover.png" alt="portfolio-7" class="img-fluid">
+                                </a>
+                            </div>
+                            <div class="title py-4">
+                                <h4>COMMUT</h4>
+                                <span class="text-secondary">Logo Design</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
         
-        <section class="section3" id="section3">           
-            <div class="project clearfix">       
-                <div class="projectText">                   
-                    <h1>Ravn OS</h1>	
-                        <h4>UI/UX Design</h4>
-                        <div>
-                            <a href="https://www.behance.net/gallery/83341779/Ravn-OS" target="_blank" class="viewButton"><span class="viewFont">View</span></a>
+        
+        <section class="section3" id="section3">
+            <div class="container">
+                <div class="interests-title pb-5">
+                    <h1><span class="blue">/</span> HOBBIES &amp INTERESTS</h1>
+                </div>
+                
+        
+                
+                <div class="row grid">
+                    <div class="col-sm-4 element-item latest">
+                        <div class="our-project">
+                            <div class="img">
+                                <i class="fas fa-palette interestFont"></i>
+                            </div>
+                            <div class="interestTitle py-4">
+                                <h4>Art &amp Design</h4>
+                                <span class="text-secondary">It's what defines me as a person, ever since I was a little kid. I like to imagine, think different, and create striving for a beautiful result.</span>
+                            </div>
                         </div>
-                </div> 
-                <img src="Images/Ravn%20OS%20Cover-min.png" class="projectImage">   
-            </div>  
+                    </div>
+                    <div class="col-sm-4 element-item latest">
+                        <div class="our-project">
+                            <div class="img">
+                                <i class="fas fa-hockey-puck interestFont"></i>
+                            </div>
+                            <div class="interestTitle py-4">
+                                <h4>Hockey</h4>
+                                <span class="text-secondary">The Toronto Maple Leafs, I'm their #1 fan. It's "The passion that unites us all." I have a lot of fun watching and playing hockey with my friends too.</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 element-item latest">
+                        <div class="our-project">
+                            <div class="img">
+                                <i class="fas fa-futbol interestFont"></i>
+                            </div>
+                            <div class="interestTitle py-4">
+                                <h4>Soccer</h4>
+                                <span class="text-secondary">Been a part of me since the beginning. I was fortunate to captain teams and lead a few to championships - it taught me great leadership and teamwork.</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 element-item latest">
+                        <div class="our-project">
+                            <div class="img">
+                                <i class="fas fa-route interestFont"></i>
+                            </div>
+                            <div class="interestTitle py-4">
+                                <h4>Travelling</h4>
+                                <span class="text-secondary">Adventures galore, I love exploring. Hiking on camping trips, kayaking on cottage trips, driving for hours on road trips - it's amazing.</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 element-item latest">
+                        <div class="our-project">
+                            <div class="img">
+                                <i class="fas fa-hands-helping interestFont"></i>
+                            </div>
+                            <div class="interestTitle py-4">
+                                <h4>Volunteering</h4>
+                                <span class="text-secondary">I'm big on giving back to the community in whatever way I can. And making a positive difference in this world has been a motto of mine since day one. </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 element-item latest">
+                        <div class="our-project">
+                            <div class="img">
+                                <i class="fas fa-music interestFont"></i>
+                            </div>
+                            <div class="interestTitle py-4">
+                                <h4>Music</h4>
+                                <span class="text-secondary">I don't really have a genre I like, I listen to all kinds of music, and love sharing music - it's my fuel, some inspire me, and some don't but definitely makes me feel good.</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                    
+          </div>
         </section>
         
-        <section class="section4" id="section4">      
-             <div class="project2 clearfix">  
-                <div class="projectText">
-                    <h1>Instagram Redesign</h1> 
-                        <h4>UI/UX Design</h4>
-                        <div>
-                            <a href="https://www.behance.net/gallery/83411589/Instagram-Redesign" target="_blank" class="viewButton"><span class="viewFont">View</span></a>
-                        </div>
+        
+        
+        <section class="section4" id="section4">
+            <div class="container">
+                <div class="skills-title">
+                    <h1><span class="blue">/</span> SKILLS</h1>
                 </div>
-                <img src="Images/Instagram%20Redesign%20Cover-min.png" class="projectImage">   
-            </div>     
+                
+                <div class="container">
+        <ul>
+            <li class="skill1"><h4>Design &amp Prototyping</h4><span class="text-secondary">Adobe CC Software, Figma, InVision, Sketch</span></li>
+            <li class="skill2"><span class="text-secondary">UI/UX, Interaction Design, Responsive Design, User-Centered Design, Usability Testing</span></li>
+            <li class="skill3"><h4>Development</h4><span class="text-secondary">HTML, CSS, JavaScript, React.js, Vue.js, Git, Github</span></li>
+            <li class="skill4"><h4>Soft Skills</h4><span class="text-secondary">Optimistic, Detail Oriented, Self-Starter, Organized, Dedicated, Hard-Working, Problem Solver</span></li>
+        </ul>
+    </div>
+              </div>
+            
         </section>
         
-        <section class="section5" id="section5">  
-            <div class="project3 clearfix">
-                <div class="projectText">  
-                    <h1>happy</h1>
-                        <h4>UI/UX Design</h4>
-                        <div>
-                            <a href="https://www.behance.net/gallery/83085003/happy" target="_blank" class="viewButton"><span class="viewFont">View</span></a>
-                        </div>
-                </div>
-                <img src="Images/happy%20Cover-min.png" class="projectImage">   
-            </div>        
-        </section>
-        
-        <section class="section6" id="section6">
-            <div class="project4 clearfix">
-                <div class="projectText">
-                    <h1>DeltaHacks VI Design Journey</h1>
-                        <h4>Interaction Design</h4>
-                        <div>
-                            <a href="https://www.behance.net/gallery/91565049/DeltaHacks-VI-Design-Journey" target="_blank" class="viewButton"><span class="viewFont">View</span></a>
-                        </div>
-                </div>
-                <img src="Images/DH%20Cover.png" class="projectImage">   
-            </div>        
-        </section>
         
         <div class="footer">
-        <h3>Designed and developed with 💙 by Rahil Shah</h3>
+        <p>Designed and developed with 💙 by Rahil Shah</p>
         </div>
         
 		<script>
