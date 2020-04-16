@@ -356,7 +356,6 @@ p {
       margin-top: 62vh;
     }
 
-
 }
 
 @media only screen and (min-width: 768px) {
@@ -372,9 +371,14 @@ p {
     }
 }
             
-#section2, #section3, #section4 {
+#section2, #section3 {
     padding-top: 5vh;
     padding-bottom: 5vh;
+}
+
+#section4 {
+    padding-top: 5vh;
+    padding-bottom: 10vh;
 }
 
 
