@@ -355,6 +355,10 @@ p {
     .arrowDown::after{
       margin-top: 62vh;
     }
+    
+    .section3 .grid .our-project .img a img{
+    margin-top: 14px;
+    }
 
 }
 
@@ -369,6 +373,7 @@ p {
         transition: 1s;
         left:0;
     }
+    
 }
             
 #section2, #section3, #section4 {
