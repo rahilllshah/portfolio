@@ -13,6 +13,7 @@
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
         <script src="particles.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+        <script src="vendor/isotope/isotope.min.js"></script>
 	
     </head>
 	
@@ -24,18 +25,17 @@
             particlesJS.load('particleContainer','particlesjs-config.json');  
         </script>
         
-        
         <script>  
-            function openSlideMenu(){
-            document.getElementById('navMenu').style.marginLeft = '0px';
+            function openSlideNav(){
+            document.getElementById('navL').style.marginLeft = '0px';
             }
         </script>
          
         <div class="blueBar"></div>
         
-        <div class="navBackground"></div>
+        <div class="RLogo"></div>
         
-        <div id="nav-iconWeb">
+        <div id="navRLogoWeb">
             <span></span>
             <span></span>
             <span></span>
@@ -45,21 +45,22 @@
         
         <script>
             window.onload = function(){ 
-            $('#nav-iconWeb').toggleClass('open');
+            $('#navRLogoWeb').toggleClass('open');
         }
         </script>
         
         <script> $(document).ready(function(){
-            $('#nav-iconMobile').hover(function(){
+            $('#navRLogoMobile').hover(function(){
                 $(this).toggleClass('open');
-	       });});
+	           });
+            });
         </script>        
 
-        <div id="navMenu">
+        <div id="navL">
             <span class="slide">     
-                <a href="#" onclick="openSlideMenu()">     
+                <a href="#" onclick="openSlideNav()">     
                     <i class="mobileOpen">
-                        <div id="nav-iconMobile">
+                        <div id="navRLogoMobile">
                             <span></span>
                             <span></span>
                             <span></span>
@@ -80,7 +81,7 @@
             </nav> 
         </div>
         
-         <div id="navSocial">
+         <div id="navR">
             <div class = "nav2">
                 <a href="Resume/RahilShah_Resume.pdf" target="_blank" class="navElementSocial"><i class="fas fa-file navFontBlack"></i></a>  
                 <a href="mailto: rahil190@gmail.com" target="_blank" class="navElementSocial"><i class="fas fa-envelope navFontBlack"></i></a>  
@@ -97,7 +98,7 @@
         
         <script>
             window.addEventListener('mouseup', function(event){   
-                var box = document.getElementById('navMenu');    
+                var box = document.getElementById('navL');    
                 if (event.target != box && event.target.parentNode != box){    
                     box.style.marginLeft = '-50px'; 
                 }  
@@ -106,45 +107,34 @@
                 
         <section class="section1" id="section1">  
             <div class="container">
-            <div class="landing">
-                <div class="row">  
-                    <div class="col-6 landingLeft">
-                        <img class="RahilShah" src="Images/Rahil%20Shah.png">
-                        <p>Hello! Welcome to <span class="blue">my portfolio.</span> I'm currently the <span class="blue">Co-Director</span> (x-Product Design Lead) of DeltaHacks, McMaster's annual hackathon. I’m also a freelance <span class="blue">Front-End Developer</span> working for two professors and was previously a <span class="blue">Web Designer</span> at Nova Solutions. Check out some of my work below.</p></div>
-                    <div class="landingR1"></div>
-                    <div class="landingR2"></div>                      
-                    <div class="arrowDown"></div> 
-                    
-                </div>       
-            </div>
+                <div class="landing">
+                    <div class="row">  
+                        <div class="col-6 landingL">
+                            <img class="RahilShah" src="Images/Rahil%20Shah.png">
+                            <p>Hello! Welcome to <span class="blue">my portfolio.</span> I'm currently the <span class="blue">Co-Director</span> (x-Product Design Lead) of DeltaHacks, McMaster's annual hackathon. I’m also a freelance <span class="blue">Front-End Developer</span> working for two professors and was previously a <span class="blue">Web Designer</span> at Nova Solutions. Check out some of my work below.</p></div>
+                        <div class="landingR1"></div>
+                        <div class="landingR2"></div>                      
+                        <div class="arrowDown"></div> 
+                    </div>       
                 </div>
+            </div>
         </section>
-        
-        
-        <script src="vendor/isotope/isotope.min.js"></script>
-        
+                
         <script>
-        
-            $(document).ready(function () {
+        $(document).ready(function () {
+            let $btns = $('.section2 .button-group button');
+            $btns.click(function (e) {
+                $('.section2 .button-group button').removeClass('active');
+                e.target.classList.add('active');
 
-    let $btns = $('.section2 .button-group button');
+                let selector = $(e.target).attr('data-filter');
+                $('.section2 .grid').isotope({
+                    filter: selector
+                });
 
-
-    $btns.click(function (e) {
-
-        $('.section2 .button-group button').removeClass('active');
-        e.target.classList.add('active');
-
-        let selector = $(e.target).attr('data-filter');
-        $('.section2 .grid').isotope({
-            filter: selector
+                return false;
+            })
         });
-
-        return false;
-    })
-    
-    
-});
         
         </script>
     
@@ -167,7 +157,7 @@
                         <div class="our-project">
                             <div class="img">
                                 <a href="https://www.behance.net/gallery/83341779/Ravn-OS" target="_blank">
-                                    <img src="Images/Ravn%20OS%20Cover-min.png" class="img-fluid">
+                                    <img src="Images/Ravn%20OS%20Cover.png" class="img-fluid">
                                 </a>
                             </div>
                             <div class="title py-4">
@@ -180,7 +170,7 @@
                         <div class="our-project">
                             <div class="img">
                                 <a href="https://www.behance.net/gallery/83411589/Instagram-Redesign" target="_blank">
-                                    <img src="Images/Instagram%20Redesign%20Cover-min.png" class="img-fluid">
+                                    <img src="Images/Instagram%20Redesign%20Cover.png" class="img-fluid">
                                 </a>
                             </div>
                             <div class="title py-4">
@@ -193,7 +183,7 @@
                         <div class="our-project">
                             <div class="img">
                                 <a href="https://www.behance.net/gallery/83085003/happy" target="_blank">
-                                    <img src="Images/happy%20Cover-min.png" class="img-fluid">
+                                    <img src="Images/happy%20Cover.png" class="img-fluid">
                                 </a>
                             </div>
                             <div class="title py-4">
@@ -271,7 +261,7 @@
                         <div class="our-project">
                             <div class="img">
                                 <a>
-                                    <img src="Images/dh7%20post%20cover.png" class="img-fluid">
+                                    <img src="Images/Recruitment%20Cover.png" class="img-fluid">
                                 </a>
                             </div>
                             <div class="title py-4">
@@ -284,7 +274,7 @@
                         <div class="our-project">
                             <div class="img">
                                 <a>
-                                    <img src="Images/gift%20card%20cover.png" class="img-fluid">
+                                    <img src="Images/Gift%20Card%20Cover.png" class="img-fluid">
                                 </a>
                             </div>
                             <div class="title py-4">
@@ -297,7 +287,7 @@
                         <div class="our-project">
                             <div class="img">
                                 <a href="https://lglab.ca" target="_blank">
-                                    <img src="Images/lglab%20cover.png" class="img-fluid">
+                                    <img src="Images/lglab%20Cover.png" class="img-fluid">
                                 </a>
                             </div>
                             <div class="title py-4">
@@ -310,7 +300,7 @@
                         <div class="our-project">
                             <div class="img">
                                 <a>
-                                    <img src="Images/commut%20cover.png" class="img-fluid">
+                                    <img src="Images/COMMUT%20Cover.png" class="img-fluid">
                                 </a>
                             </div>
                             <div class="title py-4">
@@ -442,17 +432,15 @@
                 </div>
                 
                 <div class="container">
-        <ul>
-            <li class="skill1"><h4>Design &amp Prototyping</h4><span class="text-secondary">Adobe CC Software, Figma, InVision, Sketch</span></li>
-            <li class="skill2"><span class="text-secondary">UI/UX, Interaction Design, Responsive Design, User-Centered Design, Usability Testing</span></li>
-            <li class="skill3"><h4>Development</h4><span class="text-secondary">HTML, CSS, JavaScript, React.js, Vue.js, Git, Github</span></li>
-            <li class="skill4"><h4>Soft Skills</h4><span class="text-secondary">Optimistic, Detail Oriented, Self-Starter, Organized, Dedicated, Hard-Working, Problem Solver</span></li>
-        </ul>
-    </div>
-              </div>
-            
+                    <ul>
+                        <li class="skill1"><h4>Design &amp Prototyping</h4><span class="text-secondary">Adobe CC Software, Figma, InVision, Sketch</span></li>
+                        <li class="skill2"><span class="text-secondary">UI/UX, Interaction Design, Responsive Design, User-Centered Design, Usability Testing</span></li>
+                        <li class="skill3"><h4>Development</h4><span class="text-secondary">HTML, CSS, JavaScript, React.js, Vue.js, Git, Github</span></li>
+                        <li class="skill4"><h4>Soft Skills</h4><span class="text-secondary">Optimistic, Detail Oriented, Self-Starter, Organized, Dedicated, Hard-Working, Problem Solver</span></li>
+                    </ul>
+                </div>
+            </div>
         </section>
-        
         
         <div class="footer">
         <p>Designed and developed with 💙 by Rahil Shah</p>
