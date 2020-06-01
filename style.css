@@ -596,8 +596,12 @@ li.skill4:after {
         left: 22px;
     }  
     
-    .arrowDown::after{
-      margin-top: 62vh;
+    .arrowDown{
+      display: none;
+    }
+    
+    p {
+    font-size: 14px;
     }
     
     .section3 .grid .our-project .img a img{
