@@ -43,6 +43,11 @@ html, body {
     color: white;
 }
 
+h5 {
+    font-size: 6px;
+    color: white;
+}
+
 p {
     font-weight: 100;
 }
@@ -153,7 +158,7 @@ p {
     text-align: center;
     transition: 1s;
     line-height: 5vh;
-    padding: 10px;
+    padding: 4.5px;
 }
 
 .nav .last{
