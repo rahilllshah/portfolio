@@ -310,6 +310,7 @@ p {
     background: transparent;
     border: none;
     text-transform: uppercase;
+    color: #6c757d;
 }
 
 .section2 .button-group button::after{
