@@ -466,6 +466,7 @@ li.skill4:after {
     }
     
     .landingL{
+        font-size: 14px;
         width: 100% !important;
         margin: auto;
         text-align: center;
