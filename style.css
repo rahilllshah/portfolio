@@ -21,6 +21,10 @@ html, body {
     color: #027BFF;
 }
 
+#navR{
+    z-index: 10;
+}
+
 .navFont{
     color: white;
     font-size: 12px;
@@ -60,6 +64,7 @@ p {
 }
 
 
+
 .RLogo { 
     position:fixed;
     z-index: 2;
@@ -76,7 +81,6 @@ p {
     cursor: pointer;
     left: 22px;
     top: 28px;
-    z-index: 3;
     width: 30px;
 }
 
@@ -181,7 +185,7 @@ p {
 
 .nav2{
     position: fixed;
-    z-index: 10;
+    z-index: 3;
     top: 20px;
     right: 7px;
 }
@@ -450,6 +454,8 @@ li.skill4:after {
 }
 
 .footer{
+    width: 80%;
+    margin: auto;
     text-align: center;
     padding-bottom: 10vh;
 }
@@ -468,8 +474,8 @@ li.skill4:after {
     }
     
     .landingL{
-        font-size: 12px;
-        width: 100% !important;
+        font-size: 14px;
+        height: 70vh !important;
         margin: auto;
         text-align: center;
     }
@@ -600,7 +606,18 @@ li.skill4:after {
         position: fixed;
         transition: 1s;
     }
+    
+    .nav2{
+        opacity: 0.8;
+    }
       
+    .two {
+    margin-top: -400px;
+    }
+    
+    .one {
+        margin-bottom: 50px;
+    }
     .mobileOpen{
         position:fixed;
         z-index: 3;
