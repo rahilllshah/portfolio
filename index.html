@@ -33,7 +33,7 @@
         }
         </script>
         
-        <div id="particleContainer"></div>
+        <!--<div id="particleContainer"></div>-->
         
         <script>    
             particlesJS.load('particleContainer','particlesjs-config.json');  
@@ -73,8 +73,8 @@
             </span>
             <nav class="nav flex-column">          
                 <a href="#section1" class="section1-marker navElement active"><i class="fas fa-home navFont"></i></a>       
-                <a href="#section2" class="section2-marker navElement"><i class="fas fa-project-diagram navFont"></i></a>  
-                <a href="#section3" class="section3-marker navElement"><i class="fas fa-star navFont"></i></a>  
+                <a href="#section2" class="section2-marker navElement"><i class="fas fa-star navFont"></i></a>  
+                <a href="#section3" class="section3-marker navElement"><i class="fas fa-project-diagram navFont"></i></a>  
                 <a href="#section4" class="section4-marker navElement"><i class="fas fa-play navFont"></i></a>    
                 <a href="#section5" class="section5-marker navElement last"><i class="fas fa-shapes navFont"></i></a>   
                 <a href=# onclick="return false;" class="navClose"> <span class="navFont"><i class="arrowLeft"></i></span></a>   
@@ -123,15 +123,76 @@
             </div>
         </section>
                 
+        
+        
+        
+        <section class="section2" id="section2">
+            <div class="container">
+                <div class="featured-title pb-5">
+                    <h1>Featured</h1>
+                </div>            
+            <div class="row grid">
+                <div class="col-sm-4">
+                            <div class="title">
+                                <h4>CanTrace <i class="fas fa-external-link-alt navFontBlack"></i></h4>
+                                <span class="text-secondary">Nationwide contact tracing application built around a healthcare framework - presented to the provinical and federal government of Canada.</span>
+                            </div>
+                            </div>
+                    <div class="col-sm-8">
+                        <div class="our-project">
+                            <div class="img">
+                                <a href="https://www.behance.net/gallery/99711217/CanTrace" target="_blank">
+                                    <img src="Images/cantrace%20health%20cover.png" class="img-fluid">
+                                </a>
+                            </div>
+                
+                        </div>
+                    </div>
+            </div>
+                
+                
+                
+            <div class="spacer"></div>
+                
+                
+                
+            <div class="row grid">
+                <div class="col-sm-8">
+                            <div class="our-project">
+                            <div class="img">
+                                <a href="https://www.behance.net/gallery/91565049/DeltaHacks-VI-Design-Journey" target="_blank">
+                                    <img src="Images/DH%20Cover.png" class="img-fluid">
+                                </a>
+                            </div>
+                
+                        </div>
+                            </div>
+                    <div class="col-sm-4">
+                        <div class="title">
+                                <h4>DeltaHacks VI Design Journey <i class="fas fa-external-link-alt navFontBlack"></i></h4>
+                                <span class="text-secondary">A reflection of my experience as the Product Design Lead of one of Canada's largest hackathons!</span>
+                            </div>
+                        
+                    </div>
+            </div>                    
+                
+            </div>
+            
+        </section>
+        
+        
+        
+        
+        
         <script>
         $(document).ready(function () {
-            let $btns = $('.section2 .button-group button');
+            let $btns = $('.section3 .button-group button');
             $btns.click(function (e) {
-                $('.section2 .button-group button').removeClass('active');
+                $('.section3 .button-group button').removeClass('active');
                 e.target.classList.add('active');
 
                 let selector = $(e.target).attr('data-filter');
-                $('.section2 .grid').isotope({
+                $('.section3 .grid').isotope({
                     filter: selector
                 });
 
@@ -141,7 +202,7 @@
         
         </script>
     
-         <section class="section2" id="section2">
+         <section class="section3" id="section3">
             <div class="container">
                 <div class="project-title pb-5">
                     <h1>Projects</h1>
@@ -155,19 +216,7 @@
                 </div>
 
                 <div class="row grid">
-                    <div class="col-sm-6 element-item UIUX">
-                        <div class="our-project">
-                            <div class="img">
-                                <a href="https://www.behance.net/gallery/99711217/CanTrace" target="_blank">
-                                    <img src="Images/cantrace%20health%20cover.png" class="img-fluid">
-                                </a>
-                            </div>
-                            <div class="title py-4">
-                                <h4>CanTrace Health <i class="fas fa-external-link-alt navFontBlack"></i></h4>
-                                <span class="text-secondary">UI/UX</span>
-                            </div>
-                        </div>
-                    </div>
+    
                     <div class="col-sm-6 element-item UIUX">
                         <div class="our-project">
                             <div class="img">
@@ -216,7 +265,7 @@
                                 </a>
                             </div>
                             <div class="title py-4">
-                                <h4>flatten.ca <i class="fas fa-external-link-alt navFontBlack"></i></h4>
+                                <h4>flatten.ca</h4>
                                 <span class="text-secondary">UI/UX</span>
                             </div>
                         </div>
@@ -316,32 +365,7 @@
             </div>
         </section>
         
-        <section class="section3" id="section3">
-            <div class="container">
-                <div class="featured-title pb-5">
-                    <h1>Featured</h1>
-                </div>            
-            <div class="row grid">
-                <div class="col-sm-4">
-                            <div class="title">
-                                <h4>DeltaHacks VI Design Journey <i class="fas fa-external-link-alt navFontBlack"></i></h4>
-                                <span class="text-secondary">Check out a reflection of my experience as the Product Design Lead of one of Canada's largest hackathons!</span>
-                            </div>
-                            </div>
-                    <div class="col-sm-8">
-                        <div class="our-project">
-                            <div class="img">
-                                <a href="https://www.behance.net/gallery/91565049/DeltaHacks-VI-Design-Journey" target="_blank">
-                                    <img src="Images/DH%20Cover.png" class="img-fluid">
-                                </a>
-                            </div>
-                
-                        </div>
-                    </div>
-            </div>
-            </div>
-            
-        </section>
+        
         
         
         
@@ -446,7 +470,7 @@
         </section>
         
         <div class="footer">
-        <span class="text-secondary">Designed and developed with 💙 by Rahil Shah</span>
+        <span class="text-secondary">Designed and developed with 💙 by Rahil Shah | &#169 2020 Rahil Shah. All Rights Reserved.</span>
         </div>
         
 		<script>

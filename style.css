@@ -55,7 +55,9 @@ p {
 }
 
 
-
+.spacer{
+    padding-top: 96px;
+}
 
 
 .RLogo { 
@@ -307,14 +309,14 @@ p {
     }
 }
 
-.section2 .button-group button{
+.section3 .button-group button{
     background: transparent;
     border: none;
     text-transform: uppercase;
     color: #6c757d;
 }
 
-.section2 .button-group button::after{
+.section3 .button-group button::after{
     content:'';
     display: block;
     width: 0;
@@ -323,12 +325,12 @@ p {
     transition: width .5s;
 }
 
-.section2 .button-group button:hover::after{
+.section3 .button-group button:hover::after{
     width: 100%;
     transition: width .5s;
 }
 
-.section2 .button-group button.active{
+.section3 .button-group button.active{
     background: #027BFF;
     color: white !important;
     border-radius: 10px;
@@ -337,23 +339,14 @@ p {
     
 }
 
-.section2 .button-group button + button{
+.section3 .button-group button + button{
     margin-left: 28px;
     margin-bottom: 28px;
     padding: 5px;
 }
 
-.section2 .grid .our-project > .title h4{
+.section3 .grid .our-project > .title h4{
     
-}
-
-.section2 .grid .our-project .img a:hover img{
-    transition: 1s;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
-
-.section2 .grid .our-project .img a img{
-    transition: 1s;
 }
 
 .section3 .grid .our-project .img a:hover img{
@@ -362,6 +355,15 @@ p {
 }
 
 .section3 .grid .our-project .img a img{
+    transition: 1s;
+}
+
+.section2 .grid .our-project .img a:hover img{
+    transition: 1s;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.section2 .grid .our-project .img a img{
     transition: 1s;
 }
 
@@ -614,7 +616,7 @@ li.skill4:after {
     font-size: 14px;
     }
     
-    .section3 .grid .our-project .img a img{
+    .section2 .grid .our-project .img a img{
     margin-top: 14px;
     }
 
