@@ -239,12 +239,13 @@ p {
 }
 
 .RahilShah{
-    width: 60%;
+    width: 60% !important;
     margin-left: -7px;
 }
 
 .landingL{
     padding-top: 15%;
+    max-width: 50%;
 }
 
 .landingR1{
@@ -470,14 +471,16 @@ li.skill4:after {
     }
        
     .RahilShah{
-        width: 100% !important;
+        width: 60%;
+    }
+    
+    .landing{
+        height: 50vh;
     }
     
     .landingL{
-        font-size: 14px;
-        height: 70vh !important;
-        margin: auto;
-        text-align: center;
+        margin-top: 28px;
+        max-width: 100%;
     }
     
     .landingR1{
@@ -611,13 +614,6 @@ li.skill4:after {
         opacity: 0.8;
     }
       
-    .two {
-    margin-top: -400px;
-    }
-    
-    .one {
-        margin-bottom: 50px;
-    }
     .mobileOpen{
         position:fixed;
         z-index: 3;
