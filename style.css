@@ -479,7 +479,7 @@ li.skill4:after {
     }
     
     .landingL{
-        margin-top: 28px;
+        padding-top: 20%;
         max-width: 100%;
     }
     
@@ -608,6 +608,8 @@ li.skill4:after {
     .nav{
         position: fixed;
         transition: 1s;
+        opacity: 0.9;
+
     }
     
     .nav2{
