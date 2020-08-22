@@ -22,7 +22,7 @@ html, body {
 }
 
 #navR{
-    z-index: 10;
+    z-index: 4;
 }
 
 .navFont{
@@ -185,9 +185,9 @@ p {
 
 .nav2{
     position: fixed;
-    z-index: 3;
     top: 20px;
     right: 7px;
+    z-index: 10 !important;
 }
 
 .nav2 a.navElementSocial {
@@ -249,7 +249,7 @@ p {
 }
 
 .landingR1{
-    z-index: 3;
+    z-index: 2;
     left: 0px;
     margin-top: 10vh;
     margin-left: 52%;
@@ -265,7 +265,7 @@ p {
 }
 
 .landingR2{
-    z-index: 4;
+    z-index: 2;
     margin-top: 45vh;
     margin-left: 38%;
     height: 25vh;
@@ -471,7 +471,7 @@ li.skill4:after {
     }
        
     .RahilShah{
-        width: 60%;
+        width: 70% !important;
     }
     
     .landing{
@@ -479,7 +479,7 @@ li.skill4:after {
     }
     
     .landingL{
-        padding-top: 25%;
+        padding-top: 30%;
         max-width: 100%;
     }
     
@@ -640,7 +640,7 @@ li.skill4:after {
 img {
     border-radius: 10px;
 }
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 1000px) {
     
     .nav{
         position: fixed;
