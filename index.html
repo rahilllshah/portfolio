@@ -46,9 +46,12 @@
         </script>
         
         <script>
+            if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) {
+    
             window.onload = function(){ 
             document.getElementById('navL').style.marginLeft = '-50px';
         }
+            }
         </script>
          
         <div class="blueBar"></div>
