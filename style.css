@@ -470,6 +470,11 @@ li.skill4:after {
     max-width: 100%;
     }
        
+    #section2, #section3, #section4, #section5 {
+    padding-top: 15vh;
+    padding-bottom: 5vh;
+}
+    
     .RahilShah{
         width: 70% !important;
     }
