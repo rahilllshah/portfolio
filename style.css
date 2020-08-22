@@ -217,8 +217,7 @@ p {
 }
     
 #section2, #section3, #section4 {
-    padding-top: 5vh;
-    padding-bottom: 5vh;
+    padding-top: 10vh;
 }
 
 #section5 {
@@ -471,8 +470,7 @@ li.skill4:after {
     }
        
     #section2, #section3, #section4, #section5 {
-    padding-top: 15vh;
-    padding-bottom: 5vh;
+    padding-top: 20vh;
 }
     
     .RahilShah{
