@@ -496,6 +496,7 @@ li.skill4:after {
         width: 30px;
         position: relative;
         cursor: pointer;
+        opacity: 0.9;
     }
 
     #navRLogoMobile span{
