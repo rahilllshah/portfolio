@@ -99,64 +99,8 @@ a.active, a:hover{
     display:none;
 }
 
-@media (max-width: 952px){
-    img.logo {
-        position: fixed !important;
-        width: 56px;
-        top: 16px;
-        left: 35px;
-    }
-    
-    .checkbtn{
-        display: block;
-    }
-    
-    nav ul li {
-        
-    }
-    
-    .navL {
-        
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        position: fixed;
-        width: 100%;
-        height: 100vh;
-        backdrop-filter: blur(100px);
-        -webkit-backdrop-filter: blur(6px);
-        background-color: hsla(0, 0%, 98%, .8);
-        filter:blur(0)
-        -webkit-filter: blur(0);
-        top: 50px;
-        left: -100%;
-        transition: all .5s;
-    }
-    
-    .navR{
-        position: fixed !important;
-        float: right; !important;
-    }
-    
-    a:hover,a.active{
-        color: black;
-    }
-    
-    #check:checked ~ .navL{
-        left: 0;
-    }
-    
-    .btn{
-        zoom: 0.5;
-    }
-}
 
 
-
-.hero{
-    height: 100vh;
-}
 
 .landing{
     text-align: center;
@@ -166,6 +110,7 @@ a.active, a:hover{
 .landingimg{
     margin-top: 5vh;
     width: 60%;
+    margin-bottom: 10vh;
 }
 
 .cantracetitle{
@@ -313,4 +258,71 @@ hr.new1 {
     margin: auto;
     text-align: center;
     padding-bottom: 10vh;
+}
+
+@media (max-width: 952px){
+    img.logo {
+        position: fixed !important;
+        width: 56px;
+        top: 16px;
+        left: 35px;
+    }
+    
+    .checkbtn{
+        display: block;
+    }
+    
+    nav ul li {
+        
+    }
+    
+    .navL {
+        
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        backdrop-filter: blur(100px);
+        -webkit-backdrop-filter: blur(6px);
+        background-color: hsla(0, 0%, 98%, .8);
+        filter:blur(0)
+        -webkit-filter: blur(0);
+        top: 50px;
+        left: -100%;
+        transition: all .5s;
+    }
+    
+    .navR{
+        position: fixed !important;
+        float: right; !important;
+    }
+    
+    a:hover,a.active{
+        color: black;
+    }
+    
+    #check:checked ~ .navL{
+        left: 0;
+    }
+    
+    .btn{
+        zoom: 0.5;
+    }
+    
+    .landingtitle{
+        margin: auto;
+        max-width: 85%;
+    }
+    
+    .landingsub{
+        margin: auto;
+        width: 85%;
+    }
+    
+    .landingimg{
+        width: 80%;
+    }
 }
