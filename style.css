@@ -107,6 +107,17 @@ a.active, a:hover{
     margin-top: 15vh;
 }
 
+.landingtitle{
+        margin: auto;
+        max-width: 85%;
+    }
+    
+    .landingsub{
+        margin: auto;
+        width: 85%;
+        margin-top: 1vh;
+    }
+
 .landingimg{
     margin-top: 5vh;
     width: 60%;
@@ -310,16 +321,6 @@ hr.new1 {
     
     .btn{
         zoom: 0.5;
-    }
-    
-    .landingtitle{
-        margin: auto;
-        max-width: 85%;
-    }
-    
-    .landingsub{
-        margin: auto;
-        width: 85%;
     }
     
     .landingimg{
