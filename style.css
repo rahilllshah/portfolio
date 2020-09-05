@@ -89,6 +89,17 @@ p {
   transform-origin: left center;
 }
 
+#nav-icon span:nth-child(4) {
+  top: -50px;
+height: 140px;
+opacity: 0;
+  -webkit-transform-origin: left center;
+  -moz-transform-origin: left center;
+  -o-transform-origin: left center;
+  transform-origin: left center;
+}
+
+
 #nav-icon.open span:nth-child(1) {
   -webkit-transform: rotate(45deg);
   -moz-transform: rotate(45deg);
@@ -166,10 +177,9 @@ a.active, a:hover{
 }
 
 .checkbtn{
-    font-size: 20px;
     color: black;
     float: left;
-    line-height: 50px;
+    line-height: 40px !important;
     margin-left: 20px;
     cursor: pointer;
     display: none;
@@ -362,10 +372,7 @@ hr.new1 {
     .checkbtn{
         display: block;
     }
-    
-    nav ul li {
-        
-    }
+
     
     .navL {
         
@@ -394,6 +401,7 @@ hr.new1 {
     a:hover,a.active{
         color: black;
     }
+    
     
     #check:checked ~ .navL{
         left: 0;
