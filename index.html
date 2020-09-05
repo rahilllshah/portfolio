@@ -38,8 +38,21 @@
         <nav>
             <input type="checkbox" id="check">
             <label for="check" class="checkbtn">
-            <i class = "fas fa-bars"></i>
+            <div id="nav-icon">
+                <span></span>
+                <span></span>
+                <span></span>
+                </div>
             </label>
+            
+            <script>
+                $(document).ready(function(){
+	               $('#nav-icon').click(function(){
+		              $(this).toggleClass('open');
+                   });
+                });        
+            </script>
+            
             
                 <ul class="navL">
                     
