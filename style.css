@@ -5,7 +5,7 @@
 
 body {
     max-width: 100%;
-    overflow-x: none;
+    overflow-x: hidden;
     font-family: -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
@@ -214,21 +214,38 @@ a.active, a:hover{
     margin-bottom: 10vh;
 }
 
+.contain{
+    background-color: #f2f2f2;
+}
+
+.contain2{
+    background-color: white;
+    padding-left: 15vh;
+    padding-right: 15vh;
+}
+
+.contain3{
+    background-color: #f2f2f2;
+    padding-left: 15vh;
+    padding-right: 15vh;
+}    
+
+
 .cantracetitle{
     font-size: 3vw;
-    color: white;
+    color: black;
     position: absolute;
-    width: 40%;
+    width: 30%;
     top: 25%;
     left: 10%;
 }
 
 .cantracesub{
     font-size: 1vw;
-    color: white;
+    color: black;
     position: absolute;
     width: 40%;
-    top: 46%;
+    top: 63%;
     left: 10%;
 }
 
@@ -236,64 +253,77 @@ a.active, a:hover{
     width: auto ;
     max-width: 100% ;
     height: auto ;
+    padding: 5vh;
 }
 
 .cantracebtn {
     position: absolute;
-    top: 52%;
+    top: 70%;
     left: 10%;
-    background-color: white;
-    border-color: white;
-    color: #7072d1;
+    color: dodgerblue;
     transition: .5s !important;
 }
 
 .cantracebtn:hover {
-    background: #7072d1;
-    color: white;
+
+    color: black;
     transition: .5s !important;
+}
+
+.cantraceimgmobile{
+    display: none;
+    
 }
 
 .deltatitle{
     font-size: 3vw;
-    color: white;
+    color: black;
     position: absolute;
     width: 30%;
-    top: 30%;
+    top: 25%;
     right: 10%;
     text-align: right;
 }
 
 .deltasub{
     font-size: 1vw;
-    color: white;
+    color: black;
     position: absolute;
     width: 30%;
-    top: 45%;
+    top: 47%;
     right: 10%;
     text-align: right;
 }
 
 .deltaimg{
     width: auto ;
-    max-width: 100% ;
+    max-width: 100%;
     height: auto ;
+    padding-left: 5vh;
+    padding-right: 5vh;
+    padding-bottom: 5vh;
 }
 
 .deltabtn {
     position: absolute;
-    top: 53%;
+    top: 58%;
     right: 10%;
-    background-color: white;
-    border-color: white;
-    color: #719fd8;
+    color: dodgerblue;
     transition: .5s !important;
 }
 
 .deltabtn:hover {
-    background: #719fd8;
-    color: white;
+    color: black;
     transition: .5s !important;
+}
+
+.cantraceimgmobile{
+    display: none;
+    
+}
+
+.deltaimgmobile{
+    display: none;
 }
 
 .btn {
@@ -304,9 +334,172 @@ a.active, a:hover{
     padding-top: 1vh;
 }
 
-#section3, #section4, #section5{
-    padding-top: 15vh;
+.worktitle{
+    margin-bottom: 5vh;
+}
+
+.appletitle {
+    position: absolute;
     text-align: center;
+    width: 100%;
+    font-size: 3vw;
+    color: white;
+    top: 25%;
+}
+
+.applesub{
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    font-size: 1.5vw;
+    color: white;
+    top: 40%;
+}
+
+.appleimg{
+    width: auto;
+    max-width: 100% ;
+    height: auto ;
+    padding: 5vh;
+}
+
+.applebtn {    
+    align-items: center;
+    position: absolute;
+    justify-content: center;
+    display: flex;
+    top: 52%;
+    width: 100%;
+    color: dodgerblue;
+    transition: .5s !important;
+}
+
+.applebtn:hover {
+    color: white;
+    transition: .5s !important;
+}
+
+.appleimgmobile{
+    display: none;
+    
+}
+
+
+
+.igtitle{
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    font-size: 3vw;
+    color: white;
+    top: 10%;
+}
+
+.igsub{
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    font-size: 1.5vw;
+    color: white;
+    top: 18%;
+}
+
+.igimg{
+    width: auto ;
+    max-width: 100% ;
+    height: auto ;
+    padding-left: 5vh;
+    padding-bottom: 5vh;
+}
+
+.igbtn {
+    align-items: center;
+    position: absolute;
+    justify-content: center;
+    display: flex;
+    top: 25%;
+    width: 100%;
+    color: dodgerblue;
+    transition: .5s !important;
+}
+
+.igbtn:hover {
+    color: white;
+    transition: .5s !important;
+}
+
+
+
+.ravnostitle{
+    position: absolute;
+    text-align: center;
+    width: 90%;
+    font-size: 3vw;
+    color: white;
+    top: 10%;
+}
+
+.ravnossub{
+     position: absolute;
+    text-align: center;
+    width: 90%;
+    font-size: 1.5vw;
+    color: white;
+    top: 18%;
+}
+
+.ravnosimg{
+    width: auto ;
+    max-width: 100% ;
+    height: auto ;
+    padding-right: 5vh;
+    padding-bottom: 5vh;
+}
+
+.ravnosbtn {
+       align-items: center;
+    position: absolute;
+    justify-content: center;
+    display: flex;
+    top: 25%;
+    width: 90%;
+    color: dodgerblue;
+    transition: .5s !important;
+}
+
+.ravnosbtn:hover {
+    color: white;
+    transition: .5s !important;
+}
+
+
+.link{
+    text-decoration: none;
+}
+
+
+#section3{
+    padding-top: 15vh;
+    background-color: #f2f2f2;
+    text-align: center;
+}
+
+
+#section4{
+    padding-top: 15vh;
+    padding-bottom: 10vh;
+    background-color: white;
+}
+
+#section5{
+    padding-top: 15vh;
+    
+    background-color: #f2f2f2;
+}
+
+#section6{
+    padding-top: 15vh;
+    background-color: #f2f2f2;
 }
 
 
@@ -349,16 +542,16 @@ hr.new1 {
 }
 
 
-#section5 {
-    padding-bottom: 10vh;
-}
+
 
 
 .footer{
-    width: 80%;
+    background-color: #f2f2f2;
+    width: 100%;
     margin: auto;
     text-align: center;
-    padding-bottom: 10vh;
+    padding-top: 10vh;
+    padding-bottom: 15vh;
 }
 
 @media (max-width: 952px){
@@ -407,11 +600,243 @@ hr.new1 {
         left: 0;
     }
     
-    .btn{
-        zoom: 0.5;
-    }
     
     .landingimg{
         width: 80%;
     }
+    
+    
+    .cantraceimg{
+    display: none;
+        
+    }
+    .cantraceimgmobile{
+        display: block;
+        max-width: 100%;
+        height: auto;
+        padding: 5vh 0;
+    }
+    
+    #section2{
+        text-align: center !important;
+        width: 100%;
+    }
+    
+    .cantracetitle{
+        position: absolute;
+        text-align: center;
+        width: 80%;
+        font-size: 4vw;
+        color: black;
+        top: 16%;
+}
+
+.cantracesub{
+        position: absolute;
+        text-align: center;
+        width: 80%;
+        font-size: 2vw;
+        color: black;
+        top: 26%;
+    }
+    
+    .cantracebtn {
+        position: absolute;
+        text-align: center;
+        width: 80%;
+        font-size: 3vw;
+        top: 30%;
+        color: dodgerblue;
+        transition: .5s !important;
+}
+    
+    
+    .deltaimg{
+    display: none;
+        
+    }
+    .deltaimgmobile{
+        display: block;
+        max-width: 100%;
+        height: auto;
+        padding-left: 0;
+        padding-right: 0;
+        padding-bottom: 5vh;
+    }
+    
+    .deltatitle{
+        position: absolute;
+        text-align: center;
+        width: 80%;
+        font-size: 4vw;
+        color: black;
+        top: 10%;
+}
+
+    .deltasub{
+        position: absolute;
+        text-align: center;
+        width: 80%;
+        font-size: 2vw;
+        color: black;
+        top: 20%;
+}
+    
+    .deltabtn {
+        position: absolute;
+        text-align: center;
+        width: 80%;
+        font-size: 3vw;
+        top: 27%;
+        color: dodgerblue;
+        transition: .5s !important;
+}
+    
+    
+    .appleimg{
+    display: none;
+        
+    }
+    .appleimgmobile{
+        display: block;
+        max-width: 100%;
+        height: auto;
+        padding-left: 0;
+        padding-right: 0;
+        padding-bottom: 5vh;
+    }
+    
+    .appletitle{
+        position: absolute;
+        text-align: center;
+        width: 95%;
+        font-size: 6vw;
+        color: white;
+        top: 30%;
+}
+
+    .applesub{
+        position: absolute;
+        text-align: center;
+        width: 95%;
+        font-size: 3vw;
+        color: white;
+        top: 43%;
+}
+    
+    .applebtn {
+        position: absolute;
+        text-align: center;
+        width: 95%;
+        font-size: 3vw;
+        top: 50%;
+        color: dodgerblue;
+        transition: .5s !important;
+}
+    
+    .igtitle{
+        position: absolute;
+        text-align: center;
+        width: 95%;
+        font-size: 6vw;
+        color: white;
+        top: 10%;
+}
+    
+    
+
+    .igsub{
+        position: absolute;
+        text-align: center;
+        width: 95%;
+        font-size: 3vw;
+        color: white;
+        top: 17%;
+}
+    
+     .igbtn {
+        position: absolute;
+        text-align: center;
+        width: 95%;
+        font-size: 3vw;
+        top: 22%;
+        color: dodgerblue;
+        transition: .5s !important;
+}
+    
+    
+    .igimg{
+        display: block;
+        max-width: 100%;
+        height: auto;
+        padding-left: 0;
+        padding-right: 0;
+        padding-bottom: 5vh;
+    }
+    
+    .ravnostitle{
+        position: absolute;
+        text-align: center;
+        width: 95%;
+        font-size: 6vw;
+        color: white;
+        top: 10%;
+}
+    
+    
+
+    .ravnossub{
+        position: absolute;
+        text-align: center;
+        width: 95%;
+        font-size: 3vw;
+        color: white;
+        top: 17%;
+}
+    
+     .ravnosbtn {
+        position: absolute;
+        text-align: center;
+        width: 95%;
+        font-size: 3vw;
+        top: 22%;
+        color: dodgerblue;
+        transition: .5s !important;
+}
+    
+    
+     .ravnosimg{
+        display: block;
+        max-width: 100%;
+        height: auto;
+        padding-left: 0;
+        padding-right: 0;
+        padding-bottom: 5vh;
+    }
+    
+    .ravnosbtn:hover {
+    color: white;
+    transition: .5s !important;
+}
+    
+    .worktitle{
+        margin-bottom: 5vh;
+    }
+    
+    .contain2{
+    background-color: white;
+    padding-left: 5vh;
+    padding-right: 5vh;
+}
+    
+        .contain3{
+    background-color: #f2f2f2;
+    padding-left: 5vh;
+    padding-right: 5vh;
+}
+    .footer{
+        padding-left: 5vh;
+        padding-right: 5vh;
+    }
+    
 }
