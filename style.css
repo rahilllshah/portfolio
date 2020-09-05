@@ -19,12 +19,12 @@ body {
 }
 
 h1{
-    font-size: 3vw;
+    font-size: 48px;
     font-weight: 700;
 }
 
 p {
-    font-size: 1vw;
+    font-size: 14px;
     font-weight: 300;
     color: #231f20;
 }
@@ -169,6 +169,7 @@ a.active, a:hover{
 }
 
 .cantracetitle{
+    font-size: 3vw;
     color: white;
     position: absolute;
     width: 40%;
@@ -177,6 +178,7 @@ a.active, a:hover{
 }
 
 .cantracesub{
+    font-size: 1vw;
     color: white;
     position: absolute;
     width: 40%;
@@ -192,7 +194,7 @@ a.active, a:hover{
 
 .cantracebtn {
     position: absolute;
-    top: 51%;
+    top: 52%;
     left: 10%;
     background-color: white;
     border-color: white;
@@ -207,6 +209,7 @@ a.active, a:hover{
 }
 
 .deltatitle{
+    font-size: 3vw;
     color: white;
     position: absolute;
     width: 30%;
@@ -216,6 +219,7 @@ a.active, a:hover{
 }
 
 .deltasub{
+    font-size: 1vw;
     color: white;
     position: absolute;
     width: 30%;
@@ -232,7 +236,7 @@ a.active, a:hover{
 
 .deltabtn {
     position: absolute;
-    top: 52%;
+    top: 53%;
     right: 10%;
     background-color: white;
     border-color: white;
