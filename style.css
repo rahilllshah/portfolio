@@ -13,9 +13,8 @@ body{
     position: relative;
 }
 
-.blue {
-    color: #027BFF;
-}
+
+/*Global Font Formats and Containers*/
 
 .navFontBlack{
     color: black;
@@ -32,6 +31,29 @@ p {
     font-weight: 300;
     color: #231f20;
 }
+
+.link{
+    text-decoration: none !important;
+}
+
+.contain{
+    background-color: #f2f2f2;
+}
+
+.contain2{
+    background-color: white;
+    padding-left: 15vh;
+    padding-right: 15vh;
+}
+
+.contain3{
+    background-color: #f2f2f2;
+    padding-left: 15vh;
+    padding-right: 15vh;
+}   
+
+
+/*Nav*/
 
 #nav-icon {
   zoom: 0.37;
@@ -144,8 +166,6 @@ nav{
     width: 100%;
     height: 50px;
     z-index: 10;
-
-
 }
 
 img.logo{
@@ -200,7 +220,7 @@ a.active, a:hover{
 }
 
 
-
+/*Landing*/
 
 .landing{
     text-align: center;
@@ -223,23 +243,9 @@ a.active, a:hover{
     width: 60%;
     margin-bottom: 10vh;
 }
+ 
 
-.contain{
-    background-color: #f2f2f2;
-}
-
-.contain2{
-    background-color: white;
-    padding-left: 15vh;
-    padding-right: 15vh;
-}
-
-.contain3{
-    background-color: #f2f2f2;
-    padding-left: 15vh;
-    padding-right: 15vh;
-}    
-
+/*CanTrace*/
 
 .cantracetitle{
     font-size: 3vw;
@@ -284,6 +290,9 @@ a.active, a:hover{
     display: none;
     
 }
+
+
+/*Delta*/
 
 .deltatitle{
     font-size: 3vw;
@@ -343,6 +352,9 @@ a.active, a:hover{
 .part2{
     padding-top: 1vh;
 }
+
+
+/*Projects*/
 
 .worktitle{
     margin-bottom: 5vh;
@@ -483,10 +495,17 @@ a.active, a:hover{
 }
 
 
-.link{
-    text-decoration: none;
+.interestFont{
+    color: black;
+    font-size: 48px;
 }
 
+.interestTitle{
+    margin-bottom: 28px;
+}
+
+
+/*Section Paddings and Stuff*/
 
 #section3{
     padding-top: 15vh;
@@ -512,31 +531,7 @@ a.active, a:hover{
     background-color: #f2f2f2;
 }
 
-
-.interestFont{
-    color: black;
-    font-size: 48px;
-}
-
-.interestTitle{
-    margin-bottom: 28px;
-}
-
-
-
-.liclass {
-    position: relative;
-    list-style: none;
-    margin: 50px;
-    margin-left: -14px;
-    width: 100%;
-}
-
-
-.pad{
-    padding: 10px;
-}
-
+/*Footer*/
 
 .footer{
     background-color: #f2f2f2;
