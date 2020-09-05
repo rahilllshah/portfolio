@@ -8,13 +8,13 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
         <link rel="icon" href="Images/R%20black.png" sizes="16x16" type="image/png">
         
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+        
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
         
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
-        
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
         
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha512-Zq2BOxyhvnRFXu0+WE6ojpZLOU2jdnqbrM1hmVdGzyeCa1DgM3X5Q4A/Is9xA1IkbUeDd7755dNNI/PzSf2Pew==" crossorigin="anonymous"></script>
         
@@ -22,372 +22,132 @@
         
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,800" rel="stylesheet">
         
+        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+        
         
 	
     </head>
 	
     <body>
-
-        <div id="navRLogoWeb">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
         
         <script>
-            window.onload = function(){ 
-            $('#navRLogoWeb').toggleClass('open');
-        }
+            AOS.init();
         </script>
         
-        
-        <script>  
-            function openSlideNav(){
-            document.getElementById('navL').style.marginLeft = '0px';
-            }
-        </script>
-        
-        <script>
-            if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) {
-    
-            window.onload = function(){ 
-            document.getElementById('navL').style.marginLeft = '-50px';
-        }
-            }
-        </script>
-                 
-        <div class="RLogo"></div>
-        
-        <script> $(document).ready(function(){
-            $('#navRLogoMobile').hover(function(){
-                $(this).toggleClass('open');
-	           });
-            });
-        </script>        
-
-        <div id="navL">
-            <span class="slide">     
-                <a href="#" onclick="openSlideNav()">     
-                    <i class="mobileOpen">
-                        <div id="navRLogoMobile">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </div>
-                    </i>      
-                </a> 
-            </span>
-            <nav class="nav flex-column">          
-                <a href="#section1" class="section1-marker navElement active"><i class="fas fa-home navFont"></i></a>       
-                <a href="#section2" class="section2-marker navElement"><i class="fas fa-star navFont"></i></a>  
-                <a href="#section3" class="section3-marker navElement"><i class="fas fa-project-diagram navFont"></i></a>  
-                <a href="#section4" class="section4-marker navElement"><i class="fas fa-play navFont"></i></a>    
-                <a href="#section5" class="section5-marker navElement last"><i class="fas fa-shapes navFont"></i></a>   
-                <a href=# onclick="return false;" class="navClose"> <span class="navFont"><i class="arrowLeft"></i></span></a>   
-            </nav> 
-        </div>
-        
-         <div id="navR">
-            <div class = "nav2">
-                <a href="Resume/RahilShah_Resume.pdf" target="_blank" class="navElementSocial"><i class="fas fa-file navFontBlack"></i></a>  
-                <a href="mailto: rahil190@gmail.com" target="_blank" class="navElementSocial"><i class="fas fa-envelope navFontBlack"></i></a>  
-                <a href="https://www.linkedin.com/in/rahilllshah" target="_blank" class="navElementSocial"><i class="fab fa-linkedin-in navFontBlack"></i></a>  
-                <a href="https://www.behance.net/rahil190be83" target="_blank" class="navElementSocial"><i class="fab fa-behance navFontBlack"></i></a>
-                <a href="https://www.github.com/rahilllshah/" target="_blank" class="navElementSocial"><i class="fab fa-github navFontBlack"></i></a>
-                <a href="https://www.instagram.com/rahilspalette/" target="_blank" class="navElementSocial"><i class="fab fa-instagram navFontBlack"></i></a>
-            </div>
-        </div>
-        
-        <script>
-            $('.mobileOpen').on('click', function(e){
-                e.preventDefault();
-            });
-        </script>  
-        
-        <script>
-            window.addEventListener('mouseup', function(event){   
-                var box = document.getElementById('navL');    
-                if (event.target != box && event.target.parentNode != box){    
-                    box.style.marginLeft = '-50px'; 
-                }  
-            }); 
-        </script>
+        <nav>
+            <input type="checkbox" id="check">
+            <label for="check" class="checkbtn">
+            <i class = "fas fa-bars"></i>
+            </label>
+            
+                <ul class="navL">
+                    
+                <img class="logo" src="Images/R%20Design%20Black.png">
+                <li><a href="#section1" class="section1-marker active">Home</a></li>       
+                <li><a href="#section2" class="section2-marker">Featured</a></li> 
+                <li><a href="#section3" class="section3-marker">Projects</a></li> 
+                <li><a href="#section4" class="section4-marker">Hobbies & Interests</a></li>   
+                <li><a href="#section5" class="section5-marker">Skills</a></li>
+                
+                </ul>
+            
+                <ul class="navR">
+                    
+                <li><a href="Resume/RahilShah_Resume.pdf" target="_blank" class="three"><i class="fas fa-file navFontBlack"></i></a></li>
+                <li><a href="mailto: rahil190@gmail.com" target="_blank" class="three"><i class="fas fa-envelope navFontBlack"></i></a></li>
+                <li><a href="https://www.linkedin.com/in/rahilllshah" target="_blank" class="three"><i class="fab fa-linkedin-in navFontBlack"></i></a></li>
+                <li><a href="https://www.behance.net/rahil190be83" target="_blank" class="three"><i class="fab fa-behance navFontBlack"></i></a></li>
+                <li><a href="https://www.instagram.com/rahilspalette/" target="_blank" class="three"><i class="fab fa-instagram navFontBlack"></i></a></li>
+                    
+                </ul>
+        </nav>
                 
         <section class="section1" id="section1">  
-            <div class="container">
-                <div class="landing">
-                    <div class="row">  
-                        <div class="col-12 landingL">
-                            <img class="RahilShah" src="Images/Rahil%20Shah.png">
-                            <div></div>
-                            <span class="text-secondary">Hello! Welcome to my portfolio. I currently study <span class="blue">Computer Science </span>at McMaster University. I'm the <span class="blue">Co-Director</span> (x-Product Design Lead) of DeltaHacks, McMaster's annual hackathon. I do <span class="blue">freelance UI/UX work</span> and I volunteer my time working with medical professionals and developers on various projects. I’m also a <span class="blue">Front-End Developer</span> working for two professors. Check out some of my work below.</span></div>
-                        <div class="landingR1"></div>
-                        <div class="landingR2"></div>                      
-                        <div class="arrowDown"></div> 
-                    </div>       
+            <div class="row hero">  
+                <div class="col-12 landing">
+                    <span class="text-secondary">Rahil Shah | Product Designer</span>
+                    <h1>Inspired through design.</h1>
+                    <p>Transforming inspiration that become ideas into reality.</p>
+                    <img class="landingimg" src="Images/LandingImage.png">         
                 </div>
-            </div>
+            </div>       
         </section>
-                
-        
-        
+            
         
         <section class="section2" id="section2">
-            <div class="container">
-                <div class="featured-title pb-5">
-                    <h1>A couple of my favourite experiences</h1>
+            <div class="row">
+                <div class="col-12">
+                    <img class="cantraceimg" src="Images/Artboard%203.png">
+                    
+                    <h1 class="cantracetitle">A healthcare driven contact tracing app to mitigate the spread of COVID-19</h1>
+                    <p class="cantracesub">Presented to the provincial and federal government of Canada.</p>
+                    
+                    <a class="btn cantracebtn" href="https://www.behance.net/gallery/103339227/CanTrace" target="_blank">View Case Study</a>
                 </div>            
-            <div class="row grid">
-                <div class="col-sm-4">
-                            <div class="title">
-                                <h4>CanTrace <i class="fas fa-external-link-alt navFontBlack"></i></h4>
-                                <span class="text-secondary">Nationwide contact tracing application built around a healthcare framework - presented to the provinical and federal government of Canada.</span>
-                            </div>
-                            </div>
-                    <div class="col-sm-8">
-                        <div class="our-project">
-                            <div class="img">
-                                <a href="https://www.behance.net/gallery/103339227/CanTrace" target="_blank">
-                                    <img src="Images/cantrace%20health%20cover.png" class="img-fluid">
-                                </a>
-                            </div>
-                
-                        </div>
-                    </div>
+        
             </div>
-                
-                
-                
-            <div class="spacer"></div>
-                
-                
-            <div class="row grid">
-                <div class="col-sm-4">
-                            <div class="title">
-                                <h4>DeltaHacks VI Design Journey <i class="fas fa-external-link-alt navFontBlack"></i></h4>
-                                <span class="text-secondary">A reflection of my experience as the Product Design Lead of one of Canada's largest hackathons!</span>
-                            </div>
-                            </div>
-                    <div class="col-sm-8">
-                        <div class="our-project">
-                            <div class="img">
-                                <a href="https://www.behance.net/gallery/91565049/DeltaHacks-VI-Design-Journey" target="_blank">
-                                    <img src="Images/DH%20Cover.png" class="img-fluid">
-                                </a>
-                            </div>
-                
-                        </div>
-                    </div>
+        
+            <div class="row part2">
+                <div class="col-12">
+                    <img class="deltaimg" src="Images/Artboard%202.png">
+                    
+                    <h1 class="deltatitle">DeltaHacks VI <br>Design Journey</h1>
+                    <p class="deltasub">A reflection of my experience as the Product Design Lead<br>of one of Canada's largest hackathons!</p>
+                    
+                    <a class="btn deltabtn" href="https://www.behance.net/gallery/91565049/DeltaHacks-VI-Design-Journey" target="_blank">View Case Study</a>
+                </div>            
+        
             </div>
-                
-            
-                
-            </div>
-            
-        </section>
-        
-        
-        
-        
-        
-        <script>
-        $(document).ready(function () {
-            let $btns = $('.section3 .button-group button');
-            $btns.click(function (e) {
-                $('.section3 .button-group button').removeClass('active');
-                e.target.classList.add('active');
+                </section>
 
-                let selector = $(e.target).attr('data-filter');
-                $('.section3 .grid').isotope({
-                    filter: selector
-                });
-
-                return false;
-            })
-        });
-        
-        </script>
     
          <section class="section3" id="section3">
-            <div class="container">
-                <div class="project-title pb-5">
-                    <h1>Projects</h1>
+             <div class="container">
+                <div class="projects-title pb-5">
+                    <h1>Some of my other work.</h1>
                 </div>
-
-                <div class="button-group">
-                    <button  type="button" class="active" id="btn1" data-filter="*">All</button>
-                    <button  type="button" data-filter=".UIUX">UI/UX</button>
-                    <button  type="button" data-filter=".graphic">Graphic Design</button>
-                    <button  type="button" data-filter=".logo">Logo Design</button>
-                </div>
-
+       
                 <div class="row grid">
-    
-                    <div class="col-sm-6 element-item UIUX">
+                    <div class="col-sm-4 element-item latest pad">
                         <div class="our-project">
                             <div class="img">
-                                <a href="https://www.behance.net/gallery/83341779/Ravn-OS" target="_blank">
-                                    <img src="Images/Ravn%20OS%20Cover.png" class="img-fluid">
+                                 <a href="https://www.behance.net/gallery/83341779/Ravn-OS" target="_blank">
+                                    <img src="Images/ravn%20os%20n.png" class="img-fluid padimg">
                                 </a>
-                            </div>
-                            <div class="title py-4">
-                                <h4>Ravn OS <i class="fas fa-external-link-alt navFontBlack"></i></h4>
-                                <span class="text-secondary">UI/UX</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 element-item UIUX">
-                        <div class="our-project">
-                            <div class="img">
-                                <a href="https://www.behance.net/gallery/83411589/Instagram-Redesign" target="_blank">
-                                    <img src="Images/Instagram%20Redesign%20Cover.png" class="img-fluid">
-                                </a>
-                            </div>
-                            <div class="title py-4">
-                                <h4>Instagram Redesign <i class="fas fa-external-link-alt navFontBlack"></i></h4>
-                                <span class="text-secondary">UI/UX</span>
                             </div>
                         </div>
                     </div>
                     
-                    <div class="col-sm-6 element-item UIUX">
+                    <div class="col-sm-4 element-item latest pad">
                         <div class="our-project">
                             <div class="img">
-                                <a>
-                                    <img src="Images/apple%20cover.png" class="img-fluid">
+                                 <a href="https://www.behance.net/gallery/83411589/Instagram-Redesign" target="_blank">
+                                    <img src="Images/instagram%20n.png" class="img-fluid padimg">
                                 </a>
-                            </div>
-                            <div class="title py-4">
-                                <h4>Apple Landing Page</h4>
-                                <span class="text-secondary">UI/UX</span>
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-6 element-item UIUX">
+                    
+                    <div class="col-sm-4 element-item latest pad">
                         <div class="our-project">
                             <div class="img">
-                                <a>
-                                    <img src="Images/Flatten%20Cover.png" class="img-fluid">
+                                 <a href="https://www.instagram.com/p/CDy4U2nJGdL/?utm_source=ig_web_copy_link" target="_blank">
+                                    <img src="Images/apple%20n.png" class="img-fluid padimg">
                                 </a>
-                            </div>
-                            <div class="title py-4">
-                                <h4>flatten.ca</h4>
-                                <span class="text-secondary">UI/UX</span>
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-6 element-item logo">
-                        <div class="our-project">
-                            <div class="img">
-                                <a>
-                                    <img src="Images/CMSCover.png" class="img-fluid">
-                                </a>
-                            </div>
-                            <div class="title py-4">
-                                <h4>Computational Materials Society</h4>
-                                <span class="text-secondary">Logo Design</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 element-item graphic">
-                        <div class="our-project">
-                            <div class="img">
-                                <a>
-                                    <img src="Images/Engagement%20Cover.png" class="img-fluid">
-                                </a>
-                            </div>
-                            <div class="title py-4">
-                                <h4>Engagement Cards</h4>
-                                <span class="text-secondary">Graphic Design</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 element-item graphic">
-                        <div class="our-project">
-                            <div class="img">
-                                <a>
-                                    <img src="Images/Poster1%20Cover.png" class="img-fluid">
-                                </a>
-                            </div>
-                            <div class="title py-4">
-                                <h4>Promotional Poster</h4>
-                                <span class="text-secondary">Graphic Design</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 element-item graphic">
-                        <div class="our-project">
-                            <div class="img">
-                                <a>
-                                    <img src="Images/Recruitment%20Cover.png" class="img-fluid">
-                                </a>
-                            </div>
-                            <div class="title py-4">
-                                <h4>Social Media Recruitment Posts</h4>
-                                <span class="text-secondary">Graphic Design</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 element-item UIUX">
-                        <div class="our-project">
-                            <div class="img">
-                                <a>
-                                    <img src="Images/nhl%20cover.png" class="img-fluid">
-                                </a>
-                            </div>
-                            <div class="title py-4">
-                                <h4>Playerz</h4>
-                                <span class="text-secondary">UI/UX</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 element-item UIUX">
-                        <div class="our-project">
-                            <div class="img">
-                                <a>
-                                    <img src="Images/music%20cover.png" class="img-fluid">
-                                </a>
-                            </div>
-                            <div class="title py-4">
-                                <h4>Tunes</h4>
-                                <span class="text-secondary">UI/UX</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 element-item logo">
-                        <div class="our-project">
-                            <div class="img">
-                                <a>
-                                    <img src="Images/ims%20cover.png" class="img-fluid">
-                                </a>
-                            </div>
-                            <div class="title py-4">
-                                <h4>iMigrate Solutions</h4>
-                                <span class="text-secondary">Logo Design</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 element-item UIUX">
-                        <div class="our-project">
-                            <div class="img">
-                                <a>
-                                    <img src="Images/timeline%20cover.png" class="img-fluid">
-                                </a>
-                            </div>
-                            <div class="title py-4">
-                                <h4>Timeline</h4>
-                                <span class="text-secondary">UI/UX</span>
-                            </div>
-                        </div>
-                    </div>
+    
+                    
                 </div>
-            </div>
+                    
+          </div>
         </section>
+        
+       
+        
+        
         
         
         
@@ -396,11 +156,9 @@
         <section class="section4" id="section4">
             <div class="container">
                 <div class="interests-title pb-5">
-                    <h1>Hobbies &amp Interests</h1>
+                    <h1>Stuff I love to do.</h1>
                 </div>
-                
-        
-                
+       
                 <div class="row grid">
                     <div class="col-sm-4 element-item latest">
                         <div class="our-project">
@@ -474,24 +232,65 @@
           </div>
         </section>
         
-        
-        
         <section class="section5" id="section5">
+        <div class="container">
+                <div class="interests-title pb-5">
+                    <h1>The toolkit.</h1>
+                </div>
+       
+                <div class="row grid">
+                    <div class="col-sm-4 element-item latest">
+                        <div class="our-project">
+
+                            <div class="interestTitle py-4">
+                                <h4>Design & Prototyping</h4>
+                                <span class="text-secondary">Adobe CC Software, Figma, InVision, Sketch<br><br>Visual Design, Interaction Design, Responsive Design, Prototyping, User-Centered Design, Usability Testing</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 element-item latest">
+                        <div class="our-project">
+                    
+                            <div class="interestTitle py-4">
+                                <h4>Development</h4>
+                                <span class="text-secondary">HTML, CSS, JavaScript, React, C, Python, SQL, Github</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 element-item latest">
+                        <div class="our-project">
+                    
+                            <div class="interestTitle py-4">
+                                <h4>Soft Skills</h4>
+                                <span class="text-secondary">Optimistic, Self-Starter, Organized, Dedicated, Hard-Working, Problem Solver, Detail Oriented</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    
+                </div>
+                    
+          </div>
+        </section>
+        
+        <!--<section class="section5" id="section5">
             <div class="container">
                 <div class="skills-title">
-                    <h1>Skills</h1>
+                    <h1>The toolkit.</h1>
                 </div>
                 
                 <div class="container">
-                    <ul>
-                        <li class="skill1"><h4>Design &amp Prototyping</h4><span class="text-secondary">Adobe CC Software, Figma, InVision, Sketch</span></li>
-                        <li class="skill2"><span class="text-secondary">Visual Design, Interaction Design, Responsive Design, Prototyping, User-Centered Design, Usability Testing</span></li>
-                        <li class="skill3"><h4>Development</h4><span class="text-secondary">HTML, CSS, JavaScript, React, C, Python, SQL, Github</span></li>
-                        <li class="skill4"><h4>Soft Skills</h4><span class="text-secondary">Optimistic, Self-Starter, Organized, Dedicated, Hard-Working, Problem Solver, Detail Oriented</span></li>
+                    <ul class="skillsclass">
+                        <li class="liclass"><h4>Design &amp Prototyping</h4><span class="text-secondary">Adobe CC Software, Figma, InVision, Sketch</span>
+                        <hr class="new1">
+                        </li>
+                        <li class="liclass"><span class="text-secondary">Visual Design, Interaction Design, Responsive Design, Prototyping, User-Centered Design, Usability Testing</span><hr class="new1"></li>
+                        <li class="liclass"><h4>Development</h4><span class="text-secondary">HTML, CSS, JavaScript, React, C, Python, SQL, Github</span><hr class="new1"></li>
+                        <li class="liclass"><h4>Soft Skills</h4><span class="text-secondary">Optimistic, Self-Starter, Organized, Dedicated, Hard-Working, Problem Solver, Detail Oriented</span><hr class="new1"></li>
                     </ul>
                 </div>
             </div>
-        </section>
+        </section>-->
         
         <div class="footer">
         <span class="text-secondary">Designed and developed with 💙 by Rahil Shah | &#169 2020 Rahil Shah. All Rights Reserved.</span>
@@ -499,8 +298,8 @@
         
 		<script>
 			(function() {
-                var navLinks = $('.nav a.navElement'),
-                    navH = $('.nav').height(),
+                var navLinks = $('nav ul li a'),
+                    navH = $('nav').height(),
                     section = $('section'),
                     documentEl = $(document);
                 documentEl.on('scroll', function() {
@@ -519,7 +318,7 @@
 
         <script>
         $(document).ready(function(){ 
-            $('.nav a.navElement').click(function() { 
+            $('nav ul li a').click(function() { 
                 if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) { 
                     var $target = $(this.hash); 
                     $target = $target.length && $target || $('[name=' + this.hash.slice(1) +']'); 
