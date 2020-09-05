@@ -3,10 +3,14 @@
     margin: 0;
 }
 
-body {
-    max-width: 100%;
+html, body {
+    width: 100%;
     overflow-x: hidden;
     font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+body{
+    position: relative;
 }
 
 .blue {
