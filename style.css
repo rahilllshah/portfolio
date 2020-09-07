@@ -228,6 +228,7 @@ a.active, a:hover{
 }
 
 .landingtitle{
+    font-size: 60px;
         margin: auto;
         max-width: 85%;
     }
@@ -606,6 +607,10 @@ a.active, a:hover{
         left: 0;
     }
     
+    .landingtitle{
+    font-size: 48px;
+
+    }
     
     .landingimg{
         width: 80%;
