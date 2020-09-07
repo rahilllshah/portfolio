@@ -542,6 +542,21 @@ a.active, a:hover{
     padding-bottom: 15vh;
 }
 
+
+    .worktitle{
+        font-size: 60px;
+    }
+
+.intereststitle{
+        font-size: 60px;
+    }
+
+.toolkittitle{
+        font-size: 60px;
+    }
+
+
+
 @media (max-width: 952px){
     img.logo {
         position: fixed;
@@ -828,6 +843,18 @@ a.active, a:hover{
     .footer{
         padding-left: 5vh;
         padding-right: 5vh;
+    }
+    
+    .worktitle{
+        font-size: 48px;
+    }
+
+.intereststitle{
+        font-size: 48px;
+    }
+
+.toolkittitle{
+        font-size: 48px;
     }
     
 }
