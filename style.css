@@ -393,7 +393,7 @@ a.active, a:hover{
     display: flex;
     top: 52%;
     width: 100%;
-    color: dodgerblue;
+    color: white;
     transition: .5s !important;
 }
 
@@ -442,7 +442,7 @@ a.active, a:hover{
     display: flex;
     top: 25%;
     width: 100%;
-    color: dodgerblue;
+    color: white;
     transition: .5s !important;
 }
 
@@ -486,7 +486,7 @@ a.active, a:hover{
     display: flex;
     top: 25%;
     width: 90%;
-    color: dodgerblue;
+    color: white;
     transition: .5s !important;
 }
 
@@ -741,7 +741,7 @@ a.active, a:hover{
         width: 95%;
         font-size: 3vw;
         top: 50%;
-        color: dodgerblue;
+        color: white;
         transition: .5s !important;
 }
     
@@ -771,7 +771,7 @@ a.active, a:hover{
         width: 95%;
         font-size: 3vw;
         top: 22%;
-        color: dodgerblue;
+        color: white;
         transition: .5s !important;
 }
     
@@ -811,7 +811,7 @@ a.active, a:hover{
         width: 95%;
         font-size: 3vw;
         top: 22%;
-        color: dodgerblue;
+        color: white;
         transition: .5s !important;
 }
     
