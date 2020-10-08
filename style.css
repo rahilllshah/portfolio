@@ -383,7 +383,10 @@ a.active, a:hover{
     width: auto;
     max-width: 100% ;
     height: auto ;
-    padding: 5vh;
+    padding-left: 5vh;
+    padding-right: 5vh;
+    padding-top: 5vh;
+    padding-bottom: 4vh;
 }
 
 .applebtn {    
