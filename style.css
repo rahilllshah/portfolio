@@ -192,14 +192,16 @@ nav{
 }
 */
 img.logo{
+    position: fixed;
+    top: 17px;
     width: 56px;
-    line-height: 40px;
     padding: 0 20px;
     
 }
 
 .navL{
     float: left;
+    padding-left: 46px;
 }
 
 .navR{
@@ -639,7 +641,7 @@ video {
 
 @media (max-width: 920px){
     img.logo {
-        position: fixed;
+        position: fixed !important;
         width: 56px;
         top: 16px;
         left: 35px;
@@ -659,14 +661,11 @@ video {
         position: fixed;
         width: 100%;
         height: 100vh;
-        backdrop-filter: blur(100px);
-        -webkit-backdrop-filter: blur(6px);
-        -moz-backdrop-filter: blur(6px);
-        -o-backdrop-filter: blur(6px);
-        background-color: hsla(0, 0%, 98%, .8);
-        filter:blur(0)
-        -moz-filter: blur(0);
-        -o-filter: blur(0);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        -moz-backdrop-filter: blur(10px);
+        -o-backdrop-filter: blur(10px);
+        background-color: hsla(0, 0%, 100%, .8);
         top: 50px;
         left: -100%;
         transition: all .5s;
