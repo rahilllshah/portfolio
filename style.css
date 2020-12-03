@@ -309,10 +309,8 @@ video {
 }
     
     .landingsub{
-        font-size: 22px;
-    line-height: 100%;
+        font-size: 18px;
     text-align: center;
-    color: #333;
     max-width: 655px;
     margin: 0 auto;
     }
@@ -695,7 +693,7 @@ video {
     .blended-text-wrapper {
         position: relative;
         width: 80%;
-        height: 254px;
+        height: 200px;
         overflow: hidden;
         max-width: 80%;
         margin: 0 auto 0px;
