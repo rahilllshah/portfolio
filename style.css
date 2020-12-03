@@ -208,6 +208,11 @@ img.logo{
     right: 0;
     position:fixed;
     padding: 0 20px;
+    transition: all .2s ease-in-out;
+}
+
+.navR ul li a:hover { 
+    transform: scale(1.1); 
 }
 
 nav ul li{
@@ -305,12 +310,13 @@ video {
     
     .landingsub{
         font-size: 22px;
-    line-height: 150%;
+    line-height: 100%;
     text-align: center;
     color: #333;
     max-width: 655px;
     margin: 0 auto;
     }
+
 
 .landingimg{
     margin-top: 0vh;
