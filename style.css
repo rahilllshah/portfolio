@@ -211,9 +211,7 @@ img.logo{
     transition: all .2s ease-in-out;
 }
 
-.navR ul li a:hover { 
-    transform: scale(1.1); 
-}
+
 
 nav ul li{
     display: inline;
@@ -234,6 +232,10 @@ nav ul li a {
 a.active, a:hover{
     color: black;
     transition: .5s;
+}
+
+.navR > a:hover{ 
+    transform: scale(1.1); 
 }
 
 .checkbtn{
@@ -301,11 +303,6 @@ a.active, a:hover{
     line-height: 120%;
     text-align: center;
     letter-spacing: -.02em;
-}
-
-audio,
-video {
-  display: inline-block;
 }
     
     .landingsub{
