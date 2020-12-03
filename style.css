@@ -234,7 +234,7 @@ a.active, a:hover{
     transition: .5s;
 }
 
-.navR > a:hover{ 
+.navR:hover{ 
     transform: scale(1.1); 
 }
 
@@ -577,11 +577,19 @@ a.active, a:hover{
 .interestFont{
     color: black;
     font-size: 48px;
+    transition: 0.5s;
+}
+
+.interestFont:hover{ 
+    transform: scale(1.1); 
+    transition: 0.5s;
 }
 
 .interestTitle{
     margin-bottom: 28px;
 }
+
+
 
 
 /*Section Paddings and Stuff*/
