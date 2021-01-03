@@ -150,10 +150,10 @@ opacity: 0;
 
 nav{
     position: fixed;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    -moz-backdrop-filter:blur(10px);
-    -o-backdrop-filter:blur(10px);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    -moz-backdrop-filter:blur(6px);
+    -o-backdrop-filter:blur(6px);
     opacity: 1;
     background-color: hsla(0, 0%, 100%, .8);
     width: 100%;
