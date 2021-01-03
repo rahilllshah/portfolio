@@ -80,11 +80,79 @@
                     <h1 class="blended-text-wrapper_text">Designing elegant experiences</h1>
                     </div>
                     <p class="landingsub">Rahil Shah · CS @ McMasterU | Co-Director @ DeltaHacks</p>
-                    <img class="landingimg" src="Images/LandingImage.png">         
+                    
+                    <video id="videoo" class="landingimg" autoplay="" muted=""><source src="Macbook%20Pro%20Mockup2D%201.mp4" type='video/mp4;'></video>
+                    
+
+                    <div>
+                    <a href="javascript:void(0)" class="play-btn">
+                        <img class="play-img" src="Images/play.png">
+                        <img class="pause-img" src="Images/pause.png">
+                        <img class="replay-img" id="replay" src="Images/replay.png">
+                        <img class="circle-img" src="Images/circle.png">
+                        <p class="time"><span id="demo"></span>s</p>
+
+                        </a>
+                    </div>
+                    
                 </div>
             </div>       
         </section>
             
+        <script>
+        $(document).ready(function() {
+                          $(".play-btn .play-img").on('click', function(){
+                            $(".play-btn .play-img").fadeOut();
+                            $(".play-btn .pause-img").fadeIn();
+                            $("#videoo")[0].play();
+                              
+                                                      });
+            $(".play-btn .pause-img").on('click', function(){
+                            $(".play-btn .play-img").fadeIn();
+                            $(".play-btn .pause-img").fadeOut();
+                            $("#videoo")[0].pause();
+                              
+                                                      });
+            
+                
+            // when video is playing
+            $("#videoo")[0].onplay = function(){
+                $(".play-btn .play-img").fadeOut();
+                            $(".play-btn .pause-img").fadeIn();
+            };
+            
+            // when video has ended
+            $("#videoo")[0].onended = function(){
+               $(".play-btn .play-img").fadeIn();
+                            $(".play-btn .pause-img").fadeOut();
+            };
+                          });
+        </script>
+        
+
+
+        
+        <script>
+        
+        var media=document.querySelector("#videoo");
+
+replay.addEventListener("click",function(){
+  media.currentTime = 0;
+})
+        </script>
+        <script>
+          // Get the video element with id="myVideo"
+            var vid = document.getElementById("videoo");
+
+            // Assign an ontimeupdate event to the video element, and execute a function if the current playback position has changed
+            vid.ontimeupdate = function() {myFunction()};
+
+            function myFunction() {
+              // Display the current position of the video in a p element with id="demo"
+                var x = vid.duration - vid.currentTime
+              document.getElementById("demo").innerHTML = x.toFixed(0);
+                          }
+        </script>
         
         <section class="section2" id="section2">
             <div class="contain">
@@ -262,7 +330,7 @@
 
         
         <div class="footer">
-        <span class="text-secondary">Designed and developed with &#x1F499 by Rahil Shah <br>&#169; 2020 Rahil Shah's Portfolio</span>
+        <span class="text-secondary">Designed and developed with &#x1F499 by Rahil Shah <br>&#169; 2021 Rahil Shah's Portfolio</span>
         </div>
         
 		<script>

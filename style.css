@@ -180,17 +180,20 @@ nav{
     50%{background-position:100% 50%}
     100%{background-position:0% 50%}
 }
+
 @-moz-keyframes AnimationName {
     0%{background-position:0% 50%}
     50%{background-position:100% 50%}
     100%{background-position:0% 50%}
 }
+
 @keyframes AnimationName { 
     0%{background-position:0% 50%}
     50%{background-position:100% 50%}
     100%{background-position:0% 50%}
 }
 */
+
 img.logo{
     position: fixed;
     top: 17px;
@@ -314,12 +317,79 @@ a.active, a:hover{
 
 
 .landingimg{
-    margin-top: 0vh;
-    width: 70%;
-    margin-bottom: 10vh;
-    z-index: -1;
+    margin-top: 5vh;
+    width: 65%;
+    margin-bottom: 5vh;
+    border:solid 3px white;
 }
- 
+
+.play-btn img{
+    position: absolute;
+    width: 20%;
+    transition: 0.25s;
+}
+
+.play-btn {
+    position: absolute;
+    z-index: 1;
+    width: 15%;
+    margin-top: -39%;
+    margin-left: 19.5%;
+}
+
+.play-img{
+    transition: 0.25s;
+}
+
+.play-img:hover {
+    opacity: 0.25;
+    transition: 0.25s;
+}
+
+.pause-img{
+    transition: 0.25s;
+    display: none;
+}
+
+.pause-img:hover{
+    opacity: 0.25;
+    transition: 0.25s;
+}
+
+.replay-img{
+    margin-top: 25%;
+    transition: 0.25s;
+}
+
+.replay-img:hover{
+    opacity: 0.25;
+    transition: 0.25s;
+}
+
+
+.circle-img{
+    margin-top: 50%;
+}
+
+#demo{
+    font-size: 14px;
+    font-weight: 300;
+}
+
+.time {
+    z-index: 1;
+    font-size: 10px;
+    margin-top: 55%;
+    margin-left: 20%;
+}
+
+
+@media (max-width: 1400px){
+    
+    .time {
+        margin-top: 53.5%;
+    }
+}
 
 /*CanTrace*/
 
@@ -654,6 +724,13 @@ a.active, a:hover{
         width: 56px;
         top: 16px;
         left: 35px;
+    }
+    
+    .play-btn img{
+        display: none;
+    }
+    .time{
+        display: none;
     }
     
     .checkbtn{
