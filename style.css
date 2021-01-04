@@ -286,7 +286,6 @@ a.active, a:hover{
     margin-top: 5vh;
     width: 65%;
     margin-bottom: 5vh;
-    border:solid 3px white;
 }
 
 .play-btn img{
@@ -351,6 +350,10 @@ a.active, a:hover{
     font-size: 0.7vw;
     margin-top: -31.5%;
     margin-left: 77.5vw;
+}
+
+.landingimgmobile {
+    display: none;
 }
 
 /*CanTrace*/
@@ -685,6 +688,22 @@ a.active, a:hover{
         left: 35px;
     }
     
+    .landingimg {
+        display: none;
+    }
+    
+    .landingimgmobile{
+        display: block;
+        margin: auto;
+        position: relative;
+        margin-top: 5vh;
+        width: 70%;
+        margin-bottom: 5vh;
+    }
+    
+    .play-btn{
+        display: none;
+    }
     .play-btn img{
         display: none;
     }
