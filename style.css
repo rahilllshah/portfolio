@@ -157,7 +157,7 @@ nav{
     opacity: 1;
     background-color: hsla(0, 0%, 100%, .8);
     width: 100%;
-    height: 5vh;
+    height: 50px;
     z-index: 10;
 }
 
@@ -336,14 +336,11 @@ a.active, a:hover{
 #demo{
     font-size: 1.1vw;
     font-weight: 300;
-    text-align: center;
 } 
 
 .time { 
     z-index: 1;
     position:absolute;
-    text-align: center;
-    width: 2%;
     font-size: 0.7vw;
     margin-top: 50%;
     margin-left: 8.7vw;
