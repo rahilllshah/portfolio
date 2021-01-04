@@ -25,7 +25,16 @@
     </head>
 	
     <body>
-        
+                  <script>
+        $(document).ready(function() {
+            
+                $("#videoo")[0].onloadstart = function(){
+                $(".play-btn .play-img").fadeOut();
+                            $(".play-btn .pause-img").fadeIn();
+            };
+        });
+            
+        </script>
         <nav>
             <input type="checkbox" id="check">
             <label for="check" class="checkbtn">
@@ -99,7 +108,7 @@
                 </div>
             </div>       
         </section>
-            
+  
         <script>
         $(document).ready(function() {
                           $(".play-btn .play-img").on('click', function(){
@@ -115,10 +124,7 @@
                               
                                                       });
             
-                $("#videoo")[0].onloadstart = function(){
-                $(".play-btn .play-img").fadeOut();
-                            $(".play-btn .pause-img").fadeIn();
-            };
+            
             
             // when video is playing
             $("#videoo")[0].onplay = function(){
