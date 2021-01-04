@@ -338,29 +338,19 @@ a.active, a:hover{
 }
 
 #demo{
-    font-size: 14px;
+    font-size: 1.1vw;
     font-weight: 300;
+    text-align: center;
 } 
 
 .time {
     z-index: 1;
-    width: 1%;
-    font-size: 10px;
-<<<<<<< HEAD
-    margin-top: 56%;
-    margin-left: 57.5%;
-=======
-    margin-top: 54.5%;
-    margin-left: 20%;
-}
-
-
-@media (min-width: 1400px){
-    
-    .time {
-        margin-top: 56.5%;
-    }
->>>>>>> d96fb7ac592a38289eabeba574d6c26c9c45264f
+    position:absolute;
+    text-align: center;
+    width: 2%;
+    font-size: 0.7vw;
+    margin-top: -31.5%;
+    margin-left: 77.5vw;
 }
 
 /*CanTrace*/
