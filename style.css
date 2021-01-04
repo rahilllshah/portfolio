@@ -234,7 +234,7 @@ a.active, a:hover{
 .blended-text-wrapper {
     position: relative;
     width: 90%;
-    height: 10vh;
+    height: 15vh;
     overflow: hidden;
     max-width: 90%;
     margin: 0 auto 0px;
@@ -272,7 +272,7 @@ a.active, a:hover{
 }
     
     .landingsub{
-        padding-top: 2vh;
+        padding-top: 1vh;
         font-size: 18px;
     text-align: center;
     max-width: 655px;
