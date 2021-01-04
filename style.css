@@ -17,21 +17,22 @@ body{
 
 .navFontBlack{
     color: black;
-    font-size: 12px;
+    font-size: 100%;
 }
 
 h1{
-    font-size: 48px;
+    font-size: 4vw;
     font-weight: 700;
 }
 
 p {
-    font-size: 14px;
+    font-size: 1vw;
     font-weight: 300;
     color: #231f20;
 }
 
 .link{
+    font-size: 1vw;
     text-decoration: none !important;
 }
 
@@ -156,7 +157,7 @@ nav{
     opacity: 1;
     background-color: hsla(0, 0%, 100%, .8);
     width: 100%;
-    height: 50px;
+    height: 5vh;
     z-index: 10;
 }
 
@@ -237,7 +238,7 @@ a.active, a:hover{
 .blended-text-wrapper {
     position: relative;
     width: 90%;
-    height: 15vh;
+    height: 10vh;
     overflow: hidden;
     max-width: 90%;
     margin: 0 auto 0px;
@@ -275,6 +276,7 @@ a.active, a:hover{
 }
     
     .landingsub{
+        padding-top: 2vh;
         font-size: 18px;
     text-align: center;
     max-width: 655px;
@@ -331,25 +333,20 @@ a.active, a:hover{
     transition: 0.25s;
 }
 
-
-.circle-img{
-    margin-top: 50%;
-}
-
 #demo{
     font-size: 1.1vw;
     font-weight: 300;
     text-align: center;
 } 
 
-.time {
+.time { 
     z-index: 1;
     position:absolute;
     text-align: center;
     width: 2%;
     font-size: 0.7vw;
-    margin-top: -31.5%;
-    margin-left: 77.5vw;
+    margin-top: 50%;
+    margin-left: 8.7vw;
 }
 
 .landingimgmobile {
