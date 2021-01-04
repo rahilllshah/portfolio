@@ -346,8 +346,21 @@ a.active, a:hover{
     z-index: 1;
     width: 1%;
     font-size: 10px;
+<<<<<<< HEAD
     margin-top: 56%;
     margin-left: 57.5%;
+=======
+    margin-top: 54.5%;
+    margin-left: 20%;
+}
+
+
+@media (min-width: 1400px){
+    
+    .time {
+        margin-top: 56.5%;
+    }
+>>>>>>> d96fb7ac592a38289eabeba574d6c26c9c45264f
 }
 
 /*CanTrace*/
