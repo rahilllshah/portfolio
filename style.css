@@ -335,7 +335,7 @@ a.active, a:hover{
 
 #demo{
     font-size: 1.1vw;
-    font-weight: 300;
+    font-weight: 200;
 } 
 
 .time { 
@@ -344,6 +344,7 @@ a.active, a:hover{
     font-size: 0.7vw;
     margin-top: 50%;
     margin-left: 8.7vw;
+    text-align: center;
 }
 
 .landingimgmobile {

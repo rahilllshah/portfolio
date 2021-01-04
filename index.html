@@ -115,7 +115,11 @@
                               
                                                       });
             
-                
+                $("#videoo")[0].onload = function(){
+                $(".play-btn .play-img").fadeOut();
+                            $(".play-btn .pause-img").fadeIn();
+            };
+            
             // when video is playing
             $("#videoo")[0].onplay = function(){
                 $(".play-btn .play-img").fadeOut();
