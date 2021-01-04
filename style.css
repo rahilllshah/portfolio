@@ -335,9 +335,9 @@ a.active, a:hover{
 } 
 
 .time { 
-    z-index: 1;
     position:absolute;
     font-size: 0.7vw;
+    z-index: 1;
     margin-top: 50%;
     margin-left: 8.7vw;
     text-align: center;
