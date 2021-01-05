@@ -335,12 +335,13 @@ a.active, a:hover{
 } 
 
 .time { 
-    position:absolute;
-    font-size: 0.7vw;
     z-index: 1;
-    margin-top: 50%;
-    margin-left: 8.7vw;
+    position:absolute;
     text-align: center;
+    width: 2%;
+    font-size: 0.7vw;
+    margin-top: 50%;
+    margin-left: 8.65vw;
 }
 
 .landingimgmobile {
