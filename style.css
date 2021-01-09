@@ -400,6 +400,14 @@ a.active, a:hover{
     max-width: 100% ;
     height: auto ;
     padding: 5vh;
+    object-fit: cover;
+    transition: transform 0.25s ease;
+}
+
+.cantraceimg:hover{
+    transition: transform 0.25s ease;
+  transform: scale(1.1);
+
 }
 
 .cantracebtn {
@@ -451,7 +459,13 @@ a.active, a:hover{
     padding-left: 5vh;
     padding-right: 5vh;
     padding-bottom: 5vh;
+    transition: transform 0.25s ease;
 }
+.deltaimg:hover{
+        transition: transform 0.25s ease;
+  transform: scale(1.1);
+}
+
 
 .deltabtn {
     position: absolute;
@@ -490,57 +504,6 @@ a.active, a:hover{
     margin-bottom: 10vh;
 }
 
-.appletitle {
-    position: absolute;
-    text-align: center;
-    width: 100%;
-    font-size: 3vw;
-    color: white;
-    top: 25%;
-}
-
-.applesub{
-    position: absolute;
-    text-align: center;
-    width: 100%;
-    font-size: 1.5vw;
-    color: white;
-    top: 40%;
-}
-
-.appleimg{
-    width: auto;
-    max-width: 100% ;
-    height: auto ;
-    padding-left: 5vh;
-    padding-right: 5vh;
-    padding-top: 5vh;
-    padding-bottom: 4vh;
-}
-
-.applebtn {    
-    align-items: center;
-    position: absolute;
-    justify-content: center;
-    display: flex;
-    top: 52%;
-    width: 100%;
-    color: white;
-    transition: .5s !important;
-}
-
-.applebtn:hover {
-    color: white;
-    transition: .5s !important;
-}
-
-.appleimgmobile{
-    display: none;
-    
-}
-
-
-
 .igtitle{
     position: absolute;
     text-align: center;
@@ -563,9 +526,16 @@ a.active, a:hover{
     width: auto ;
     max-width: 100% ;
     height: auto ;
-    padding-left: 5vh;
-    padding-bottom: 5vh;
+    padding-left: 3vh;
+    padding-bottom: 4vh;
+    transition: transform 0.25s ease;
 }
+.igimg:hover{
+        transition: transform 0.25s ease;
+  transform: scale(1.05);
+}
+
+
 
 .igbtn {
     align-items: center;
@@ -607,10 +577,14 @@ a.active, a:hover{
     width: auto ;
     max-width: 100% ;
     height: auto ;
-    padding-right: 5vh;
-    padding-bottom: 5vh;
+    padding-right: 3vh;
+    padding-bottom: 4vh;
+    transition: transform 0.25s ease;
 }
-
+.ravnosimg:hover{
+        transition: transform 0.25s ease;
+  transform: scale(1.05);
+}
 .ravnosbtn {
        align-items: center;
     position: absolute;
@@ -711,18 +685,6 @@ a.active, a:hover{
         left: 35px;
     }
     
-    .landingimg {
-        display: none;
-    }
-    
-    .landingimgmobile{
-        display: block;
-        margin: auto;
-        position: relative;
-        margin-top: 5vh;
-        width: 70%;
-        margin-bottom: 5vh;
-    }
     
     .play-btn{
         display: none;
