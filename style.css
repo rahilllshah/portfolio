@@ -320,11 +320,21 @@ a.active, a:hover{
 }
 
 .replay-img{
-    margin-top: 25%;
+    margin-top: 50%;
     transition: 0.25s;
 }
 
 .replay-img:hover{
+    opacity: 0.25;
+    transition: 0.25s;
+}
+
+.back-img{
+    margin-top: 25%;
+    transition: 0.25s;
+}
+
+.back-img:hover{
     opacity: 0.25;
     transition: 0.25s;
 }
@@ -340,7 +350,7 @@ a.active, a:hover{
     text-align: center;
     width: 2%;
     font-size: 0.7vw;
-    margin-top: 50%;
+    margin-top: 75%;
     margin-left: 8.65vw;
 }
 

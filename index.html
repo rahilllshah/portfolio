@@ -95,6 +95,7 @@
                         <img class="play-img" src="Images/play.png">
                         <img class="pause-img" src="Images/pause.png">
                         <img class="replay-img" id="replay" src="Images/replay.png">
+                        <img class="back-img" id="back" src="Images/back.png">
                         <p class="time"><span id="demo"></span>s</p>
 
                         </a>
@@ -148,6 +149,17 @@
     media.currentTime = 0;
             });
         </script>
+        
+        
+              <script>
+        
+        var media1=document.querySelector("#videoo");
+
+            back.addEventListener("click",function(){
+                media1.currentTime = media1.currentTime - 2;
+            });
+        </script>
+        
         <script>
           // Get the video element with id="myVideo"
             var vid = document.getElementById("videoo");
