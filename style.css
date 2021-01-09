@@ -356,19 +356,20 @@ a.active, a:hover{
 }
 
 #demo{
-    font-size: 1.1vw;
+    font-size: 1.4vw;
     font-weight: 200;
 } 
 
 
 .time { 
     z-index: 1;
-    position:absolute;
+    position: absolute;
     text-align: center;
-    width: 2%;
-    font-size: 0.7vw;
+    margin: auto;
+    width: 100%;
+    font-size: 0.75vw;
     margin-top: 75%;
-    margin-left: 8.65vw;
+    margin-left: 1.6vw;
 }
 
 .landingimgmobile {
