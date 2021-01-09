@@ -16,6 +16,22 @@ html, body {
     color: black;
 }
 
+.connectFont{
+    color: black;
+    text-decoration: none !important;
+}
+
+.connectt {
+    color: black;
+    text-decoration: none !important;
+    transition: 0.25s
+}
+
+.connectt:hover{
+    transition: .25s;
+    color: darkgray;
+}
+
 h1{
     font-size: 4vw;
     font-weight: 700;
@@ -344,6 +360,7 @@ a.active, a:hover{
     font-weight: 200;
 } 
 
+
 .time { 
     z-index: 1;
     position:absolute;
@@ -659,7 +676,7 @@ a.active, a:hover{
     width: 100%;
     margin: auto;
     text-align: center;
-    padding-top: 10vh;
+    padding-top: 15vh;
     padding-bottom: 15vh;
 }
 
@@ -673,6 +690,10 @@ a.active, a:hover{
     }
 
 .toolkittitle{
+        font-size: 60px;
+    }
+
+.connecttitle{
         font-size: 60px;
     }
 
