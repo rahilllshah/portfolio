@@ -594,6 +594,7 @@ a.active, a:hover{
         transition: transform 0.25s ease;
   transform: scale(1.05);
 }
+
 .ravnosbtn {
        align-items: center;
     position: absolute;
@@ -788,7 +789,12 @@ font-size: 68px;
         max-width: 100%;
         height: auto;
         padding: 5vh 0;
-    }
+        transition: transform 0.25s ease;
+}
+.cantraceimgmobile:hover{
+        transition: transform 0.25s ease;
+  transform: scale(1.05);
+}
     
     #section2{
         text-align: center !important;
@@ -835,7 +841,13 @@ font-size: 68px;
         padding-left: 0;
         padding-right: 0;
         padding-bottom: 5vh;
-    }
+            transition: transform 0.25s ease;
+}
+.deltaimgmobile:hover{
+        transition: transform 0.25s ease;
+  transform: scale(1.05);
+}
+   
     
     .deltatitle{
         position: absolute;
@@ -862,48 +874,6 @@ font-size: 68px;
         font-size: 3vw;
         top: 27%;
         color: dodgerblue;
-        transition: .5s !important;
-}
-    
-    
-    .appleimg{
-    display: none;
-        
-    }
-    .appleimgmobile{
-        display: block;
-        max-width: 100%;
-        height: auto;
-        padding-left: 0;
-        padding-right: 0;
-        padding-bottom: 5vh;
-    }
-    
-    .appletitle{
-        position: absolute;
-        text-align: center;
-        width: 95%;
-        font-size: 6vw;
-        color: white;
-        top: 30%;
-}
-
-    .applesub{
-        position: absolute;
-        text-align: center;
-        width: 95%;
-        font-size: 3vw;
-        color: white;
-        top: 43%;
-}
-    
-    .applebtn {
-        position: absolute;
-        text-align: center;
-        width: 95%;
-        font-size: 3vw;
-        top: 50%;
-        color: white;
         transition: .5s !important;
 }
     
