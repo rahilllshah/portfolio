@@ -242,7 +242,6 @@ a.active, a:hover{
 }
 
 .landingtitle{
-    font-size: 60px;
         margin: auto;
         max-width: 85%;
     }
@@ -300,6 +299,11 @@ a.active, a:hover{
     width: 65%;
     margin-bottom: 5vh;
 }
+
+.landingimgmobile {
+    display: none;
+}
+
 
 .play-btn img{
     position: absolute;
@@ -718,6 +722,7 @@ font-size: 68px;
     
     
     
+    
     .checkbtn{
         display: block;
     }
@@ -775,8 +780,17 @@ font-size: 68px;
         width: 90%;
     }
     
-    .landingimg{
-        width: 80%;
+    .landingimg {
+        display: none;
+    }
+    
+    .landingimgmobile{
+        display: block;
+        margin: auto;
+        position: relative;
+        margin-top: 5vh;
+        width: 70%;
+        margin-bottom: 5vh;
     }
     
     
@@ -994,4 +1008,12 @@ font-size: 68px;
         font-size: 48px;
     }
     
+}
+
+@media (max-width: 760px){
+
+.blended-text-wrapper_text {
+    font-size: 38px;
+    }
+
 }
