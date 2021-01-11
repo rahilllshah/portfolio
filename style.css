@@ -293,7 +293,14 @@ a.active, a:hover{
     margin: 0 auto;
     }
 
-
+.indev{
+    font-size: 12px;
+    font-weight: 300;
+    position: absolute;
+    margin-top: -4.5vh;
+    left: 0;
+    right: 0;
+}
 .landingimg{
     margin-top: 5vh;
     width: 65%;
