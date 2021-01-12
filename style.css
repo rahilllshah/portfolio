@@ -294,8 +294,7 @@ a.active, a:hover{
     }
 
 .indev{
-    font-size: 12px;
-    font-weight: 300;
+    font-size: 0.8vw;
     position: absolute;
     margin-top: -4.5vh;
     left: 0;
