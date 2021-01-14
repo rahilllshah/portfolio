@@ -545,8 +545,8 @@ a.active, a:hover{
     width: auto ;
     max-width: 100% ;
     height: auto ;
-    padding-left: 3vh;
-    padding-bottom: 4vh;
+    padding-left: 5vh;
+    padding-bottom: 5vh;
     transition: transform 0.25s ease;
 }
 .igimg:hover{
@@ -596,8 +596,8 @@ a.active, a:hover{
     width: auto ;
     max-width: 100% ;
     height: auto ;
-    padding-right: 3vh;
-    padding-bottom: 4vh;
+    padding-right: 5vh;
+    padding-bottom: 5vh;
     transition: transform 0.25s ease;
 }
 .ravnosimg:hover{
