@@ -457,8 +457,8 @@ a.active, a:hover{
     position: absolute;
     width: 30%;
     top: 25%;
-    right: 10%;
-    text-align: right;
+    left: 10%;
+    text-align: left;
 }
 
 .deltasub{
@@ -467,8 +467,8 @@ a.active, a:hover{
     position: absolute;
     width: 30%;
     top: 47%;
-    right: 10%;
-    text-align: right;
+    left: 10%;
+    text-align: left;
 }
 
 .deltaimg{
@@ -489,7 +489,7 @@ a.active, a:hover{
 .deltabtn {
     position: absolute;
     top: 58%;
-    right: 10%;
+    left: 10%;
     color: dodgerblue;
     transition: .5s !important;
 }
@@ -502,6 +502,10 @@ a.active, a:hover{
 .cantraceimgmobile{
     display: none;
     
+}
+
+.ravnosimgmobile{
+    display: none;
 }
 
 .deltaimgmobile{
@@ -519,77 +523,24 @@ a.active, a:hover{
 
 /*Projects*/
 
-.worktitle{
-    margin-bottom: 10vh;
-}
-
-.igtitle{
-    position: absolute;
-    text-align: center;
-    width: 100%;
-    font-size: 3vw;
-    color: white;
-    top: 10%;
-}
-
-.igsub{
-    position: absolute;
-    text-align: center;
-    width: 100%;
-    font-size: 1.5vw;
-    color: white;
-    top: 18%;
-}
-
-.igimg{
-    width: auto ;
-    max-width: 100% ;
-    height: auto ;
-    padding-left: 5vh;
-    padding-bottom: 5vh;
-    transition: transform 0.25s ease;
-}
-.igimg:hover{
-        transition: transform 0.25s ease;
-  transform: scale(1.05);
-}
-
-
-
-.igbtn {
-    align-items: center;
-    position: absolute;
-    justify-content: center;
-    display: flex;
-    top: 25%;
-    width: 100%;
-    color: white;
-    transition: .5s !important;
-}
-
-.igbtn:hover {
-    color: white;
-    transition: .5s !important;
-}
-
-
-
 .ravnostitle{
-    position: absolute;
-    text-align: center;
-    width: 90%;
     font-size: 3vw;
-    color: white;
-    top: 10%;
+    color: black;
+    position: absolute;
+    width: 30%;
+    top: 32%;
+    right: 10%;
+    text-align: right;
 }
 
 .ravnossub{
-     position: absolute;
-    text-align: center;
-    width: 90%;
-    font-size: 1.5vw;
-    color: white;
-    top: 18%;
+    font-size: 1vw;
+    color: black;
+    position: absolute;
+    width: 30%;
+    top: 44%;
+    right: 10%;
+    text-align: right;
 }
 
 .ravnosimg{
@@ -597,27 +548,26 @@ a.active, a:hover{
     max-width: 100% ;
     height: auto ;
     padding-right: 5vh;
+    padding-left: 5vh;
     padding-bottom: 5vh;
     transition: transform 0.25s ease;
 }
 .ravnosimg:hover{
         transition: transform 0.25s ease;
-  transform: scale(1.05);
+  transform: scale(1.11);
 }
 
+
 .ravnosbtn {
-       align-items: center;
     position: absolute;
-    justify-content: center;
-    display: flex;
-    top: 25%;
-    width: 90%;
-    color: white;
+    top: 55%;
+    right: 10%;
+    color: dodgerblue;
     transition: .5s !important;
 }
 
 .ravnosbtn:hover {
-    color: white;
+    color: black;
     transition: .5s !important;
 }
 
@@ -674,10 +624,6 @@ a.active, a:hover{
     padding-bottom: 15vh;
 }
 
-
-    .worktitle{
-        font-size: 60px;
-    }
 
 .intereststitle{
         font-size: 60px;
@@ -897,46 +843,6 @@ font-size: 68px;
         transition: .5s !important;
 }
     
-    .igtitle{
-        position: absolute;
-        text-align: center;
-        width: 95%;
-        font-size: 6vw;
-        color: white;
-        top: 10%;
-}
-    
-    
-
-    .igsub{
-        position: absolute;
-        text-align: center;
-        width: 95%;
-        font-size: 3vw;
-        color: white;
-        top: 17%;
-}
-    
-     .igbtn {
-        position: absolute;
-        text-align: center;
-        width: 95%;
-        font-size: 3vw;
-        top: 22%;
-        color: white;
-        transition: .5s !important;
-}
-    
-    
-    .igimg{
-        display: block;
-        max-width: 100%;
-        height: auto;
-        padding-left: 0;
-        padding-right: 0;
-        padding-bottom: 5vh;
-    }
-    
     .ravnostitle{
         position: absolute;
         text-align: center;
@@ -1002,9 +908,6 @@ font-size: 68px;
         padding-right: 5vh;
     }
     
-    .worktitle{
-        font-size: 48px;
-    }
 
 .intereststitle{
         font-size: 48px;
