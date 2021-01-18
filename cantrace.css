@@ -55,26 +55,6 @@ h4 {
     color: #737B85;
 }
 
-.headtitle{
-    position: absolute;
-    margin-top: 8%;
-    font-size: 4vw;
-    width: 97%;
-    text-align: center;
-    color: white;
-    
-}
-
-.headsub{
-    position: absolute;
-    margin-top: 13%;
-    font-size: 1.25vw;
-    font-weight: 300;
-    width: 97%;
-    text-align: center;
-    color: white;
-    
-}
 
 .headimg {
     max-width: 100%;
@@ -167,12 +147,14 @@ h4 {
 
 .asset4{
     
-    width: 100%;
+    max-width: 100%;
+
 }
 
 .center {
     text-align: center;
 }
+
 
 
 
@@ -443,15 +425,6 @@ a.active, a:hover{
     .headimg{
         margin-top: 50px;
     }
-    .headtitle{
-        font-size: 5vw;
-        margin-top:75px;
-    }
-    
-    .headsub{
-        font-size: 2.5vw;
-        margin-top: 110px;
-    }
     
         .contain3{
     background-color: #f2f2f2;
@@ -478,7 +451,7 @@ a.active, a:hover{
 }
     
     .landingvideo {
-    margin-top: 5vh; 
+    margin-top: 5vh;
 }
 
 
@@ -512,6 +485,7 @@ h4 {
 
     color: #737B85;
 }
+    
  
 }
 
