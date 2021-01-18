@@ -44,7 +44,7 @@ p {
 }
 
 .link{
-    font-size: 1vw;
+    font-size: 1.25vw;
     text-decoration: none !important;
 }
 
@@ -406,7 +406,7 @@ a.active, a:hover{
 }
 
 .cantracesub{
-    font-size: 1vw;
+    font-size: 1.2vw;
     color: black;
     position: absolute;
     width: 40%;
@@ -462,7 +462,7 @@ a.active, a:hover{
 }
 
 .deltasub{
-    font-size: 1vw;
+    font-size: 1.2vw;
     color: black;
     position: absolute;
     width: 30%;
@@ -534,7 +534,7 @@ a.active, a:hover{
 }
 
 .ravnossub{
-    font-size: 1vw;
+    font-size: 1.2vw;
     color: black;
     position: absolute;
     width: 30%;
