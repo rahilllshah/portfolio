@@ -293,12 +293,24 @@ a.active, a:hover{
     margin: 0 auto;
     }
 
-.indev{
-    font-size: 0.8vw;
+.rectangle{
+    z-index: 1;
     position: absolute;
-    margin-top: -4.5vh;
-    left: 0;
-    right: 0;
+    top: 79%;
+    left: 27%;
+    border-radius: 20px;
+    border: none;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    -moz-backdrop-filter:blur(6px);
+    -o-backdrop-filter:blur(6px);
+    opacity: 1;
+    background-color: hsla(0, 0%, 0%, .25);
+    padding: 10px;
+    font-size: 8px;
+    color: white;
+    
+
 }
 .landingimg{
     margin-top: 5vh;
@@ -571,11 +583,6 @@ a.active, a:hover{
     transition: .5s !important;
 }
 
-.rectangle{
-    padding: 10px;
-    border: 1px solid;
-    border-radius: 5px;
-}
 
 .interestFont{
     color: black;
@@ -654,6 +661,7 @@ font-size: 68px;
     .blended-text-wrapper_text {
     font-size: 45px;
     }
+    
     }
 
 
@@ -750,6 +758,9 @@ font-size: 68px;
         margin-bottom: 5vh;
     }
     
+    .rectangle {
+        display: none;
+    }
     
     .cantraceimg{
     display: none;
