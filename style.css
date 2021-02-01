@@ -655,6 +655,20 @@ a.active, a:hover{
     margin-bottom: 4vh;
     }
 
+
+@media (min-width: 2000px){
+
+.blended-text-wrapper_text {
+font-size: 76px;
+}
+
+    .landingsub {
+        font-size: 24px;
+    }
+}
+    
+    
+
 @media (min-width: 1600px){
 
 .blended-text-wrapper_text {
