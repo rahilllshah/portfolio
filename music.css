@@ -17,6 +17,18 @@ html, body {
     color: black;
 }
 
+.landingtitle {
+    font-size: 5vw;
+    font-weight: 700;
+    color: black;
+}
+
+.landingsub {
+    font-size: 2vw;
+    font-weight: 400;
+}
+
+
 h1{
     font-size: 1vw;
     font-weight: 700;
@@ -26,29 +38,26 @@ h1{
 h2 {
     font-size: 3vw;
     font-weight: 700;
-    line-height: 130%;
 }
 
 h3 {
     font-size: 1.25vw;
     font-weight: 300;
-    line-height: 150%;
+    line-height: 130%;
     color: #737B85;
 }
 
 h4 {
     font-size: 1vw;
     font-weight: 300;
-    line-height: 150%;
+        line-height: 130%;
+
     color: #737B85;
 }
 
-.h4big {
-    font-size: 3vw;
-}
 
 .headimg {
-    width: 100%;
+    max-width: 100%;
 }
 
 
@@ -72,18 +81,24 @@ h4 {
     background-color: #8080E6;
 }
 
-.fullTextO{
+.fullText{
     position: relative;
-    max-width: 78%;
+    max-width: 80%;
     margin: auto;
     text-align: left;
     color: white;
 }
 
-.fullText{
-    opacity: 0.25;
+.fullSub{
+    max-width: 80%;
+    text-align: left;
+    color: white;
 }
 
+.wrapper {
+    width: 100%;
+    margin: auto;
+}
 
 .rectangle {
     background-color: #f2f2f2;
@@ -98,6 +113,16 @@ h4 {
 
 }
 
+.item {
+    background-color: #8080E6;
+    border-radius: 10px;
+    color: white;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-right: 10px;
+}
 
 .landingvideo {
     box-shadow: 0px 3px 15px rgba(0,0,0,0.1);    
@@ -245,18 +270,17 @@ nav{
     z-index: 10;
 }
 
-img.logo {
+img.logo{
     position: fixed;
-    z-index: 2;
-    top: 10px;
-    width: 150px;
-    padding-left: 10px;
-    padding-right: 10px;  
+    top: 17px;
+    width: 56px;
+    padding: 0 20px;
+    
 }
 
 .navL{
     float: left;
-    padding-left: 140px;
+    padding-left: 46px;
 }
 
 .navR{
@@ -316,7 +340,7 @@ a.active, a:hover{
 }   
 
 .footerg{
-    width: 68%;
+    width: 70%;
     margin: auto;
 }
 
@@ -352,15 +376,12 @@ a.active, a:hover{
     padding-bottom: 15vh;
 }
 
-
-
-
 @media (max-width: 920px){
     img.logo {
         position: fixed !important;
-        width: 150px;
-        top:8px;
-        left: 40px;
+        width: 56px;
+        top: 16px;
+        left: 35px;
     }
     
     .checkbtn{

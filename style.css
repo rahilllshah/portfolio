@@ -173,23 +173,24 @@ nav{
     z-index: 10;
 }
 
-img.logo{
+img.logo {
     position: fixed;
-    top: 17px;
-    width: 56px;
-    padding: 0 20px;
-    
+    z-index: 2;
+    top: 10px;
+    width: 150px;
+    padding-left: 10px;
+    padding-right: 10px;  
 }
 
 .navL{
     float: left;
-    padding-left: 46px;
+    padding-left: 140px;
 }
 
 .navR{
     right: 0;
     position:fixed;
-    padding: 0 20px;
+    padding: 0 10px;
     transition: all .2s ease-in-out;
 }
 
@@ -288,9 +289,9 @@ a.active, a:hover{
     
     .landingsub{
         font-size: 18px;
-    text-align: center;
-    max-width: 655px;
-    margin: 0 auto;
+        text-align: center;
+        max-width: 70%;
+        margin: 0 auto;
     }
 
 .rectangle{
@@ -413,17 +414,19 @@ a.active, a:hover{
     color: black;
     position: absolute;
     width: 30%;
-    top: 23%;
+    top: 32%;
     left: 10%;
+    text-align: left;
 }
 
 .cantracesub{
     font-size: 1.2vw;
     color: black;
     position: absolute;
-    width: 40%;
-    top: 62%;
+    width: 30%;
+    top: 44%;
     left: 10%;
+    text-align: left;
 }
 
 .cantraceimg{
@@ -443,7 +446,7 @@ a.active, a:hover{
 
 .cantracebtn {
     position: absolute;
-    top: 70%;
+    top: 60%;
     left: 10%;
     color: dodgerblue;
     transition: .5s !important;
@@ -459,6 +462,58 @@ a.active, a:hover{
     display: none;
     
 }
+
+
+/*Projects*/
+
+.appletitle{
+    font-size: 3vw;
+    color: black;
+    position: absolute;
+    width: 30%;
+    top: 32%;
+    right: 10%;
+    text-align: right;
+}
+
+.applesub{
+    font-size: 1.2vw;
+    color: black;
+    position: absolute;
+    width: 30%;
+    top: 44%;
+    right: 10%;
+    text-align: right;
+}
+
+.appleimg{
+    width: auto ;
+    max-width: 100% ;
+    height: auto ;
+    padding-right: 5vh;
+    padding-left: 5vh;
+    padding-bottom: 5vh;
+    transition: transform 0.25s ease;
+}
+.appleimg:hover{
+        transition: transform 0.25s ease;
+  transform: scale(1.11);
+}
+
+
+.applebtn {
+    position: absolute;
+    top: 52%;
+    right: 10%;
+    color: dodgerblue;
+    transition: .5s !important;
+}
+
+.applebtn:hover {
+    color: black;
+    transition: .5s !important;
+}
+
 
 
 /*Delta*/
@@ -516,7 +571,7 @@ a.active, a:hover{
     
 }
 
-.ravnosimgmobile{
+.appleimgmobile{
     display: none;
 }
 
@@ -532,56 +587,6 @@ a.active, a:hover{
     padding-top: 1vh;
 }
 
-
-/*Projects*/
-
-.ravnostitle{
-    font-size: 3vw;
-    color: black;
-    position: absolute;
-    width: 30%;
-    top: 32%;
-    right: 10%;
-    text-align: right;
-}
-
-.ravnossub{
-    font-size: 1.2vw;
-    color: black;
-    position: absolute;
-    width: 30%;
-    top: 44%;
-    right: 10%;
-    text-align: right;
-}
-
-.ravnosimg{
-    width: auto ;
-    max-width: 100% ;
-    height: auto ;
-    padding-right: 5vh;
-    padding-left: 5vh;
-    padding-bottom: 5vh;
-    transition: transform 0.25s ease;
-}
-.ravnosimg:hover{
-        transition: transform 0.25s ease;
-  transform: scale(1.11);
-}
-
-
-.ravnosbtn {
-    position: absolute;
-    top: 57%;
-    right: 10%;
-    color: dodgerblue;
-    transition: .5s !important;
-}
-
-.ravnosbtn:hover {
-    color: black;
-    transition: .5s !important;
-}
 
 
 .interestFont{
@@ -655,12 +660,20 @@ a.active, a:hover{
 .blended-text-wrapper_text {
 font-size: 68px;
 }
+    
+        .landingsub{
+        font-size: 18px;
+        }
 }
 
 @media (max-width: 1250px){
     .blended-text-wrapper_text {
     font-size: 45px;
     }
+    
+    .landingsub{
+        font-size: 14px;
+        }
     
     }
 
@@ -669,9 +682,9 @@ font-size: 68px;
 @media (max-width: 920px){
     img.logo {
         position: fixed !important;
-        width: 56px;
-        top: 16px;
-        left: 35px;
+        width: 150px;
+        top:8px;
+        left: 40px;
     }
     
     
@@ -741,7 +754,7 @@ font-size: 68px;
     }
     
     .landingsub {
-        font-size: 18px;
+        font-size: 14px;
         width: 90%;
     }
     
@@ -789,7 +802,7 @@ font-size: 68px;
         width: 80%;
         font-size: 4vw;
         color: black;
-        top: 16%;
+        top: 14%;
 }
 
 .cantracesub{
@@ -798,7 +811,7 @@ font-size: 68px;
         width: 80%;
         font-size: 2vw;
         color: black;
-        top: 26%;
+        top: 20%;
     }
     
     .cantracebtn {
@@ -806,12 +819,62 @@ font-size: 68px;
         text-align: center;
         width: 80%;
         font-size: 3vw;
-        top: 32%;
+        top: 27%;
         color: dodgerblue;
         transition: .5s !important;
 }
     
     
+    
+    
+    .appletitle{
+        position: absolute;
+        text-align: center;
+        width: 80%;
+        font-size: 4vw;
+        color: black;
+        top: 14%;
+}
+    
+    
+
+    .applesub{
+        position: absolute;
+        text-align: center;
+        width: 80%;
+        font-size: 2vw;
+        color: black;
+        top: 20%;
+}
+    
+     .applebtn {
+        position: absolute;
+        text-align: center;
+        width: 80%;
+        font-size: 3vw;
+        top: 27%;
+        color: dodgerblue;
+        transition: .5s !important;
+}
+    
+        .applebtn:hover {
+    color: white;
+    transition: .5s !important;
+}
+    
+    .appleimg{
+        display: none;
+    }
+     .appleimgmobile{
+        display: block;
+        max-width: 100%;
+        height: auto;
+        padding-left: 0;
+        padding-right: 0;
+        padding-bottom: 5vh;
+    }
+    
+
     .deltaimg{
     display: none;
         
@@ -859,54 +922,6 @@ font-size: 68px;
         transition: .5s !important;
 }
     
-    .ravnostitle{
-        position: absolute;
-        text-align: center;
-        width: 80%;
-        font-size: 4vw;
-        color: white;
-        top: 10%;
-}
-    
-    
-
-    .ravnossub{
-        position: absolute;
-        text-align: center;
-        width: 80%;
-        font-size: 2vw;
-        color: white;
-        top: 15%;
-}
-    
-     .ravnosbtn {
-        position: absolute;
-        text-align: center;
-        width: 80%;
-        font-size: 3vw;
-        top: 22%;
-        color: white;
-        transition: .5s !important;
-}
-    
-        .ravnosbtn:hover {
-    color: white;
-    transition: .5s !important;
-}
-    
-    .ravnosimg{
-        display: none;
-    }
-     .ravnosimgmobile{
-        display: block;
-        max-width: 100%;
-        height: auto;
-        padding-left: 0;
-        padding-right: 0;
-        padding-bottom: 5vh;
-    }
-    
-
     
     .worktitle{
         margin-bottom: 5vh;

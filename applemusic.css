@@ -43,9 +43,6 @@ h4 {
     color: #737B85;
 }
 
-.h4big {
-    font-size: 3vw;
-}
 
 .headimg {
     width: 100%;
@@ -69,7 +66,7 @@ h4 {
     padding: 100px;
     margin: auto;
     margin-top: 15vh;
-    background-color: #8080E6;
+    background-color: #000000;
 }
 
 .fullTextO{
