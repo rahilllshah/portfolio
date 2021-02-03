@@ -47,6 +47,13 @@ h4 {
     font-size: 3vw;
 }
 
+h5 {
+    font-size: 1.25vw;
+    font-weight: 300;
+    line-height: 150%;
+    color: #000000;
+}
+
 .headimg {
     width: 100%;
 }

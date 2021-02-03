@@ -461,7 +461,13 @@ h4 {
 
     color: #737B85;
 }
-    
+
+h5 {
+    font-size: 1.25vw;
+    font-weight: 300;
+    line-height: 150%;
+    color: #000000;
+}
  
 }
 
