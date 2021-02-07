@@ -12,7 +12,7 @@ html, body {
 /*Global Font Formats and Containers*/
 
 h1 {
-    font-size: 3vw;
+    font-size: 2.5vw;
 }
 
 h2 {
@@ -21,11 +21,6 @@ h2 {
     margin: 2vh auto;
     color: gray;
     line-height: 150%;
-}
-
-p {
-    font-size: 1.25vw;
-    color: gray;
 }
 
 
@@ -302,7 +297,7 @@ a.active, a:hover{
         align-items: center;
         position: fixed;
         width: 100%;
-        height: 85vh;
+        height: 100vh;
         backdrop-filter: blur(6px);
         -webkit-backdrop-filter: blur(6px);
         -moz-backdrop-filter: blur(6px);
@@ -323,7 +318,7 @@ a.active, a:hover{
     }
     
     h1 {
-        font-size: 4vw;
+        font-size: 5vw;
     }
 
     h2 {

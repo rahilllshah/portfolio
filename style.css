@@ -11,11 +11,17 @@ html, body {
 
 /*Global Font Formats and Containers*/
 
-p {
-    font-size: 1.25vw;
-    color: gray;
+h1 {
+    font-size: 2.5vw;
 }
 
+h2 {
+    font-weight: 400;
+    font-size: 1.25vw;
+    margin: 2vh auto;
+    color: gray;
+    line-height: 150%;
+}
 
 .container{
     max-width: 80%;
@@ -153,9 +159,9 @@ nav{
 }
 
 img.logo{
-    position: fixed;
-    display: inline-block;
-    top: 19px;
+    position: fixed !important;
+    display: inline-block !important;
+    top: 19px !important;
     width: 60px;
     padding: 0 20px;
     transition: .25s;
@@ -401,6 +407,13 @@ a.active, a:hover{
 
 @media (max-width: 920px){
   
+    h1 {
+        font-size: 5vw;
+    }
+    
+    h2 {
+        font-size: 3vw;
+    }
     
     img.logo {
         display: inline-block;
@@ -421,7 +434,7 @@ a.active, a:hover{
         align-items: center;
         position: fixed;
         width: 100%;
-        height: 80vh;
+        height: 100vh;
         backdrop-filter: blur(6px);
         -webkit-backdrop-filter: blur(6px);
         -moz-backdrop-filter: blur(6px);
@@ -501,9 +514,7 @@ a.active, a:hover{
         margin-bottom: 5vh;
     }
     
-    .miniT{
-        font-size: 3vw;
-    }
+
     
     
 @media (max-width: 760px){
