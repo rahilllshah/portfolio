@@ -281,6 +281,10 @@ a.active, a:hover{
 
 @media (max-width: 1000px){
   
+    img.logo {
+        display: none;
+    }
+    
     .checkbtn{
         display: block;
     }
