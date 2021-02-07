@@ -11,6 +11,18 @@ html, body {
 
 /*Global Font Formats and Containers*/
 
+h1 {
+    font-size: 3vw;
+}
+
+h2 {
+    font-weight: 400;
+    font-size: 1.25vw;
+    margin: 2vh auto;
+    color: gray;
+    line-height: 150%;
+}
+
 p {
     font-size: 1.25vw;
     color: gray;
@@ -18,15 +30,67 @@ p {
 
 
 .container{
-    max-width: 80%;
+    padding-top: 25vh;
+    max-width: 70%;
+    height: 80vh;
+    margin: auto;
+}
+
+.container2{
+    padding-top: 15vh;
+    max-width: 70%;
     margin: auto;
 }
 
 .background {
     margin: auto;
     background-color: whitesmoke;
-
 }
+
+.me {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    box-shadow: 4px 4px 40px 4px rgba(0, 0, 0, 0.2);
+    transition: .5s;
+    border-radius: 100%;
+}
+
+.float {
+  -moz-animation: float 2s infinite;
+  -webkit-animation: float 2s infinite;
+  animation: float 2s infinite;
+}
+
+@keyframes float {
+    
+  0% {
+    transform: translateY(0px);
+  }
+  
+  50% {
+    transform: translateY(10px);
+  } 
+}
+
+.me2 {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    box-shadow: 4px 4px 40px 4px rgba(0, 0, 0, 0.2);
+    transition: .5s;
+    border-radius: 100%;
+}
+
+
+.me2:hover{
+    box-shadow: 4px 4px 40px 4px rgba(0, 0, 0, 0.3);
+    transform: scale(1.01);
+    transition: .5s;
+}
+
 
 /*Nav*/
 
@@ -201,137 +265,16 @@ a.active, a:hover{
 }
 
 
-
-/*Landing*/
-
-.landing{
-    text-align: center;
-    height: 90vh;
-    width: 70%;
-    margin: auto;
+.interestFont{
+    color: black;
+    font-size: 40px;
 }
 
-.landingtitle{
-        margin: auto;
-        max-width: 85%;
-    }
-
-.blended-text-wrapper {
-    position: relative;
-    width: 100%;
-    margin: 20vh auto 0px;
-}
-
-.blended-text-wrapper_video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 99%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.blended-text-wrapper_text {
-    -webkit-animation: anim-text-color 16s linear infinite;
-    animation: anim-text-color 16s linear infinite;
-    background-color: #fff;
-    mix-blend-mode: lighten;
-    font-size: 5.5vw;
-    font-weight: 700;
-    letter-spacing: -.02em;
-}
-    
-.landingsub{
-    font-size: 1.25vw;
-    text-align: center;
-    max-width: 70%;
-    margin: 2vh auto;
-    color: gray;
-}
-
-
-.arrow a { 
-    font-size: 2vw;
-    color: lightgray;
-    opacity: 0.5;
-    text-decoration: none;
-    text-align: center;
-    margin: 10vh auto;
-}
-
-.bounce {
-  -moz-animation: bounce 2s infinite;
-  -webkit-animation: bounce 2s infinite;
-  animation: bounce 2s infinite;
-}
-
-@keyframes bounce {
-  0%, 20%, 50%, 80%, 100% {
-    transform: translateY(0);
-  }
-  40% {
-    transform: translateY(-30px);
-  }
-  60% {
-    transform: translateY(-15px);
-  }
-}
-
-
-/*CanTrace*/
-
-
-.cantraceimg{
-    width: 100%;
-    border-radius: 15px;
-    margin-top: 5vh;
-    margin-bottom: 5vh;
-    transition:  .5s ease;
-}
-
-.cantraceimg:hover{
-    transition: .5s ease;
-    cursor: pointer;
-    box-shadow: 4px 4px 40px 4px rgba(0, 0, 0, 0.3);
-
-}
-
-.cantraceimgmobile{
-    display: none;
-    
-}
-
-/* Apple */
-
-.appleimg{
-    width: 100%;
-    border-radius: 15px;
-    margin-top: 5vh;
-    margin-bottom: 5vh;
-    transition:  0.5s ease;
-}
-
-.appleimg:hover{
-    transition: 0.5s ease;
-    cursor: pointer;
-    box-shadow: 4px 4px 40px 4px rgba(0, 0, 0, 0.3);
-}
-
-
-.cantraceimgmobile{
-    display: none;
-    
-}
-
-.appleimgmobile{
-    display: none;
-}
 
 
 /*Footer*/
 
 .footer{
-    background-color: whitesmoke;
     width: 100%;
     margin: auto;
     text-align: center;
@@ -339,56 +282,9 @@ a.active, a:hover{
     padding-bottom: 15vh;
 }
 
-@media (min-width: 2000px){
-
-    .blended-text-wrapper_text {
-        font-size: 5.5vw;
-    }
-    
-    .landingsub{
-        font-size: 1.25vw;
-    }
-    
-    .arrow a {
-        font-size: 2vw;
-    }
-    
-}
-    
-
-@media (min-width: 1600px){
-
-    .blended-text-wrapper_text {
-        font-size: 5.5vw;
-    }
-    
-    .landingsub{
-        font-size: 1.25vw;
-    }
-    
-    .arrow a {
-        font-size: 2vw;
-    }
-
-}
-
-@media (max-width: 1250px){
-    .blended-text-wrapper_text {
-        font-size: 7vw;
-    }
-    
-    .landingsub{
-        font-size: 2vw;
-    }
-    
-    .arrow a {
-        font-size: 4vw;
-    }
-    
-}
 
 
-@media (max-width: 920px){
+@media (max-width: 1000px){
   
     .checkbtn{
         display: block;
@@ -425,77 +321,35 @@ a.active, a:hover{
         width: 90%;
         margin: 3vw 5%;
     }
-
-    .blended-text-wrapper_text {
-        font-size: 7vw;
-    }
     
-    .landingsub {
-        font-size: 3vw;
-    }
-    
-    .arrow a {
-        font-size: 4vw;
-    }
-    
-    .cantraceimg{
-        display: none;
-    }
-    
-    .cantraceimgmobile{
-        display: block;
-        max-width: 100%;
-        height: auto;
-        margin-top: 5vh;
-        margin-bottom: 5vh;
-        transition: .5s;
-        border-radius: 10px;
-    }
-    
-    .cantraceimgmobile:hover{
-        transition: 0.5s ease;
-        cursor: pointer;
-        box-shadow: 4px 4px 40px 4px rgba(0, 0, 0, 0.3);
-
-    }
-    
-    
-    .appleimg {
-        display: none;
-    }
-    
-     .appleimgmobile{
-        display: block;
-        max-width: 100%;
-        height: auto;
-        margin-top: 5vh;
-        margin-bottom: 5vh;
-        transition: .5s;
-        border-radius: 10px;
-    }
-    
-    .appleimgmobile:hover{
-        transition: .5s;
-        cursor: pointer;
-        box-shadow: 4px 4px 40px 4px rgba(0, 0, 0, 0.3);
-
-    }
-    
-    
-@media (max-width: 760px){
-
-    .blended-text-wrapper_text {
-        font-size: 8vw;
-    }
-    
-    .landingsub{
-        font-size: 3vw;
-    }
-    
-    .arrow a {
+    h1 {
         font-size: 4vw;
     }
 
-}
+    h2 {
+        font-size: 3vw;
+    }
     
+    .container {
+        padding-top: 15vh;
+        height: 100vh;
+    }
+    
+    .me {
+        width: 50%;
+    }
+    
+    .aboutT{
+        text-align: center;
+        margin-top: 5vh;
+    }
+    
+    .container2{
+        margin-top: 20vh;
+    }
+    
+    .askT {
+        text-align: center;
+        margin-bottom: 5vh;
+    }
     

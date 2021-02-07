@@ -25,15 +25,11 @@
     </head>
 	
     <body>
-                  <script>
-        window.onload = function() {
+    <div class="row">
+        <div class="col-12">
+        <nav>        
             
-                $(".play-btn .play-img").fadeOut();
-                            $(".play-btn .pause-img").fadeIn();
-        };
             
-        </script>
-        <nav>
             <input type="checkbox" id="check">
             <label for="check" class="checkbtn">
             <div id="nav-icon">
@@ -51,314 +47,82 @@
                    });
                 });        
             </script>
-            
-                <img class="logo" src="Images/Logo.png">
-
-                <ul class="navL">
-                    
-                <li><a href="#section1" class="section1-marker active">Home</a></li>       
-                <li><a href="#section2" class="section2-marker">Work</a></li> 
-                <li><a href="#section4" class="section4-marker">Hobbies & Interests</a></li>   
-                <li><a href="#section5" class="section5-marker">Skills</a></li>
-                
-                </ul>
+            <ul class="navL">
+                <a href="#section1" class="section1-marker"> <img class="logo" src="Images/Logo.png"></a></ul>
             
                 <ul class="navR">
                     
-                <li><a href="RahilShah_Resume.pdf" target="_blank" class="three"><i class="fas fa-file navFontBlack"></i></a></li>
-                <li><a href="mailto: rahil190@gmail.com" target="_blank" class="three"><i class="fas fa-envelope navFontBlack"></i></a></li>
-                <li><a href="https://www.linkedin.com/in/rahilllshah" target="_blank" class="three"><i class="fab fa-linkedin-in navFontBlack"></i></a></li>
-                <li><a href="https://www.instagram.com/rahilspalette/" target="_blank" class="three"><i class="fab fa-instagram navFontBlack"></i></a></li>
+                <li><a href="aboutme.html">About Me</a></li>
+                <li><a href="RahilShah_Resume.pdf" target="_blank">Resume</a></li>
+                <li><a>|</a></li>
+                <li><a href="mailto: rahil190@gmail.com" target="_blank"><i class="fas fa-envelope"></i></a></li>
+                <li><a href="https://www.linkedin.com/in/rahilllshah" target="_blank"><i class="fab fa-linkedin-in "></i></a></li>
+                <li><a href="https://www.instagram.com/rahilspalette/" target="_blank"><i class="fab fa-instagram"></i></a></li>
                     
                 </ul>
         </nav>
-                
-        <section class="section1" id="section1">  
-            <div class="row hero">  
-                <div class="col-12 landing">
-                    <div class="blended-text-wrapper">
-                    <video autoplay loop class="blended-text-wrapper_video" muted plays-inline><source src="gradients-bg.mp4" type='video/mp4;'></video>
-                    <h1 class="blended-text-wrapper_text">Creating elegant product experiences</h1>
-                    </div>
-                    <p class="landingsub">I'm a passionate designer and developer with the goal to radiate core value and elegance through my work.</p>
-                    
-                    <video id="videoo" class="landingimg" autoplay="" muted=""><source src="landing%20vid.mp4" type='video/mp4;'></video>
-                                        
-                    <img class="landingimgmobile" src="Images/Mobile%20Laptop.png">
-                    
-                    <div>
-                    <a href="javascript:void(0)" class="play-btn">
-                        <img class="play-img" src="Images/play.png">
-                        <img class="pause-img" src="Images/pause.png">
-                        <img class="replay-img" id="replay" src="Images/replay.png">
-                        <img class="back-img" id="back" src="Images/back.png">
-                        <img class="circle-img" id="circle" src="Images/circle_1.png">
-                        <p class="time"><span id="demo"></span>s</p>
-
-                        </a>
-
-                    </div>
-
-                    
                 </div>
+        </div>
+        
+        <section class="section1" id="section1">  
+            
+            <div class="row landing">  
+                
+                <div class="col-12">
+                    <div class="blended-text-wrapper">
+                    
+                        <video autoplay loop class="blended-text-wrapper_video" muted plays-inline><source src="gradients-bg.mp4" type='video/mp4;'></video>
+                    
+                        <h1 class="blended-text-wrapper_text">Creating elegant<br>product experiences</h1>
+                    
+                    </div>
+                    
+                    <p class="landingsub">Hello! My name is Rahil. I'm a passionate designer and developer with the goal to radiate core business value and elegance through my work.</p>
+                    
+                    <div class="arrow bounce">
+                    <a class="fas fa-chevron-down fa-2x" href="#"></a>
+                    </div>
+                
+                </div>
+                
+             
+                                        
+
+                    
+                
             </div>       
         </section>
-  
-        
-        <script>
-        $(document).ready(function() {
-                          $(".play-btn .play-img").on('click', function(){
-                            $(".play-btn .play-img").fadeOut();
-                            $(".play-btn .pause-img").fadeIn();
-                            $("#videoo")[0].play();
-                              
-                                                      });
-            $(".play-btn .pause-img").on('click', function(){
-                            $(".play-btn .play-img").fadeIn();
-                            $(".play-btn .pause-img").fadeOut();
-                            $("#videoo")[0].pause();
-                              
-                                                      });
-            
-        
-            
-            
-            // when video is playing
-            $("#videoo")[0].onplay = function(){
-                $(".play-btn .play-img").fadeOut();
-                            $(".play-btn .pause-img").fadeIn();
-            };
-            
-            // when video has ended
-            $("#videoo")[0].onended = function(){
-               $(".play-btn .play-img").fadeIn();
-                            $(".play-btn .pause-img").fadeOut();
-            };
-                          });
-        </script>
-        
-
 
         
-        <script>
         
-        var media=document.querySelector("#videoo");
-
-            replay.addEventListener("click",function(){
-    media.currentTime = 0;
-            });
-        </script>
-        
-        
-              <script>
-        
-        var media1=document.querySelector("#videoo");
-
-            back.addEventListener("click",function(){
-                media1.currentTime = media1.currentTime - 2;
-            });
-        </script>
-        
-        <script>
-          // Get the video element with id="myVideo"
-            var vid = document.getElementById("videoo");
-
-            // Assign an ontimeupdate event to the video element, and execute a function if the current playback position has changed
-            vid.ontimeupdate = function() {myFunction()};
-
-            function myFunction() {
-              // Display the current position of the video in a p element with id="demo"
-                var x = vid.duration - vid.currentTime
-              document.getElementById("demo").innerHTML = x.toFixed(0);
-                          }
-        </script>
-        
-        <section class="section2" id="section2">
-            <div class="contain">
-            <div class="row">
+        <div class="background">
+            <div class="row container">
                 <div class="col-12">
-                    <img class="cantraceimg" src="Images/cantrace%20web.png">
+                    <a href="https://rahil.me/cantrace" title="CanTrace">
+                    <img class="cantraceimg"  src="Images/cantrace%20web.png"></a>
                     <img class="cantraceimgmobile" src="Images/cantrace%20mobile.png">
                     
-                    <h1 class="cantracetitle">CanTrace</h1>
-                    <p class="cantracesub">A healthcare driven contact tracing app to mitigate the spread of COVID-19. Presented to the provincial and federal government of Canada.</p>
-                    
-                    
-                    <a class="cantracebtn link" href="https://rahil.me/cantrace" title="cantrace" target="_blank">View <i class="fas fa-arrow-circle-right"></i></a>
                 </div>            
         
             </div>
-        
-                <div class="row part2">
+        </div>
                 
-                
+        <div class="background">
+            <div class="row container">
                 <div class="col-12">
-                    <img class="appleimg" src="Images/apple%20music%20web.png">
-                    <img class="appleimgmobile" src="Images/apple%20music%20mobile.png">
-                    
-                    <h1 class="appletitle">Apple Music</h1>
-                    <p class="applesub">Reimagining the experience.</p>
-                    
-                    <a class="applebtn link" href="https://rahil.me/applemusic" title="Apple Music" target="_blank">View <i class="fas fa-arrow-circle-right"></i></a>
+                    <a href="https://rahil.me/applemusic" title="Apple Music"> <img class="appleimg" src="Images/apple%20music%20web.png"> </a>
+                    <img class="appleimgmobile" src="Images/apple%20music%20mobile.png">                   
                 </div>    
-                
-                </div>
-                
-            <div class="row part2">
-                
-                      <div class="col-12">
-                    <img class="deltaimg" src="Images/delta%20web_1.png">
-                    <img class="deltaimgmobile" src="Images/delta%20mobile_1.png">
-                    
-                    <h1 class="deltatitle">DeltaHacks VI<br>Design Journey</h1>
-                    <p class="deltasub">A reflection of my experience as the product design lead<br> of one of Canada's largest hackathons!</p>
-                    
-                    
-                    <a class="deltabtn link" href="https://www.behance.net/gallery/91565049/DeltaHacks-VI-Design-Journey" target="_blank">View <i class="fas fa-arrow-circle-right"></i></a>
-                </div>   
-        
             </div>
-                </div>
-                </section>
-
-        <section class="section4" id="section4">
-            <div class="contain2">
-                <div class="interests-title pb-5">
-                    <h1 class="intereststitle">Stuff I love</h1>
-                </div>
-       
-                <div class="row grid">
-                    <div class="col-sm-4">
-                            <div class="img">
-                                <i class="fas fa-palette interestFont"></i>
-                            </div>
-                            <div class="interestTitle py-4">
-                                <h4>Design &amp Development</h4>
-                                <span class="text-secondary">It's what defines me as a person - I've loved to design and code ever since I was a little kid. I like to imagine, think different, and create striving for a beautiful result.</span>
-                            </div>
-                    </div>
-                    <div class="col-sm-4">
-                            <div class="img">
-                                <i class="fas fa-hockey-puck interestFont"></i>
-                            </div>
-                            <div class="interestTitle py-4">
-                                <h4>Hockey</h4>
-                                <span class="text-secondary">The Toronto Maple Leafs, I'm their #1 fan and hope to always be.  I have a lot of fun watching and playing hockey with my friends too.</span>
-                            </div>
-                    </div>
-                    <div class="col-sm-4">
-                            <div class="img">
-                                <i class="fas fa-futbol interestFont"></i>
-                            </div>
-                            <div class="interestTitle py-4">
-                                <h4>Soccer</h4>
-                                <span class="text-secondary">Been a part of me since the beginning. I was fortunate to captain teams and lead a few to championships; it taught me great leadership and teamwork.</span>
-                            </div>
-                    </div>
-                    <div class="col-sm-4">
-                            <div class="img">
-                                <i class="fas fa-route interestFont"></i>
-                            </div>
-                            <div class="interestTitle py-4">
-                                <h4>Traveling</h4>
-                                <span class="text-secondary">Adventures galore, I love exploring. Hiking on camping trips, kayaking on cottage trips, driving for hours on road trips - I'm up for it.</span>
-                            </div>
-                    </div>
-                    <div class="col-sm-4">
-                            <div class="img">
-                                <i class="fas fa-hands-helping interestFont"></i>
-                            </div>
-                            <div class="interestTitle py-4">
-                                <h4>Volunteering</h4>
-                                <span class="text-secondary">I'm big on giving back to the community in whatever way I can. Making a positive difference in this world has been a motto of mine since day one. </span>
-                            </div>
-                    </div>
-                    <div class="col-sm-4">
-                            <div class="img">
-                                <i class="fas fa-music interestFont"></i>
-                            </div>
-                            <div class="interestTitle py-4">
-                                <h4>Music</h4>
-                                <span class="text-secondary">I don't really have a genre I like, I listen to all kinds of music and love sharing music. Some inspire me and some don't but music definitely puts me in another dimension.</span>
-                            </div>
-                    </div>
-                    
-                </div>
-                    
-          </div>
-        </section>
-        
-        <section class="section5" id="section5">
-        <div class="contain3">
-                <div class="interests-title pb-5">
-                    <h1 class="toolkittitle">The toolkit</h1>
-                </div>
-       
-                <div class="row grid">
-                    <div class="col-sm-4">
-                            <div class="interestTitle py-4">
-                                <h4>Design & Prototyping</h4>
-                                <span class="text-secondary">Adobe XD, Illustrator, Photoshop, Premiere Pro, Figma, InVision, Origami<br><br>Wireframing, Lo/Hi-fi Mockups, Interaction Design, Prototyping, Sketching, Usability Testing, User Flow, User Research, Visual Design</span>
-                            </div>
-                    </div>
-                    <div class="col-sm-4">
-                    
-                            <div class="interestTitle py-4">
-                                <h4>Development</h4>
-                                <span class="text-secondary">HTML/CSS, JavaScript, Python, Java, Haskell, Bash, Git</span>
-                            </div>
-                    </div>
-                    <div class="col-sm-4">
-                    
-                            <div class="interestTitle py-4">
-                                <h4>Soft Skills</h4>
-                                <span class="text-secondary">Strong work ethic, creativity, positivity, adaptability, communication, organization, leadership, problem-solving</span>
-                            </div>
-                    </div>
-                    
-                    
-                </div>
-                    
-          </div>
-        </section>
-        
-        
-        <section class="section6" id="section6">
-        <div class="contain3">
-                <div class="connect-title pb-5">
-                    <h1 class="connecttitle">This doesn't have to end, let's connect</h1>
-                </div>
-       
-                <div class="row grid">
-                    <div class="col-lg-4 col-md-6 col-sm-12">
-                            <div>
-                                <h5><a href="mailto: rahil190@gmail.com" target="_blank" class="connectt"><i class="fas fa-envelope connectFont"></i> &nbsp; rahil190@gmail.com</a></h5>
-                            </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-12">
-                            <div>
-                                <h5><a href="https://www.linkedin.com/in/rahilllshah" target="_blank" class="connectt"><i class="fab fa-linkedin-in connectFont"></i> &nbsp; /in/rahilllshah</a></h5>
-                            </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-12">
-                            <div>
-                                <h5><a href="https://www.instagram.com/rahilspalette/" target="_blank" class="connectt"><i class="fab fa-instagram connectFont"></i> &nbsp; rahilspalette</a></h5>
-                            </div>
-                    </div>
-                    
-                </div>
-                    
-          </div>
-        </section>
-
+        </div>
         
         <div class="footer">
-        <span class="text-secondary">Designed and developed with 💙&nbsp;by Rahil Shah <br>&#169; 2021 Rahil Shah's Portfolio</span>
+            <a class="mt-3 footerT">Built with 💙&nbsp;by me!<br>&#169; 2021 Rahil Shah's Portfolio</a>
         </div>
         
 		<script>
 			(function() {
-                var navLinks = $('nav ul li a'),
+                var navLinks = $('nav a'),
                     navH = $('nav').height(),
                     section = $('section'),
                     documentEl = $(document);
@@ -378,7 +142,7 @@
 
         <script>
         $(document).ready(function(){ 
-            $('nav ul li a').click(function() { 
+            $('nav a').click(function() { 
                 if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) { 
                     var $target = $(this.hash); 
                     $target = $target.length && $target || $('[name=' + this.hash.slice(1) +']'); 
