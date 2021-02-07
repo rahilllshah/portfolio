@@ -159,9 +159,8 @@ nav{
 }
 
 img.logo{
-    position: fixed !important;
-    display: inline-block !important;
-    top: 19px !important;
+    position: fixed;
+    top: 17px;
     width: 60px;
     padding: 0 20px;
     transition: .25s;
@@ -415,9 +414,6 @@ a.active, a:hover{
         font-size: 3vw;
     }
     
-    img.logo {
-        top: 19px !important;
-    }
     .checkbtn{
         display: block;
     }
