@@ -416,7 +416,7 @@ a.active, a:hover{
     }
     
     img.logo {
-        display: inline-block;
+        top: 19px;
     }
     .checkbtn{
         display: block;
