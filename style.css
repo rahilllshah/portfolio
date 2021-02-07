@@ -416,7 +416,7 @@ a.active, a:hover{
     }
     
     img.logo {
-        top: 19px;
+        top: 19px !important;
     }
     .checkbtn{
         display: block;
