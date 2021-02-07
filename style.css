@@ -159,9 +159,9 @@ nav{
 }
 
 img.logo{
-    display: inline-block !important;
-    position: fixed !important;
-    top: 17px !important;
+    position: fixed;
+    display: inline-block;
+    top: 19px;
     width: 60px;
     padding: 0 20px;
     transition: .25s;
