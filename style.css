@@ -390,6 +390,10 @@ a.active, a:hover{
 
 @media (max-width: 920px){
   
+    
+    img.logo {
+        display: inline-block;
+    }
     .checkbtn{
         display: block;
     }
@@ -406,7 +410,7 @@ a.active, a:hover{
         align-items: center;
         position: fixed;
         width: 100%;
-        height: 85vh;
+        height: 80vh;
         backdrop-filter: blur(6px);
         -webkit-backdrop-filter: blur(6px);
         -moz-backdrop-filter: blur(6px);
