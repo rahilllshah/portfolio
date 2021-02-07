@@ -406,6 +406,10 @@ a.active, a:hover{
 
 @media (max-width: 920px){
   
+    img.logo {
+        top: 34px;
+    }
+    
     h1 {
         font-size: 5vw;
     }
