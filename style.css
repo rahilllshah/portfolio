@@ -524,6 +524,12 @@ a:hover{
     nav {
         width: 90%;
         margin: 3vw 5%;
+        height: 60px;
+    }
+    
+    nav ul li a {
+        font-size: 2vw;
+        
     }
 
     .blended-text-wrapper_text {
