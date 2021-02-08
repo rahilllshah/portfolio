@@ -324,6 +324,10 @@ a.active, a:hover{
         display: none;
     }
     
+    .line {
+        display: none;
+    }
+    
     .darkmode--activated img.logoW {
         display: none;
     }
