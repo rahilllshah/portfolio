@@ -157,8 +157,8 @@ nav{
     box-shadow: 4px 4px 40px 4px rgba(0, 0, 0, 0.05);
     width: 70%;
     margin: 3vw 15%;
-    height: 60px;
-    border-radius: 10px;
+    height: 4.2vw;
+    border-radius: 0.75vw;
     z-index: 10;
     transition: .1s;
 }
@@ -171,9 +171,9 @@ nav{
 img.logo{
     position: fixed;
     display: inline-block;
-    margin-top: 19px;
-    width: 60px;
-    padding: 0 20px;
+    margin-top: 1.2vw;
+    width: 4vw;
+    padding: 0 1.2vw;
     transition: .25s;
 }
 
@@ -194,9 +194,9 @@ img.logoW {
 .darkmode--activated img.logoW {
     position: fixed;
     display: inline-block;
-    margin-top: 19px;
-    width: 60px;
-    padding: 0 20px;
+    margin-top: 1.2vw;
+    width: 4vw;
+    padding: 0 1.2vw;
     transition: .25s;
 }
 
@@ -207,29 +207,24 @@ img.logoW {
 }
 
 
-.navR{
+.navR {
     right: 0;
-    position:absolute;
-    display: inline-block;
+    position: fixed;
     bottom: -18px;
-    padding: 0px 10px;
-    transition: all .25s ease-in-out;
+    margin-right: 10px;
+
 }
-
-
 
 nav ul li{
     display: inline;
-    line-height: 60px;
-    margin: 0 5px;
-    
+    padding: 1vw;
 }
 
 nav ul li a {
     font-weight: 300;
     color: gray;
-    font-size: 14px;
-    padding: 0 10px;
+    line-height: 4.2vw;
+    font-size: 1vw;
     text-decoration: none !important;
     transition: .5s;
 }
@@ -338,7 +333,7 @@ a:hover{
 
 .cantraceimg{
     width: 100%;
-    border-radius: 15px;
+    border-radius: 1vw;
     margin-top: 5vh;
     margin-bottom: 5vh;
     transition:  .5s ease;
@@ -360,7 +355,7 @@ a:hover{
 
 .appleimg{
     width: 100%;
-    border-radius: 15px;
+    border-radius: 1vw;
     margin-top: 5vh;
     margin-bottom: 5vh;
     transition:  0.5s ease;
@@ -382,9 +377,15 @@ a:hover{
     display: none;
 }
 
+.miniT {
+    margin-top: 5vh;
+    margin-bottom: 7vh;
+    text-align: center;
+}
+
 .mini {
     width: 100%;
-    border-radius: 15px;
+    border-radius: 1vw;
     transition:  0.5s ease;
 }
 
@@ -407,6 +408,12 @@ a:hover{
 .ft {
     isolation: isolate;
 }
+
+
+
+
+
+
 
 @media (min-width: 2000px){
 
@@ -573,20 +580,10 @@ a:hover{
         box-shadow: 4px 4px 40px 4px rgba(0, 0, 0, 0.3);
 
     }
-    
-    .mini {
-        margin-top: 5vh;
-        margin-bottom: 5vh;
-    }
-    
 
     
     
 @media (max-width: 760px){
-    
-    img.logo {
-        display: none;
-    }
 
     .blended-text-wrapper_text {
         font-size: 8.5vw;
