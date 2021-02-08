@@ -157,7 +157,7 @@ nav{
     box-shadow: 4px 4px 40px 4px rgba(0, 0, 0, 0.05);
     width: 70%;
     margin: 3vw 15%;
-    height: 4.2vw;
+    height: 60px;
     border-radius: 0.75vw;
     z-index: 10;
     transition: .1s;
@@ -171,9 +171,9 @@ nav{
 img.logo{
     position: fixed;
     display: inline-block;
-    margin-top: 1.2vw;
-    width: 4vw;
-    padding: 0 1.2vw;
+    margin-top: 19px;
+    width: 60px;
+    padding: 0 20px;
     transition: .25s;
 }
 
@@ -194,9 +194,9 @@ img.logoW {
 .darkmode--activated img.logoW {
     position: fixed;
     display: inline-block;
-    margin-top: 1.2vw;
-    width: 4vw;
-    padding: 0 1.2vw;
+    margin-top: 19px;
+    width: 60px;
+    padding: 0 20px;
     transition: .25s;
 }
 
@@ -207,24 +207,29 @@ img.logoW {
 }
 
 
-.navR {
+.navR{
     right: 0;
-    position: fixed;
+    position:absolute;
+    display: inline-block;
     bottom: -18px;
-    margin-right: 10px;
-
+    padding: 0px 10px;
+    transition: all .25s ease-in-out;
 }
+
+
 
 nav ul li{
     display: inline;
-    padding: 1vw;
+    line-height: 60px;
+    margin: 0 5px;
+    
 }
 
 nav ul li a {
     font-weight: 300;
     color: gray;
-    line-height: 4.2vw;
-    font-size: 1vw;
+    font-size: 14px;
+    padding: 0 10px;
     text-decoration: none !important;
     transition: .5s;
 }
