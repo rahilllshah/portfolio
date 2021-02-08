@@ -287,12 +287,12 @@ nav ul li a {
     transition: .5s;
 }
 
-a.active, a:hover{
+a:hover{
     color: black;
     transition: .5s;
 }
 
-.darkmode--activated a.active, a:hover {
+.darkmode--activated a:hover {
     color: white;
     transition: .5s;
 }
