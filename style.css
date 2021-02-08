@@ -402,8 +402,9 @@ a:hover{
 
 /*Footer*/
 
-.footer{
-    width: 100%;
+.footer {   
+    z-index: -1;
+    width: 50%;
     margin: auto;
     text-align: center;
     padding-top: 15vh;
