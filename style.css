@@ -8,7 +8,13 @@ html, body {
     font-family: -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
+body {
+    transition: all 1s ease;
+}
 
+.dark {
+    background: black;
+}
 /*Global Font Formats and Containers*/
 
 h1 {
@@ -26,12 +32,6 @@ h2 {
 .container{
     max-width: 80%;
     margin: auto;
-}
-
-.background {
-    margin: auto;
-    background-color: whitesmoke;
-
 }
 
 /*Nav*/
@@ -70,6 +70,10 @@ h2 {
   -moz-transition: .25s ease-in-out;
   -o-transition: .25s ease-in-out;
   transition: .25s ease-in-out;
+}
+
+.darkmode--activated #nav-icon span {
+    background: white;
 }
 
 #nav-icon span:nth-child(1) {
@@ -145,17 +149,23 @@ h2 {
 
 nav{
     position: fixed;
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
-    -moz-backdrop-filter:blur(6px);
-    -o-backdrop-filter:blur(6px);
-    background-color: hsla(0, 0%, 100%, .85);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    -moz-backdrop-filter:blur(10px);
+    -o-backdrop-filter:blur(10px);
+    background-color: hsla(0, 0%, 100%, .8);
     box-shadow: 4px 4px 40px 4px rgba(0, 0, 0, 0.05);
     width: 70%;
     margin: 3vw 15%;
     height: 60px;
     border-radius: 10px;
     z-index: 10;
+    transition: .1s;
+}
+
+.darkmode--activated nav {
+    background-color: hsla(0, 0%, 20%, .8);
+    transition: .1s;
 }
 
 img.logo{
@@ -168,6 +178,29 @@ img.logo{
 }
 
 img.logo:hover{
+    opacity: 0.5;
+    transition: .25s;
+    cursor:pointer;
+}
+
+img.logoW {
+    display: none;
+}
+
+.darkmode--activated img.logo {
+    display: none;
+}
+
+.darkmode--activated img.logoW {
+    position: fixed;
+    display: inline-block;
+    margin-top: 19px;
+    width: 60px;
+    padding: 0 20px;
+    transition: .25s;
+}
+
+.darkmode--activated img.logoW:hover{
     opacity: 0.5;
     transition: .25s;
     cursor:pointer;
@@ -201,12 +234,19 @@ nav ul li a {
     transition: .5s;
 }
 
+.line {
+    color: gray;
+}
+
 a.active, a:hover{
     color: black;
     transition: .5s;
 }
 
-
+.darkmode--activated a.active, a:hover {
+    color: white;
+    transition: .5s;
+}
 
 /*Landing*/
 
@@ -240,11 +280,20 @@ a.active, a:hover{
 .blended-text-wrapper_text {
     -webkit-animation: anim-text-color 16s linear infinite;
     animation: anim-text-color 16s linear infinite;
-    background-color: #fff;
+    background-color: white;
     mix-blend-mode: lighten;
+    color: black;
     font-size: 5.5vw;
     font-weight: 700;
     letter-spacing: -.02em;
+    transition: .01s;
+}
+
+.darkmode--activated .blended-text-wrapper_text  {
+    background-color: black;
+    mix-blend-mode: darken;
+    color: white;
+    transition: .01s;
 }
     
 .landingsub{
@@ -348,12 +397,15 @@ a.active, a:hover{
 /*Footer*/
 
 .footer{
-    background-color: whitesmoke;
     width: 100%;
     margin: auto;
     text-align: center;
     padding-top: 15vh;
     padding-bottom: 15vh;
+}
+
+.ft {
+    isolation: isolate;
 }
 
 @media (min-width: 2000px){
@@ -402,12 +454,21 @@ a.active, a:hover{
         font-size: 4vw;
     }
     
+    
 }
 
 
 @media (max-width: 920px){
   
     img.logo {
+        display: none;
+    }
+    
+    img.logoW {
+        display: none;
+    }
+    
+    .darkmode--activated img.logoW {
         display: none;
     }
     
@@ -449,6 +510,9 @@ a.active, a:hover{
         transition: all .5s;
     }
     
+    .darkmode--activated .navR {
+        background-color: #252525;
+    }
     
     nav {
         width: 90%;

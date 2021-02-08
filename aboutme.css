@@ -125,6 +125,10 @@ h2 {
   transition: .25s ease-in-out;
 }
 
+.darkmode--activated #nav-icon span {
+    background: white;
+}
+
 #nav-icon span:nth-child(1) {
   top: 0px;
   -webkit-transform-origin: left center;
@@ -211,6 +215,11 @@ nav{
     z-index: 10;
 }
 
+.darkmode--activated nav {
+    background-color: hsla(0, 0%, 20%, .8);
+    transition: .1s;
+}
+
 img.logo{
     position: fixed;
     display: inline-block;
@@ -226,6 +235,28 @@ img.logo:hover{
     cursor:pointer;
 }
 
+img.logoW {
+    display: none;
+}
+
+.darkmode--activated img.logo {
+    display: none;
+}
+
+.darkmode--activated img.logoW {
+    position: fixed;
+    display: inline-block;
+    margin-top: 19px;
+    width: 60px;
+    padding: 0 20px;
+    transition: .25s;
+}
+
+.darkmode--activated img.logoW:hover{
+    opacity: 0.5;
+    transition: .25s;
+    cursor:pointer;
+}
 
 .navR{
     right: 0;
@@ -259,13 +290,19 @@ a.active, a:hover{
     transition: .5s;
 }
 
-
-.interestFont{
-    color: black;
-    font-size: 40px;
+.darkmode--activated a.active, a:hover {
+    color: white;
+    transition: .5s;
 }
 
+.line {
+    color: gray;
+}
 
+.darkmode--activated h1 {
+    color: white;
+    transition: .5s;
+}
 
 /*Footer*/
 
@@ -275,6 +312,7 @@ a.active, a:hover{
     text-align: center;
     padding-top: 15vh;
     padding-bottom: 15vh;
+    isolation: isolate;
 }
 
 
@@ -282,6 +320,14 @@ a.active, a:hover{
 @media (max-width: 1000px){
   
     img.logo {
+        display: none;
+    }
+    
+        img.logoW {
+        display: none;
+    }
+    
+    .darkmode--activated img.logoW {
         display: none;
     }
     
@@ -313,6 +359,10 @@ a.active, a:hover{
         padding-left: 0;
         border-radius: 10px;
         transition: all .5s;
+    }
+    
+    .darkmode--activated .navR {
+        background-color: #252525;
     }
     
     

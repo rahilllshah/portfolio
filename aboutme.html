@@ -17,6 +17,8 @@
 
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
         
+        <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+        
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
         
         <link rel="stylesheet" type= "text/css" href="aboutme.css">        
@@ -25,6 +27,29 @@
     </head>
 	
     <body>
+        
+    <script>
+    
+        const options = {
+            z-index: '10',
+            bottom: '40px', 
+            right: '40px', 
+            left: 'unset', 
+            time: '0.5s', 
+            mixColor: '#fff', 
+            backgroundColor: '#fff',  
+            buttonColorDark: '#100f2c',  
+            buttonColorLight: '#fff', 
+            saveInCookies: true, 
+            label: '🌓', 
+            autoMatchOsTheme: false
+        }
+        
+        const darkmode = new Darkmode(options);
+        darkmode.showWidget();
+        
+    </script>     
+        
     <div class="row">
         <div class="col-12">
         <nav>        
@@ -48,13 +73,14 @@
                 });        
             </script>
             <ul class="navL">
-                <a href="https://rahil.me" class="section1-marker"> <img class="logo" src="Images/Logo.png"></a></ul>
+                <a href="https://rahil.me" class="section1-marker"> <img class="logo" src="Images/Logo.png"></a>
+                <a href="#section1" class="section1-marker"> <img class="logoW" src="Images/LogoW.png"></a></ul>
             
                 <ul class="navR">
                     
-                <li><a href="" class="active">About Me</a></li>
+                <li><a href="https://rahil.me/aboutme">About Me</a></li>
                 <li><a href="RahilShah_Resume.pdf" target="_blank">Resume</a></li>
-                <li><a>|</a></li>
+                <li class="line"><a>|</a></li>
                 <li><a href="mailto: rahil190@gmail.com" target="_blank"><i class="fas fa-envelope"></i></a></li>
                 <li><a href="https://www.linkedin.com/in/rahilllshah" target="_blank"><i class="fab fa-linkedin-in "></i></a></li>
                 <li><a href="https://www.instagram.com/rahilspalette/" target="_blank"><i class="fab fa-instagram"></i></a></li>
