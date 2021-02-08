@@ -600,8 +600,8 @@ a:hover{
     }
 
     .mini {
-        padding-top: 5vh;
-        padding-bottom: 5vh;
+        margin-top: 5vh;
+        margin-bottom: 5vh;
     }
     
 @media (max-width: 760px){
