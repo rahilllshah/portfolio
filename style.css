@@ -351,6 +351,10 @@ a:hover{
 
 }
 
+.darkmode--activated .cantraceimg:hover {
+    box-shadow: 4px 4px 40px 4px rgba(236, 236, 236, 0.5);
+}
+
 .cantraceimgmobile{
     display: none;
     
@@ -372,6 +376,9 @@ a:hover{
     box-shadow: 4px 4px 40px 4px rgba(0, 0, 0, 0.3);
 }
 
+.darkmode--activated .appleimg:hover {
+    box-shadow: 4px 4px 40px 4px rgba(236, 236, 236, 0.5);
+}
 
 .cantraceimgmobile{
     display: none;
@@ -398,6 +405,10 @@ a:hover{
     transition: 0.5s ease;
     cursor: pointer;
     box-shadow: 4px 4px 40px 4px rgba(0, 0, 0, 0.3);
+}
+
+.darkmode--activated .mini:hover {
+    box-shadow: 4px 4px 40px 4px rgba(236, 236, 236, 0.5);
 }
 
 /*Footer*/
@@ -473,21 +484,11 @@ a:hover{
 
 @media (max-width: 920px){
   
-    img.logo {
-        display: none;
-    }
-    
-    img.logoW {
-        display: none;
-    }
     
     .line {
         display: none;
     }
     
-    .darkmode--activated img.logoW {
-        display: none;
-    }
     
     h1 {
         font-size: 5vw;
@@ -534,6 +535,7 @@ a:hover{
         width: 90%;
         margin: 3vw 5%;
         height: 60px;
+        border-radius: 2vw;
     }
     
     nav ul li {
