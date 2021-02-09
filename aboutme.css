@@ -321,21 +321,12 @@ a:hover{
 
 @media (max-width: 1000px){
   
-    img.logo {
-        display: none;
-    }
-    
-        img.logoW {
-        display: none;
-    }
     
     .line {
         display: none;
     }
     
-    .darkmode--activated img.logoW {
-        display: none;
-    }
+
     
     .checkbtn{
         display: block;
