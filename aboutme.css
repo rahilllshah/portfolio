@@ -343,7 +343,7 @@ a:hover{
         justify-content: center;
         align-items: center;
         position: fixed;
-        width: 33%;
+        width: 45%;
         height: 100vh;
         backdrop-filter: blur(6px);
         -webkit-backdrop-filter: blur(6px);

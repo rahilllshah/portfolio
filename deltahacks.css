@@ -69,7 +69,7 @@ h5 {
     padding: 10vh;
     margin: auto;
     margin-top: 15vh;
-    background-color: #8080E6;
+    background-image: linear-gradient(to right, #05A39A, #2A3B8C);
 }
 
 .fullTextO{
