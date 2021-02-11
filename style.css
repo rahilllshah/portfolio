@@ -333,10 +333,10 @@ a:hover{
 }
 
 
-/*CanTrace*/
+/*Work*/
 
 
-.cantraceimg{
+.workimg{
     width: 100%;
     border-radius: 1vw;
     margin-top: 5vh;
@@ -344,50 +344,27 @@ a:hover{
     transition:  .5s ease;
 }
 
-.cantraceimg:hover{
+.workimg:hover{
     transition: .5s ease;
     cursor: pointer;
-    box-shadow: 4px 4px 40px 4px rgba(0, 0, 0, 0.3);
+    box-shadow: 4px 4px 40px 4px rgba(0, 0, 0, 0.4);
 
 }
 
-.darkmode--activated .cantraceimg:hover {
+.darkmode--activated .workimg:hover {
     box-shadow: 4px 4px 40px 4px rgba(236, 236, 236, 0.5);
 }
 
-.cantraceimgmobile{
+.darkmode--activated .workimgmobile:hover {
+    box-shadow: 4px 4px 40px 4px rgba(236, 236, 236, 0.5);
+}
+
+.workimgmobile{
     display: none;
     
 }
 
-/* Apple */
 
-.appleimg{
-    width: 100%;
-    border-radius: 1vw;
-    margin-top: 5vh;
-    margin-bottom: 5vh;
-    transition:  0.5s ease;
-}
-
-.appleimg:hover{
-    transition: 0.5s ease;
-    cursor: pointer;
-    box-shadow: 4px 4px 40px 4px rgba(0, 0, 0, 0.3);
-}
-
-.darkmode--activated .appleimg:hover {
-    box-shadow: 4px 4px 40px 4px rgba(236, 236, 236, 0.5);
-}
-
-.cantraceimgmobile{
-    display: none;
-    
-}
-
-.appleimgmobile{
-    display: none;
-}
 
 .miniT {
     margin-top: 5vh;
@@ -404,7 +381,7 @@ a:hover{
 .mini:hover{
     transition: 0.5s ease;
     cursor: pointer;
-    box-shadow: 4px 4px 40px 4px rgba(0, 0, 0, 0.3);
+    box-shadow: 4px 4px 40px 4px rgba(0, 0, 0, 0.4);
 }
 
 .darkmode--activated .mini:hover {
@@ -559,11 +536,11 @@ a:hover{
         font-size: 4vw;
     }
     
-    .cantraceimg{
+    .workimg{
         display: none;
     }
     
-    .cantraceimgmobile{
+    .workimgmobile{
         display: block;
         max-width: 100%;
         height: auto;
@@ -573,34 +550,13 @@ a:hover{
         border-radius: 10px;
     }
     
-    .cantraceimgmobile:hover{
+    .workimgmobile:hover{
         transition: 0.5s ease;
         cursor: pointer;
         box-shadow: 4px 4px 40px 4px rgba(0, 0, 0, 0.3);
 
     }
     
-    
-    .appleimg {
-        display: none;
-    }
-    
-     .appleimgmobile{
-        display: block;
-        max-width: 100%;
-        height: auto;
-        margin-top: 5vh;
-        margin-bottom: 5vh;
-        transition: .5s;
-        border-radius: 10px;
-    }
-    
-    .appleimgmobile:hover{
-        transition: .5s;
-        cursor: pointer;
-        box-shadow: 4px 4px 40px 4px rgba(0, 0, 0, 0.3);
-
-    }
 
     .mini {
         margin-top: 5vh;
