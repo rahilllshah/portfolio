@@ -13,6 +13,8 @@
         
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
         
+        
+        
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
@@ -25,8 +27,8 @@
     </head>
 	
     <body>
-        
-        
+        <article>
+
         <div class="center-con">
             <a href="https://rahil.me"><div class="round">
                 <span></span>
@@ -448,11 +450,8 @@
         
         
         <div class="row section">
-            
-            <div class="col-12">
-                    
-                        <img class="asset4" src="cantrace/Asset%2047.png">
-                    </div>
+            <div class="col-12">    
+                <img class="asset4" src="cantrace/Asset%2047.png">
             </div>
         </div>
         
@@ -468,6 +467,21 @@
         
             </div>
         </div>
+        </article>
         
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+        <script src="jQuery.progressBar.js"></script>
+        <script>
+        $('article').progressBar(
+            {
+            throttleTime: 100,
+            debounceTime: 200,
+            progressBarHeight: 10,
+            progressBarColor: '#FFFFFF',
+            progressBarValueColor: '#8080E6',
+
+
+            });
+        </script>
         
     </body>

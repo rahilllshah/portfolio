@@ -25,6 +25,7 @@
     </head>
 	
     <body>
+        <article>
         
         
         <div class="center-con">
@@ -313,6 +314,23 @@
         
             </div>
         </div>
+        
+        </article>
+        
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+        <script src="jQuery.progressBar.js"></script>
+        <script>
+        $('article').progressBar(
+            {
+            throttleTime: 100,
+            debounceTime: 200,
+            progressBarHeight: 10,
+            progressBarColor: '#FFFFFF',
+            progressBarValueColorG: 'linear-gradient(to right, #05A39A, #2A3B8C)',
+
+
+            });
+        </script>
         
         
     </body>
