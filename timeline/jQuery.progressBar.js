@@ -4,7 +4,7 @@ $.fn.progressBar = function () {
   options = {
     throttleTime: options.throttleLimit || 100,
     debounceTime: options.debounceTime || 200,
-    progressBarHeight: options.progressBarHeight || 10,
+    progressBarHeight: options.progressBarHeight || 7,
     progressBarColor: options.progressBarColor || '#F1F1F1',
     progressBarValueColor: options.progressBarValueColor || '#A1A1A1',
     progressBarValueColorG: options.progressBarValueColorG || '#A1A1A1',
