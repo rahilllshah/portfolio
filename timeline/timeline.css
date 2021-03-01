@@ -10,6 +10,11 @@ html, body {
     font-family: -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+
 
 /*Global Font Formats and Containers*/
 
@@ -74,7 +79,7 @@ h5 {
 
 .fullTextO{
     position: relative;
-    max-width: 77%;
+    max-width: 75%;
     margin: auto;
     text-align: left;
     color: white;
@@ -123,6 +128,10 @@ a.active, a:hover{
     max-width: 90%;
 }
 
+    .round2, .round3{
+        display: none;
+    }
+    
 .section {
     max-width: 90%;
     
@@ -178,7 +187,7 @@ h5 {
     width: 50px;
     height: 50px;
     border-radius: 100%;
-    opacity: 0.25;
+    opacity: 0.1;
     transition: .5s;
     
 }
@@ -219,8 +228,177 @@ h5 {
     cursor: pointer;
 }
 
-.last{
-    padding-bottom: 20vh;
+
+
+.round {
+    position: fixed;
+    z-index: 10;
+    margin: 7% 7%;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    -moz-backdrop-filter:blur(6px);
+    -o-backdrop-filter:blur(6px);
+    background-color: hsla(0, 0%, 100%, .85);
+    box-shadow: 4px 4px 40px 4px rgba(0, 0, 0, 0.1);
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    opacity: 0.05;
+    transition: .5s;
+    
+}
+
+.round span {
+    border-radius: 2px;
+    height: 4px;
+    width: 15px;
+    background-color: black;
+    transition: 0.4s ease;
+}
+
+.round span:first-child {
+    position: absolute;
+    transform: rotate(45deg);
+    left: 30%;
+    top: 59%;
+}
+
+.round span:nth-child(2) {
+    position: absolute;
+    transform: rotate(-45deg);
+    left: 30%;
+    top: 40%;
+}
+
+.round:hover span:nth-child(1) {
+    transform: rotate(-135deg);
+}
+
+.round:hover span:nth-child(2) {
+    transform: rotate(135deg);
+}
+
+.round:hover{
+    opacity: 1;
+    transition: .5s;
+    cursor: pointer;
 }
 
 
+
+.round2 {
+    position: fixed;
+    z-index: 10;
+    margin: 12% 7%;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    -moz-backdrop-filter:blur(6px);
+    -o-backdrop-filter:blur(6px);
+    background-color: hsla(0, 0%, 100%, .85);
+    box-shadow: 4px 4px 40px 4px rgba(0, 0, 0, 0.1);
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    opacity: 0.05;
+    transition: .5s;
+    transform: rotate(90deg);
+}
+
+.round2 span {
+    
+    border-radius: 2px;
+    height: 4px;
+    width: 15px;
+    background-color: black;
+    transition: 0.4s ease;
+}
+
+.round2 span:first-child {
+    position: absolute;
+    transform: rotate(45deg);
+    left: 33%;
+    top: 55%;
+}
+
+.round2 span:nth-child(2) {
+    position: absolute;
+    transform: rotate(-45deg);
+    left: 33%;
+    top: 40%;
+}
+
+.round2:hover span:nth-child(1) {
+    transform: rotate(-135deg);
+}
+
+.round2:hover span:nth-child(2) {
+    transform: rotate(135deg);
+}
+
+.round2:hover{
+    opacity: 1;
+    transition: .5s;
+    cursor: pointer;
+}
+
+
+.round3 {
+    position: fixed;
+    z-index: 10;
+    margin: 17% 7%;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    -moz-backdrop-filter:blur(6px);
+    -o-backdrop-filter:blur(6px);
+    background-color: hsla(0, 0%, 100%, .85);
+    box-shadow: 4px 4px 40px 4px rgba(0, 0, 0, 0.1);
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    opacity: 0.05;
+    transition: .5s;
+    transform: rotate(270deg);
+}
+
+.round3 span {
+    
+    border-radius: 2px;
+    height: 4px;
+    width: 15px;
+    background-color: black;
+    transition: 0.4s ease;
+}
+
+.round3 span:first-child {
+    position: absolute;
+    transform: rotate(45deg);
+    left: 33%;
+    top: 55%;
+}
+
+.round3 span:nth-child(2) {
+    position: absolute;
+    transform: rotate(-45deg);
+    left: 33%;
+    top: 40%;
+}
+
+.round3:hover span:nth-child(1) {
+    transform: rotate(-135deg);
+}
+
+.round3:hover span:nth-child(2) {
+    transform: rotate(135deg);
+}
+
+.round3:hover{
+    opacity: 1;
+    transition: .5s;
+    cursor: pointer;
+}
+
+
+
+.last{
+    padding-bottom: 20vh;
+}
