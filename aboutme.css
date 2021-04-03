@@ -32,6 +32,7 @@ h2 {
 }
 
 .container2{
+    padding-top: 15vh;
     max-width: 70%;
     margin: auto;
 }
@@ -399,11 +400,10 @@ a:hover{
     }
     
     .container2{
-        margin-top: 20vh;
+        margin-top: 0vh;
     }
     
     .askT {
         text-align: center;
         margin-bottom: 5vh;
     }
-    
