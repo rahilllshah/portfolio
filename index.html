@@ -29,7 +29,14 @@
     <body>
         
     <script>
-    
+        
+        var top_z = 10;
+
+        function bringToTop(element)
+        {
+            element.style.zIndex = ++top_z;
+        }
+        
         const options = {
             bottom: '40px', 
             right: '40px', 
@@ -40,9 +47,10 @@
             buttonColorDark: '#100f2c',  
             buttonColorLight: '#fff', 
             saveInCookies: true, 
-            label: '🌓', 
+            label: '🌓',
             autoMatchOsTheme: false
         }
+        
         
         const darkmode = new Darkmode(options);
         darkmode.showWidget();
