@@ -11,6 +11,10 @@ html, body {
 
 /*Global Font Formats and Containers*/
 
+button .darkmode-layer, .darkmode-toggle {
+  z-index: 500;
+}
+
 h1 {
     font-size: 2.5vw;
 }
