@@ -36,7 +36,7 @@ h2 {
 }
 
 .container2{
-    padding-top: 15vh;
+    padding-top: 10vh;
     max-width: 70%;
     margin: auto;
 }
@@ -56,22 +56,12 @@ h2 {
     border-radius: 100%;
 }
 
-.float {
-  -moz-animation: float 2s infinite;
-  -webkit-animation: float 2s infinite;
-  animation: float 2s infinite;
+.me:hover{
+    box-shadow: 4px 4px 40px 4px rgba(0, 0, 0, 0.3);
+    transform: scale(1.01);
+    transition: .5s;
 }
 
-@keyframes float {
-    
-  0% {
-    transform: translateY(0px);
-  }
-  
-  50% {
-    transform: translateY(10px);
-  } 
-}
 
 .me2 {
     display: block;
@@ -316,7 +306,7 @@ a:hover{
     width: 100%;
     margin: auto;
     text-align: center;
-    padding-top: 15vh;
+    padding-top: 10vh;
     padding-bottom: 15vh;
     isolation: isolate;
 }
