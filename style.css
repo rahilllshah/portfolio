@@ -177,8 +177,6 @@ nav{
 }
 
 img.logo{
-    position: fixed;
-    display: inline-block;
     margin-top: 19px;
     width: 60px;
     padding: 0 20px;
