@@ -188,8 +188,6 @@ nav{
 }
 
 img.logo{
-    position: fixed;
-    display: inline-block;
     margin-top: 19px;
     width: 60px;
     padding: 0 20px;
@@ -276,7 +274,7 @@ a:hover{
 /*Footer*/
 
 .footer {   
-    opacity: 0.5;
+    opacity: 0.75;
     z-index: -1;
     width: 75%;
     margin: auto;
@@ -353,5 +351,9 @@ a:hover{
     .aboutT{
         text-align: center;
         margin-top: 5vh;
+    }
+     
+    .line {
+        display: none;
     }
 }
