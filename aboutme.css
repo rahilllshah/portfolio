@@ -42,7 +42,7 @@ h2 {
     width: 100%;
     box-shadow: 4px 4px 40px 4px rgba(0, 0, 0, 0.2);
     transition: .5s;
-    border-radius: 100%;
+    border-radius: 0.75vw;
 }
 
 .me:hover{
@@ -287,6 +287,10 @@ a:hover{
 
 @media (max-width: 1000px){
 
+    .container{
+        padding-top: 20vh;
+    }
+    
     .checkbtn{
         display: block;
     }
