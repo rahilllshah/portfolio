@@ -274,7 +274,7 @@ a:hover{
 /*Footer*/
 
 .footer {   
-    opacity: 0.75;
+    opacity: 1;
     z-index: -1;
     width: 75%;
     margin: auto;
