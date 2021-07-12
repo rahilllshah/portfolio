@@ -283,7 +283,9 @@ a:hover{
     padding-bottom: 10vh;
 }
 
-
+.ft {
+    isolation: isolate;
+}
 
 @media (max-width: 1000px){
 

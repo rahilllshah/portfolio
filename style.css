@@ -358,11 +358,11 @@ a:hover{
 }
 
 .darkmode--activated .workimg:hover {
-    box-shadow: 4px 4px 40px 4px rgba(236, 236, 236, 0.5);
+    box-shadow: 4px 4px 40px 4px rgba(236, 236, 236, 0.4);
 }
 
 .darkmode--activated .workimgmobile:hover {
-    box-shadow: 4px 4px 40px 4px rgba(236, 236, 236, 0.5);
+    box-shadow: 4px 4px 40px 4px rgba(236, 236, 236, 0.4);
 }
 
 .workimgmobile{
@@ -631,5 +631,4 @@ a:hover{
     }
 
 }
-    
-    
+}
