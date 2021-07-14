@@ -354,7 +354,6 @@ a:hover{
     transition: .5s ease;
     cursor: pointer;
     box-shadow: 4px 4px 40px 4px rgba(0, 0, 0, 0.4);
-
 }
 
 .darkmode--activated .workimg:hover {
@@ -369,6 +368,33 @@ a:hover{
     display: none;
     
 }
+
+
+.mini1a {
+    width: 96%;
+    display: block;
+    float: left;
+    margin-top: 5vh;
+    border-radius: 1vw;
+    transition:  0.5s ease;
+    display: inline-block;
+}
+
+.mini2a {
+    width: 96%;
+    display: block;
+    float: right;
+    margin-right: 0;
+    margin-top: 5vh;
+    border-radius: 1vw;
+    transition:  0.5s ease;
+}
+
+
+
+
+
+
 
 .mini1 {
     width: 96%;
@@ -478,6 +504,18 @@ a:hover{
     .arrow a {
         font-size: 4vw;
     }
+
+    .mini1a {
+        width: 100%;
+        float: none;
+        border-radius: 2vw;
+    }
+
+    .mini2a {
+        width: 100%;
+        float: none;
+        border-radius: 2vw;
+    }
     
     
 }
@@ -489,6 +527,19 @@ a:hover{
         max-width: 90%;
     }
     
+    .mini1a {
+        width: 100%;
+        float: none;
+        border-radius: 2vw;
+    }
+
+    .mini2a {
+        width: 100%;
+        float: none;
+        border-radius: 2vw;
+    }
+
+
     .mini1 {
         width: 100%;
         display: block;
