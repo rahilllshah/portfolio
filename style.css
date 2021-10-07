@@ -694,6 +694,16 @@ a:hover{
         box-shadow: 4px 4px 40px 4px rgba(0, 0, 0, 0.3);
 
     }
+
+    .rad {
+        display: block;
+        max-width: 100%;
+        height: auto;
+        margin-top: 5vh;
+        margin-bottom: 5vh;
+        transition: .5s;
+        border-radius: 2vw;
+    }
     
 
     .mini {
