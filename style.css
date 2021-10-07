@@ -263,6 +263,13 @@ a:hover{
     margin: auto;
 }
 
+.landing2{
+    text-align: center;
+    height: 40vh;
+    width: 70%;
+    margin: auto;
+}
+
 .landingtitle{
         margin: auto;
         max-width: 85%;
@@ -371,7 +378,7 @@ a:hover{
 
 
 .mini1a {
-    width: 96%;
+    width: 98%;
     display: block;
     float: left;
     margin-top: 5vh;
@@ -381,7 +388,37 @@ a:hover{
 }
 
 .mini2a {
-    width: 96%;
+    width: 98%;
+    display: block;
+    float: center;
+    margin-left: 1%;
+    margin-top: 5vh;
+    border-radius: 1vw;
+    transition:  0.5s ease;
+}
+
+.mini3a {
+    width: 98%;
+    display: block;
+    float: right;
+    margin-right: 0;
+    margin-top: 5vh;
+    border-radius: 1vw;
+    transition:  0.5s ease;
+}
+
+.mini1b {
+    width: 99%;
+    display: block;
+    float: left;
+    margin-top: 5vh;
+    border-radius: 1vw;
+    transition:  0.5s ease;
+    display: inline-block;
+}
+
+.mini2b {
+    width: 99%;
     display: block;
     float: right;
     margin-right: 0;
@@ -392,8 +429,10 @@ a:hover{
 
 
 
-
-
+.mini1a:hover, .mini2a:hover ,.mini3a:hover ,.mini1b:hover ,.mini2b:hover {
+    transition: 0.5s ease;
+    box-shadow: 4px 4px 40px 4px rgba(0, 0, 0, 0.4);
+}
 
 
 .mini1 {
