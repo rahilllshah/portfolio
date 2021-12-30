@@ -543,7 +543,7 @@ a:hover {
 
 @media (max-width: 920px) {
   .container {
-    max-width: 90%;
+    max-width: 100%;
   }
 
   .mini1a {
