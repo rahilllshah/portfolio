@@ -527,11 +527,56 @@ a:hover {
   .arrow a {
     font-size: 4vw;
   }
+
+  .mini1a {
+    width: 100%;
+    float: none;
+    border-radius: 2vw;
+  }
+
+  .mini2a {
+    width: 100%;
+    float: none;
+    border-radius: 2vw;
+  }
 }
 
 @media (max-width: 920px) {
   .container {
-    max-width: 100%;
+    max-width: 90%;
+  }
+
+  .mini1a {
+    width: 100%;
+    float: none;
+    border-radius: 2vw;
+  }
+
+  .mini2a {
+    width: 100%;
+    float: none;
+    border-radius: 2vw;
+  }
+
+  .mini1 {
+    width: 100%;
+    display: block;
+    float: none;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+    border-radius: 2vw;
+    transition: 0.5s ease;
+    display: inline-block;
+  }
+
+  .mini2 {
+    width: 100%;
+    display: block;
+    float: none;
+    margin-right: 0;
+    margin-top: 5vh;
+    border-radius: 2vw;
+    transition: 0.5s ease;
   }
 
   .line {
@@ -593,9 +638,6 @@ a:hover {
     font-size: 14px;
   }
 
-  .landing {
-    width: 80%;
-  }
   .blended-text-wrapper_text {
     font-size: 7vw;
   }
@@ -612,114 +654,40 @@ a:hover {
     display: none;
   }
 
-  .first {
-    display: block;
-    width: 115%;
-    margin-left: -4vh;
-    margin-top: 2vh;
-    margin-bottom: 2vh;
-    border-radius: 0;
-    float: none;
-    transition: none;
-  }
-
   .workimgmobile {
     display: block;
-    width: 115%;
-    margin-left: -4vh;
-    margin-top: 0vh;
-    margin-bottom: 2vh;
-    border-radius: 0;
-    float: none;
-    transition: none;
+    max-width: 100%;
+    height: auto;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+    transition: 0.5s;
+    border-radius: 2vw;
   }
 
-  .mini1 {
+  .workimgmobile:hover {
+    transition: 0.5s ease;
+    cursor: pointer;
+    box-shadow: 4px 4px 40px 4px rgba(0, 0, 0, 0.3);
+  }
+
+  .rad {
     display: block;
-    width: 115%;
-    margin-left: -4vh;
-    margin-top: 0vh;
-    margin-bottom: 2vh;
-    border-radius: 0;
-    float: none;
-    transition: none;
+    max-width: 100%;
+    height: auto;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+    transition: 0.5s;
+    border-radius: 2vw;
   }
 
-  .mini2 {
+  .mini {
     display: block;
-    width: 115%;
-    margin-left: -4vh;
-    margin-top: 0vh;
-    margin-bottom: 2vh;
-    border-radius: 0;
-    float: none;
-    transition: none;
-  }
-
-  .mini1a {
-    display: block;
-    width: 115%;
-    margin-left: -4vh;
-    margin-top: 0vh;
-    margin-bottom: 2vh;
-    border-radius: 0;
-    float: none;
-    transition: none;
-  }
-
-  .mini1b {
-    display: block;
-    width: 115%;
-    margin-left: -4vh;
-    margin-top: 0vh;
-    margin-bottom: 2vh;
-    border-radius: 0;
-    float: none;
-    transition: none;
-  }
-
-  .mini2b {
-    display: block;
-    width: 115%;
-    margin-left: -4vh;
-    margin-top: 0vh;
-    margin-bottom: 2vh;
-    border-radius: 0;
-    float: none;
-    transition: none;
-  }
-
-  .mini2a {
-    display: block;
-    width: 115%;
-    margin-left: -4vh;
-    margin-top: 0vh;
-    margin-bottom: 2vh;
-    border-radius: 0;
-    float: none;
-    transition: none;
-  }
-
-  .mini3a {
-    display: block;
-    width: 115%;
-    margin-left: -4vh;
-    margin-top: 0vh;
-    margin-bottom: 2vh;
-    border-radius: 0;
-    float: none;
-    transition: none;
-  }
-
-  .mini1:hover,
-  .mini2:hover,
-  .mini1a:hover,
-  .mini2a:hover,
-  .mini3a:hover,
-  .mini1b:hover,
-  .mini2b:hover {
-    transition: none;
-    box-shadow: none;
+    max-width: 100%;
+    height: auto;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+    transition: 0.5s;
+    border-radius: 2vw;
   }
 
   @media (max-width: 760px) {
