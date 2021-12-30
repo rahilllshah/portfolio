@@ -546,39 +546,6 @@ a:hover {
     max-width: 100%;
   }
 
-  .mini1a {
-    width: 100%;
-    float: none;
-    border-radius: 2vw;
-  }
-
-  .mini2a {
-    width: 100%;
-    float: none;
-    border-radius: 2vw;
-  }
-
-  .mini1 {
-    width: 100%;
-    display: block;
-    float: none;
-    margin-top: 5vh;
-    margin-bottom: 5vh;
-    border-radius: 2vw;
-    transition: 0.5s ease;
-    display: inline-block;
-  }
-
-  .mini2 {
-    width: 100%;
-    display: block;
-    float: none;
-    margin-right: 0;
-    margin-top: 5vh;
-    border-radius: 2vw;
-    transition: 0.5s ease;
-  }
-
   .line {
     display: none;
   }
@@ -642,6 +609,10 @@ a:hover {
     font-size: 7vw;
   }
 
+  .landing {
+    width: 80%;
+  }
+
   .landingsub {
     font-size: 3vw;
   }
@@ -658,8 +629,8 @@ a:hover {
     display: block;
     max-width: 100%;
     height: auto;
-    margin-top: 5vh;
-    margin-bottom: 5vh;
+    margin-top: 2.5vh;
+    margin-bottom: 2.5vh;
     transition: 0.5s;
     border-radius: 2vw;
   }
@@ -670,22 +641,80 @@ a:hover {
     box-shadow: 4px 4px 40px 4px rgba(0, 0, 0, 0.3);
   }
 
-  .rad {
+  .mini1 {
     display: block;
     max-width: 100%;
+    width: 100%;
     height: auto;
-    margin-top: 5vh;
-    margin-bottom: 5vh;
+    margin-top: 2.5vh;
+    margin-bottom: 2.5vh;
     transition: 0.5s;
     border-radius: 2vw;
   }
 
-  .mini {
+  .mini2 {
     display: block;
     max-width: 100%;
+    width: 100%;
     height: auto;
-    margin-top: 5vh;
-    margin-bottom: 5vh;
+    margin-top: 2.5vh;
+    margin-bottom: 2.5vh;
+    transition: 0.5s;
+    border-radius: 2vw;
+  }
+
+  .mini1a {
+    display: block;
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+    margin-top: 2.5vh;
+    margin-bottom: 2.5vh;
+    transition: 0.5s;
+    border-radius: 2vw;
+  }
+
+  .mini2a {
+    display: block;
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+    margin-top: 2.5vh;
+    margin-bottom: 2.5vh;
+    margin-left: 0;
+    transition: 0.5s;
+    border-radius: 2vw;
+  }
+
+  .mini3a {
+    display: block;
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+    margin-top: 2.5vh;
+    margin-bottom: 2.5vh;
+    transition: 0.5s;
+    border-radius: 2vw;
+  }
+
+  .mini1b {
+    display: block;
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+    margin-top: 2.5vh;
+    margin-bottom: 2.5vh;
+    transition: 0.5s;
+    border-radius: 2vw;
+  }
+
+  .mini2b {
+    display: block;
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+    margin-top: 2.5vh;
+    margin-bottom: 2.5vh;
     transition: 0.5s;
     border-radius: 2vw;
   }
