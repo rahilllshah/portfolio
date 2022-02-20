@@ -287,6 +287,12 @@ a:hover{
     isolation: isolate;
 }
 
+.ft-special {
+    font-style: italic;
+    color:darkgray;
+    font-size: 12px;
+  }
+
 @media (max-width: 1000px){
 
     .container{

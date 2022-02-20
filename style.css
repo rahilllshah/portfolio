@@ -487,6 +487,12 @@ a:hover {
   isolation: isolate;
 }
 
+.ft-special {
+  font-style: italic;
+  color:darkgray;
+  font-size: 12px;
+}
+
 @media (min-width: 2000px) {
   .blended-text-wrapper_text {
     font-size: 5.5vw;
