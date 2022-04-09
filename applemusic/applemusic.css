@@ -186,9 +186,6 @@ h5 {
     z-index: 10;
     margin: 7% 7%;
     backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
-    -moz-backdrop-filter:blur(6px);
-    -o-backdrop-filter:blur(6px);
     background-color: hsla(0, 0%, 100%, .85);
     box-shadow: 4px 4px 40px 4px rgba(0, 0, 0, 0.1);
     width: 50px;
@@ -242,9 +239,6 @@ h5 {
     z-index: 10;
     margin: 7% 7%;
     backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
-    -moz-backdrop-filter:blur(6px);
-    -o-backdrop-filter:blur(6px);
     background-color: hsla(0, 0%, 100%, .85);
     box-shadow: 4px 4px 40px 4px rgba(0, 0, 0, 0.1);
     width: 50px;
@@ -298,9 +292,6 @@ h5 {
     z-index: 10;
     margin: 12% 7%;
     backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
-    -moz-backdrop-filter:blur(6px);
-    -o-backdrop-filter:blur(6px);
     background-color: hsla(0, 0%, 100%, .85);
     box-shadow: 4px 4px 40px 4px rgba(0, 0, 0, 0.1);
     width: 50px;
@@ -354,9 +345,6 @@ h5 {
     z-index: 10;
     margin: 17% 7%;
     backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
-    -moz-backdrop-filter:blur(6px);
-    -o-backdrop-filter:blur(6px);
     background-color: hsla(0, 0%, 100%, .85);
     box-shadow: 4px 4px 40px 4px rgba(0, 0, 0, 0.1);
     width: 50px;
