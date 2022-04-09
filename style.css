@@ -13,9 +13,6 @@ body {
   transition: all 1s ease;
 }
 
-.dark {
-  background: black;
-}
 /*Global Font Formats and Containers*/
 
 button .darkmode-layer,
@@ -52,13 +49,7 @@ h2 {
   width: 60px;
   position: relative;
   margin: 44px auto;
-  -webkit-transform: rotate(0deg);
-  -moz-transform: rotate(0deg);
-  -o-transform: rotate(0deg);
   transform: rotate(0deg);
-  -webkit-transition: 0.5s ease-in-out;
-  -moz-transition: 0.5s ease-in-out;
-  -o-transition: 0.5s ease-in-out;
   transition: 0.5s ease-in-out;
   cursor: pointer;
 }
@@ -72,13 +63,7 @@ h2 {
   border-radius: 10px;
   opacity: 1;
   left: 0;
-  -webkit-transform: rotate(0deg);
-  -moz-transform: rotate(0deg);
-  -o-transform: rotate(0deg);
   transform: rotate(0deg);
-  -webkit-transition: 0.25s ease-in-out;
-  -moz-transition: 0.25s ease-in-out;
-  -o-transition: 0.25s ease-in-out;
   transition: 0.25s ease-in-out;
 }
 
@@ -88,25 +73,16 @@ h2 {
 
 #nav-icon span:nth-child(1) {
   top: 0px;
-  -webkit-transform-origin: left center;
-  -moz-transform-origin: left center;
-  -o-transform-origin: left center;
   transform-origin: left center;
 }
 
 #nav-icon span:nth-child(2) {
   top: 18px;
-  -webkit-transform-origin: left center;
-  -moz-transform-origin: left center;
-  -o-transform-origin: left center;
   transform-origin: left center;
 }
 
 #nav-icon span:nth-child(3) {
   top: 36px;
-  -webkit-transform-origin: left center;
-  -moz-transform-origin: left center;
-  -o-transform-origin: left center;
   transform-origin: left center;
 }
 
@@ -114,16 +90,10 @@ h2 {
   top: -50px;
   height: 140px;
   opacity: 0;
-  -webkit-transform-origin: left center;
-  -moz-transform-origin: left center;
-  -o-transform-origin: left center;
   transform-origin: left center;
 }
 
 #nav-icon.open span:nth-child(1) {
-  -webkit-transform: rotate(45deg);
-  -moz-transform: rotate(45deg);
-  -o-transform: rotate(45deg);
   transform: rotate(45deg);
   left: 8px;
 }
@@ -134,9 +104,6 @@ h2 {
 }
 
 #nav-icon.open span:nth-child(3) {
-  -webkit-transform: rotate(-45deg);
-  -moz-transform: rotate(-45deg);
-  -o-transform: rotate(-45deg);
   transform: rotate(-45deg);
   top: 42px;
   left: 8px;
@@ -158,9 +125,6 @@ h2 {
 nav {
   position: fixed;
   backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  -moz-backdrop-filter: blur(10px);
-  -o-backdrop-filter: blur(10px);
   background-color: hsla(0, 0%, 100%, 0.8);
   box-shadow: 4px 4px 40px 4px rgba(0, 0, 0, 0.05);
   width: 70%;
@@ -287,7 +251,6 @@ a:hover {
 }
 
 .blended-text-wrapper_text {
-  -webkit-animation: anim-text-color 16s linear infinite;
   animation: anim-text-color 16s linear infinite;
   background-color: white;
   mix-blend-mode: lighten;
@@ -313,7 +276,7 @@ a:hover {
   color: gray;
 }
 
-.arrow a {
+.arrow  {
   font-size: 2vw;
   color: lightgray;
   opacity: 0.5;
@@ -323,8 +286,6 @@ a:hover {
 }
 
 .bounce {
-  -moz-animation: bounce 2s infinite;
-  -webkit-animation: bounce 2s infinite;
   animation: bounce 2s infinite;
 }
 
@@ -379,7 +340,6 @@ a:hover {
   margin-top: 5vh;
   border-radius: 1vw;
   transition: 0.5s ease;
-  display: inline-block;
 }
 
 .mini2a {
@@ -409,7 +369,6 @@ a:hover {
   margin-top: 5vh;
   border-radius: 1vw;
   transition: 0.5s ease;
-  display: inline-block;
 }
 
 .mini2b {
@@ -438,7 +397,6 @@ a:hover {
   margin-top: 5vh;
   border-radius: 1vw;
   transition: 0.5s ease;
-  display: inline-block;
 }
 
 .mini2 {
@@ -474,8 +432,6 @@ a:hover {
 /*Footer*/
 
 .footer {
-  opacity: 1;
-  z-index: -1;
   width: 50%;
   margin: auto;
   text-align: center;
@@ -502,7 +458,7 @@ a:hover {
     font-size: 1.25vw;
   }
 
-  .arrow a {
+  .arrow {
     font-size: 2vw;
   }
 }
@@ -516,7 +472,7 @@ a:hover {
     font-size: 1.25vw;
   }
 
-  .arrow a {
+  .arrow {
     font-size: 2vw;
   }
 }
@@ -530,7 +486,7 @@ a:hover {
     font-size: 2vw;
   }
 
-  .arrow a {
+  .arrow {
     font-size: 4vw;
   }
 
@@ -581,9 +537,6 @@ a:hover {
     width: 45%;
     height: 100vh;
     backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
-    -moz-backdrop-filter: blur(6px);
-    -o-backdrop-filter: blur(6px);
     box-shadow: 4px 4px 40px 4px rgba(0, 0, 0, 0.05);
     background-color: white;
     top: 90px;
@@ -623,7 +576,7 @@ a:hover {
     font-size: 3vw;
   }
 
-  .arrow a {
+  .arrow {
     font-size: 4vw;
   }
 
@@ -734,7 +687,7 @@ a:hover {
       font-size: 3.5vw;
     }
 
-    .arrow a {
+    .arrow {
       font-size: 4vw;
     }
   }
