@@ -20,3 +20,8 @@ const options = {
 
 const darkmode = new Darkmode(options);
 darkmode.showWidget();
+
+
+$('#nav-icon').click(function () {
+  $(this).toggleClass('open');
+});
