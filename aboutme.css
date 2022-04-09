@@ -133,6 +133,7 @@ h2 {
 
 nav {
   position: fixed;
+  -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
   background-color: hsla(0, 0%, 100%, 0.8);
   box-shadow: 4px 4px 40px 4px rgba(0, 0, 0, 0.05);
