@@ -19,9 +19,17 @@
     margin: auto;
   }
 
-  .corners {
+  .pic {
     border-radius: 1vw;
+    transition: 0.5s ease;
   }
+
+  .pic:hover {
+      transition: 0.5s ease;
+      box-shadow: 4px 4px 40px 4px rgba(0, 0, 0, 0.4);
+  }
+
+
   
   /*Global Font Formats and Containers*/
   
