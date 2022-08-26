@@ -126,7 +126,7 @@ nav {
   position: fixed;
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
-  background-color: hsla(0, 0%, 100%, 0.8);
+  background-color: hsla(0, 0%, 100%, 0.75);
   box-shadow: 4px 4px 40px 4px rgba(0, 0, 0, 0.05);
   width: 70%;
   margin: 3vw 15%;
@@ -319,19 +319,35 @@ a:hover {
 .workimg:hover {
   transition: 0.5s ease;
   cursor: pointer;
-  box-shadow: 4px 4px 40px 4px rgba(0, 0, 0, 0.4);
+  box-shadow: 4px 4px 40px 4px rgba(0, 0, 0, 0.3);
 }
 
 .darkmode--activated .workimg:hover {
-  box-shadow: 4px 4px 40px 4px rgba(236, 236, 236, 0.4);
+  box-shadow: 4px 4px 40px 4px rgba(236, 236, 236, 0.3);
 }
 
 .darkmode--activated .workimgmobile:hover {
-  box-shadow: 4px 4px 40px 4px rgba(236, 236, 236, 0.4);
+  box-shadow: 4px 4px 40px 4px rgba(236, 236, 236, 0.3);
 }
 
 .workimgmobile {
   display: none;
+}
+
+.internimg {
+  width: 100%;
+  border-radius: 0.6vw;
+  transition: 0.5s ease;
+}
+
+.internimg:hover {
+  transition: 0.5s ease;
+  cursor: pointer;
+  box-shadow: 4px 4px 40px 4px rgba(0, 0, 0, 0.1);
+}
+
+.meta{
+  margin-bottom: 2vw;
 }
 
 .mini1a {
@@ -382,14 +398,14 @@ a:hover {
   transition: 0.5s ease;
 }
 
-.mini1a:hover,
+/*.mini1a:hover,
 .mini2a:hover,
 .mini3a:hover,
 .mini1b:hover,
 .mini2b:hover {
   transition: 0.5s ease;
   box-shadow: 4px 4px 40px 4px rgba(0, 0, 0, 0.4);
-}
+}*/
 
 .mini1 {
   width: 96%;
@@ -579,6 +595,10 @@ a:hover {
 
   .arrow {
     font-size: 4vw;
+  }
+
+  .mobileSp {
+    margin-bottom: 4vw;
   }
 
   .workimg {
