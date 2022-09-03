@@ -383,7 +383,25 @@ h5 {
     cursor: pointer;
 }
 
+.condensed {
 
+    z-index: 10;
+    float: right;
+    position: absolute;
+    margin: 7% 0 0 77%;
+    background-color: hsla(0, 0%, 100%, 1);
+    color: black;
+    padding: 15px 32px;
+    font-size: 0.9vw;
+    border-radius: 50px;
+    transition: .5s;
+
+}
+
+.condensed:hover {
+    transition: .5s;
+    background-color: hsla(0, 0%, 100%, 0.7);
+}
 
 .last{
     padding-bottom: 20vh;

@@ -21,7 +21,7 @@
         
         <script defer src="https://unpkg.com/smoothscroll-polyfill@0.4.4/dist/smoothscroll.min.js"></script>
         
-        <link rel="stylesheet" type= "text/css" href="cantrace-c.css">        
+        <link rel="stylesheet" type= "text/css" href="cantrace-condensed.css">        
 
 	
     </head>
@@ -42,6 +42,11 @@
             <a href="#down"><div class="round3">
                 <span></span>
                 <span></span>
+            </div></a>
+
+
+            <a href="https://rahil.me/cantrace/home"><div class="condensed">
+            Full Case Study  &nbsp<i class="fas fa-external-link-alt"></i>
             </div></a>
             
             
@@ -99,13 +104,12 @@
             <div class="col-12">
                     
                     <h1>DISCOVER</h1>
-                    <h2>Understanding our Goal and Contact Tracing</h2>
+                    <h2>Understanding Contact Tracing and our Goal</h2>
                     <h3 class="mt-3">
                     
-                    Contact tracing is a process involving a public health agent identifying, assessing, and monitoring individuals infected by a communicable disease and their exposed contacts to mitigate transmission. While contact-tracing is an effective tool, it is labor-intensive, time-consuming, and subject to recall error. These shortcomings became strikingly evident due to COVID-19’s marked infectivity, particularly in densely populated environments, straining public health resources. As a result, our goal was to work on a digital contact tracing solution that involved using smartphone apps to track proximity interactions between people, which addressed the limitations of physical contact tracing due to their significant speed and scalability potential. We wanted to create a product for Canada as contact tracing apps natively help expedite and centralize the entire process to make the process simpler.
-                    
+                        While contact-tracing is an effective tool, it is labor-intensive, time-consuming, and subject to recall error. These shortcomings became strikingly evident due to COVID-19’s marked infectivity, particularly in densely populated environments, straining public health resources. As a result, our goal was to work on a digital contact tracing solution that involved using smartphone apps to track proximity interactions between people. We wanted to create a product for Canada as contact tracing apps natively help expedite and centralize the entire process to make it simpler.
                     </h3>
-        
+                    
             </div>
         </div>
         
@@ -116,7 +120,6 @@
                     
                     <h1>DISCOVER</h1>
                     <h2>Secondary Market Research</h2>
-                    <h3>In order to understand our audience base, identify new opportunities and set realistic targets based on concrete data, we conducted market research in two key areas. We looked into the rate of downloads of contact tracing apps in many countries to set realistic targets and investigate why they are so high/low. In addition, we researched Canadian government survey data to understand our target market and who exactly we were building our product for.</h3>
                     
                     <div class="row mt-5">
                         <div class="col-lg-6 col-sm-12">
@@ -156,10 +159,10 @@
                     <h2>Figuring out the Right Technology</h2>
                     <h3 class="mt-3">
                     
-                    Keeping the user in mind, we investigated several different technologies to conduct tracing safely and reliably as that was a key factor for users. Various technical modalities exist to determine proximity traces, including Bluetooth Low Energy (BLE), Global Positioning System (GPS), WiFi and Quick Response (QR) codes among others. However, GPS and BLE dominated global discussions and were the most commonly used methods. GPS configures proximity by using timing and location measurements to identify overlap between app users’ paths. It poses the benefits of providing location context of exposures, and critical geolocation data to public health to identify infection hotspots and analyze disease spread.  However, GPS is unable to resolve between objects within 4.9 meters of each other, and signal accuracy is undermined near physical barriers (like tall buildings).</h3> <br>
+                    Keeping the user in mind, we investigated several different technologies to conduct tracing safely and reliably as that was a key factor for users. Various technical modalities exist to determine proximity traces, including Bluetooth Low Energy (BLE), Global Positioning System (GPS), WiFi and Quick Response (QR) codes among others.</h3> <br>
                 
                     <h3> 
-                    BLE possesses key advantages over GPS including its ability to detect short distances between individuals and better discern proximity between those confined to the same geographical coordinates yet separated by elevation like in multi-storey buildings. Additionally, it is operational underground such as in tunnels or subways where satellite signalling is obstructed. Importantly, BLE’s capacity to configure proximity traces without processing or storing sensitive location data draws fewer privacy concerns. Based on these factors, we focused on building our product around BLE.</h3>
+                    BLE possesses key advantages over GPS including its ability to detect short distances between individuals and better discern proximity between those confined to the same geographical coordinates yet separated by elevation like in multi-storey buildings. Additionally, it is operational underground such as in tunnels or subways where satellite signalling is obstructed.</h3>
                 
                     <div class="row mt-5">
                         <div class="col-12">
@@ -171,17 +174,6 @@
         </div>
             
             
-        <div class="row section">
-            
-            <div class="col-12">
-                    
-                    <h1>DISCOVER</h1>
-                    <h2>The Apple/Google API</h2>
-                    <h3 class="mt-3"> Contact tracing apps using BLE were initially hampered by a limitation on devices using Apple’s iOS operating system which required phones to be perpetually “awake”, and apps open in the foreground to keep BLE readings active. Furthermore, BLE communications were stifled from signalling inter-compatibility issues between Android and iOS devices. Consequently, app adoption rates were significantly reduced, which further minimized their contact tracing potential. As a result, Google and Apple partnered to create an Application Program Interface (API), a program that mediated interactions between different software, which effectively resolved these limitations. The API was also lauded for preserving user privacy by operating within the decentralized framework and barring the co-existence of GPS technology on contact tracing apps adoptings it. Consequently, due to its technical and privacy advantages, it became the standard operating software for contact tracing apps like ours.</h3>
-        
-            </div>
-        </div>
-            
             
         
         <div class="row section">
@@ -189,9 +181,8 @@
             <div class="col-12">
                     
                     <h1>DISCOVER</h1>
-                    <h2>Further Researching Other Apps</h2>
-                    <h3>After figuring out what technology and how effective certain methods can be, we collected data from a few different contact tracing apps and investigated what may be the reason behind its low adoption rates, technologies they used and how much they kept the user's privacy in mind. After conducting this research, it only supported our prior research and we knew we were on the right track to solve the user's biggest problems against such an app.</h3>
-                    
+                    <h2>Competitive Analysis</h2>
+                   
                     <div class="row mt-5">
                         <div class="col-12">
                         <img class="asset4" src="Images/Asset%2039.png">
@@ -234,7 +225,7 @@
                     
                     <h1>DISCOVER</h1>
                     <h2>Understanding the User</h2>
-                    <h3>Taking what we learned from our research, storyboarding and our problems in mind, it was important to understand the types of users who were going to be using the product. Going back to these personas throughout the process kept us aligned with our user goals, empathize and helped us solve the problems more efficiently. In addition to our research, knowing that this virus does not discriminate and has no barriers, we knew the most important people we were creating this for were the elderly. And on the other side of the spectrum, we had someone younger. What this also helped us understand better is how simple and easy-to-use we must create our product.</h3>
+                    <h3>In addition to our research, knowing that this virus does not discriminate and has no barriers, we knew the most important people we were creating this for were the elderly. And on the other side of the spectrum, we had someone younger. What this also helped us understand better is how simple and easy-to-use we must create our product.</h3>
                     
                     <div class="row mt-5">
                         <div class="col-12">
@@ -264,8 +255,7 @@
                     
                     <h1>DEFINE</h1>
                     <h2>Problem Definition</h2>
-                    <h3 class="mt-3">Through our research, we narrowed it down to three main points to define our problem for our product we were creating. Already released contact tracing apps fell short, they only focused primarily on notifying users if they had an exposure risk and nothing more.</h3>
-                    
+                   
                     <div class="row mt-5">
                         <div class="col-12">
                         <img class="asset4" src="Images/Asset%201.png">
@@ -302,7 +292,7 @@
                     
                     <h1>DEFINE</h1>
                     <h2>Our Solution</h2>
-                    <h3 class="mt-3">Our design recommendations operated within the API framework, capitalizing on its privacy and technical advantages, while incorporating user-centric features and healthcare elements to integrate conventional contact tracing efforts. Broadly, these recommendations augmented the API exposure notification platform with evidence-based characteristics to optimize both privacy and efficacy, help maximize app adoption rates, and minimize disease transmission. Without healthcare integration, apps did little to support contact tracing efforts by public health. Our solution was the bridge between technology and healthcare to create an effective tool against the infection, expedite recovery, and preserve civil liberties for the common good of all Canadians. </h3>
+                    <h3 class="mt-3">Without healthcare integration, apps did little to support contact tracing efforts by public health. Our solution was the bridge between technology and healthcare to create an effective tool against the infection, expedite recovery, and preserve civil liberties for the common good of all Canadians. </h3>
                     
                     <div class="row mt-5">
                         <div class="col-12">
@@ -339,7 +329,6 @@
                     
                     <h1>DEVELOP</h1>
                     <h2>Wireframes</h2>
-                    <h3 class="mt-3">These early wireframes provided an overall idea of how we wanted the app to look. They provided a clear vision of how our users are going to interact with our product and allowed us to further investigate any pain points.</h3>
                     
                     <div class="row mt-5">
                         <div class="col-12">
@@ -356,7 +345,6 @@
                     
                     <h1>DEVELOP</h1>
                     <h2>Iterations</h2>
-                    <h3 class="mt-3">Implemented app branding into visual design striving for a more professional look.</h3>
                     
                     <div class="row mt-5">
                         <div class="col-12">
@@ -373,7 +361,7 @@
                     
                     <h1>DEVELOP</h1>
                     <h2>Measuring Success (User Testing)</h2>
-                    <h3 class="mt-3">There are many ways of defining KPIs to measure the success of our implementation and design. Using the prototype I built, we conducted user testing to ensure all areas of the app were implemented correctly and users were able to complete various tasks seamlessly. What we learned from these was that we created an app that was extremely easy to  use and straightforward - considering people of all ages were going to use it.</h3>
+                    <h3 class="mt-3">What we learned from these was that we created an app that was extremely easy to  use and straightforward - considering people of all ages were going to use it.</h3>
                     
                     <div class="row mt-5">
                     <div class="col-4">
@@ -404,27 +392,9 @@
                     
                     <h1>DEVELOP</h1>
                     <h2>Mid-Fidelity Mockups</h2>
-                    <h3 class="mt-3">At this point, we were right at the final design stage recieving direct feedback. We knew exactly how users were going to interact with our app and the overall design to follow.</h3>
-                    
-                    <div class="row mt-5">
+                   <div class="row mt-5">
                         <div class="col-12">
                         <img class="asset4" src="Images/Asset%2043.png">
-                        </div>
-                    </div>
-            </div>
-        </div>
-        
-        
-        <div class="row section">
-            
-            <div class="col-12">
-                    
-                    <h1>DEVELOP</h1>
-                    <h2>Design System</h2>
-                    
-                    <div class="row mt-5">
-                        <div class="col-12">
-                        <img class="asset4" src="Images/Design%20System.png">
                         </div>
                     </div>
             </div>
@@ -481,13 +451,6 @@
                     
                     <video controls id="" class="video" autoplay="" muted=""><source src="Images/vid1.mp4" type='video/mp4;'></video>
                 
-            </div>
-        </div>
-        
-        
-        <div class="row section">
-            <div class="col-12">    
-                <img class="asset4" src="Images/Asset%2047.png">
             </div>
         </div>
         
