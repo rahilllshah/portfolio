@@ -169,6 +169,10 @@ h4 {
 h5 {
         font-size: 3vw;
 }
+
+.condensed {
+    display: none;
+}
  
 }
 
