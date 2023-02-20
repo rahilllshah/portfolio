@@ -1,106 +1,136 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-    <meta charset="utf-8">
+  <head>
+    <meta charset="utf-8" />
     <title>Rahil Shah</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1"
+    />
+    <meta
+      name="viewport"
+      content="user-scalable=no, width=device-width, initial-scale=1.0"
+    />
     <meta name="apple-mobile-web-app-capable" content="yes" />
 
-    <link rel="icon" href="Images/R%20black.png" sizes="16x16" type="image/png">
+    <link
+      rel="icon"
+      href="Images/R%20black.png"
+      sizes="16x16"
+      type="image/png"
+    />
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+      integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
+      crossorigin="anonymous"
+    ></script>
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
 
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
 
     <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
-        integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
-        crossorigin="anonymous" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+      integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
+      crossorigin="anonymous"
+    />
 
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="style.css" />
+  </head>
 
-</head>
-
-<body>
-
+  <body>
     <!--<script type="text/javascript" src="script.js"></script>-->
 
     <div class="row">
-        <div class="col-12">
-            <nav>
+      <div class="col-12">
+        <nav>
+          <input type="checkbox" id="check" />
+          <label for="check" class="checkbtn">
+            <div id="nav-icon">
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </label>
 
-                <input type="checkbox" id="check">
-                <label for="check" class="checkbtn">
-                    <div id="nav-icon">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </div>
-                </label>
+          <script>
+            $(document).ready(function () {
+              $("#nav-icon").click(function () {
+                $(this).toggleClass("open");
+              });
+            });
+          </script>
 
-                <script>
-                    $(document).ready(function(){
-                       $('#nav-icon').click(function(){
-                          $(this).toggleClass('open');
-                       });
-                    });        
-                </script>
+          <ul class="navL">
+            <a href="https://rahil.me/" class="section1-marker">
+              <img class="logo" src="Images/Logo.png"
+            /></a>
+            <a href="https://rahil.me/" class="section1-marker">
+              <img class="logoW" src="Images/LogoW.png"
+            /></a>
+          </ul>
 
-                <ul class="navL">
-                    <a href="https://rahil.me/" class="section1-marker"> <img class="logo" src="Images/Logo.png"></a>
-                    <a href="https://rahil.me/" class="section1-marker"> <img class="logoW" src="Images/LogoW.png"></a>
-                </ul>
-
-                <ul class="navR">
-
-                    <li><a href="https://rahil.me/aboutme">About Me</a></li>
-                    <li><a href="https://rahil.me/photography/home">Photography</a></li>
-                    <li><a href="RahilShah_Resume.pdf" target="_blank">Resume</a></li>
-                    <li><a href="https://www.linkedin.com/in/rahilllshah" target="_blank">LinkedIn</a></li>
-
-                </ul>
-            </nav>
-        </div>
+          <ul class="navR">
+            <li><a href="https://rahil.me/aboutme">About Me</a></li>
+            <li><a href="https://rahil.me/photography/home">Photography</a></li>
+            <li><a href="RahilShah_Resume.pdf" target="_blank">Resume</a></li>
+            <li>
+              <a href="https://www.linkedin.com/in/rahilllshah" target="_blank"
+                >LinkedIn</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </div>
     </div>
 
     <section class="section1" id="section1">
+      <div class="row landing">
+        <div class="col-12">
+          <div class="blended-text-wrapper">
+            <video
+              autoplay
+              loop
+              class="blended-text-wrapper_video"
+              muted
+              plays-inline
+            >
+              <source src="Images/gradients-bg.mp4" type="video/mp4;" />
+            </video>
 
-        <div class="row landing">
+            <h1 class="blended-text-wrapper_text">
+              Creating elegant<br />product experiences
+            </h1>
+          </div>
 
-            <div class="col-12">
-                <div class="blended-text-wrapper">
+          <p class="landingsub">
+            Hello! My name's Rahil. I'm a passionate designer and developer with
+            the goal to radiate core business value and elegance through my
+            work.
+          </p>
 
-                    <video autoplay loop class="blended-text-wrapper_video" muted plays-inline>
-                        <source src="Images/gradients-bg.mp4" type='video/mp4;'>
-                    </video>
-
-                    <h1 class="blended-text-wrapper_text">Creating elegant<br>product experiences</h1>
-
-                </div>
-
-                <p class="landingsub">Hello! My name's Rahil. I'm a passionate designer and developer with the goal to
-                    radiate core business value and elegance through my work.</p>
-
-                <div class="bounce">
-                    <i class="arrow fas fa-chevron-down fa-2x"></i>
-                </div>
-
-            </div>
-
+          <div class="bounce">
+            <i class="arrow fas fa-chevron-down fa-2x"></i>
+          </div>
         </div>
+      </div>
     </section>
 
-
-   <!-- <div class="row container">
+    <!-- <div class="row container">
         <div class="col-lg-12 col-sm-12">
             <a href="https://gardenintel.com" title="Garden">
                 <img class="internimg meta mobileSp" src="Images/Garden Slice.png"></a>
@@ -111,150 +141,160 @@
     </div>-->
 
     <div class="row container">
-        <div class="col-lg-6 col-sm-12">
-            <a href="https://rahil.me/meta/home" title="Meta">
-                <img class="internimg meta mobileSp" src="Images/IG Slice.png"></a>
+      <div class="col-lg-6 col-sm-12">
+        <a href="https://rahil.me/meta/home" title="Meta">
+          <img class="internimg meta mobileSp" src="Images/IG Slice.png"
+        /></a>
+      </div>
 
-        </div>
-
-        <div class="col-lg-6 col-sm-12">
-            <a  href="https://rahil.me/shopify/home" title="Shopify">
-                <img class="internimg mobileSp" src="Images/Shopify Slice.png"></a>
-
-        </div>
-        
-
+      <div class="col-lg-6 col-sm-12">
+        <a href="https://rahil.me/shopify/home" title="Shopify">
+          <img class="internimg mobileSp" src="Images/Shopify Slice.png"
+        /></a>
+      </div>
     </div>
 
     <div class="row container mb-5">
-        <div class="col-lg-6 col-sm-12">
-            <a  href="https://rahil.me/robinhood/home" title="Robinhood">
-                <img class="internimg mobileSp" src="Images/Robinhood Slice.png"></a>
+      <div class="col-lg-6 col-sm-12">
+        <a href="https://rahil.me/robinhood/home" title="Robinhood">
+          <img class="internimg mobileSp" src="Images/Robinhood Slice.png"
+        /></a>
+      </div>
 
-        </div>
-
-        <div class="col-lg-6 col-sm-12">
-            <a  href="https://rahil.me/twitch/home" title="Twitch">
-                <img class="internimg" src="Images/Twitch Slice.png"></a>
-
-        </div>
-
+      <div class="col-lg-6 col-sm-12">
+        <a href="https://rahil.me/twitch/home" title="Twitch">
+          <img class="internimg" src="Images/Twitch Slice.png"
+        /></a>
+      </div>
     </div>
 
     <div class="row container">
-        <div class="col-12">
-            <a href="https://rahil.me/cantrace/home" title="CanTrace">
-                <img class="workimg" src="Images/cantrace%20web.png"></a>
-            <a href="https://rahil.me/cantrace/home" title="CanTrace">
-                <img class="workimgmobile" src="Images/cantrace%20mobile.png"></a>
-
-        </div>
-
+      <div class="col-12">
+        <a href="https://rahil.me/cantrace/home" title="CanTrace">
+          <img class="workimg" src="Images/cantrace%20web.png"
+        /></a>
+        <a href="https://rahil.me/cantrace/home" title="CanTrace">
+          <img class="workimgmobile" src="Images/cantrace%20mobile.png"
+        /></a>
+      </div>
     </div>
 
     <div class="row container">
-        <div class="col-12">
-            <a href="https://rahil.me/timeline/home" title="Timeline">
-                <img class="workimg" src="Images/timeline%20web.png"></a>
-            <a href="https://rahil.me/timeline/home" title="Timeline">
-                <img class="workimgmobile" src="Images/timeline%20mobile.png"></a>
-
-        </div>
-
+      <div class="col-12">
+        <a href="https://rahil.me/timeline/home" title="Timeline">
+          <img class="workimg" src="Images/timeline%20web.png"
+        /></a>
+        <a href="https://rahil.me/timeline/home" title="Timeline">
+          <img class="workimgmobile" src="Images/timeline%20mobile.png"
+        /></a>
+      </div>
     </div>
 
     <div class="row container">
-        <div class="col-12">
-            <a href="https://rahil.me/applemusic/home" title="Apple Music"> <img class="workimg"
-                    src="Images/apple%20music%20web.png"> </a>
-            <a href="https://rahil.me/applemusic/home" title="Apple Music"> <img class="workimgmobile"
-                    src="Images/apple%20music%20mobile.png"> </a>
-        </div>
-    </div>
-
-
-    <div class="row container">
-        <div class="col-12">
-            <a href="https://rahil.me/deltahacks/home" title="DeltaHacks VI"> <img class="workimg"
-                    src="Images/deltahacks%20web.png"> </a>
-            <a href="https://rahil.me/deltahacks/home" title="DeltaHacks VI"> <img class="workimgmobile"
-                    src="Images/deltahacks%20mobile.png"> </a>
-        </div>
+      <div class="col-12">
+        <a href="https://rahil.me/applemusic/home" title="Apple Music">
+          <img class="workimg" src="Images/apple%20music%20web.png" />
+        </a>
+        <a href="https://rahil.me/applemusic/home" title="Apple Music">
+          <img class="workimgmobile" src="Images/apple%20music%20mobile.png" />
+        </a>
+      </div>
     </div>
 
     <div class="row container">
+      <div class="col-12">
+        <a href="https://rahil.me/deltahacks/home" title="DeltaHacks VI">
+          <img class="workimg" src="Images/deltahacks%20web.png" />
+        </a>
+        <a href="https://rahil.me/deltahacks/home" title="DeltaHacks VI">
+          <img class="workimgmobile" src="Images/deltahacks%20mobile.png" />
+        </a>
+      </div>
+    </div>
 
-        <div class="col-lg-6 col-sm-12">
-            <a href="https://www.behance.net/gallery/83411589/Instagram-Redesign" title="Instagram Redesign"
-                target="_blank"> <img class="mini1" src="Images/ig.png"> </a>
-        </div>
+    <div class="row container">
+      <div class="col-lg-6 col-sm-12">
+        <a
+          href="https://www.behance.net/gallery/83411589/Instagram-Redesign"
+          title="Instagram Redesign"
+          target="_blank"
+        >
+          <img class="mini1" src="Images/ig.png" />
+        </a>
+      </div>
 
-        <div class="col-lg-6 col-sm-12">
-            <a href="https://www.behance.net/gallery/83341779/Ravn-OS" title="Ravn OS" target="_blank"> <img
-                    class="mini2" src="Images/ravn%20os.png"> </a>
-        </div>
+      <div class="col-lg-6 col-sm-12">
+        <a
+          href="https://www.behance.net/gallery/83341779/Ravn-OS"
+          title="Ravn OS"
+          target="_blank"
+        >
+          <img class="mini2" src="Images/ravn%20os.png" />
+        </a>
+      </div>
     </div>
 
     <div class="row landing2">
+      <div class="col-12">
+        <div class="blended-text-wrapper">
+          <video
+            autoplay
+            loop
+            class="blended-text-wrapper_video"
+            muted
+            plays-inline
+          >
+            <source src="Images/gradients-bg.mp4" type="video/mp4;" />
+          </video>
 
-        <div class="col-12">
-            <div class="blended-text-wrapper">
-
-                <video autoplay loop class="blended-text-wrapper_video" muted plays-inline>
-                    <source src="Images/gradients-bg.mp4" type='video/mp4;'>
-                </video>
-
-                <h1 class="blended-text-wrapper_text">The Palette</h1>
-
-            </div>
+          <h1 class="blended-text-wrapper_text">The Palette</h1>
         </div>
+      </div>
     </div>
     <div class="row container mt-3">
+      <div class="col-lg-4 col-sm-12">
+        <img class="mini1a" src="Images/apple.png" />
+      </div>
 
-        <div class="col-lg-4 col-sm-12">
-            <img class="mini1a" src="Images/apple.png">
-        </div>
+      <div class="col-lg-4 col-sm-12">
+        <img class="mini2a" src="Images/malibu.png" />
+      </div>
 
-        <div class="col-lg-4 col-sm-12">
-            <img class="mini2a" src="Images/malibu.png">
-        </div>
-
-        <div class="col-lg-4 col-sm-12">
-            <img class="mini3a" src="Images/dq.png">
-        </div>
+      <div class="col-lg-4 col-sm-12">
+        <img class="mini3a" src="Images/dq.png" />
+      </div>
     </div>
 
     <div class="row container">
+      <div class="col-lg-6 col-sm-12">
+        <img class="mini1b" src="Images/dh.png" />
+      </div>
 
-        <div class="col-lg-6 col-sm-12">
-            <img class="mini1b" src="Images/dh.png">
-        </div>
-
-        <div class="col-lg-6 col-sm-12">
-            <img class="mini2b" src="Images/cards.png">
-        </div>
+      <div class="col-lg-6 col-sm-12">
+        <img class="mini2b" src="Images/cards.png" />
+      </div>
     </div>
 
-
     <div class="row container">
+      <div class="col-lg-4 col-sm-12">
+        <img class="mini1a" src="Images/nova.png" />
+      </div>
 
-        <div class="col-lg-4 col-sm-12">
-            <img class="mini1a" src="Images/nova.png"> 
-        </div>
+      <div class="col-lg-4 col-sm-12">
+        <img class="mini2a" src="Images/transit.png" />
+      </div>
 
-        <div class="col-lg-4 col-sm-12">
-            <img class="mini2a" src="Images/transit.png"> 
-        </div>
-
-        <div class="col-lg-4 col-sm-12">
-            <img class="mini3a" src="Images/ims.png">
-        </div>
+      <div class="col-lg-4 col-sm-12">
+        <img class="mini3a" src="Images/ims.png" />
+      </div>
     </div>
 
     <div class="footer">
-        <h2 class="mt-3 ft">Designed and developed with 💙&nbsp;by me!<br>&#169; 2022 Rahil Shah's Portfolio</h2>
-        <h3 class="ft-special">good vibes only • live happy</h3>
+      <h2 class="mt-3 ft">
+        Designed and developed with 💙&nbsp;by me!<br />&#169; 2022 Rahil Shah's
+        Portfolio
+      </h2>
+      <h3 class="ft-special">good vibes only • live happy</h3>
     </div>
-</body>
-
+  </body>
 </html>

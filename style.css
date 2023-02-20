@@ -277,7 +277,7 @@ a:hover {
   color: gray;
 }
 
-.arrow  {
+.arrow {
   font-size: 2vw;
   color: lightgray;
   opacity: 0.5;
@@ -346,7 +346,7 @@ a:hover {
   box-shadow: 4px 4px 40px 4px rgba(0, 0, 0, 0.1);
 }
 
-.meta{
+.meta {
   margin-bottom: 2vw;
 }
 
@@ -462,7 +462,7 @@ a:hover {
 
 .ft-special {
   font-style: italic;
-  color:darkgray;
+  color: darkgray;
   font-size: 12px;
 }
 
