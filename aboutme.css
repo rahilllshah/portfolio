@@ -59,7 +59,7 @@ h2 {
   position: relative;
   margin: 44px auto;
   transform: rotate(0deg);
- transition: 0.5s ease-in-out;
+  transition: 0.5s ease-in-out;
   cursor: pointer;
 }
 
@@ -82,7 +82,7 @@ h2 {
 
 #nav-icon span:nth-child(1) {
   top: 0px;
- transform-origin: left center;
+  transform-origin: left center;
 }
 
 #nav-icon span:nth-child(2) {
@@ -92,7 +92,7 @@ h2 {
 
 #nav-icon span:nth-child(3) {
   top: 36px;
- transform-origin: left center;
+  transform-origin: left center;
 }
 
 #nav-icon span:nth-child(4) {
@@ -103,7 +103,7 @@ h2 {
 }
 
 #nav-icon.open span:nth-child(1) {
- transform: rotate(45deg);
+  transform: rotate(45deg);
   left: 8px;
 }
 
@@ -113,7 +113,7 @@ h2 {
 }
 
 #nav-icon.open span:nth-child(3) {
- transform: rotate(-45deg);
+  transform: rotate(-45deg);
   top: 42px;
   left: 8px;
 }
@@ -237,8 +237,8 @@ a:hover {
   padding-bottom: 10vh;
 }
 
-.ft {
-  isolation: isolate;
+.darkmode--activated .emoji {
+  filter: invert(1);
 }
 
 .ft-special {
