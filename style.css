@@ -326,6 +326,22 @@ a:hover {
   display: none;
 }
 
+.beavrimg {
+  width: 100%;
+  border-radius: 0.6vw;
+  transition: 0.5s ease;
+}
+
+.beavrimg:hover {
+  transition: 0.5s ease;
+  cursor: pointer;
+  box-shadow: 4px 4px 40px 4px rgba(0, 0, 0, 0.1);
+}
+
+.beavrimgmobile {
+  display: none;
+}
+
 .internimg {
   width: 100%;
   border-radius: 0.6vw;
@@ -583,6 +599,26 @@ a:hover {
 
   .mobileSp {
     margin-bottom: 4vw;
+  }
+
+  .beavrimg {
+    display: none;
+  }
+
+  .beavrimgmobile {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin-top: 2.5vh;
+    margin-bottom: 2.5vh;
+    transition: 0.5s;
+    border-radius: 2vw;
+  }
+
+  .beavrimgmobile:hover {
+    transition: 0.5s ease;
+    cursor: pointer;
+    box-shadow: 4px 4px 40px 4px rgba(0, 0, 0, 0.3);
   }
 
   .workimg {
