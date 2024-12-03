@@ -442,7 +442,7 @@ a:hover {
   transform: scale(1.05);
 }
 
-.mini2:hover {
+.mini2:hover { 
   transition: 0.5s ease;
   cursor: pointer;
   transform: scale(1.05);
@@ -609,6 +609,7 @@ a:hover {
 
   .mobileSp {
     margin-bottom: 4vw;
+    border-radius: 4vw;
   }
 
   .beavrimg {
@@ -622,13 +623,14 @@ a:hover {
     margin-top: 2.5vh;
     margin-bottom: 2.5vh;
     transition: 0.5s;
-    border-radius: 2vw;
+    border-radius: 4vw;
+    border:0.5px solid #DEDEDE;
   }
 
   .beavrimgmobile:hover {
     transition: 0.5s ease;
     cursor: pointer;
-    box-shadow: 4px 4px 40px 4px rgba(0, 0, 0, 0.3);
+    transform: scale(1.05);
   }
 
   .workimg {
@@ -642,7 +644,7 @@ a:hover {
     margin-top: 2.5vh;
     margin-bottom: 2.5vh;
     transition: 0.5s;
-    border-radius: 2vw;
+    border-radius: 4vw;
   }
 
   .workimgmobile:hover {
@@ -659,7 +661,7 @@ a:hover {
     margin-top: 2.5vh;
     margin-bottom: 2.5vh;
     transition: 0.5s;
-    border-radius: 2vw;
+    border-radius: 4vw;
   }
 
   .mini2 {
@@ -670,7 +672,7 @@ a:hover {
     margin-top: 2.5vh;
     margin-bottom: 2.5vh;
     transition: 0.5s;
-    border-radius: 2vw;
+    border-radius: 4vw;
   }
 
   .mini1a {
@@ -681,7 +683,7 @@ a:hover {
     margin-top: 2.5vh;
     margin-bottom: 2.5vh;
     transition: 0.5s;
-    border-radius: 2vw;
+    border-radius: 4vw;
   }
 
   .mini2a {
@@ -693,7 +695,7 @@ a:hover {
     margin-bottom: 2.5vh;
     margin-left: 0;
     transition: 0.5s;
-    border-radius: 2vw;
+    border-radius: 4vw;
   }
 
   .mini3a {
@@ -704,7 +706,7 @@ a:hover {
     margin-top: 2.5vh;
     margin-bottom: 2.5vh;
     transition: 0.5s;
-    border-radius: 2vw;
+    border-radius: 4vw;
   }
 
   .mini1b {
@@ -715,7 +717,7 @@ a:hover {
     margin-top: 2.5vh;
     margin-bottom: 2.5vh;
     transition: 0.5s;
-    border-radius: 2vw;
+    border-radius: 4vw;
   }
 
   .mini2b {
@@ -726,7 +728,7 @@ a:hover {
     margin-top: 2.5vh;
     margin-bottom: 2.5vh;
     transition: 0.5s;
-    border-radius: 2vw;
+    border-radius: 4vw;
   }
 
   @media (max-width: 760px) {
