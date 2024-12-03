@@ -306,6 +306,42 @@ a:hover {
   }
 }
 
+.header{
+  width: 50%;
+  margin: auto;
+  text-align: center;
+  font-style: italic;
+  color: darkgray;
+  font-size: 12px;
+  letter-spacing: 100%;
+  background: linear-gradient(
+    to right,
+    #7953cd 10%,
+    #a64ced 20%,
+    #00affa 30%,
+    #00cc88 50%,
+    #0190cd 70%,
+    #764ada 90%,
+    #ff6347 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-fill-color: transparent;
+  background-size: 500% auto;
+  animation: textShine 3s ease-in-out infinite alternate;
+}
+
+@keyframes textShine {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+
 /*Work*/
 
 .workimg {
@@ -369,6 +405,8 @@ a:hover {
   transition: 0.5s ease;
 }
 
+
+
 .mini2a {
   width: 98%;
   display: block;
@@ -415,6 +453,7 @@ a:hover {
 .mini2b:hover {
   transition: 0.5s ease;
   transform: scale(1.1);
+  cursor: pointer;
 }
 
 .mini1 {
@@ -424,6 +463,24 @@ a:hover {
   margin-top: 5vh;
   border-radius: 2vw;
   transition: 0.5s ease;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9); /* Dark background with no visible padding */
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  max-height: 80%;
+  max-width: 40%;
 }
 
 .mini2 {
@@ -454,6 +511,7 @@ a:hover {
 
 .comingsoon:hover {
   cursor: default;
+  transform: scale(1);
 }
 
 /*Footer*/
