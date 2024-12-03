@@ -310,7 +310,7 @@ a:hover {
 
 .workimg {
   width: 100%;
-  border-radius: 1vw;
+  border-radius: 2vw;
   margin-top: 5vh;
   margin-bottom: 5vh;
   transition: 0.5s ease;
@@ -319,7 +319,7 @@ a:hover {
 .workimg:hover {
   transition: 0.5s ease;
   cursor: pointer;
-  box-shadow: 4px 4px 40px 4px rgba(0, 0, 0, 0.3);
+  transform: scale(1.05);
 }
 
 .workimgmobile {
@@ -328,14 +328,15 @@ a:hover {
 
 .beavrimg {
   width: 100%;
-  border-radius: 0.6vw;
+  border-radius: 2vw;
+  border:0.5px solid #DEDEDE;
   transition: 0.5s ease;
 }
 
 .beavrimg:hover {
   transition: 0.5s ease;
   cursor: pointer;
-  box-shadow: 4px 4px 40px 4px rgba(0, 0, 0, 0.1);
+  transform: scale(1.05);
 }
 
 .beavrimgmobile {
@@ -344,14 +345,15 @@ a:hover {
 
 .internimg {
   width: 100%;
-  border-radius: 0.6vw;
+  border-radius: 2vw;
+  border:0.5px solid #DEDEDE;
   transition: 0.5s ease;
 }
 
 .internimg:hover {
   transition: 0.5s ease;
   cursor: pointer;
-  box-shadow: 4px 4px 40px 4px rgba(0, 0, 0, 0.1);
+  transform: scale(1.05);
 }
 
 .meta {
@@ -363,7 +365,7 @@ a:hover {
   display: block;
   float: left;
   margin-top: 5vh;
-  border-radius: 1vw;
+  border-radius: 2vw;
   transition: 0.5s ease;
 }
 
@@ -373,7 +375,7 @@ a:hover {
   float: center;
   margin-left: 1%;
   margin-top: 5vh;
-  border-radius: 1vw;
+  border-radius: 2vw;
   transition: 0.5s ease;
 }
 
@@ -383,7 +385,7 @@ a:hover {
   float: right;
   margin-right: 0;
   margin-top: 5vh;
-  border-radius: 1vw;
+  border-radius: 2vw;
   transition: 0.5s ease;
 }
 
@@ -392,7 +394,7 @@ a:hover {
   display: block;
   float: left;
   margin-top: 5vh;
-  border-radius: 1vw;
+  border-radius: 2vw;
   transition: 0.5s ease;
 }
 
@@ -402,25 +404,25 @@ a:hover {
   float: right;
   margin-right: 0;
   margin-top: 5vh;
-  border-radius: 1vw;
+  border-radius: 2vw;
   transition: 0.5s ease;
 }
 
-/*.mini1a:hover,
+.mini1a:hover,
 .mini2a:hover,
 .mini3a:hover,
 .mini1b:hover,
 .mini2b:hover {
   transition: 0.5s ease;
-  box-shadow: 4px 4px 40px 4px rgba(0, 0, 0, 0.4);
-}*/
+  transform: scale(1.1);
+}
 
 .mini1 {
   width: 96%;
   display: block;
   float: left;
   margin-top: 5vh;
-  border-radius: 1vw;
+  border-radius: 2vw;
   transition: 0.5s ease;
 }
 
@@ -430,20 +432,28 @@ a:hover {
   float: right;
   margin-right: 0;
   margin-top: 5vh;
-  border-radius: 1vw;
+  border-radius: 2vw;
   transition: 0.5s ease;
 }
 
 .mini1:hover {
   transition: 0.5s ease;
   cursor: pointer;
-  box-shadow: 4px 4px 40px 4px rgba(0, 0, 0, 0.4);
+  transform: scale(1.05);
 }
 
 .mini2:hover {
   transition: 0.5s ease;
   cursor: pointer;
-  box-shadow: 4px 4px 40px 4px rgba(0, 0, 0, 0.4);
+  transform: scale(1.05);
+}
+
+.comingsoon{
+  cursor: default;
+}
+
+.comingsoon:hover {
+  cursor: default;
 }
 
 /*Footer*/
@@ -638,7 +648,7 @@ a:hover {
   .workimgmobile:hover {
     transition: 0.5s ease;
     cursor: pointer;
-    box-shadow: 4px 4px 40px 4px rgba(0, 0, 0, 0.3);
+    transform: scale(1.05);
   }
 
   .mini1 {
