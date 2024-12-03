@@ -313,7 +313,8 @@ a:hover {
   font-style: italic;
   color: darkgray;
   font-size: 12px;
-  letter-spacing: 100%;
+  letter-spacing: 0.5rem;
+  line-height: 1.5rem;
   background: linear-gradient(
     to right,
     #7953cd 10%,
