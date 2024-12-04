@@ -1,138 +1,165 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-
-    <meta charset="utf-8">
+  <head>
+    <meta charset="utf-8" />
     <title>About Me</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1"
+    />
+    <meta
+      name="viewport"
+      content="user-scalable=no, width=device-width, initial-scale=1.0"
+    />
     <meta name="apple-mobile-web-app-capable" content="yes" />
 
-    <link rel="icon" href="Images/R%20black.png" sizes="16x16" type="image/png">
+    <link
+      rel="icon"
+      href="Images/R%20black.png"
+      sizes="16x16"
+      type="image/png"
+    />
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
-        integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
-        crossorigin="anonymous"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+      integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
+      crossorigin="anonymous"
+    ></script>
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
 
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
 
     <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
-        integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
-        crossorigin="anonymous" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+      integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
+      crossorigin="anonymous"
+    />
 
-    <link rel="stylesheet" type="text/css" href="aboutme.css">
+    <link rel="stylesheet" type="text/css" href="aboutme.css" />
+  </head>
 
-
-</head>
-
-<body>
-
+  <body>
     <script type="text/javascript" src="script.js"></script>
 
     <div class="row">
-        <div class="col-12">
-            <nav>
+      <div class="col-12">
+        <nav>
+          <input type="checkbox" id="check" />
+          <label for="check" class="checkbtn">
+            <div id="nav-icon">
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </label>
 
-                <input type="checkbox" id="check">
-                <label for="check" class="checkbtn">
-                    <div id="nav-icon">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </div>
-                </label>
+          <script>
+            $(document).ready(function () {
+              $("#nav-icon").click(function () {
+                $(this).toggleClass("open");
+              });
+            });
+          </script>
+          <ul class="navL">
+            <a href="https://rahil.me" class="section1-marker">
+              <img class="logo" src="Images/Logo.png"
+            /></a>
+            <a href="https://rahil.me" class="section1-marker">
+              <img class="logoW" src="Images/LogoW.png"
+            /></a>
+          </ul>
 
-                <script>
-                    $(document).ready(function () {
-                        $('#nav-icon').click(function () {
-                            $(this).toggleClass('open');
-                        });
-                    });        
-                </script>
-                <ul class="navL">
-                    <a href="https://rahil.me" class="section1-marker"> <img class="logo" src="Images/Logo.png"></a>
-                    <a href="https://rahil.me" class="section1-marker"> <img class="logoW" src="Images/LogoW.png"></a>
-                </ul>
-
-                <ul class="navR">
-
-                    <li><a href="https://rahil.me/aboutme">About Me</a></li>
-                    <li><a href="RahilShah_Resume.pdf" target="_blank">Resume</a></li>
-                    <li><a href="https://www.linkedin.com/in/rahilllshah" target="_blank">LinkedIn</a></li>
-                    <li><a href="https://rahil.me/life/home">Life</a></li>
-
-                </ul>
-            </nav>
-        </div>
+          <ul class="navR">
+            <li><a href="https://rahil.me/aboutme">About Me</a></li>
+            <li><a href="RahilShah_Resume.pdf" target="_blank">Resume</a></li>
+            <li>
+              <a href="https://www.linkedin.com/in/rahilllshah" target="_blank"
+                >LinkedIn</a
+              >
+            </li>
+            <li><a href="https://rahil.me/life/home">Life</a></li>
+          </ul>
+        </nav>
+      </div>
     </div>
 
     <div class="row container">
+      <div class="row">
         <div class="col-lg-4 col-sm-12">
-
-            <img class="me" src="Images/Asset%206.png">
-
-
+          <img class="me" src="Images/Asset%206.png" />
         </div>
 
         <div class="col-lg-1 col-sm-12"></div>
 
-        <div class="col-lg-7 col-sm-12 k">
+        <div class="col-lg-7 col-sm-12">
+          <h1 class="aboutT">About Me</h1>
+          <h2 class="aboutT">
+            Currently, I'm driving growth and design excellence to startups as
+            the co-founder of Beavr Design, a product design company. I
+            previously worked with ML reserachers from Stanford and Harvard to
+            revolutionize the IP industry. I’ve also worked at Twitch,
+            Robinhood, Shopify, Instagram, and the Schulich School of Medicine,
+            and was fortunate to present a project to the provincial and federal
+            governments of Canada.
+            <br /><br />
+            When it comes to my work, I strive to create solutions that address
+            real-world problems and leave a lasting impact on society. Design
+            and code have been staples of my life since childhood. It all
+            started with me trying to develop my own Pokèmon game and designing
+            the interior of cars. Little did I know that passion would carry
+            through to where I am today.<br /><br />I love spending time with
+            family and friends, and I deeply value positivity and gratefulness
+            as guiding principles in life. I’m always excited to connect with
+            new people, so feel free to reach out to me on LinkedIn or via
+            email—I’d love to hear from you!
+          </h2>
 
-            <h1 class="aboutT">About Me</h1>
-            <h2 class="aboutT">Currently, I'm driving growth and design excellence to startups as the co-founder of Beavr
-                Design, a product design company. I
-                previously worked with ML reserachers from Stanford and Harvard to revolutionize the IP
-                industry. I’ve also worked at Twitch, Robinhood, Shopify, Instagram, and the Schulich School of Medicine, and was fortunate to present a project to the provincial and federal governments of Canada. <br><br> When it comes to my work, I strive to create
-                solutions that address real-world problems and leave a lasting impact on society. Design and code have
-                been staples of my life since childhood. It all started with me trying to develop my own Pokèmon game
-                and designing the interior of cars. Little did I know that passion would carry through to where I am
-                today.<br><br>I love spending time with family and friends, and I deeply value
-                positivity and gratefulness as guiding principles in life. I’m always excited to connect with new
-                people, so feel free to reach out to me on LinkedIn or via email—I’d love to hear from you!
-            </h2>
-
-            <h1 class="aboutT mt-5">Ask me about any of these!</h1>
-            <h2 class="aboutT">🏝️ Traveling </h2>
-            <h2 class="aboutT">📷 Photography</h2>
-            <h2 class="aboutT">🏒 Sports </h2>
-            <h2 class="aboutT">🎵 Music </h2>
-            <h2 class="aboutT">🌮 Taco Bell </h2>
-
+          <h1 class="aboutT mt-5">Ask me about any of these!</h1>
+          <h2 class="aboutT">🏝️ Traveling</h2>
+          <h2 class="aboutT">📷 Photography</h2>
+          <h2 class="aboutT">🏒 Sports</h2>
+          <h2 class="aboutT">🎵 Music</h2>
+          <h2 class="aboutT">🌮 Taco Bell</h2>
         </div>
-
+      </div>
+      <div class="row mt-5">
         <div class="col-lg-4 col-sm-12">
-
-            <img class="me mt-5" src="Images/Mosseri.jpg">
-
-
+          <img class="me" src="Images/Mosseri.jpg" />
         </div>
 
         <div class="col-lg-1 col-sm-12"></div>
 
-        <div class="col-lg-7 col-sm-12 k mt-5">
-
-            <h1 class="aboutT">A little tidbit</h1>
-            <h2 class="aboutT">I got the chance to meet <a target="_blank"
-                    href="https://www.instagram.com/mosseri/?hl=en">Adam Mosseri</a>, the head of Instagram while I was
-                visiting the Meta NYC Office! It was a memorable experience, he's extremely kind and personable.</h2>
-
-
+        <div class="col-lg-7 col-sm-12">
+          <h1 class="aboutT">A little tidbit</h1>
+          <h2 class="aboutT">
+            I got the chance to meet
+            <a target="_blank" href="https://www.instagram.com/mosseri/?hl=en"
+              >Adam Mosseri</a
+            >, the head of Instagram while I was visiting the Meta NYC Office!
+            It was a memorable experience, he's extremely kind and personable.
+          </h2>
         </div>
-
-        <div class="footer">
-            <h2 class="ft">Designed and developed by me!<br>&#169; 2024 Rahil Shah's Portfolio</h2>
-            <h3 class="ft-special">good vibes only • live happy</h3>
-        </div>
-
-</body>
-
+      </div>
+      <div class="footer">
+        <h2 class="ft">
+          Designed and developed by me!<br />&#169; 2024 Rahil Shah's Portfolio
+        </h2>
+        <h3 class="ft-special">good vibes only • live happy</h3>
+      </div>
+    </div>
+  </body>
 </html>
