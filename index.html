@@ -133,6 +133,35 @@
 
       <div class="col-lg-12 col-sm-12">
         <h3 class="header mb-5">CLICK ANY TILE TO VIEW</h3>
+        <script>
+
+document.addEventListener("DOMContentLoaded", () => {
+  const header = document.querySelector('.header');
+  let lastScrollTop = 0; // Variable to store the last scroll position
+
+  // Function to check the scroll position and fade in/out
+  const fadeOnScroll = () => {
+    const rect = header.getBoundingClientRect(); // Get header position
+    const headerTop = rect.top;
+    const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+
+    if (headerTop < window.innerHeight && currentScroll > lastScrollTop) {
+      // If scrolled down and header is in the viewport, fade in
+      header.style.opacity = 1;
+    } else if (headerTop >= window.innerHeight || currentScroll < lastScrollTop) {
+      // If scrolled up or header is not in the viewport, fade out
+      header.style.opacity = 0;
+    }
+
+    // Update last scroll position
+    lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+  };
+
+  // Listen to scroll events
+  window.addEventListener('scroll', fadeOnScroll);
+});
+          </script>
+
         <a href="https://beavrdesign.com" target="_blank">
           <img class="beavrimg meta mobileSp" src="Images/Beavr Slice.png"
         /></a>

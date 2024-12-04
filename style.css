@@ -219,7 +219,7 @@ a:hover {
 
 .landing {
   text-align: center;
-  height: 90vh;
+  height: 87vh;
   width: 70%;
   margin: auto;
 }
@@ -305,8 +305,7 @@ a:hover {
     transform: translateY(-15px);
   }
 }
-
-.header{
+.header {
   width: 100%;
   margin: auto;
   text-align: center;
@@ -331,8 +330,11 @@ a:hover {
   text-fill-color: transparent;
   background-size: 500% auto;
   animation: textShine 3s ease-in-out infinite alternate;
+  opacity: 0; /* Initially hidden */
+  transition: opacity 1s ease-in-out;
 }
 
+/* Keyframes for textShine (kept the same as your original) */
 @keyframes textShine {
   0% {
     background-position: 0% 50%;
