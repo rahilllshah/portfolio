@@ -1,242 +1,226 @@
-*{
-    padding: 0;
-    margin: 0;
+* {
+  padding: 0;
+  margin: 0;
 }
 
-html, body {
-    width: 100%;
-    margin: auto;
-    overflow-x: hidden;
-    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+html,
+body {
+  width: 100%;
+  margin: auto;
+  overflow-x: hidden;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
 }
-
 
 /*Global Font Formats and Containers*/
 
-h1{
-    font-size: 1vw;
-    font-weight: 700;
-    color: lightgray;
+h1 {
+  font-size: 1vw;
+  font-weight: 700;
+  color: lightgray;
 }
 
 h2 {
-    font-size: 3vw;
-    font-weight: 700;
-    line-height: 130%;
+  font-size: 3vw;
+  font-weight: 700;
+  line-height: 130%;
 }
 
 h3 {
-    font-size: 1.25vw;
-    font-weight: 300;
-    line-height: 150%;
-    color: #737B85;
+  font-size: 1.25vw;
+  font-weight: 300;
+  line-height: 150%;
+  color: #737b85;
 }
 
 h4 {
-    font-size: 1vw;
-    font-weight: 300;
-    line-height: 150%;
-    color: #737B85;
+  font-size: 1vw;
+  font-weight: 300;
+  line-height: 150%;
+  color: #737b85;
 }
 
 .h4big {
-    font-size: 3vw;
+  font-size: 3vw;
 }
 
 h5 {
-    font-size: 1.25vw;
+  font-size: 1.25vw;
 }
 
 .headimg {
-    width: 100%;
+  width: 100%;
 }
 
-
 .landing {
-    max-width: 70%;
-    margin: auto;
-    margin-top: 15vh;
+  max-width: 70%;
+  margin: auto;
+  margin-top: 15vh;
 }
 
 .section {
-    max-width: 70%;
-    margin: auto;
-    margin-top: 15vh;
+  max-width: 70%;
+  margin: auto;
+  margin-top: 15vh;
 }
 
 .full {
-    max-width: 100%;
-    padding: 10vh;
-    margin: auto;
-    margin-top: 15vh;
-    background-image: linear-gradient(to right, #05A39A, #2A3B8C);
+  max-width: 100%;
+  padding: 10vh;
+  margin: auto;
+  margin-top: 15vh;
+  background-image: linear-gradient(to right, #05a39a, #2a3b8c);
 }
 
-.fullTextO{
-    position: relative;
-    max-width: 75%;
-    margin: auto;
-    text-align: left;
-    color: white;
+.fullTextO {
+  position: relative;
+  max-width: 75%;
+  margin: auto;
+  text-align: left;
+  color: white;
 }
 
-.fullText{
-    opacity: 0.25;
+.fullText {
+  opacity: 0.25;
 }
-
 
 .video {
-    box-shadow: 0px 3px 15px rgba(0,0,0,0.1);    
-    width: 100%;
-    border-radius: 10px;   
+  box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  border-radius: 10px;
 }
 
-
-
-.contentMargin{
-    margin-top: 10vh;
+.contentMargin {
+  margin-top: 10vh;
 }
 
-
-
-.asset4{
-    
-    width: 100%;
-
+.asset4 {
+  width: 100%;
 }
 
 .center {
-    text-align: center;
+  text-align: center;
 }
 
-
-a.active, a:hover{
-    color: black;
-    transition: .5s;
+a.active,
+a:hover {
+  color: black;
+  transition: 0.5s;
 }
 
-
-@media (max-width: 920px){
-    
-
-    .landing {
+@media (max-width: 920px) {
+  .landing {
     max-width: 90%;
-}
+  }
 
-.section {
+  .section {
     max-width: 90%;
-    
-    }
+  }
 
+  .video {
+    margin-top: 5vh;
+  }
 
-.video {
-    margin-top: 5vh;   
-}
-    
-    
-    h1{
+  h1 {
     font-size: 2vw;
     font-weight: 700;
     color: lightgray;
-}
+  }
 
-h2 {
+  h2 {
     font-size: 5vw;
     font-weight: 700;
-}
+  }
 
-h3 {
+  h3 {
     font-size: 3vw;
     font-weight: 300;
     line-height: 130%;
-    color: #737B85;
-}
+    color: #737b85;
+  }
 
-h4 {
+  h4 {
     font-size: 3vw;
     font-weight: 300;
     line-height: 130%;
-    color: #737B85;
-}
+    color: #737b85;
+  }
 
-h5 {
-        font-size: 3vw;
-}
- 
+  h5 {
+    font-size: 3vw;
+  }
 }
 
 .round {
-    position: fixed;
-    z-index: 10;
-    margin: 7% 7%;
-    backdrop-filter: blur(6px);
-    background-color: hsla(0, 0%, 100%, .85);
-    box-shadow: 4px 4px 40px 4px rgba(0, 0, 0, 0.1);
-    width: 50px;
-    height: 50px;
-    border-radius: 100%;
-    opacity: 0.2;
-    transition: 0.5s;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
+  position: fixed;
+  z-index: 10;
+  margin: 7% 7%;
+  backdrop-filter: blur(6px);
+  background-color: hsla(0, 0%, 100%, 0.85);
+  box-shadow: 4px 4px 40px 4px rgba(0, 0, 0, 0.1);
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  opacity: 0.2;
+  transition: 0.5s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
 }
 
 .round span {
-    border-radius: 2px;
-    height: 3px;
-    width: 15px;
-    background-color: black;
-    transition: 0.4s ease;
+  border-radius: 2px;
+  height: 3px;
+  width: 15px;
+  background-color: black;
+  transition: 0.4s ease;
 }
 
 .round span:first-child {
-    position: absolute;
-    transform: rotate(45deg);
-    left: 30%;
-    top: 59%;
+  position: absolute;
+  transform: rotate(45deg);
+  left: 30%;
+  top: 59%;
 }
 
 .round span:nth-child(2) {
-    position: absolute;
-    transform: rotate(-45deg);
-    left: 30%;
-    top: 40%;
+  position: absolute;
+  transform: rotate(-45deg);
+  left: 30%;
+  top: 40%;
 }
 
 .round:hover {
-    opacity: 1;
-    transition: 0.5s;
-    cursor: pointer;
-    border-radius: 100px;
-    width:110px;
+  opacity: 1;
+  transition: 0.5s;
+  cursor: pointer;
+  border-radius: 100px;
+  width: 110px;
 }
 
 .round:hover span:nth-child(1) {
-    transform: rotate(-135deg);
-    opacity: 0;
-    transition: 0.5s;
+  transform: rotate(-135deg);
+  opacity: 0;
+  transition: 0.5s;
 }
 
 .round:hover span:nth-child(2) {
-    transform: rotate(135deg);
-    opacity: 0;
-    transition: 0.5s;
+  transform: rotate(135deg);
+  opacity: 0;
+  transition: 0.5s;
 }
 
 .round:hover::after {
-    content: "Home";
-    color: black;
-    font-weight:500;
-    font-size: 14px;
-    transition: 0.5s ease-in;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif, sans-serif;
-
+  content: "Home";
+  color: black;
+  font-weight: 500;
+  font-size: 14px;
+  transition: 0.5s ease-in;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif,
+    sans-serif;
 }
 
-.last{
-    padding-bottom: 20vh;
+.last {
+  padding-bottom: 20vh;
 }
-
-

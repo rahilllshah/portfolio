@@ -116,7 +116,9 @@
           </div>
 
           <p class="landingsub">
-            Hello! I’m Rahil – an entrepreneur and full-stack designer who codes, blending creativity, strategy, and tech to craft product experiences that bring ideas to life.
+            Hello! I’m Rahil – an entrepreneur and full-stack designer who
+            codes, blending creativity, strategy, and tech to craft product
+            experiences that bring ideas to life.
           </p>
 
           <div class="bounce">
@@ -127,39 +129,42 @@
     </section>
 
     <div class="row container">
-        
-
       <div class="col-lg-12 col-sm-12">
         <h3 class="header mb-5">CLICK ANY TILE TO VIEW</h3>
         <script>
+          document.addEventListener("DOMContentLoaded", () => {
+            const header = document.querySelector(".header");
+            let lastScrollTop = 0; // Variable to store the last scroll position
 
-document.addEventListener("DOMContentLoaded", () => {
-  const header = document.querySelector('.header');
-  let lastScrollTop = 0; // Variable to store the last scroll position
+            // Function to check the scroll position and fade in/out
+            const fadeOnScroll = () => {
+              const rect = header.getBoundingClientRect(); // Get header position
+              const headerTop = rect.top;
+              const currentScroll =
+                window.pageYOffset || document.documentElement.scrollTop;
 
-  // Function to check the scroll position and fade in/out
-  const fadeOnScroll = () => {
-    const rect = header.getBoundingClientRect(); // Get header position
-    const headerTop = rect.top;
-    const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+              if (
+                headerTop < window.innerHeight &&
+                currentScroll > lastScrollTop
+              ) {
+                // If scrolled down and header is in the viewport, fade in
+                header.style.opacity = 1;
+              } else if (
+                headerTop >= window.innerHeight ||
+                currentScroll < lastScrollTop
+              ) {
+                // If scrolled up or header is not in the viewport, fade out
+                header.style.opacity = 0;
+              }
 
-    if (headerTop < window.innerHeight && currentScroll > lastScrollTop) {
-      // If scrolled down and header is in the viewport, fade in
-      header.style.opacity = 1;
-    } else if (headerTop >= window.innerHeight || currentScroll < lastScrollTop) {
-      // If scrolled up or header is not in the viewport, fade out
-      header.style.opacity = 0;
-    }
+              // Update last scroll position
+              lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+            };
 
-    // Update last scroll position
-    lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
-  };
-
-  // Listen to scroll events
-  window.addEventListener('scroll', fadeOnScroll);
-});
-          </script>
-
+            // Listen to scroll events
+            window.addEventListener("scroll", fadeOnScroll);
+          });
+        </script>
 
         <a href="https://beavrdesign.com" target="_blank">
           <img class="beavrimg meta mobileSp" src="Images/Beavr Slice.png"
@@ -193,7 +198,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       <div class="col-lg-6 col-sm-12">
         <a href="https://rahil.me/twitch/home">
-          <img class="internimg mobileSp2" src="Images/Twitch Slice.png" 
+          <img class="internimg mobileSp2" src="Images/Twitch Slice.png"
         /></a>
       </div>
     </div>
@@ -244,17 +249,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     <div class="row container">
       <div class="col-lg-6 col-sm-12">
-        <a
-          href="IG.pdf"
-          target="_blank"
-        >
+        <a href="IG.pdf" target="_blank">
           <img class="mini1" src="Images/ig.jpg" />
         </a>
       </div>
 
       <div class="col-lg-6 col-sm-12">
-          <img class="mini2 comingsoon" src="Images/ravn%20os.jpg" />
-        </a>
+        <img class="mini2 comingsoon" src="Images/ravn%20os.jpg" />
       </div>
     </div>
 
@@ -276,28 +277,26 @@ document.addEventListener("DOMContentLoaded", () => {
       </div>
     </div>
     <div class="row container">
-
       <script>
         function openModal(image) {
-        const modal = document.getElementById("imageModal");
-        const modalImage = document.getElementById("modalImage");
-        modalImage.src = image.src;
-        modal.style.display = "flex"; 
-      }
-      
-      function closeModal(event) {
-        const modal = document.getElementById("imageModal");
-        if (event.target === modal) {
-          modal.style.display = "none";
+          const modal = document.getElementById("imageModal");
+          const modalImage = document.getElementById("modalImage");
+          modalImage.src = image.src;
+          modal.style.display = "flex";
         }
-      
-      }
+
+        function closeModal(event) {
+          const modal = document.getElementById("imageModal");
+          if (event.target === modal) {
+            modal.style.display = "none";
+          }
+        }
       </script>
 
       <div class="col-lg-4 col-sm-12">
         <img class="mini1" src="Images/AA.jpg" onclick="openModal(this)" />
       </div>
-      
+
       <!-- Modal -->
       <div id="imageModal" class="modal" onclick="closeModal(event)">
         <img class="modal-content" id="modalImage" />
@@ -332,7 +331,7 @@ document.addEventListener("DOMContentLoaded", () => {
       </div>
 
       <div class="col-lg-4 col-sm-12">
-        <img class="mini3a" src="Images/HH.jpg" onclick="openModal(this)"  />
+        <img class="mini3a" src="Images/HH.jpg" onclick="openModal(this)" />
       </div>
     </div>
 
