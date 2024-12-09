@@ -364,6 +364,10 @@ a:hover {
   display: none;
 }
 
+.cantraceimgmobile {
+  display: none;
+}
+
 .beavrimg {
   width: 100%;
   border-radius: 2vw;
@@ -675,6 +679,11 @@ a:hover {
     border-radius: 4vw;
   }
 
+  .mobileSp2 {
+    margin-bottom: 0;
+    border-radius: 4vw;
+  }
+
   .beavrimg {
     display: none;
   }
@@ -711,6 +720,21 @@ a:hover {
   }
 
   .workimgmobile:hover {
+    transition: 0.5s ease;
+    cursor: pointer;
+    transform: scale(1.05);
+  }
+
+  .cantraceimgmobile {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 2.5vh;
+    transition: 0.5s;
+    border-radius: 4vw;
+  }
+
+  .cantraceimgmobile:hover {
     transition: 0.5s ease;
     cursor: pointer;
     transform: scale(1.05);
