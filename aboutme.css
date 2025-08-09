@@ -319,7 +319,7 @@ a:hover {
   .spacerMobile {
     margin-top: 5vh;
   }
-
-  @media (max-width: 720px) {
+  .footer {
+    width: 100%;
   }
 }
