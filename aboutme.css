@@ -247,7 +247,7 @@ a:hover {
   font-size: 12px;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 920px) {
   .container {
     padding-top: 20vh;
   }
@@ -318,5 +318,8 @@ a:hover {
 
   .spacerMobile {
     margin-top: 5vh;
+  }
+
+  @media (max-width: 720px) {
   }
 }
