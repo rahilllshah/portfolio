@@ -659,19 +659,19 @@ a:hover {
   }
 
   .blended-text-wrapper_text {
-    font-size: 7vw;
+    font-size: 10vw;
   }
 
   .landing {
-    width: 80%;
+    width: 90%;
   }
 
   .landingsub {
-    font-size: 3vw;
+    font-size: 3.5vw;
   }
 
   .arrow {
-    font-size: 4vw;
+    font-size: 6vw;
   }
 
   .mobileSp {
@@ -823,9 +823,9 @@ a:hover {
     border-radius: 4vw;
   }
 
-  @media (max-width: 760px) {
+  /* @media (max-width: 760px) {
     .blended-text-wrapper_text {
-      font-size: 9.25vw;
+      font-size: 10vw;
     }
 
     .landingsub {
@@ -835,5 +835,5 @@ a:hover {
     .arrow {
       font-size: 4vw;
     }
-  }
+  } */
 }
