@@ -230,7 +230,7 @@ a:hover {
 .footer {
   opacity: 1;
   z-index: -1;
-  width: 75%;
+  width: 90%;
   margin: auto;
   text-align: center;
   padding-top: 10vh;
@@ -309,6 +309,14 @@ a:hover {
 
   .aboutT {
     text-align: center;
+    margin-top: 5vh;
+  }
+
+  .aboutTmobile {
+    margin-top: 2vh;
+  }
+
+  .spacerMobile {
     margin-top: 5vh;
   }
 }
