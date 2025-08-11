@@ -227,7 +227,6 @@ a:hover {
 .landing2 {
   text-align: center;
   height: 45vh;
-  width: 70%;
   margin: auto;
 }
 
@@ -629,13 +628,13 @@ a:hover {
     align-items: center;
     position: fixed;
     width: 45%;
-    height: 100vh;
+    height: 40vh;
     backdrop-filter: blur(6px);
     box-shadow: 4px 4px 40px 4px rgba(0, 0, 0, 0.05);
     background-color: white;
     top: 90px;
     right: -110%;
-    border-radius: 10px;
+    border-radius: 16px;
     transition: all 0.5s;
   }
 
@@ -647,7 +646,7 @@ a:hover {
     width: 90%;
     margin: 4vw 5%;
     height: 60px;
-    border-radius: 2vw;
+    border-radius: 16px;
   }
 
   nav ul li {
@@ -676,7 +675,7 @@ a:hover {
   }
 
   .clickText {
-    font-size: 10px;
+    display: none;
   }
 
   .mobileSp {
