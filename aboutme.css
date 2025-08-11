@@ -230,7 +230,7 @@ a:hover {
 .footer {
   opacity: 1;
   z-index: -1;
-  width: 90%;
+  width: 100%;
   margin: auto;
   text-align: center;
   padding-top: 10vh;
@@ -249,7 +249,7 @@ a:hover {
 
 @media (max-width: 920px) {
   .container {
-    padding-top: 20vh;
+    padding-top: 18vh;
   }
 
   .checkbtn {
@@ -296,7 +296,7 @@ a:hover {
   }
 
   h1 {
-    font-size: 5vw;
+    font-size: 8vw;
   }
 
   h2 {
@@ -304,11 +304,11 @@ a:hover {
   }
 
   .me {
-    width: 75%;
+    width: 85%;
   }
 
   .aboutT {
-    text-align: center;
+    text-align: left;
     margin-top: 5vh;
   }
 
@@ -316,10 +316,11 @@ a:hover {
     margin-top: 2vh;
   }
 
+  .container {
+    max-width: 80%;
+  }
+
   .spacerMobile {
     margin-top: 5vh;
-  }
-  .footer {
-    width: 100%;
   }
 }

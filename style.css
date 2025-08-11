@@ -668,10 +668,15 @@ a:hover {
 
   .landingsub {
     font-size: 3.5vw;
+    max-width: 90%;
   }
 
   .arrow {
     font-size: 6vw;
+  }
+
+  .clickText {
+    font-size: 10px;
   }
 
   .mobileSp {
@@ -822,18 +827,7 @@ a:hover {
     transition: 0.5s;
     border-radius: 4vw;
   }
-
-  /* @media (max-width: 760px) {
-    .blended-text-wrapper_text {
-      font-size: 10vw;
-    }
-
-    .landingsub {
-      font-size: 3.5vw;
-    }
-
-    .arrow {
-      font-size: 4vw;
-    }
-  } */
+  .landing2 {
+    height: 40vh;
+  }
 }
