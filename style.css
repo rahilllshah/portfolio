@@ -111,9 +111,9 @@ h2 {
 
 .checkbtn {
   color: black;
-  float: left;
+  float: right;
   line-height: 40px !important;
-  margin-left: 20px;
+  margin-right: 20px;
   cursor: pointer;
   display: none;
 }
