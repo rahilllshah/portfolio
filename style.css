@@ -670,6 +670,10 @@ a:hover {
     max-width: 90%;
   }
 
+  .mobilesub {
+    max-width: 50%;
+  }
+
   .arrow {
     font-size: 6vw;
   }
