@@ -140,7 +140,7 @@ nav {
   width: 70%;
   margin: 3vw 15%;
   height: 60px;
-  border-radius: 0.75vw;
+  border-radius: 16px;
   z-index: 10;
   transition: 0.1s;
 }
