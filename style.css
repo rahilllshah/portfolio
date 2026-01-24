@@ -981,7 +981,7 @@ a:hover {
   }
 
   .title {
-    font-size: 48px;
+    font-size: 42px;
   }
 
   .landingsub2 {
@@ -1002,6 +1002,10 @@ a:hover {
   .landing {
     display: flex;
     flex-direction: column;
+  }
+
+  .landingsub1 {
+    font-size: 14px;
   }
 
   .landing > .col-lg-3 {
