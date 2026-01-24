@@ -83,14 +83,14 @@
           </ul>
 
           <ul class="navR">
-            <li><a href="https://rahil.me/aboutme">About Me</a></li>
+            <li><a href="https://rahil.me/aboutme">About</a></li>
             <li><a href="RahilShah_Resume.pdf" target="_blank">Resume</a></li>
             <li>
               <a href="https://www.linkedin.com/in/rahilllshah" target="_blank"
                 >LinkedIn</a
               >
             </li>
-            <li><a href="https://rahil.me/life/home">Life</a></li>
+            
           </ul>
         </nav>
       </div>
@@ -98,256 +98,343 @@
 
     <section class="section1" id="section1">
       <div class="row landing">
-        <div class="col-12">
-          <div class="blended-text-wrapper">
-            <video
-              autoplay
-              loop
-              class="blended-text-wrapper_video"
-              muted
-              plays-inline
-            >
-              <source src="Images/gradients-bg.mp4" type="video/mp4;" />
-            </video>
-
-            <h1 class="blended-text-wrapper_text">
-              Creating elegant<br />product experiences
-            </h1>
-          </div>
-
-          <p class="landingsub">
-            Hello! I’m Rahil – an entrepreneur and full-stack designer who
-            codes, blending creativity, strategy, and tech to craft product
-            experiences that bring ideas to life.
+        <div class="col-lg-8 col-sm-12">
+          <p class="landingsub1">RAHIL SHAH</p>
+          <h1 class="title">Creating elegant<br />product experiences</h1>
+          <p class="landingsub2">
+            I'm an entrepreneur and generalist designer who codes.
           </p>
-
-          <div class="bounce">
-            <i class="arrow fas fa-chevron-down fa-2x"></i>
+          <div class="button-row">
+            <a href="mailto:rahil190@gmail.com" class="solid-btn">
+              <div class="svg-wrapper-1">
+                <div class="svg-wrapper">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20">
+                    <path fill="none" d="M0 0h24v24H0z"></path>
+                    <path
+                      fill="currentColor"
+                      d="M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z"
+                    ></path>
+                  </svg>
+                </div>
+              </div>
+              <span>Get in Touch</span>
+            </a>
+          
+            <!-- Gradient text + icon button -->
+            <!-- <a href="#work-section" class="gradient-btn">
+              <span>View Work</span>
+            </a> -->
           </div>
+          
+          
+        </div>
+        <div class="col-lg-1 col-sm-12"></div>
+        <div class="col-lg-3 col-sm-12">
+          <div class="me-wrapper">
+            <img class="me" src="Images/me.png" />
+            <div class="c-container">
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+        </div>
+        <div class="bounce">
+          <i class="arrowA fas fa-chevron-down fa-2x"></i>
         </div>
       </div>
     </section>
 
-    <div class="row container">
-      <div class="col-lg-12 col-sm-12">
-        <h3 class="header clickText mb-5">CLICK ANY TILE TO VIEW</h3>
-        <script>
-          document.addEventListener("DOMContentLoaded", () => {
-            const header = document.querySelector(".header");
-            let lastScrollTop = 0; // Variable to store the last scroll position
-
-            // Function to check the scroll position and fade in/out
-            const fadeOnScroll = () => {
-              const rect = header.getBoundingClientRect(); // Get header position
-              const headerTop = rect.top;
-              const currentScroll =
-                window.pageYOffset || document.documentElement.scrollTop;
-
-              if (
-                headerTop < window.innerHeight &&
-                currentScroll > lastScrollTop
-              ) {
-                // If scrolled down and header is in the viewport, fade in
-                header.style.opacity = 1;
-              } else if (
-                headerTop >= window.innerHeight ||
-                currentScroll < lastScrollTop
-              ) {
-                // If scrolled up or header is not in the viewport, fade out
-                header.style.opacity = 0;
-              }
-
-              // Update last scroll position
-              lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
-            };
-
-            // Listen to scroll events
-            window.addEventListener("scroll", fadeOnScroll);
-          });
-        </script>
+    <div class="row container section-header">
+      <div class="col-lg-8 col-sm-12">
+        <p class="section-eyebrow">Experience</p>
+        <h2 class="section-title">Learning by Shipping</h2>
       </div>
-    </div>
-    <div class="row container">
-      <div class="col-lg-6 col-sm-12">
-        <a href="https://wondera.ai/" target="_blank">
-          <img class="internimg meta mobileSp" src="Images/Wondera Slice.png"
-        /></a>
-      </div>
-      <div class="col-lg-6 col-sm-12">
-        <a href="https://beavrdesign.com" target="_blank">
-          <img class="internimg mobileSp" src="Images/Beavr Slice Mobile.png"
-        /></a>
-      </div>
-    </div>
-
-    <div class="row container">
-      <div class="col-lg-6 col-sm-12">
-        <a href="https://rahil.me/meta/home">
-          <img class="internimg meta mobileSp" src="Images/IG Slice.png"
-        /></a>
-      </div>
-
-      <div class="col-lg-6 col-sm-12">
-        <a href="https://rahil.me/shopify/home">
-          <img class="internimg mobileSp" src="Images/Shopify Slice.png"
-        /></a>
-      </div>
-    </div>
-
-    <div class="row container mb-5">
-      <div class="col-lg-6 col-sm-12">
-        <a href="https://rahil.me/robinhood/home">
-          <img class="internimg mobileSp" src="Images/Robinhood Slice.png"
-        /></a>
-      </div>
-
-      <div class="col-lg-6 col-sm-12">
-        <a href="https://rahil.me/twitch/home">
-          <img class="internimg mobileSp2" src="Images/Twitch Slice.png"
-        /></a>
-      </div>
-    </div>
-
-    <div class="row container">
-      <div class="col-12">
-        <a href="https://rahil.me/cantrace/home">
-          <img class="workimg" src="Images/cantrace%20web.jpg"
-        /></a>
-        <a href="https://rahil.me/cantrace/home" title="CanTrace">
-          <img class="cantraceimgmobile" src="Images/cantrace%20mobile.jpg"
-        /></a>
-      </div>
-    </div>
-
-    <div class="row container">
-      <div class="col-12">
-        <a href="https://rahil.me/timeline/home">
-          <img class="workimg" src="Images/timeline%20web.jpg"
-        /></a>
-        <a href="https://rahil.me/timeline/home" title="Timeline">
-          <img class="workimgmobile" src="Images/timeline%20mobile.jpg"
-        /></a>
-      </div>
-    </div>
-
-    <div class="row container">
-      <div class="col-12">
-        <a href="https://rahil.me/applemusic/home">
-          <img class="workimg" src="Images/apple%20music%20web.jpg" />
-        </a>
-        <a href="https://rahil.me/applemusic/home">
-          <img class="workimgmobile" src="Images/apple%20music%20mobile.jpg" />
-        </a>
-      </div>
-    </div>
-
-    <div class="row container">
-      <div class="col-12">
-        <a href="https://rahil.me/deltahacks/home">
-          <img class="workimg" src="Images/deltahacks%20web.jpg" />
-        </a>
-        <a href="https://rahil.me/deltahacks/home" title="DeltaHacks VI">
-          <img class="workimgmobile" src="Images/deltahacks%20mobile.jpg" />
-        </a>
-      </div>
-    </div>
-
-    <div class="row container">
-      <div class="col-lg-6 col-sm-12">
-        <a href="IG.pdf" target="_blank">
-          <img class="mini1" src="Images/ig.jpg" />
-        </a>
-      </div>
-
-      <div class="col-lg-6 col-sm-12">
-        <img class="mini2 comingsoon" src="Images/ravn%20os.jpg" />
-      </div>
-    </div>
-
-    <div class="row landing2">
-      <div class="col-12">
-        <div class="blended-text-wrapper">
-          <video
-            autoplay
-            loop
-            class="blended-text-wrapper_video"
-            muted
-            plays-inline
-          >
-            <source src="Images/gradients-bg.mp4" type="video/mp4;" />
-          </video>
-
-          <h1 class="blended-text-wrapper_text">The Palette</h1>
-        </div>
-        <p class="landingsub mobilesub">
-          Contact me for an in-depth analysis of each project!
+      <div class="col-lg-4 col-sm-12">
+        <p class="section-lead">
+          Designing with intention by aligning user needs, product strategy, and business outcomes. Click an experience to learn more.
         </p>
       </div>
     </div>
-    <div class="row container">
-      <script>
-        function openModal(image) {
-          const modal = document.getElementById("imageModal");
-          const modalImage = document.getElementById("modalImage");
-          modalImage.src = image.src;
-          modal.style.display = "flex";
-        }
 
-        function closeModal(event) {
+    <div class="row container experience-section">
+      <div class="col-12">
+        <section class="experience-grid">
+          <div class="experience">
+          <div class="experience-row">
+            <span class="year">2025 - Present</span>
+            
+              <div class="role">
+                <span>Founding Designer</span>
+                <span class="pill stealth">
+                  <img class="" src="Images/stealthlogo.svg" />
+                  Stealth AI Startup
+                </span>
+            
+              </div>
+            
+          </div>
+
+          <a href="https://beavrdesign.com" target="_blank" class="role-link">
+          <div class="experience-row">
+            <span class="year">2024</span>
+            
+              <div class="role">
+                <span>Co-Founder</span>
+                <span class="pill beavr"
+                  ><img class="" src="Images/beavrlogo.svg" />Beavr Design
+                </span>
+                <span class="arrow">→</span>
+              </div>
+            
+          </div>
+        </a>
+
+          <a href="https://gardenintel.com" target="_blank" class="role-link">
+          <div class="experience-row">
+            <span class="year">2023</span>
+            
+              <div class="role">
+                <span>UX Engineer</span>
+                <span class="pill garden"
+                  ><img class="" src="Images/gardenlogo.svg" />Garden
+                </span>
+                <span class="arrow">→</span>
+              </div>
+            
+          </div>
+        </a>
+
+          <a href="https://rahil.me/meta/home" target="_blank" class="role-link">
+          <div class="experience-row">
+            <span class="year">2022</span>
+            
+              <div class="role">
+                <span>Product Design Intern</span>
+                <span class="pill instagram"
+                  ><img class="" src="Images/instagramlogo.svg" />Instagram
+                </span>
+                <span class="arrow">→</span>
+              </div>
+            
+          </div>
+        </a>
+          </div>
+          
+          
+          <div class="experience">
+
+            <a href="https://rahil.me/shopify/home" target="_blank"class="role-link">
+          <div class="experience-row">
+            <span class="year">2022</span>
+            
+              <div class="role">
+                <span>Design Technologist Intern</span>
+                <span class="pill shopify"
+                  ><img class="" src="Images/shopifylogo.svg" />Shopify
+                </span>
+                <span class="arrow">→</span>
+              </div>
+            
+          </div>
+        </a>
+
+          <a href="https://rahil.me/robinhood/home" target="_blank" class="role-link">
+          <div class="experience-row">
+            <span class="year">2021</span>
+            
+              <div class="role">
+                <span>Product Design Intern</span>
+                <span class="pill robinhood"
+                  ><img class="" src="Images/robinhoodlogo.svg" />Robinhood
+                </span>
+                <span class="arrow">→</span>
+              </div>
+            
+          </div>
+        </a>
+
+          <a href="https://rahil.me/twitch/home"  target="_blank" class="role-link">
+          <div class="experience-row">
+            <span class="year">2021</span>
+            
+              <div class="role">
+                <span>Product Design Intern</span>
+                <span class="pill twitch"
+                  ><img class="" src="Images/twitchlogo.svg" />Twitch
+                </span>
+                <span class="arrow">→</span>
+              </div>
+            
+          </div>
+        </a>
+
+          <a href="https://deltahacks.com/" target="_blank" class="role-link">
+          <div class="experience-row">
+            <span class="year">2020</span>
+              <div class="role">
+                <span>Co-Director</span>
+                <span class="pill deltahacks"
+                  ><img class="" src="Images/deltahackslogo.svg" />DeltaHacks
+                </span>
+                <span class="arrow">→</span>
+              </div>
+          </div>
+        </a>
+        </section>
+      </div>
+    </div>
+
+
+    <div id="work-section" class="row container section-header">
+      <div class="col-lg-8 col-sm-12">
+        <p class="section-eyebrow">Work</p>
+        <h2 class="section-title">Pixels with Purpose</h2>
+      </div>
+      <div class="col-lg-4 col-sm-12">
+        <p class="section-lead">
+          A curated look at my process and some products I've designed from the ground up.
+        </p>
+      </div>
+    </div>
+
+
+
+
+<div class="col-lg-12">
+    <div class="work-section container ">
+      <div class="work-item work-item-full">
+        <a href="https://rahil.me/cantrace/home">
+          <img class="workimg" src="Images/cantrace%20web.jpg" alt="CanTrace" />
+        </a>
+        <a href="https://rahil.me/cantrace/home" title="CanTrace">
+          <img class="cantraceimgmobile" src="Images/cantrace%20mobile.jpg" alt="CanTrace Mobile" />
+        </a>
+      </div>
+
+      <div class="work-item work-item-full">
+        <a href="https://rahil.me/timeline/home">
+          <img class="workimg" src="Images/timeline%20web.jpg" alt="Timeline" />
+        </a>
+        <a href="https://rahil.me/timeline/home" title="Timeline">
+          <img class="workimgmobile" src="Images/timeline%20mobile.jpg" alt="Timeline Mobile" />
+        </a>
+      </div>
+
+      <div class="work-item work-item-full">
+        <a href="https://rahil.me/applemusic/home">
+          <img class="workimg" src="Images/apple%20music%20web.jpg" alt="Apple Music" />
+        </a>
+        <a href="https://rahil.me/applemusic/home">
+          <img class="workimgmobile" src="Images/apple%20music%20mobile.jpg" alt="Apple Music Mobile" />
+        </a>
+      </div>
+
+      <div class="work-item work-item-full">
+        <a href="https://rahil.me/deltahacks/home">
+          <img class="workimg" src="Images/deltahacks%20web.jpg" alt="DeltaHacks" />
+        </a>
+        <a href="https://rahil.me/deltahacks/home" title="DeltaHacks VI">
+          <img class="workimgmobile" src="Images/deltahacks%20mobile.jpg" alt="DeltaHacks Mobile" />
+        </a>
+      </div>
+
+      <div class="work-item work-item-half">
+        <a href="IG.pdf" target="_blank">
+          <img class="workimg-mini" src="Images/ig.jpg" alt="Instagram" />
+        </a>
+      </div>
+
+      <div class="work-item work-item-half">
+        <img class="workimg-mini comingsoon" src="Images/ravn%20os.jpg" alt="Ravn OS" />
+      </div>
+
+      <div class="work-item work-item-third">
+        <img class="workimg-mini" src="Images/AA.jpg" alt="AA" onclick="openModal(this)" />
+      </div>
+
+      <div class="work-item work-item-third">
+        <img class="workimg-mini" src="Images/BB.jpg" alt="BB" onclick="openModal(this)" />
+      </div>
+
+      <div class="work-item work-item-third">
+        <img class="workimg-mini" src="Images/CC.jpg" alt="CC" onclick="openModal(this)" />
+      </div>
+
+      <div class="work-item work-item-half">
+        <img class="workimg-mini" src="Images/DD.jpg" alt="DD" onclick="openModal(this)" />
+      </div>
+
+      <div class="work-item work-item-half">
+        <img class="workimg-mini" src="Images/EE.jpg" alt="EE" onclick="openModal(this)" />
+      </div>
+
+      <div class="work-item work-item-third">
+        <img class="workimg-mini" src="Images/FF.jpg" alt="FF" onclick="openModal(this)" />
+      </div>
+
+      <div class="work-item work-item-third">
+        <img class="workimg-mini" src="Images/GG.jpg" alt="GG" onclick="openModal(this)" />
+      </div>
+
+      <div class="work-item work-item-third">
+        <img class="workimg-mini" src="Images/HH.jpg" alt="HH" onclick="openModal(this)" />
+      </div>
+    </div>
+  </div>
+
+    <script>
+      function openModal(image) {
+        const modal = document.getElementById("imageModal");
+        const modalImage = document.getElementById("modalImage");
+        modalImage.src = image.src;
+        modal.classList.add("active");
+        document.body.style.overflow = "hidden";
+      }
+
+      function closeModal(event) {
+        const modal = document.getElementById("imageModal");
+        if (event.target === modal || event.key === "Escape") {
+          modal.classList.remove("active");
+          document.body.style.overflow = "";
+        }
+      }
+
+      // Close modal on Escape key
+      document.addEventListener("keydown", function(event) {
+        if (event.key === "Escape") {
           const modal = document.getElementById("imageModal");
-          if (event.target === modal) {
-            modal.style.display = "none";
+          if (modal.classList.contains("active")) {
+            closeModal(event);
           }
         }
-      </script>
+      });
 
-      <div class="col-lg-4 col-sm-12">
-        <img class="mini1" src="Images/AA.jpg" onclick="openModal(this)" />
-      </div>
+      // Show animation on page load for 2 seconds
+      document.addEventListener("DOMContentLoaded", function() {
+        const cContainer = document.querySelector(".c-container");
+        if (cContainer) {
+          cContainer.classList.add("show-on-load");
+          setTimeout(function() {
+            cContainer.classList.remove("show-on-load");
+          }, 1000);
+        }
+      });
+    </script>
 
-      <!-- Modal -->
-      <div id="imageModal" class="modal" onclick="closeModal(event)">
-        <img class="modal-content" id="modalImage" />
-      </div>
-
-      <div class="col-lg-4 col-sm-12">
-        <img class="mini2a" src="Images/BB.jpg" onclick="openModal(this)" />
-      </div>
-
-      <div class="col-lg-4 col-sm-12">
-        <img class="mini3a" src="Images/CC.jpg" onclick="openModal(this)" />
-      </div>
+    <div id="imageModal" class="modal" onclick="closeModal(event)">
+      <img class="modal-content" id="modalImage" />
     </div>
 
-    <div class="row container">
-      <div class="col-lg-6 col-sm-12">
-        <img class="mini1b" src="Images/DD.jpg" onclick="openModal(this)" />
+    <div class="footer">      
+      <div class="footer-bottom">
+        <p class="footer-title">
+          Thanks for visiting! This portfolio was designed and developed from scratch by me :)
+        </p>
+        <p class="footer-subtitle">&#169; 2026 Rahil Shah's Portfolio</p>
+        
       </div>
-
-      <div class="col-lg-6 col-sm-12">
-        <img class="mini2b" src="Images/EE.jpg" onclick="openModal(this)" />
-      </div>
-    </div>
-
-    <div class="row container">
-      <div class="col-lg-4 col-sm-12">
-        <img class="mini1a" src="Images/FF.jpg" onclick="openModal(this)" />
-      </div>
-
-      <div class="col-lg-4 col-sm-12">
-        <img class="mini2a" src="Images/GG.jpg" onclick="openModal(this)" />
-      </div>
-
-      <div class="col-lg-4 col-sm-12">
-        <img class="mini3a" src="Images/HH.jpg" onclick="openModal(this)" />
-      </div>
-    </div>
-
-    <div class="footer">
-      <h2 class="ft">
-        Designed and developed by me!<br />&#169; 2025 Rahil Shah's Portfolio
-      </h2>
-      <h3 class="ft-special">good vibes only</h3>
     </div>
   </body>
 </html>
