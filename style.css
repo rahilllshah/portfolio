@@ -616,6 +616,11 @@ a:hover {
   transition: 0.25s ease;
 }
 
+/* First experience-row (Stealth) is not clickable, so use default cursor */
+.experience > .experience-row:first-child {
+  cursor: default;
+}
+
 .experience > .role-link:last-child .experience-row,
 .experience > .experience-row:last-child {
   border-bottom: 0;
@@ -639,6 +644,7 @@ a:hover {
 .experience-row:has(.pill.stealth):hover .role > span:first-child,
 .experience-row:has(.pill.stealth):hover .year {
   color: rgba(104, 104, 104, 1);
+  
 }
 
 .experience-row:has(.pill.beavr):hover .role > span:first-child,
@@ -928,6 +934,14 @@ a:hover {
   margin: 0;
 }
 
+/* @media (max-width: 1280px) {
+  .landing > .col-lg-3 {
+    order: -1;
+    margin-bottom: 30px;
+  }
+
+} */
+
 
 @media (max-width: 920px) {
 
@@ -1011,7 +1025,7 @@ a:hover {
   .landing > .col-lg-3 {
     order: -1;
     margin-bottom: 30px;
-  }
+  } 
 
   .me-wrapper {
     max-width: 150px;
