@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
   <head>
     <meta charset="utf-8" />
@@ -91,7 +91,6 @@
                 >LinkedIn</a
               >
             </li>
-            
           </ul>
         </nav>
       </div>
@@ -100,9 +99,8 @@
     <div class="about-me-container">
       <div class="content-left">
         <div class="content-wrapper">
-          
           <h1>Hey! I'm Rahil.</h1>
-          
+
           <div class="personal-details">
             <div class="detail-item">
               <i class="fas fa-map-marker-alt detail-icon"></i>
@@ -113,68 +111,79 @@
               <span>BASc Computer Science</span>
             </div>
           </div>
-          
-          <div class="bio-content">
-            <p>I focus on creating thoughtful, real-world solutions with a lasting impact. Design and code have been part of my life since childhood, starting with building my own Pokémon game and redesigning car interiors. Little did I know that passion would carry through to where I am today. One of my favorite memories from this journey was <span class="clickable-text" onclick="openMosseriModal()">meeting Adam Mosseri</span>, the head of Instagram, during a visit to the Meta NYC office. He was extremely personable and down to earth.</p>
-            
-            <p>I love to travel 🏝️ , photograph the world around me 📷, play sports 🏒, discover new music 🎵, or enjoy a crispy Taco Bell taco 🌮. They’re the small joys that fuel my creativity and keep the good vibes rolling.</p>
 
-            <p>I love spending time with family and friends, and I deeply value positivity and gratefulness as guiding principles in life. I’m always happy to connect! Feel free to reach out on LinkedIn or via email.</p>
+          <div class="bio-content">
+            <p>
+              I focus on creating thoughtful, real-world solutions with a
+              lasting impact. Design and code have been part of my life since
+              childhood, starting with building my own Pokémon game and
+              redesigning car interiors. Little did I know that passion would
+              carry through to where I am today. One of my favorite memories
+              from this journey was
+              <span class="clickable-text" onclick="openMosseriModal()"
+                >meeting Adam Mosseri</span
+              >, the head of Instagram, during a visit to the Meta NYC office.
+              He was extremely personable and down to earth.
+            </p>
+
+            <p>
+              I love to travel 🏝️ , photograph the world around me 📷, play
+              sports 🏒, discover new music 🎵, or enjoy a crispy Taco Bell taco
+              🌮. They’re the small joys that fuel my creativity and keep the
+              good vibes rolling. I also love spending time with family and
+              friends, and I deeply value positivity and gratefulness as guiding
+              principles in life.
+            </p>
+
+            <p>
+              I’m always happy to connect! Feel free to reach out on LinkedIn or
+              via email.
+            </p>
           </div>
-        
         </div>
       </div>
-      
+
       <div class="bulletin-board">
         <div class="polaroid-gallery">
           <!-- Polaroid 1 - Replace src with your image -->
           <div class="polaroid polaroid-1">
             <img src="Life Images/palms.jpeg" alt="Photo 1" />
           </div>
-          
-          
+
           <div class="polaroid polaroid-2">
             <img src="Life Images/calipolaroid.jpg" alt="Photo 2" />
           </div>
-          
-          
+
           <div class="polaroid polaroid-3">
             <img src="Life Images/dubai.JPG" alt="Photo 3" />
           </div>
-          
-          
+
           <div class="polaroid polaroid-4">
             <img src="Life Images/camping.png" alt="Photo 4" />
           </div>
-          
-          
+
           <div class="polaroid polaroid-5">
             <img src="Life Images/grassway.jpg" alt="Photo 5" />
           </div>
-          
-          
+
           <div class="polaroid polaroid-6">
             <img src="Life Images/fall.jpg" alt="Photo 6" />
           </div>
-          
-          
+
           <div class="polaroid polaroid-7">
             <img src="Life Images/boats.jpg" alt="Photo 7" />
           </div>
-          
-          
+
           <div class="polaroid polaroid-8">
             <img src="Life Images/bermuda3.jpg" alt="Photo 8" />
           </div>
         </div>
       </div>
     </div>
-    
-    <div class="footer">      
+
+    <div class="footer">
       <div class="footer-bottom">
-        <p class="footer-title">
-          Thanks for visiting! This portfolio was designed and developed from scratch by me :)
-        </p>
+        <p class="footer-title">Designed and developed from scratch by me :)</p>
         <p class="footer-subtitle">&#169; 2026 Rahil Shah's Portfolio</p>
       </div>
     </div>
@@ -197,7 +206,7 @@
       }
 
       // Close modal on Escape key
-      document.addEventListener("keydown", function(event) {
+      document.addEventListener("keydown", function (event) {
         if (event.key === "Escape") {
           const modal = document.getElementById("mosseriModal");
           if (modal.classList.contains("active")) {

@@ -254,13 +254,12 @@ a:hover {
   text-decoration-color: rgba(42, 42, 42, 0.8);
 }
 
-
 /* Bulletin Board */
 .bulletin-board {
   flex: 0 0 56%;
   max-width: 56%;
   position: relative;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   background-image: radial-gradient(circle, #d0d0d0 1px, transparent 1px);
   background-size: 20px 20px;
   background-position: 0 0;
@@ -280,7 +279,9 @@ a:hover {
   position: absolute;
   background: white;
   padding: 12px 12px 50px 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15), 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.15),
+    0 2px 4px rgba(0, 0, 0, 0.1);
   transition: box-shadow 0.3s ease;
   cursor: grab;
   user-select: none;
@@ -302,10 +303,12 @@ a:hover {
   }
   60% {
     opacity: 1;
-    transform: translateY(30px) rotate(calc(var(--target-rotation, 0deg) * 1.2)) scale(1.05);
+    transform: translateY(30px) rotate(calc(var(--target-rotation, 0deg) * 1.2))
+      scale(1.05);
   }
   80% {
-    transform: translateY(-5px) rotate(calc(var(--target-rotation, 0deg) * 0.9)) scale(0.98);
+    transform: translateY(-5px) rotate(calc(var(--target-rotation, 0deg) * 0.9))
+      scale(0.98);
   }
   100% {
     opacity: 1;
@@ -320,14 +323,20 @@ a:hover {
 .polaroid.dragging {
   transition: none;
   z-index: 100;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25), 0 4px 8px rgba(0, 0, 0, 0.2);
+  box-shadow:
+    0 8px 24px rgba(0, 0, 0, 0.25),
+    0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .polaroid:hover:not(.dragging) {
   transform: scale(1.05) rotate(var(--target-rotation, 0deg));
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2), 0 4px 8px rgba(0, 0, 0, 0.15);
+  box-shadow:
+    0 8px 24px rgba(0, 0, 0, 0.2),
+    0 4px 8px rgba(0, 0, 0, 0.15);
   z-index: 10;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 .polaroid img {
@@ -419,7 +428,7 @@ a:hover {
   }
 
   .content-left h1 {
-    font-size: 48px;
+    font-size: 42px;
     margin-bottom: 20px;
   }
 
@@ -551,8 +560,6 @@ a:hover {
     padding-top: 10vh;
     padding-bottom: 6vh;
   }
-
-  
 }
 
 /* Modal Styles */
@@ -571,7 +578,9 @@ a:hover {
   align-items: center;
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.3s ease, visibility 0.3s ease;
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease;
 }
 
 .modal.active {
@@ -598,7 +607,7 @@ a:hover {
 .clickable-text {
   cursor: pointer;
   text-decoration: none;
-  color:rgba(75, 133, 231, 1);
+  color: rgba(75, 133, 231, 1);
   transition: 0.3s;
 }
 
