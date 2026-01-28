@@ -621,12 +621,48 @@ a:hover {
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   position: relative;
   cursor: pointer;
+  transition: 0.5s ease;
+}
+
+.experience-row:hover {
+  background-color: rgba(0, 0, 0, 0.02);
+  border-radius: 16px;
+  padding-left: 24px;
+  border-bottom: 0;
+  border-top: 0;
+  padding-right: 24px;
   transition: 0.25s ease;
 }
 
-/* First experience-row (Stealth) is not clickable, so use default cursor */
+/* Hide border-bottom of the previous row when hovering over current row */
+.experience-row:hover ~ .experience-row,
+.role-link:hover ~ .role-link .experience-row {
+  border-top: 0;
+  transition: 0.25s ease;
+}
+
+/* Hide border-bottom of previous sibling when hovering - target the row that comes before the hovered one */
+.experience > .role-link:has(+ .role-link:hover) .experience-row,
+.experience > .experience-row:has(+ .role-link:hover),
+.experience > .role-link:has(+ .experience-row:hover) .experience-row,
+.experience > .experience-row:has(+ .experience-row:hover),
+.experience > .role-link:has(+ *:hover) .experience-row,
+.experience > .experience-row:has(+ *:hover) {
+  border-bottom: 0 !important;
+  transition: 0.25s ease;
+}
+
+/* First experience-row (Stealth) is not clickable, so use default cursor and no hover background */
 .experience > .experience-row:first-child {
   cursor: default;
+}
+
+.experience > .experience-row:first-child:hover {
+  background-color: transparent;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
+  padding-left: 0;
+  padding-right: 0;
+  border-radius: 0;
 }
 
 .experience > .role-link:last-child .experience-row,
