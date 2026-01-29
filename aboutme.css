@@ -9,6 +9,14 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
+body {
+  max-width: 1920px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  transition: all 1s ease;
+}
+
 /*Global Font Formats and Containers*/
 
 /*Nav*/
@@ -90,12 +98,14 @@ body {
 
 nav {
   position: fixed;
+  left: 0;
+  right: 0;
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
   background-color: hsla(0, 0%, 100%, 0.75);
   box-shadow: 4px 4px 40px 4px rgba(0, 0, 0, 0.05);
-  width: 70%;
-  margin: 3vw 15%;
+  max-width: 70%;
+  margin: 3vw auto;
   height: 60px;
   border-radius: 100px;
   z-index: 10;
@@ -541,7 +551,7 @@ a:hover {
   }
 
   nav {
-    width: 90%;
+    max-width: 90%;
     margin: 4vw 5%;
     height: 60px;
     border-radius: 100px;
