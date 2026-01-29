@@ -17,30 +17,25 @@ html {
 
 /*Global Font Formats and Containers*/
 
-h1 {
-  font-size: 1vw;
-  font-weight: 700;
-  color: lightgray;
-}
+/* h1 {
+  font-size: 18px;
+  letter-spacing: 0.01em;
+  color: gray;
+} */
 
 h2 {
-  font-size: 3vw;
-  font-weight: 700;
-  line-height: 130%;
+  font-size: 52px;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  color: black;
 }
 
 h3 {
-  font-size: 1.25vw;
+  font-size: 18px;
+  letter-spacing: 0.01em;
+  line-height: 1.6;
   font-weight: 300;
-  line-height: 150%;
-  color: #737b85;
-}
-
-h4 {
-  font-size: 1vw;
-  font-weight: 300;
-  line-height: 150%;
-  color: #737b85;
+  color: gray;
 }
 
 .h4big {
@@ -48,9 +43,12 @@ h4 {
 }
 
 h5 {
-  font-size: 1.25vw;
+  font-size: 18px;
+  letter-spacing: 0.01em;
+  color: black;
 }
 
+/* #region Round Buttons */
 .round {
   position: fixed;
   z-index: 10;
@@ -160,14 +158,14 @@ h5 {
 
 .round2 span:first-child {
   position: absolute;
-  transform: rotate(135deg); /* Change from 45deg to 90deg to face up */
+  transform: rotate(135deg);
   left: 25%;
   top: 48%;
 }
 
 .round2 span:nth-child(2) {
   position: absolute;
-  transform: rotate(-135deg); /* Change from -45deg to -90deg to face up */
+  transform: rotate(-135deg);
   left: 41%;
   top: 48%;
 }
@@ -241,14 +239,14 @@ h5 {
 
 .round3 span:first-child {
   position: absolute;
-  transform: rotate(-135deg); /* Change from 45deg to 90deg to face up */
+  transform: rotate(-135deg);
   left: 25%;
   top: 50%;
 }
 
 .round3 span:nth-child(2) {
   position: absolute;
-  transform: rotate(135deg); /* Change from -45deg to -90deg to face up */
+  transform: rotate(135deg);
   left: 41%;
   top: 50%;
 }
@@ -293,6 +291,7 @@ h5 {
     sans-serif,
     sans-serif;
 }
+/* #endregion Round Buttons */
 
 .headimg {
   width: 100%;

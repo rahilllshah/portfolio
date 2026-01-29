@@ -104,8 +104,9 @@ nav {
   backdrop-filter: blur(10px);
   background-color: hsla(0, 0%, 100%, 0.75);
   box-shadow: 4px 4px 40px 4px rgba(0, 0, 0, 0.05);
-  max-width: 70%;
-  margin: 3vw auto;
+  width: 70%;
+  max-width: 1440px;
+  margin: 42px auto;
   height: 60px;
   border-radius: 100px;
   z-index: 10;
