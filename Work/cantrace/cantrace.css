@@ -8,48 +8,15 @@ body {
   width: 100%;
   margin: auto;
   overflow-x: hidden;
-  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: var(--font-family-base);
 }
 
 html {
   scroll-behavior: smooth;
 }
 
-/*Global Font Formats and Containers*/
-
-.navFontBlack {
-  color: black;
-}
-
-/* h1 {
-  font-size: 18px;
-  letter-spacing: 0.01em;
-  color: gray;
-} */
-
-h2 {
-  font-size: 52px;
-  font-weight: 400;
-  letter-spacing: 0.01em;
-  color: black;
-}
-
-h3 {
-  font-size: 18px;
-  letter-spacing: 0.01em;
-  line-height: 1.6;
-  font-weight: 300;
-  color: gray;
-}
-
 .h4big {
   font-size: 3vw;
-}
-
-h5 {
-  font-size: 18px;
-  letter-spacing: 0.01em;
-  color: black;
 }
 
 /* #region Round Buttons */
@@ -304,7 +271,7 @@ h5 {
 .landing {
   max-width: 70%;
   margin: auto;
-  margin-top: 15vh;
+  margin-top: 10vh;
 }
 
 .section {
@@ -318,7 +285,7 @@ h5 {
   padding: 10vh;
   margin: auto;
   margin-top: 15vh;
-  background-color: #000000;
+  background-color: #8080e6;
 }
 
 .fullTextO {
@@ -332,15 +299,10 @@ h5 {
 .fullText {
   opacity: 0.25;
 }
-
 .video {
   box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.1);
   width: 100%;
-  border-radius: 4vh;
-}
-
-.contentMargin {
-  margin-top: 10vh;
+  border-radius: 10px;
 }
 
 .asset4 {
@@ -375,33 +337,12 @@ a:hover {
     margin-top: 5vh;
   }
 
-  h1 {
-    font-size: 2vw;
-    font-weight: 700;
-    color: lightgray;
+  .fullTextO {
+    max-width: 100%;
   }
 
   h2 {
-    font-size: 5vw;
-    font-weight: 700;
-  }
-
-  h3 {
-    font-size: 3vw;
-    font-weight: 300;
-    line-height: 130%;
-    color: #737b85;
-  }
-
-  h4 {
-    font-size: 3vw;
-    font-weight: 300;
-    line-height: 130%;
-    color: #737b85;
-  }
-
-  h5 {
-    font-size: 3vw;
+    font-size: 36px;
   }
 }
 

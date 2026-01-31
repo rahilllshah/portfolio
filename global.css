@@ -1,0 +1,49 @@
+/*
+ * Global typography variables and font rules for portfolio project pages.
+ */
+
+:root {
+  /* Font family */
+  --font-family-base: -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* Global font sizes */
+  --font-size-h2: 52px;
+  --font-size-h3: 18px;
+  --font-size-h5: 18px;
+
+  /* Letter spacing */
+  --letter-spacing: 0.01em;
+
+  /* Colors */
+  --color-black: black;
+  --color-gray: gray;
+}
+
+/* Global Fonts – shared by cantrace, timeline, applemusic, deltahacks */
+
+h2 {
+  font-size: var(--font-size-h2);
+  font-weight: 400;
+  letter-spacing: var(--letter-spacing);
+  color: var(--color-black);
+}
+
+h3 {
+  font-size: var(--font-size-h3);
+  font-weight: 300;
+  letter-spacing: var(--letter-spacing);
+  line-height: 1.6;
+  color: var(--color-gray);
+}
+
+h5 {
+  font-size: var(--font-size-h5);
+  letter-spacing: var(--letter-spacing);
+  color: var(--color-black);
+}
+
+/* Base font for project pages – override in project CSS if needed */
+html,
+body {
+  font-family: var(--font-family-base);
+}

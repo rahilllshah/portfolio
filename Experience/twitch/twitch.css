@@ -8,43 +8,7 @@ body {
   width: 100%;
   margin: auto;
   overflow-x: hidden;
-  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-}
-
-/*Global Font Formats and Containers*/
-
-h1 {
-  font-size: 1vw;
-  font-weight: 700;
-  color: lightgray;
-}
-
-h2 {
-  font-size: 3vw;
-  font-weight: 700;
-  line-height: 130%;
-}
-
-h3 {
-  font-size: 1.25vw;
-  font-weight: 300;
-  line-height: 150%;
-  color: #737b85;
-}
-
-h4 {
-  font-size: 1vw;
-  font-weight: 300;
-  line-height: 150%;
-  color: #737b85;
-}
-
-.h4big {
-  font-size: 3vw;
-}
-
-h5 {
-  font-size: 1.25vw;
+  font-family: var(--font-family-base);
 }
 
 .headimg {
@@ -96,10 +60,6 @@ h5 {
   margin-top: 4vw;
   border-radius: 2vw;
   width: 100%;
-}
-
-.special {
-  border: 0.5px solid #dedede;
 }
 
 .center {
