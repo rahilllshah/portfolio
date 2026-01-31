@@ -56,6 +56,96 @@ h5 {
   font-size: 3vw;
 }
 
+/* Layout */
+.headimg {
+  width: 100%;
+}
+
+.landing {
+  max-width: 70%;
+  margin: auto;
+  margin-top: 10vh;
+  padding-bottom: 15vh;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.section {
+  max-width: 70%;
+  margin: auto;
+  margin-top: 15vh;
+}
+
+.video {
+  box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  border-radius: 24px;
+}
+
+.asset {
+  width: 100%;
+}
+
+a.active,
+a:hover {
+  color: black;
+  transition: 0.5s;
+}
+
+.last {
+  padding-bottom: 20vh;
+}
+
+.full {
+  max-width: 100%;
+  padding: 10vh;
+  margin: auto;
+  margin-top: 15vh;
+  background-image: linear-gradient(to right, #05a39a, #2a3b8c);
+}
+
+.fullTextO {
+  position: relative;
+  max-width: 75%;
+  margin: auto;
+  text-align: left;
+  color: white;
+}
+
+.fullText {
+  opacity: 0.25;
+}
+
+.contentMargin {
+  margin-top: 10vh;
+}
+
+.center {
+  text-align: center;
+}
+
+@media (max-width: 920px) {
+  .landing {
+    max-width: 90%;
+  }
+
+  .round2,
+  .round3 {
+    display: none;
+  }
+
+  .section {
+    max-width: 90%;
+  }
+
+  .video {
+    margin-top: 5vh;
+  }
+
+  h2 {
+    font-size: 36px;
+  }
+}
+
 /* #region Round buttons */
 .round {
   position: fixed;
@@ -301,93 +391,3 @@ h5 {
 }
 
 /* #endregion Round buttons */
-
-/* Layout */
-.headimg {
-  width: 100%;
-}
-
-.landing {
-  max-width: 70%;
-  margin: auto;
-  margin-top: 10vh;
-  padding-bottom: 15vh;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-}
-
-.section {
-  max-width: 70%;
-  margin: auto;
-  margin-top: 15vh;
-}
-
-.video {
-  box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.1);
-  width: 100%;
-  border-radius: 24px;
-}
-
-.asset {
-  width: 100%;
-}
-
-a.active,
-a:hover {
-  color: black;
-  transition: 0.5s;
-}
-
-.last {
-  padding-bottom: 20vh;
-}
-
-.full {
-  max-width: 100%;
-  padding: 10vh;
-  margin: auto;
-  margin-top: 15vh;
-  background-image: linear-gradient(to right, #05a39a, #2a3b8c);
-}
-
-.fullTextO {
-  position: relative;
-  max-width: 75%;
-  margin: auto;
-  text-align: left;
-  color: white;
-}
-
-.fullText {
-  opacity: 0.25;
-}
-
-.contentMargin {
-  margin-top: 10vh;
-}
-
-.center {
-  text-align: center;
-}
-
-@media (max-width: 920px) {
-  .landing {
-    max-width: 90%;
-  }
-
-  .round2,
-  .round3 {
-    display: none;
-  }
-
-  .section {
-    max-width: 90%;
-  }
-
-  .video {
-    margin-top: 5vh;
-  }
-
-  h2 {
-    font-size: 36px;
-  }
-}

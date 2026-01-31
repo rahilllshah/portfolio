@@ -3,3 +3,10 @@
   border-bottom: 0;
   padding-bottom: 0;
 }
+
+@media (max-width: 920px) {
+  .round2,
+  .round3 {
+    display: none;
+  }
+}

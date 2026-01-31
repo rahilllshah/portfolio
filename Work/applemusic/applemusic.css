@@ -8,3 +8,10 @@
   background-color: #000000;
   background-image: none;
 }
+
+@media (max-width: 920px) {
+  .round2,
+  .round3 {
+    display: none;
+  }
+}

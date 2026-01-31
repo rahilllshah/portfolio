@@ -4,3 +4,10 @@
   background-color: #48889f;
   background-image: none;
 }
+
+@media (max-width: 920px) {
+  .round2,
+  .round3 {
+    display: none;
+  }
+}
