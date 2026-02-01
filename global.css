@@ -81,18 +81,25 @@ h5 {
   width: 100%;
 }
 
-a.active,
-a:hover {
-  color: black;
-  transition: 0.5s;
-}
-
 .last {
   padding-bottom: 15vh;
 }
 
 .center {
   text-align: center;
+}
+
+.clickable-text {
+  cursor: pointer;
+  text-decoration: none;
+  color: rgba(75, 133, 231, 1);
+  transition: 0.3s;
+}
+
+.clickable-text:hover {
+  text-decoration: none;
+  opacity: 0.5;
+  transition: 0.3s;
 }
 
 @media (max-width: 920px) {
