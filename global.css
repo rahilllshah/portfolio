@@ -52,10 +52,6 @@ h5 {
   color: var(--color-black);
 }
 
-.h4big {
-  font-size: 3vw;
-}
-
 /* Layout */
 .headimg {
   width: 100%;
