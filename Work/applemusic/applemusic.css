@@ -1,14 +1,5 @@
 /* Apple Music project – base styles in global.css */
 
-.navFontBlack {
-  color: black;
-}
-
-.full {
-  background-color: #000000;
-  background-image: none;
-}
-
 @media (max-width: 920px) {
   .round2,
   .round3 {

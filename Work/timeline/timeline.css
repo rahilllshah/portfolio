@@ -1,10 +1,5 @@
 /* Timeline project – base styles in global.css */
 
-.full {
-  background-color: #48889f;
-  background-image: none;
-}
-
 @media (max-width: 920px) {
   .round2,
   .round3 {
