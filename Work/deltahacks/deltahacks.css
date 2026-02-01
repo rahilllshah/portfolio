@@ -4,6 +4,26 @@
   padding-bottom: 0;
 }
 
+.full {
+  max-width: 100%;
+  padding: 10vh;
+  margin: auto;
+  margin-top: 15vh;
+  background-image: linear-gradient(to right, #05a39a, #2a3b8c);
+}
+
+.fullTextO {
+  position: relative;
+  max-width: 75%;
+  margin: auto;
+  text-align: left;
+  color: white;
+}
+
+.fullText {
+  opacity: 0.25;
+}
+
 @media (max-width: 920px) {
   .round2,
   .round3 {

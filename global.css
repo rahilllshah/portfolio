@@ -92,31 +92,7 @@ a:hover {
 }
 
 .last {
-  padding-bottom: 20vh;
-}
-
-.full {
-  max-width: 100%;
-  padding: 10vh;
-  margin: auto;
-  margin-top: 15vh;
-  background-image: linear-gradient(to right, #05a39a, #2a3b8c);
-}
-
-.fullTextO {
-  position: relative;
-  max-width: 75%;
-  margin: auto;
-  text-align: left;
-  color: white;
-}
-
-.fullText {
-  opacity: 0.25;
-}
-
-.contentMargin {
-  margin-top: 10vh;
+  padding-bottom: 15vh;
 }
 
 .center {
@@ -124,6 +100,10 @@ a:hover {
 }
 
 @media (max-width: 920px) {
+  h2 {
+    font-size: 36px;
+  }
+
   .landing {
     max-width: 90%;
   }
@@ -139,10 +119,6 @@ a:hover {
 
   .video {
     margin-top: 5vh;
-  }
-
-  h2 {
-    font-size: 36px;
   }
 }
 
