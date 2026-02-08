@@ -17,148 +17,26 @@ body {
   transition: all 1s ease;
 }
 
+.page {
+  overflow-y: hidden;
+}
+
+.page-content {
+  animation: pageLoadIn 0.6s ease-out forwards;
+}
+
+@keyframes pageLoadIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /*Global Font Formats and Containers*/
-
-/*Nav*/
-
-#nav-icon {
-  top: 2px;
-  zoom: 0.42;
-  width: 60px;
-  position: relative;
-  margin: 44px auto;
-  transform: rotate(0deg);
-  transition: 0.5s ease-in-out;
-  cursor: pointer;
-}
-
-#nav-icon span {
-  display: block;
-  position: absolute;
-  height: 9px;
-  width: 100%;
-  background: black;
-  border-radius: 10px;
-  opacity: 1;
-  left: 0;
-  transform: rotate(0deg);
-  transition: 0.25s ease-in-out;
-}
-
-#nav-icon span:nth-child(1) {
-  top: 0px;
-  transform-origin: left center;
-}
-
-#nav-icon span:nth-child(2) {
-  top: 18px;
-  transform-origin: left center;
-}
-
-#nav-icon span:nth-child(3) {
-  top: 36px;
-  transform-origin: left center;
-}
-
-#nav-icon span:nth-child(4) {
-  top: -50px;
-  height: 140px;
-  opacity: 0;
-  transform-origin: left center;
-}
-
-#nav-icon.open span:nth-child(1) {
-  transform: rotate(45deg);
-  left: 8px;
-}
-
-#nav-icon.open span:nth-child(2) {
-  width: 0%;
-  opacity: 0;
-}
-
-#nav-icon.open span:nth-child(3) {
-  transform: rotate(-45deg);
-  top: 42px;
-  left: 8px;
-}
-
-.checkbtn {
-  color: black;
-  float: right;
-  line-height: 40px !important;
-  margin-right: 20px;
-  cursor: pointer;
-  display: none;
-}
-
-#check {
-  display: none;
-}
-
-nav {
-  position: fixed;
-  left: 0;
-  right: 0;
-  -webkit-backdrop-filter: blur(10px);
-  backdrop-filter: blur(10px);
-  background-color: hsla(0, 0%, 100%, 0.75);
-  box-shadow: 4px 4px 40px 4px rgba(0, 0, 0, 0.05);
-  width: 70%;
-  max-width: 1440px;
-  margin: 42px auto;
-  height: 60px;
-  border-radius: 100px;
-  z-index: 10;
-  transition: 0.1s;
-}
-
-img.logo {
-  margin-top: 19px;
-  margin-left: 6px;
-  width: 60px;
-  padding: 0 20px;
-  transition: 0.25s;
-}
-
-img.logo:hover {
-  opacity: 0.5;
-  transition: 0.25s;
-  cursor: pointer;
-}
-
-img.logoW {
-  display: none;
-}
-
-.navR {
-  right: 6px;
-  position: absolute;
-  display: inline-block;
-  bottom: -17px;
-  padding: 0px 10px;
-  transition: all 0.25s ease-in-out;
-}
-
-nav ul li {
-  display: inline;
-  line-height: 60px;
-  margin: 0 5px;
-}
-
-nav ul li a {
-  font-weight: 300;
-  color: gray;
-  font-size: 14px;
-  padding: 0 10px;
-  text-decoration: none !important;
-  transition: 0.5s;
-}
-
-a:hover {
-  color: black;
-  transition: 0.5s;
-}
 
 /*Footer*/
 
@@ -290,9 +168,7 @@ a:hover {
   position: absolute;
   background: white;
   padding: 12px 12px 50px 12px;
-  box-shadow:
-    0 4px 12px rgba(0, 0, 0, 0.15),
-    0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15), 0 2px 4px rgba(0, 0, 0, 0.1);
   transition: box-shadow 0.3s ease;
   cursor: grab;
   user-select: none;
@@ -334,20 +210,14 @@ a:hover {
 .polaroid.dragging {
   transition: none;
   z-index: 100;
-  box-shadow:
-    0 8px 24px rgba(0, 0, 0, 0.25),
-    0 4px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25), 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .polaroid:hover:not(.dragging) {
   transform: scale(1.05) rotate(var(--target-rotation, 0deg));
-  box-shadow:
-    0 8px 24px rgba(0, 0, 0, 0.2),
-    0 4px 8px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2), 0 4px 8px rgba(0, 0, 0, 0.15);
   z-index: 10;
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .polaroid img {
@@ -526,47 +396,6 @@ a:hover {
     padding-top: 18vh;
   }
 
-  .checkbtn {
-    display: block;
-  }
-
-  #check:checked ~ .navR {
-    right: 0;
-  }
-
-  .navR {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    position: fixed;
-    width: 45%;
-    height: 30vh;
-    backdrop-filter: blur(6px);
-    box-shadow: 4px 4px 40px 4px rgba(0, 0, 0, 0.05);
-    background-color: white;
-    top: 90px;
-    right: -110%;
-    border-radius: 16px;
-    transition: all 0.5s;
-  }
-
-  nav {
-    max-width: 90%;
-    width: 90%;
-    margin: 4vw 5%;
-    height: 60px;
-    border-radius: 100px;
-  }
-
-  nav ul li {
-    line-height: 60px;
-  }
-
-  nav ul li a {
-    font-size: 14px;
-  }
-
   .footer {
     max-width: 90%;
     padding-top: 10vh;
@@ -590,9 +419,7 @@ a:hover {
   align-items: center;
   opacity: 0;
   visibility: hidden;
-  transition:
-    opacity 0.3s ease,
-    visibility 0.3s ease;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
 .modal.active {

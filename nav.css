@@ -1,0 +1,241 @@
+/* Nav: left = logo + page links, right = Resume + LinkedIn */
+
+.nav {
+  --nav-height: 60px;
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 70%;
+  max-width: 1440px;
+  height: var(--nav-height);
+  margin: 42px auto;
+  padding: 0 24px 0 24px;
+  border-radius: 1000px;
+  background-color: hsla(0, 0%, 100%, 0.75);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 4px 4px 40px 4px rgba(0, 0, 0, 0.05);
+  transition: 0.1s;
+}
+
+.nav-check {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Left: logo + page links */
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  padding-right: 12px;
+  transition: opacity 0.25s;
+}
+
+.nav-logo:hover {
+  opacity: 0.5;
+  transition: opacity 0.25s;
+}
+
+.nav-logo-img {
+  display: block;
+  height: 20px;
+  width: auto;
+  object-fit: contain;
+}
+
+.nav-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.nav-links a {
+  font-size: 14px;
+  font-weight: 300;
+  color: gray;
+  text-decoration: none;
+  padding: 0 10px;
+  line-height: var(--nav-height);
+  transition: color 0.25s;
+}
+
+.nav-links a:hover {
+  color: black;
+}
+
+/* Right: Resume, LinkedIn (desktop). Mobile: nav-menu panel has nav-links-mobile + nav-right */
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  transition: all 0.25s;
+}
+
+/* Desktop: show nav-links in nav-left, hide the copy in nav-menu */
+.nav-links-mobile {
+  display: none;
+}
+
+.nav-right {
+  list-style: none;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  transition: all 0.25s;
+}
+
+.nav-right a {
+  font-size: 14px;
+  font-weight: 300;
+  color: gray;
+  text-decoration: none;
+  padding: 0 10px;
+  line-height: var(--nav-height);
+  transition: color 0.25s;
+}
+
+.nav-right a:hover {
+  color: black;
+}
+
+.nav-ext-arrow {
+  width: 16px;
+  height: 16px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  display: inline-flex;
+  align-items: center;
+  margin-left: 2px;
+  vertical-align: middle;
+}
+
+.nav-ext-arrow svg {
+  display: block;
+  color: currentColor;
+}
+
+/* Hamburger (hidden on desktop) */
+.nav-toggle {
+  display: none;
+  cursor: pointer;
+}
+
+.nav-icon {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 24px;
+  height: 34px;
+}
+
+.nav-icon span {
+  display: block;
+  width: 100%;
+  height: 3.5px;
+  background: black;
+  border-radius: 2px;
+  transition: transform 0.25s, opacity 0.25s;
+  transform-origin: center;
+}
+
+/* Hamburger → X when open (script adds .open to #nav-icon) */
+.nav-icon.open span:nth-child(1) {
+  transform: translateY(9px) rotate(45deg);
+}
+
+.nav-icon.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.nav-icon.open span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Mobile: hamburger opens .nav-menu with nav-links + nav-right as one list */
+@media (max-width: 920px) {
+  .nav {
+    width: 90%;
+    max-width: 90%;
+    margin: 4vw 5%;
+  }
+
+  .nav-toggle {
+    display: block;
+    order: 1;
+  }
+
+  .nav-left {
+    order: 0;
+  }
+
+  .nav-menu {
+    position: fixed;
+    top: 80px;
+    right: -110%;
+    width: 45%;
+    min-height: 30vh;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0;
+    padding: 20px;
+    border-radius: 16px;
+    background-color: white;
+    backdrop-filter: blur(6px);
+    box-shadow: 4px 4px 40px 4px rgba(0, 0, 0, 0.05);
+    transition: right 0.5s;
+    order: 2;
+  }
+
+  .nav-check:checked ~ .nav-menu {
+    right: 2%;
+  }
+
+  /* Show nav-links in dropdown, hide nav-links beside logo */
+  .nav-links-desktop {
+    display: none;
+  }
+
+  .nav-links-mobile {
+    display: flex;
+  }
+
+  .nav-menu .nav-links,
+  .nav-menu .nav-right {
+    flex-direction: column;
+    width: 100%;
+    gap: 0;
+  }
+
+  .nav-menu .nav-links li,
+  .nav-menu .nav-right li {
+    width: 100%;
+    text-align: center;
+  }
+
+  .nav-menu .nav-links a,
+  .nav-menu .nav-right a {
+    display: block;
+    line-height: 48px;
+    padding: 0 16px;
+  }
+}

@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8" />
@@ -48,6 +48,7 @@
       crossorigin="anonymous"
     />
 
+    <link rel="stylesheet" type="text/css" href="nav.css" />
     <link rel="stylesheet" type="text/css" href="aboutme.css" />
   </head>
 
@@ -56,138 +57,168 @@
 
     <div class="row">
       <div class="col-12">
-        <nav>
-          <input type="checkbox" id="check" />
-          <label for="check" class="checkbtn">
-            <div id="nav-icon">
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
-            </div>
+        <nav class="nav">
+          <input
+            type="checkbox"
+            id="nav-check"
+            class="nav-check"
+            aria-hidden="true"
+          />
+          <label for="nav-check" class="nav-toggle" aria-label="Toggle menu">
+            <span id="nav-icon" class="nav-icon"
+              ><span></span><span></span><span></span
+            ></span>
           </label>
-
-          <script>
-            $(document).ready(function () {
-              $("#nav-icon").click(function () {
-                $(this).toggleClass("open");
-              });
-            });
-          </script>
-          <ul class="navL">
-            <a href="https://rahil.me" class="section1-marker">
-              <img class="logo" src="Images/Logo.png"
-            /></a>
-            <a href="https://rahil.me" class="section1-marker">
-              <img class="logoW" src="Images/LogoW.png"
-            /></a>
-          </ul>
-
-          <ul class="navR">
-            <li><a href="https://rahil.me/aboutme">About</a></li>
-            <li><a href="RahilShah_Resume.pdf" target="_blank">Resume</a></li>
+          <div class="nav-left">
+            <a href="https://rahil.me/" class="nav-logo">
+              <img
+                src="Images/Logo.png"
+                alt="Rahil Shah"
+                class="nav-logo-img"
+              />
+            </a>
+            <ul class="nav-links">
+              <li><a href="https://rahil.me/aboutme">About</a></li>
+            </ul>
+          </div>
+          <ul class="nav-right">
             <li>
-              <a href="https://www.linkedin.com/in/rahilllshah" target="_blank"
-                >LinkedIn</a
-              >
+              <a href="RahilShah_Resume.pdf" target="_blank" rel="noopener"
+                >Resume<span class="nav-ext-arrow" aria-hidden="true"
+                  ><svg
+                    class="nav-ext-arrow-svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M7 17L17 7" />
+                    <path d="M7 7h10v10" /></svg></span
+              ></a>
+            </li>
+            <li>
+              <a
+                href="https://www.linkedin.com/in/rahilllshah"
+                target="_blank"
+                rel="noopener"
+                >LinkedIn<span class="nav-ext-arrow" aria-hidden="true"
+                  ><svg
+                    class="nav-ext-arrow-svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M7 17L17 7" />
+                    <path d="M7 7h10v10" /></svg></span
+              ></a>
             </li>
           </ul>
         </nav>
       </div>
     </div>
+    <div class="page">
+      <div class="page-content">
+        <div class="about-me-container">
+          <div class="content-left">
+            <div class="content-wrapper">
+              <h1>Hey! I'm Rahil.</h1>
 
-    <div class="about-me-container">
-      <div class="content-left">
-        <div class="content-wrapper">
-          <h1>Hey! I'm Rahil.</h1>
+              <div class="personal-details">
+                <div class="detail-item">
+                  <i class="fas fa-map-marker-alt detail-icon"></i>
+                  <span>NYC</span>
+                </div>
+                <div class="detail-item">
+                  <i class="fas fa-graduation-cap detail-icon"></i>
+                  <span>BASc Computer Science</span>
+                </div>
+              </div>
 
-          <div class="personal-details">
-            <div class="detail-item">
-              <i class="fas fa-map-marker-alt detail-icon"></i>
-              <span>NYC</span>
-            </div>
-            <div class="detail-item">
-              <i class="fas fa-graduation-cap detail-icon"></i>
-              <span>BASc Computer Science</span>
+              <div class="bio-content">
+                <p>
+                  I turn complexity into clarity through thoughtful, intuitive
+                  experiences. Design and code have been part of my life since
+                  childhood, starting with building my own Pokémon game and
+                  redesigning car interiors. Little did I know that passion
+                  would carry through to where I am today.
+                </p>
+
+                <p>
+                  I love to travel 🏝️ , photograph the world around me 📷, play
+                  sports 🏒, discover new music 🎵, or enjoy a crispy Taco Bell
+                  taco 🌮. They’re the small joys that fuel my creativity and
+                  keep the good vibes rolling. I also love spending time with
+                  family and friends, and I deeply value positivity and
+                  gratefulness as guiding principles in life.
+                </p>
+
+                <p>
+                  One of my favorite memories was
+                  <span class="clickable-text" onclick="openMosseriModal()"
+                    >meeting Adam Mosseri</span
+                  >, the head of Instagram, during a visit to the Meta NYC
+                  office. He was extremely personable and down to earth.
+                </p>
+
+                <p>
+                  Feel free to reach out on LinkedIn or via email, I’m always
+                  happy to connect!
+                </p>
+              </div>
             </div>
           </div>
 
-          <div class="bio-content">
-            <p>
-              I turn complexity into clarity through thoughtful, intuitive
-              experiences. Design and code have been part of my life since
-              childhood, starting with building my own Pokémon game and
-              redesigning car interiors. Little did I know that passion would
-              carry through to where I am today.
-            </p>
+          <div class="bulletin-board">
+            <div class="polaroid-gallery">
+              <!-- Polaroid 1 - Replace src with your image -->
+              <div class="polaroid polaroid-1">
+                <img src="Life Images/palms.jpeg" alt="Photo 1" />
+              </div>
 
-            <p>
-              I love to travel 🏝️ , photograph the world around me 📷, play
-              sports 🏒, discover new music 🎵, or enjoy a crispy Taco Bell taco
-              🌮. They’re the small joys that fuel my creativity and keep the
-              good vibes rolling. I also love spending time with family and
-              friends, and I deeply value positivity and gratefulness as guiding
-              principles in life.
-            </p>
+              <div class="polaroid polaroid-2">
+                <img src="Life Images/calipolaroid.jpg" alt="Photo 2" />
+              </div>
 
-            <p>
-              One of my favorite memories was
-              <span class="clickable-text" onclick="openMosseriModal()"
-                >meeting Adam Mosseri</span
-              >, the head of Instagram, during a visit to the Meta NYC office.
-              He was extremely personable and down to earth.
-            </p>
+              <div class="polaroid polaroid-3">
+                <img src="Life Images/dubai.JPG" alt="Photo 3" />
+              </div>
 
-            <p>
-              Feel free to reach out on LinkedIn or via email, I’m always happy
-              to connect!
-            </p>
+              <div class="polaroid polaroid-4">
+                <img src="Life Images/camping.png" alt="Photo 4" />
+              </div>
+
+              <div class="polaroid polaroid-5">
+                <img src="Life Images/grassway.jpg" alt="Photo 5" />
+              </div>
+
+              <div class="polaroid polaroid-6">
+                <img src="Life Images/fall.jpg" alt="Photo 6" />
+              </div>
+
+              <div class="polaroid polaroid-7">
+                <img src="Life Images/boats.jpg" alt="Photo 7" />
+              </div>
+
+              <div class="polaroid polaroid-8">
+                <img src="Life Images/bermuda3.jpg" alt="Photo 8" />
+              </div>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div class="bulletin-board">
-        <div class="polaroid-gallery">
-          <!-- Polaroid 1 - Replace src with your image -->
-          <div class="polaroid polaroid-1">
-            <img src="Life Images/palms.jpeg" alt="Photo 1" />
-          </div>
-
-          <div class="polaroid polaroid-2">
-            <img src="Life Images/calipolaroid.jpg" alt="Photo 2" />
-          </div>
-
-          <div class="polaroid polaroid-3">
-            <img src="Life Images/dubai.JPG" alt="Photo 3" />
-          </div>
-
-          <div class="polaroid polaroid-4">
-            <img src="Life Images/camping.png" alt="Photo 4" />
-          </div>
-
-          <div class="polaroid polaroid-5">
-            <img src="Life Images/grassway.jpg" alt="Photo 5" />
-          </div>
-
-          <div class="polaroid polaroid-6">
-            <img src="Life Images/fall.jpg" alt="Photo 6" />
-          </div>
-
-          <div class="polaroid polaroid-7">
-            <img src="Life Images/boats.jpg" alt="Photo 7" />
-          </div>
-
-          <div class="polaroid polaroid-8">
-            <img src="Life Images/bermuda3.jpg" alt="Photo 8" />
+        <div class="footer">
+          <div class="footer-bottom">
+            <p class="footer-title">
+              Designed and developed from scratch by me :)
+            </p>
+            <p class="footer-subtitle">&#169; 2026 Rahil Shah's Portfolio</p>
           </div>
         </div>
-      </div>
-    </div>
-
-    <div class="footer">
-      <div class="footer-bottom">
-        <p class="footer-title">Designed and developed from scratch by me :)</p>
-        <p class="footer-subtitle">&#169; 2026 Rahil Shah's Portfolio</p>
       </div>
     </div>
 
