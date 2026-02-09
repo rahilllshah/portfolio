@@ -1,3 +1,14 @@
+// Nav animates only the first time in the session; after that, skip animation
+(function () {
+  try {
+    if (sessionStorage.getItem("navAnimated")) {
+      document.documentElement.classList.add("from-internal-nav");
+    } else {
+      sessionStorage.setItem("navAnimated", "1");
+    }
+  } catch (e) {}
+})();
+
 // Nav hamburger toggle (nav is inlined in index.html and aboutme.html)
 document.addEventListener("DOMContentLoaded", function () {
   var icon = document.getElementById("nav-icon");
