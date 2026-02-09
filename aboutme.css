@@ -16,55 +16,7 @@ body {
   width: 100%;
   transition: all 1s ease;
 }
-
-.page {
-  overflow-y: hidden;
-}
-
-.page-content {
-  animation: pageLoadIn 0.6s ease-out forwards;
-}
-
-@keyframes pageLoadIn {
-  from {
-    opacity: 0;
-    transform: translateY(12px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
 /*Global Font Formats and Containers*/
-
-/*Footer*/
-
-.footer {
-  width: 100%;
-  margin: auto;
-  padding-top: 15vh;
-  padding-bottom: 10vh;
-}
-
-.footer-bottom {
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.footer-title {
-  font-size: 14px;
-  color: gray;
-  margin: 0;
-}
-
-.footer-subtitle {
-  font-size: 12px;
-  color: darkgray;
-  margin: 0;
-}
 
 /* About Me Page Layout */
 .about-me-container {
@@ -296,7 +248,8 @@ body {
 @media (max-width: 920px) {
   .about-me-container {
     flex-direction: column;
-    padding-top: 100px;
+    padding-top: 80px;
+    padding-bottom: 100px;
     max-width: 100%;
     margin: 0;
   }
@@ -394,12 +347,6 @@ body {
 
   .container {
     padding-top: 18vh;
-  }
-
-  .footer {
-    max-width: 90%;
-    padding-top: 10vh;
-    padding-bottom: 6vh;
   }
 }
 
