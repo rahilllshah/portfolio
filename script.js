@@ -1,15 +1,3 @@
-// Skip nav load animation when coming from another page on the same site
-(function () {
-  try {
-    if (document.referrer && document.referrer.length > 0) {
-      var refUrl = new URL(document.referrer);
-      if (refUrl.origin === window.location.origin) {
-        document.documentElement.classList.add("from-internal-nav");
-      }
-    }
-  } catch (e) {}
-})();
-
 // Nav hamburger toggle (nav is inlined in index.html and aboutme.html)
 document.addEventListener("DOMContentLoaded", function () {
   var icon = document.getElementById("nav-icon");
