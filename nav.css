@@ -39,12 +39,12 @@
   display: flex;
   align-items: center;
   padding-right: 12px;
-  transition: opacity 0.25s;
+  transition: 0.5s;
 }
 
 .nav-logo:hover {
   opacity: 0.5;
-  transition: opacity 0.25s;
+  transition: 0.5s;
 }
 
 .nav-logo-img {
@@ -142,9 +142,9 @@
   display: inline-flex;
   flex-direction: column;
   justify-content: center;
-  gap: 5px;
+  gap: 6px;
   width: 24px;
-  height: 34px;
+  height: 26px;
 }
 
 .nav-icon span {
@@ -159,15 +159,11 @@
 
 /* Hamburger → X when open (script adds .open to #nav-icon) */
 .nav-icon.open span:nth-child(1) {
-  transform: translateY(9px) rotate(45deg);
+  transform: translateY(6px) rotate(45deg);
 }
 
 .nav-icon.open span:nth-child(2) {
-  opacity: 0;
-}
-
-.nav-icon.open span:nth-child(3) {
-  transform: translateY(-8px) rotate(-45deg);
+  transform: translateY(-4px) rotate(-45deg);
 }
 
 /* Mobile: hamburger opens .nav-menu with nav-links + nav-right as one list */
