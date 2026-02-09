@@ -7,7 +7,7 @@
     max-width: 100px;
   }
   100% {
-    width: 70%;
+    width: 60%;
     max-width: 1440px;
   }
 }
@@ -52,34 +52,34 @@
   transition: 0.1s;
 }
 
-/* Desktop only: nav load animation */
+/* Desktop only: nav load animation (skip when .from-internal-nav = internal page transition) */
 @media (min-width: 921px) {
-  .nav {
+  html:not(.from-internal-nav) .nav {
     animation: navExpandFromCenter 2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
   }
-  .nav-logo-img {
+  html:not(.from-internal-nav) .nav-logo-img {
     transform-origin: center;
     animation: logoFadeIn 2s cubic-bezier(0.22, 1, 0.36, 1) 0s forwards;
   }
   /* nav-left list items: fade in one by one */
-  .nav-links.nav-links-desktop li:nth-child(1) {
+  html:not(.from-internal-nav) .nav-links.nav-links-desktop li:nth-child(1) {
     opacity: 0;
     animation: navItemFadeIn 2s cubic-bezier(0.22, 1, 0.36, 1) 0.5s forwards;
   }
-  .nav-links.nav-links-desktop li:nth-child(2) {
+  html:not(.from-internal-nav) .nav-links.nav-links-desktop li:nth-child(2) {
     opacity: 0;
     animation: navItemFadeIn 2s cubic-bezier(0.22, 1, 0.36, 1) 0.6s forwards;
   }
-  .nav-links.nav-links-desktop li:nth-child(3) {
+  html:not(.from-internal-nav) .nav-links.nav-links-desktop li:nth-child(3) {
     opacity: 0;
     animation: navItemFadeIn 2s cubic-bezier(0.22, 1, 0.36, 1) 0.7s forwards;
   }
   /* nav-right list items: fade in one by one */
-  .nav-right li:nth-child(2) {
+  html:not(.from-internal-nav) .nav-right li:nth-child(2) {
     opacity: 0;
     animation: navItemFadeIn 2s cubic-bezier(0.22, 1, 0.36, 1) 0.5s forwards;
   }
-  .nav-right li:nth-child(1) {
+  html:not(.from-internal-nav) .nav-right li:nth-child(1) {
     opacity: 0;
     animation: navItemFadeIn 2s cubic-bezier(0.22, 1, 0.36, 1) 0.6s forwards;
   }
