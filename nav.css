@@ -7,7 +7,7 @@
     max-width: 100px;
   }
   100% {
-    width: 60%;
+    width: 55%;
     max-width: 1440px;
   }
 }
@@ -72,7 +72,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 60%;
+  width: 55%;
   max-width: 1440px;
   height: var(--nav-height);
   margin: 42px auto;
@@ -246,8 +246,21 @@
   }
 
   .nav-toggle {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    min-height: 60px;
+    padding: 0;
     order: 1;
+  }
+
+  /* Icon → X when menu open (driven by checkbox so tap area above/below icon also triggers animation) */
+  .nav-check:checked ~ .nav-toggle .nav-icon span:nth-child(1) {
+    transform: translateY(6px) rotate(45deg);
+  }
+  .nav-check:checked ~ .nav-toggle .nav-icon span:nth-child(2) {
+    transform: translateY(-4px) rotate(-45deg);
   }
 
   .nav-left {
