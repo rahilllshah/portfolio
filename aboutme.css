@@ -19,6 +19,25 @@ body {
 }
 /*Global Font Formats and Containers*/
 
+.page {
+  overflow-y: hidden;
+}
+
+.page-content {
+  animation: pageLoadIn 0.6s ease-out forwards;
+}
+
+@keyframes pageLoadIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* About Me Page Layout */
 .about-me-container {
   display: flex;
