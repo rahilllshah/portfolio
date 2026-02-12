@@ -243,13 +243,20 @@
     width: 90%;
     max-width: 90%;
     margin: 4vw 5%;
+    padding-right: 12px;
+  }
+
+  .nav-logo {
+    padding-bottom: 6px;
   }
 
   .nav-toggle {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 24px;
+    width: 50px;
+    height: 60px;
+    min-width: 50px;
     min-height: 60px;
     padding: 0;
     order: 1;
