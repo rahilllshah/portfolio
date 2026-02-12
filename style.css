@@ -878,11 +878,12 @@ a:hover {
 
   .title {
     font-size: 34px;
-    line-height: 1.2;
+    line-height: 120%;
   }
 
   .landingsub2 {
     font-size: 16px;
+    margin-top: 12px;
   }
 
   .solid-btn {
