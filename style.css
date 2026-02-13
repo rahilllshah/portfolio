@@ -70,7 +70,8 @@ a:hover {
   transition: 0.01s;
   filter: saturate(1.1) contrast(1.04);
 
-  background: radial-gradient(at 10% 20%, #5a67d8 0%, transparent 45%),
+  background:
+    radial-gradient(at 10% 20%, #5a67d8 0%, transparent 45%),
     radial-gradient(at 30% 80%, #764ada 0%, transparent 45%),
     radial-gradient(at 60% 10%, #00affa 0%, transparent 45%),
     radial-gradient(at 85% 40%, #0190cd 0%, transparent 45%),
@@ -124,7 +125,8 @@ a:hover {
   margin-bottom: 6px;
   filter: saturate(1.1) contrast(1.04);
 
-  background: radial-gradient(at 10% 20%, #5a67d8 0%, transparent 45%),
+  background:
+    radial-gradient(at 10% 20%, #5a67d8 0%, transparent 45%),
     radial-gradient(at 30% 80%, #764ada 0%, transparent 45%),
     radial-gradient(at 60% 10%, #00affa 0%, transparent 45%),
     radial-gradient(at 85% 40%, #0190cd 0%, transparent 45%),
@@ -169,7 +171,8 @@ a:hover {
   transition: all 0.2s;
   cursor: pointer;
   text-decoration: none;
-  background: radial-gradient(at 10% 20%, #7953cd 0%, transparent 45%),
+  background:
+    radial-gradient(at 10% 20%, #7953cd 0%, transparent 45%),
     radial-gradient(at 30% 80%, #764ada 0%, transparent 45%),
     radial-gradient(at 60% 10%, #00affa 0%, transparent 45%),
     radial-gradient(at 85% 40%, #0190cd 0%, transparent 45%),
@@ -263,7 +266,8 @@ a:hover {
   inset: -1px;
   border-radius: 100px;
   padding: 1px;
-  background: radial-gradient(at 10% 20%, #5a67d8 0%, transparent 45%),
+  background:
+    radial-gradient(at 10% 20%, #5a67d8 0%, transparent 45%),
     radial-gradient(at 30% 80%, #764ada 0%, transparent 45%),
     radial-gradient(at 60% 10%, #00affa 0%, transparent 45%),
     radial-gradient(at 85% 40%, #0190cd 0%, transparent 45%),
@@ -274,9 +278,13 @@ a:hover {
     radial-gradient(at 30% 80%, #764ada 0%, transparent 45%);
   background-size: 200% 200%;
   background-position: 0% 0%;
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
-  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
   mask-composite: exclude;
   opacity: 1;
   animation: meshDrift 5s ease-in-out infinite;
@@ -289,7 +297,8 @@ a:hover {
 }
 
 .gradient-btn span {
-  background: radial-gradient(at 10% 20%, #5a67d8 0%, transparent 45%),
+  background:
+    radial-gradient(at 10% 20%, #5a67d8 0%, transparent 45%),
     radial-gradient(at 30% 80%, #764ada 0%, transparent 45%),
     radial-gradient(at 60% 10%, #00affa 0%, transparent 45%),
     radial-gradient(at 85% 40%, #0190cd 0%, transparent 45%),
@@ -333,7 +342,9 @@ a:hover {
   z-index: 0;
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.8s ease-out, visibility 0.8s ease-out,
+  transition:
+    opacity 0.8s ease-out,
+    visibility 0.8s ease-out,
     transform 0.4s ease;
   animation: none;
   transform-origin: center center;
@@ -451,7 +462,7 @@ a:hover {
 }
 
 .section-eyebrow {
-  color: gray;
+  color: #ababab;
   font-size: 18px;
   letter-spacing: 0.01em;
   margin-bottom: 6px;
@@ -679,7 +690,9 @@ a:hover {
   opacity: 0;
   pointer-events: none;
 
-  transition: opacity 0.2s ease, transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition:
+    opacity 0.2s ease,
+    transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .experience-row:hover .role {
@@ -708,7 +721,7 @@ a:hover {
   opacity: 0;
 }
 
-/*Work*/
+/* Work */
 
 .work-section {
   display: grid;
@@ -716,11 +729,6 @@ a:hover {
   padding-top: 2vh;
   column-gap: 6vh;
   row-gap: 6vh;
-  /* width: 100%; */
-}
-
-.work-item {
-  /* width: 100%; */
 }
 
 .work-item-full {
@@ -735,34 +743,19 @@ a:hover {
   grid-column: span 4;
 }
 
-.workimg {
+.work-section .work-item img,
+.work-section .work-item picture img {
   width: 100%;
-  border-radius: 2vw;
-  transition: 0.5s ease;
+  height: auto;
   display: block;
+  border-radius: 2vw;
+  transition: transform 0.5s ease;
 }
 
-.workimg:hover {
-  transition: 0.5s ease;
+.work-section .work-item a:hover img,
+.work-section .work-item img.work-item-img:hover {
   cursor: pointer;
   transform: scale(0.97);
-}
-
-.workimg-mini {
-  width: 100%;
-  border-radius: 2vw;
-  transition: 0.5s ease;
-  display: block;
-}
-
-.workimg-mini:hover {
-  transition: 0.5s ease;
-  cursor: pointer;
-  transform: scale(0.97);
-}
-
-.workimgmobile {
-  display: none;
 }
 
 .modal {
@@ -780,7 +773,9 @@ a:hover {
   align-items: center;
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.3s ease, visibility 0.3s ease;
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease;
 }
 
 .modal.active {
@@ -967,6 +962,7 @@ a:hover {
   .work-section {
     grid-template-columns: 1fr;
     row-gap: 24px;
+    column-gap: 0;
   }
 
   .work-item-full,
@@ -975,26 +971,8 @@ a:hover {
     grid-column: 1 / -1;
   }
 
-  .workimg {
-    display: none;
-  }
-
-  .workimgmobile {
-    display: block;
-    max-width: 100%;
-    height: auto;
-    transition: 0.5s;
-    border-radius: 4vw;
-  }
-
-  .workimgmobile:hover {
-    transition: 0.5s ease;
-    cursor: pointer;
-    transform: scale(1.05);
-  }
-
-  .workimg-mini {
-    row-gap: 24px;
+  .work-section .work-item img,
+  .work-section .work-item picture img {
     border-radius: 4vw;
   }
 
