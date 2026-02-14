@@ -245,26 +245,24 @@
     width: 90%;
     max-width: 90%;
     margin: 4vw 5%;
-    padding: 0px 24px 0 24px;
-    padding-top: 6px;
-    padding-right: 12px;
+    /* padding: 6px 12px 0px 12px; */
     height: auto;
     min-height: var(--nav-height);
   }
 
   .nav-logo {
-    padding-bottom: 6px;
+    /* padding-bottom: 6px; */
   }
 
   .nav-toggle {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-end;
     width: 50px;
     height: 50px;
     min-width: 50px;
     min-height: 50px;
-    padding: 0;
+    padding-top: 6px;
     order: 1;
   }
 
@@ -285,13 +283,19 @@
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
-    align-content: flex-start;
-    transition: box-shadow 0.3s ease;
+    align-content: center;
+    /* Delay border-radius on close so we don't get "circle" while box is still tall */
+    transition:
+      box-shadow 0.3s ease,
+      border-radius 0.45s ease-out 0.35s;
   }
 
-  /* When menu opens, smooth transition to rounded rectangle */
+  /* When menu opens: snap to 24px immediately (no pill→circle morph), then expand */
   .nav:has(.nav-check:checked) {
     border-radius: 24px;
+    transition:
+      box-shadow 0.3s ease,
+      border-radius 0s;
   }
 
   .nav-menu {
@@ -308,8 +312,8 @@
     background: transparent;
     box-shadow: none;
     transition:
-      max-height 0.4s cubic-bezier(0.22, 1, 0.36, 1),
-      opacity 0.25s ease;
+      max-height 0.35s ease-out,
+      opacity 0.3s ease-out;
   }
 
   .nav-check:checked ~ .nav-menu {
@@ -317,6 +321,9 @@
     opacity: 1;
     padding-bottom: 24px;
     padding-top: 0;
+    transition:
+      max-height 0.35s ease-out,
+      opacity 0.3s ease-out;
   }
 
   /* Show nav-links in dropdown, hide nav-links beside logo */
@@ -335,13 +342,14 @@
     gap: 0;
     align-items: center;
     opacity: 0;
-    margin-right: 12px;
-    transition: opacity 0.5s;
+    /* margin-right: 12px; */
+    transition: opacity 0.3s ease-out;
   }
 
   .nav-check:checked ~ .nav-menu .nav-links,
   .nav-check:checked ~ .nav-menu .nav-right {
     opacity: 1;
+    transition: opacity 0.3s ease-out 0.06s;
   }
 
   .nav-menu .nav-links li,
@@ -354,6 +362,6 @@
   .nav-menu .nav-right a {
     display: block;
     line-height: 48px;
-    padding: 0 16px;
+    /* padding: 0 16px; */
   }
 }
