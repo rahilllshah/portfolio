@@ -62,7 +62,9 @@ body {
 }
 
 .content-left h1 {
+  font-weight: 400;
   font-size: 36px;
+  line-height: 1.1;
   color: black;
   margin-bottom: 12px;
 }
@@ -140,7 +142,9 @@ body {
   position: absolute;
   background: white;
   padding: 12px 12px 50px 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15), 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.15),
+    0 2px 4px rgba(0, 0, 0, 0.1);
   transition: box-shadow 0.3s ease;
   cursor: grab;
   user-select: none;
@@ -182,14 +186,20 @@ body {
 .polaroid.dragging {
   transition: none;
   z-index: 100;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25), 0 4px 8px rgba(0, 0, 0, 0.2);
+  box-shadow:
+    0 8px 24px rgba(0, 0, 0, 0.25),
+    0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .polaroid:hover:not(.dragging) {
   transform: scale(1.05) rotate(var(--target-rotation, 0deg));
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2), 0 4px 8px rgba(0, 0, 0, 0.15);
+  box-shadow:
+    0 8px 24px rgba(0, 0, 0, 0.2),
+    0 4px 8px rgba(0, 0, 0, 0.15);
   z-index: 10;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 .polaroid img {
@@ -386,7 +396,9 @@ body {
   align-items: center;
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.3s ease, visibility 0.3s ease;
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease;
 }
 
 .modal.active {

@@ -1,3 +1,25 @@
+/* Mesh gradient used for title, subtitles, gradient button (define once) */
+:root {
+  --mesh-gradient:
+    radial-gradient(at 10% 20%, #5a67d8 0%, transparent 45%),
+    radial-gradient(at 30% 80%, #764ada 0%, transparent 45%),
+    radial-gradient(at 60% 10%, #00affa 0%, transparent 45%),
+    radial-gradient(at 85% 40%, #0190cd 0%, transparent 45%),
+    radial-gradient(at 20% 60%, #9f7aea 0%, transparent 45%),
+    radial-gradient(at 70% 85%, #4fd1c5 0%, transparent 45%),
+    radial-gradient(at 50% 50%, #5a67d8 0%, transparent 55%),
+    radial-gradient(at 10% 20%, #7953cd 0%, transparent 45%),
+    radial-gradient(at 30% 80%, #764ada 0%, transparent 45%);
+  --mesh-gradient-btn:
+    radial-gradient(at 10% 20%, #7953cd 0%, transparent 45%),
+    radial-gradient(at 30% 80%, #764ada 0%, transparent 45%),
+    radial-gradient(at 60% 10%, #00affa 0%, transparent 45%),
+    radial-gradient(at 85% 40%, #0190cd 0%, transparent 45%),
+    radial-gradient(at 20% 60%, #9f7aea 0%, transparent 45%),
+    radial-gradient(at 70% 85%, #4fd1c5 0%, transparent 45%),
+    radial-gradient(at 50% 50%, #5a67d8 0%, transparent 55%), #4f46e5;
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -70,24 +92,12 @@ a:hover {
   transition: 0.01s;
   filter: saturate(1.1) contrast(1.04);
 
-  background:
-    radial-gradient(at 10% 20%, #5a67d8 0%, transparent 45%),
-    radial-gradient(at 30% 80%, #764ada 0%, transparent 45%),
-    radial-gradient(at 60% 10%, #00affa 0%, transparent 45%),
-    radial-gradient(at 85% 40%, #0190cd 0%, transparent 45%),
-    radial-gradient(at 20% 60%, #9f7aea 0%, transparent 45%),
-    radial-gradient(at 70% 85%, #4fd1c5 0%, transparent 45%),
-    radial-gradient(at 50% 50%, #5a67d8 0%, transparent 55%),
-    radial-gradient(at 10% 20%, #7953cd 0%, transparent 45%),
-    radial-gradient(at 30% 80%, #764ada 0%, transparent 45%);
-
+  background: var(--mesh-gradient);
   background-size: 200% 200%;
   background-position: 0% 0%;
-
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-
   animation: meshDrift 5s ease-in-out infinite;
 }
 
@@ -124,25 +134,12 @@ a:hover {
   transition: 0.01s;
   margin-bottom: 6px;
   filter: saturate(1.1) contrast(1.04);
-
-  background:
-    radial-gradient(at 10% 20%, #5a67d8 0%, transparent 45%),
-    radial-gradient(at 30% 80%, #764ada 0%, transparent 45%),
-    radial-gradient(at 60% 10%, #00affa 0%, transparent 45%),
-    radial-gradient(at 85% 40%, #0190cd 0%, transparent 45%),
-    radial-gradient(at 20% 60%, #9f7aea 0%, transparent 45%),
-    radial-gradient(at 70% 85%, #4fd1c5 0%, transparent 45%),
-    radial-gradient(at 50% 50%, #5a67d8 0%, transparent 55%),
-    radial-gradient(at 10% 20%, #7953cd 0%, transparent 45%),
-    radial-gradient(at 30% 80%, #764ada 0%, transparent 45%);
-
+  background: var(--mesh-gradient);
   background-size: 200% 200%;
   background-position: 0% 0%;
-
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-
   animation: meshDrift 5s ease-in-out infinite;
 }
 
@@ -171,14 +168,7 @@ a:hover {
   transition: all 0.2s;
   cursor: pointer;
   text-decoration: none;
-  background:
-    radial-gradient(at 10% 20%, #7953cd 0%, transparent 45%),
-    radial-gradient(at 30% 80%, #764ada 0%, transparent 45%),
-    radial-gradient(at 60% 10%, #00affa 0%, transparent 45%),
-    radial-gradient(at 85% 40%, #0190cd 0%, transparent 45%),
-    radial-gradient(at 20% 60%, #9f7aea 0%, transparent 45%),
-    radial-gradient(at 70% 85%, #4fd1c5 0%, transparent 45%),
-    radial-gradient(at 50% 50%, #5a67d8 0%, transparent 55%), #4f46e5;
+  background: var(--mesh-gradient-btn);
   background-size: 350% 350%;
   background-position: 0% 0%;
   animation: meshDrift 5s ease-in-out infinite;
@@ -266,16 +256,7 @@ a:hover {
   inset: -1px;
   border-radius: 100px;
   padding: 1px;
-  background:
-    radial-gradient(at 10% 20%, #5a67d8 0%, transparent 45%),
-    radial-gradient(at 30% 80%, #764ada 0%, transparent 45%),
-    radial-gradient(at 60% 10%, #00affa 0%, transparent 45%),
-    radial-gradient(at 85% 40%, #0190cd 0%, transparent 45%),
-    radial-gradient(at 20% 60%, #9f7aea 0%, transparent 45%),
-    radial-gradient(at 70% 85%, #4fd1c5 0%, transparent 45%),
-    radial-gradient(at 50% 50%, #5a67d8 0%, transparent 55%),
-    radial-gradient(at 10% 20%, #7953cd 0%, transparent 45%),
-    radial-gradient(at 30% 80%, #764ada 0%, transparent 45%);
+  background: var(--mesh-gradient);
   background-size: 200% 200%;
   background-position: 0% 0%;
   -webkit-mask:
@@ -297,16 +278,7 @@ a:hover {
 }
 
 .gradient-btn span {
-  background:
-    radial-gradient(at 10% 20%, #5a67d8 0%, transparent 45%),
-    radial-gradient(at 30% 80%, #764ada 0%, transparent 45%),
-    radial-gradient(at 60% 10%, #00affa 0%, transparent 45%),
-    radial-gradient(at 85% 40%, #0190cd 0%, transparent 45%),
-    radial-gradient(at 20% 60%, #9f7aea 0%, transparent 45%),
-    radial-gradient(at 70% 85%, #4fd1c5 0%, transparent 45%),
-    radial-gradient(at 50% 50%, #5a67d8 0%, transparent 55%),
-    radial-gradient(at 10% 20%, #7953cd 0%, transparent 45%),
-    radial-gradient(at 30% 80%, #764ada 0%, transparent 45%);
+  background: var(--mesh-gradient);
   background-size: 200% 200%;
   background-position: 0% 0%;
   -webkit-background-clip: text;
