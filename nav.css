@@ -1,68 +1,56 @@
-/* Nav: left = logo + page links, right = Resume + LinkedIn */
+/* Nav: logo + links left, Resume/LinkedIn right; mobile = hamburger + expand */
 
-/* Nav load: expand from center, left/right content fade in */
+/* --- Desktop load animation (home only) --- */
 @keyframes navExpandFromCenter {
-  0% {
+  from {
     width: 100px;
     max-width: 100px;
   }
-  100% {
+  to {
     width: 50%;
     max-width: 1440px;
   }
 }
 
-@keyframes logoFadeIn {
-  0% {
+@keyframes navFadeIn {
+  from {
     opacity: 0;
   }
-  100% {
+  to {
     opacity: 1;
   }
 }
 
-@keyframes navItemFadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
-/* Desktop only: nav load animation (home page only) */
 @media (min-width: 921px) {
   body.home .nav {
     animation: navExpandFromCenter 2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
   }
   body.home .nav-logo-img {
-    transform-origin: center;
-    animation: logoFadeIn 2s cubic-bezier(0.22, 1, 0.36, 1) 0s forwards;
+    animation: navFadeIn 2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
   }
-  /* nav-left list items: fade in one by one */
   body.home .nav-links.nav-links-desktop li:nth-child(1) {
     opacity: 0;
-    animation: navItemFadeIn 2s cubic-bezier(0.22, 1, 0.36, 1) 0.5s forwards;
+    animation: navFadeIn 2s cubic-bezier(0.22, 1, 0.36, 1) 0.5s forwards;
   }
   body.home .nav-links.nav-links-desktop li:nth-child(2) {
     opacity: 0;
-    animation: navItemFadeIn 2s cubic-bezier(0.22, 1, 0.36, 1) 0.6s forwards;
+    animation: navFadeIn 2s cubic-bezier(0.22, 1, 0.36, 1) 0.6s forwards;
   }
   body.home .nav-links.nav-links-desktop li:nth-child(3) {
     opacity: 0;
-    animation: navItemFadeIn 2s cubic-bezier(0.22, 1, 0.36, 1) 0.7s forwards;
-  }
-  /* nav-right list items: fade in one by one */
-  body.home .nav-right li:nth-child(2) {
-    opacity: 0;
-    animation: navItemFadeIn 2s cubic-bezier(0.22, 1, 0.36, 1) 0.5s forwards;
+    animation: navFadeIn 2s cubic-bezier(0.22, 1, 0.36, 1) 0.7s forwards;
   }
   body.home .nav-right li:nth-child(1) {
     opacity: 0;
-    animation: navItemFadeIn 2s cubic-bezier(0.22, 1, 0.36, 1) 0.6s forwards;
+    animation: navFadeIn 2s cubic-bezier(0.22, 1, 0.36, 1) 0.6s forwards;
+  }
+  body.home .nav-right li:nth-child(2) {
+    opacity: 0;
+    animation: navFadeIn 2s cubic-bezier(0.22, 1, 0.36, 1) 0.5s forwards;
   }
 }
 
+/* --- Base nav --- */
 .nav {
   --nav-height: 60px;
   position: fixed;
@@ -76,7 +64,7 @@
   max-width: 1440px;
   height: var(--nav-height);
   margin: 42px auto;
-  padding: 0 24px 0 24px;
+  padding: 0 24px;
   border-radius: 1000px;
   background-color: hsla(0, 0%, 100%, 0.75);
   backdrop-filter: blur(10px);
@@ -91,7 +79,6 @@
   pointer-events: none;
 }
 
-/* Left: logo + page links */
 .nav-left {
   display: flex;
   align-items: center;
@@ -102,12 +89,11 @@
   display: flex;
   align-items: center;
   padding-right: 12px;
-  transition: 0.5s;
+  transition: opacity 0.5s;
 }
 
 .nav-logo:hover {
   opacity: 0.5;
-  transition: 0.5s;
 }
 
 .nav-logo-img {
@@ -140,17 +126,14 @@
   color: black;
 }
 
-/* Right: Resume, LinkedIn (desktop). Mobile: nav-menu panel has nav-links-mobile + nav-right */
+.nav-links-mobile {
+  display: none;
+}
+
 .nav-menu {
   display: flex;
   align-items: center;
   gap: 4px;
-  transition: all 0.25s;
-}
-
-/* Desktop: show nav-links in nav-left, hide the copy in nav-menu */
-.nav-links-mobile {
-  display: none;
 }
 
 .nav-right {
@@ -159,7 +142,6 @@
   display: flex;
   align-items: center;
   gap: 4px;
-  transition: all 0.25s;
 }
 
 .nav-right a {
@@ -195,7 +177,6 @@
   color: currentColor;
 }
 
-/* Hamburger (hidden on desktop) */
 .nav-toggle {
   display: none;
   cursor: pointer;
@@ -217,21 +198,19 @@
   background: black;
   border-radius: 2px;
   transition:
-    transform 0.25s,
-    opacity 0.25s;
+    transform 0.25s ease-out,
+    opacity 0.25s ease-out;
   transform-origin: center;
 }
 
-/* Hamburger → X when open (script adds .open to #nav-icon) */
 .nav-icon.open span:nth-child(1) {
   transform: translateY(6px) rotate(45deg);
 }
-
 .nav-icon.open span:nth-child(2) {
   transform: translateY(-4px) rotate(-45deg);
 }
 
-/* Mobile: hamburger opens .nav-menu with nav-links + nav-right as one list */
+/* --- Mobile: expandable menu, logo + hamburger fixed --- */
 @media (max-width: 920px) {
   .nav,
   .nav-logo-img,
@@ -245,57 +224,49 @@
     width: 90%;
     max-width: 90%;
     margin: 4vw 5%;
-    /* padding: 6px 12px 0px 12px; */
     height: auto;
     min-height: var(--nav-height);
-  }
-
-  .nav-logo {
-    /* padding-bottom: 6px; */
-  }
-
-  .nav-toggle {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    width: 50px;
-    height: 50px;
-    min-width: 50px;
-    min-height: 50px;
-    padding-top: 6px;
-    order: 1;
-  }
-
-  /* Icon → X when menu open (driven by checkbox so tap area above/below icon also triggers animation) */
-  .nav-check:checked ~ .nav-toggle .nav-icon span:nth-child(1) {
-    transform: translateY(6px) rotate(45deg);
-  }
-  .nav-check:checked ~ .nav-toggle .nav-icon span:nth-child(2) {
-    transform: translateY(-4px) rotate(-45deg);
-  }
-
-  .nav-left {
-    order: 0;
-  }
-
-  /* Menu lives inside the nav box: nav expands, links fade in centered */
-  .nav {
+    padding-top: var(--nav-height);
     flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-    align-content: center;
-    /* Delay border-radius on close so we don't get "circle" while box is still tall */
+    align-content: flex-start;
     transition:
       box-shadow 0.3s ease,
       border-radius 0.45s ease-out 0.35s;
   }
 
-  /* When menu opens: snap to 24px immediately (no pill→circle morph), then expand */
   .nav:has(.nav-check:checked) {
     border-radius: 24px;
     transition:
       box-shadow 0.3s ease,
       border-radius 0s;
+  }
+
+  .nav-left {
+    position: absolute;
+    left: 24px;
+    top: 0;
+    height: var(--nav-height);
+    display: flex;
+    align-items: center;
+  }
+
+  .nav-toggle {
+    position: absolute;
+    right: 12px;
+    top: 0;
+    width: 50px;
+    height: var(--nav-height);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+  }
+
+  .nav-check:checked ~ .nav-toggle .nav-icon span:nth-child(1) {
+    transform: translateY(6px) rotate(45deg);
+  }
+  .nav-check:checked ~ .nav-toggle .nav-icon span:nth-child(2) {
+    transform: translateY(-4px) rotate(-45deg);
   }
 
   .nav-menu {
@@ -319,14 +290,12 @@
   .nav-check:checked ~ .nav-menu {
     max-height: 80vh;
     opacity: 1;
-    padding-bottom: 24px;
-    padding-top: 0;
+    padding: 0 20px 24px;
     transition:
       max-height 0.35s ease-out,
       opacity 0.3s ease-out;
   }
 
-  /* Show nav-links in dropdown, hide nav-links beside logo */
   .nav-links-desktop {
     display: none;
   }
@@ -342,7 +311,6 @@
     gap: 0;
     align-items: center;
     opacity: 0;
-    /* margin-right: 12px; */
     transition: opacity 0.3s ease-out;
   }
 
@@ -362,6 +330,5 @@
   .nav-menu .nav-right a {
     display: block;
     line-height: 48px;
-    /* padding: 0 16px; */
   }
 }
