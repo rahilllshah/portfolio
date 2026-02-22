@@ -1,11 +1,22 @@
-.landing {
-  border-bottom: 0;
-  padding-bottom: 0;
+.color {
+  background: linear-gradient(45deg, #f58529, #dd2a7b, #8134af, #515bd4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
 }
 
 .asset {
-  margin-top: 3vw;
-  border-radius: 2vw;
+  border-radius: 24px;
+}
+
+@media (max-width: 920px) {
+  .asset {
+    border-radius: 16px;
+  }
+  .intro-card {
+    border-radius: 16px;
+  }
 }
 
 .special {

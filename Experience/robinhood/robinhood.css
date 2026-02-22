@@ -1,9 +1,17 @@
-.landing {
-  border-bottom: 0;
-  padding-bottom: 0;
+.color {
+  color: #00cf98;
 }
 
 .asset {
-  margin-top: 3vw;
-  border-radius: 2vw;
+  border-radius: 24px;
+}
+
+@media (max-width: 920px) {
+  .asset {
+    border-radius: 16px;
+  }
+
+  .intro-card {
+    border-radius: 16px;
+  }
 }

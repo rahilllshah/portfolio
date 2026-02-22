@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
   <head>
     <meta charset="utf-8" />
@@ -18,6 +18,10 @@
       href="Images/R%20black.png"
       sizes="16x16"
       type="image/png"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
     />
 
     <script
@@ -49,6 +53,7 @@
     />
 
     <link rel="stylesheet" type="text/css" href="nav.css" />
+    <link rel="stylesheet" type="text/css" href="modals.css" />
     <link rel="stylesheet" type="text/css" href="aboutme.css" />
   </head>
 
@@ -164,7 +169,7 @@
 
                 <p>
                   One of my favorite memories was
-                  <span class="clickable-text" onclick="openMosseriModal()"
+                  <span class="clickable-text" onclick="openModal('Images/Mosseri.jpg')"
                     >meeting Adam Mosseri</span
                   >, the head of Instagram, during a visit to the Meta NYC
                   office. He was extremely personable and down to earth.
@@ -218,36 +223,8 @@
       </div>
     </div>
 
-    <script>
-      function openMosseriModal() {
-        const modal = document.getElementById("mosseriModal");
-        const modalImage = document.getElementById("mosseriModalImage");
-        modalImage.src = "Images/Mosseri.jpg";
-        modal.classList.add("active");
-        document.body.style.overflow = "hidden";
-      }
-
-      function closeMosseriModal(event) {
-        const modal = document.getElementById("mosseriModal");
-        if (event.target === modal || event.key === "Escape") {
-          modal.classList.remove("active");
-          document.body.style.overflow = "";
-        }
-      }
-
-      // Close modal on Escape key
-      document.addEventListener("keydown", function (event) {
-        if (event.key === "Escape") {
-          const modal = document.getElementById("mosseriModal");
-          if (modal.classList.contains("active")) {
-            closeMosseriModal(event);
-          }
-        }
-      });
-    </script>
-
-    <div id="mosseriModal" class="modal" onclick="closeMosseriModal(event)">
-      <img class="modal-content" id="mosseriModalImage" />
+    <div class="modal" onclick="closeModal(event)">
+      <img class="modal-content" alt="" />
     </div>
   </body>
 </html>

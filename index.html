@@ -16,6 +16,8 @@
       type="image/png"
     />
 
+    <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
       integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
@@ -43,6 +45,7 @@
     />
 
     <link rel="stylesheet" type="text/css" href="nav.css" />
+    <link rel="stylesheet" type="text/css" href="modals.css" />
     <link rel="stylesheet" type="text/css" href="style.css" />
   </head>
 
@@ -110,7 +113,8 @@
       <div class="row landing" id="landing">
         <div class="col-lg-8">
           <p class="landingsub1">RAHIL SHAH</p>
-          <h1 class="title">Creating elegant<br />product experiences</h1>
+          
+          <h1 class="title">Creating elegant <br />product experiences</h1>
           <p class="landingsub2">
             I'm an entrepreneur and product designer who codes.
           </p>
@@ -162,7 +166,7 @@
       </div>
       <div class="col-lg-4 col-sm-12">
         <p class="section-lead">
-          I design with intention by translating user needs and product strategy into shippable business outcomes. Click an experience to learn more.
+          I design with intention by turning user needs and product strategy into shippable business outcomes. Explore my experiences below.
         </p>
       </div>
     </div>
@@ -215,7 +219,7 @@
           </div>
         </a>
 
-          <a href="https://rahil.me/Experience/instagram/home" class="role-link">
+          <a href="#" class="role-link work-modal-trigger" data-work-modal="experience-instagram" data-work-modal-src="Experience/instagram/home.html" aria-label="Open Instagram experience">
           <div class="experience-row">
             <span class="year">2022</span>
             
@@ -234,7 +238,7 @@
           
           <div class="experience">
 
-            <a href="https://rahil.me/Experience/shopify/home" class="role-link">
+            <a href="#" class="role-link work-modal-trigger" data-work-modal="experience-shopify" data-work-modal-src="Experience/shopify/home.html" aria-label="Open Shopify experience">
           <div class="experience-row">
             <span class="year">2022</span>
             
@@ -249,7 +253,7 @@
           </div>
         </a>
 
-          <a href="https://rahil.me/Experience/robinhood/home" class="role-link">
+          <a href="#" class="role-link work-modal-trigger" data-work-modal="experience-robinhood" data-work-modal-src="Experience/robinhood/home.html" aria-label="Open Robinhood experience">
           <div class="experience-row">
             <span class="year">2021</span>
             
@@ -264,7 +268,7 @@
           </div>
         </a>
 
-          <a href="https://rahil.me/Experience/twitch/home" class="role-link">
+          <a href="#" class="role-link work-modal-trigger" data-work-modal="experience-twitch" data-work-modal-src="Experience/twitch/home.html" aria-label="Open Twitch experience">
           <div class="experience-row">
             <span class="year">2021</span>
             
@@ -303,7 +307,7 @@
       </div>
       <div class="col-lg-4 col-sm-12">
         <p class="section-lead">
-          Products I've designed from the ground up and the thinking, tradeoffs, and decisions behind them.
+          The thinking, tradeoffs, and decisions behind products I've designed from the ground up, shaped by real constraints and users.
         </p>
       </div>
     </div>
@@ -314,7 +318,7 @@
 <div class="col-lg-12">
     <div class="work-section container">
       <div class="work-item work-item-full">
-        <a href="https://rahil.me/Work/cantrace/home">
+        <a href="#" class="work-modal-trigger" data-work-modal="cantrace" aria-label="Open CanTrace case study">
           <picture>
             <source media="(min-width: 921px)" srcset="Images/cantrace%20web.png" />
             <img src="Images/cantrace%20mobile.png" alt="CanTrace" />
@@ -323,7 +327,7 @@
       </div>
 
       <div class="work-item work-item-full">
-        <a href="https://rahil.me/Work/timeline/home">
+        <a href="#" class="work-modal-trigger" data-work-modal="timeline" aria-label="Open Timeline case study">
           <picture>
             <source media="(min-width: 921px)" srcset="Images/timeline%20web.png" />
             <img src="Images/timeline%20mobile.png" alt="Timeline" />
@@ -332,7 +336,7 @@
       </div>
 
       <div class="work-item work-item-full">
-        <a href="https://rahil.me/Work/applemusic/home">
+        <a href="#" class="work-modal-trigger" data-work-modal="applemusic" aria-label="Open Apple Music case study">
           <picture>
             <source media="(min-width: 921px)" srcset="Images/apple%20music%20web.png" />
             <img src="Images/apple%20music%20mobile.png" alt="Apple Music" />
@@ -341,7 +345,7 @@
       </div>
 
       <div class="work-item work-item-half">
-        <a href="https://rahil.me/Work/IG.pdf">
+        <a href="#" class="work-modal-trigger" data-work-modal="instagram" data-work-modal-src="Work/IG.pdf" aria-label="Open Instagram case study">
           <picture>
             <source media="(min-width: 921px)" srcset="Images/instagram.png" />
             <img src="Images/instagram mobile.png" alt="Instagram" />
@@ -350,7 +354,7 @@
       </div>
 
       <div class="work-item work-item-half">
-        <a href="https://rahil.me/Work/deltahacks/home">
+        <a href="#" class="work-modal-trigger" data-work-modal="deltahacks" aria-label="Open DeltaHacks case study">
           <picture>
             <source media="(min-width: 921px)" srcset="Images/deltahacks.png" />
             <img src="Images/deltahacks mobile.png" alt="DeltaHacks VI" />
@@ -400,46 +404,28 @@
     </div>
     </div>
     <script>
-      function openModal(image) {
-        const modal = document.getElementById("imageModal");
-        const modalImage = document.getElementById("modalImage");
-        modalImage.src = image.src;
-        modal.classList.add("active");
-        document.body.style.overflow = "hidden";
-      }
-
-      function closeModal(event) {
-        const modal = document.getElementById("imageModal");
-        if (event.target === modal || event.key === "Escape") {
-          modal.classList.remove("active");
-          document.body.style.overflow = "";
-        }
-      }
-
-      // Close modal on Escape key
-      document.addEventListener("keydown", function(event) {
-        if (event.key === "Escape") {
-          const modal = document.getElementById("imageModal");
-          if (modal.classList.contains("active")) {
-            closeModal(event);
-          }
-        }
-      });
-
       // Show animation on page load for 2 seconds
-      document.addEventListener("DOMContentLoaded", function() {
+      document.addEventListener("DOMContentLoaded", function () {
         const cContainer = document.querySelector(".c-container");
         if (cContainer) {
           cContainer.classList.add("show-on-load");
-          setTimeout(function() {
+          setTimeout(function () {
             cContainer.classList.remove("show-on-load");
           }, 1000);
         }
       });
     </script>
 
-    <div id="imageModal" class="modal" onclick="closeModal(event)">
-      <img class="modal-content" id="modalImage" />
+    <div class="modal" onclick="closeModal(event)">
+      <img class="modal-content" alt="" />
+    </div>
+
+    <div id="work-modal" class="work-modal" aria-hidden="true">
+      <div class="work-modal-backdrop"></div>
+      <div class="work-modal-container">
+        <button type="button" class="work-modal-close" aria-label="Close modal">&times;</button>
+        <iframe class="work-modal-iframe" title="Work case study"></iframe>
+      </div>
     </div>
   </body>
 </html>

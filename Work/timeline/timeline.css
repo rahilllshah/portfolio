@@ -1,12 +1,5 @@
 /* Timeline project – base styles in global.css */
 
-@media (max-width: 920px) {
-  .round2,
-  .round3 {
-    display: none;
-  }
-
-  .mobileMarginTop {
-    margin-top: 24px;
-  }
+.color {
+  color: #548296;
 }

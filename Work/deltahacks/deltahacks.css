@@ -1,32 +1,8 @@
 /* DeltaHacks project – base styles in global.css */
-.landing {
-  border-bottom: 0;
-  padding-bottom: 0;
-}
-
-.full {
-  max-width: 100%;
-  padding: 10vh;
-  margin: auto;
-  margin-top: 15vh;
-  background-image: linear-gradient(to right, #05a39a, #2a3b8c);
-}
-
-.fullTextO {
-  position: relative;
-  max-width: 75%;
-  margin: auto;
-  text-align: left;
-  color: white;
-}
-
-.fullText {
-  opacity: 0.25;
-}
-
-@media (max-width: 920px) {
-  .round2,
-  .round3 {
-    display: none;
-  }
+.color {
+  background: linear-gradient(45deg, #1db8c9, #ef4e67, #fbd966);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
 }

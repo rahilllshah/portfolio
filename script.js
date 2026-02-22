@@ -138,3 +138,82 @@ document.addEventListener("DOMContentLoaded", function () {
     document.removeEventListener("touchend", stopDrag);
   }
 });
+
+// Shared image modal (index + about me)
+// openModal(source): source = <img> element or string URL
+function openModal(source) {
+  const modal = document.querySelector(".modal");
+  const modalImage = document.querySelector(".modal .modal-content");
+  if (!modal || !modalImage) return;
+  modalImage.src = typeof source === "string" ? source : source.src;
+  modal.classList.add("active");
+  document.body.style.overflow = "hidden";
+}
+
+function closeModal(event) {
+  const modal = document.querySelector(".modal");
+  if (!modal) return;
+  if (event && event.key && event.key !== "Escape") return;
+  if (event && event.target !== modal && !event.key) return;
+  modal.classList.remove("active");
+  document.body.style.overflow = "";
+}
+
+// Work case study modals (cantrace, timeline, applemusic, deltahacks, instagram PDF)
+function openWorkModal(triggerOrProject) {
+  const workModal = document.getElementById("work-modal");
+  const iframe = workModal && workModal.querySelector(".work-modal-iframe");
+  if (!workModal || !iframe) return;
+  var src;
+  if (typeof triggerOrProject === "object" && triggerOrProject && triggerOrProject.getAttribute) {
+    src = triggerOrProject.getAttribute("data-work-modal-src") || ("Work/" + triggerOrProject.getAttribute("data-work-modal") + "/home.html");
+  } else {
+    src = "Work/" + triggerOrProject + "/home.html";
+  }
+  iframe.src = src;
+  workModal.classList.add("active");
+  workModal.setAttribute("aria-hidden", "false");
+  document.body.style.overflow = "hidden";
+}
+
+function closeWorkModal(event) {
+  const workModal = document.getElementById("work-modal");
+  if (!workModal) return;
+  if (event && event.key && event.key !== "Escape") return;
+  if (event && event.type === "click") {
+    if (!event.target.classList.contains("work-modal-backdrop") && !event.target.closest(".work-modal-close")) return;
+  }
+  workModal.classList.remove("active");
+  workModal.setAttribute("aria-hidden", "true");
+  var iframe = workModal.querySelector(".work-modal-iframe");
+  if (iframe) iframe.src = "";
+  document.body.style.overflow = "";
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  document.querySelectorAll("[data-work-modal]").forEach(function (trigger) {
+    trigger.addEventListener("click", function (e) {
+      e.preventDefault();
+      openWorkModal(this);
+    });
+  });
+
+  var workModal = document.getElementById("work-modal");
+  if (workModal) {
+    workModal.querySelector(".work-modal-backdrop").addEventListener("click", closeWorkModal);
+    var closeBtn = workModal.querySelector(".work-modal-close");
+    if (closeBtn) closeBtn.addEventListener("click", closeWorkModal);
+  }
+});
+
+document.addEventListener("keydown", function (event) {
+  if (event.key === "Escape") {
+    var workModal = document.getElementById("work-modal");
+    if (workModal && workModal.classList.contains("active")) {
+      closeWorkModal(event);
+      return;
+    }
+    var modal = document.querySelector(".modal.active");
+    if (modal) closeModal(event);
+  }
+});

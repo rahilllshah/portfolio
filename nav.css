@@ -1,4 +1,13 @@
 /* Nav: logo + links left, Resume/LinkedIn right; mobile = hamburger + expand */
+body {
+  letter-spacing: 0.04em;
+  font-weight: 400;
+  font-family:
+    Urbanist,
+    -apple-system,
+    BlinkMacSystemFont,
+    sans-serif;
+}
 
 /* --- Desktop load animation (home only) --- */
 @keyframes navExpandFromCenter {
@@ -114,7 +123,7 @@
 
 .nav-links a {
   font-size: 14px;
-  font-weight: 300;
+
   color: gray;
   text-decoration: none;
   padding: 0 10px;
@@ -146,7 +155,7 @@
 
 .nav-right a {
   font-size: 14px;
-  font-weight: 300;
+
   color: gray;
   text-decoration: none;
   padding: 0 10px;
