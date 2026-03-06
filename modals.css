@@ -1,6 +1,9 @@
 /*
  * Shared modal styles for image lightbox (index + about me).
  */
+html {
+  scrollbar-gutter: stable;
+}
 
 .modal {
   display: flex;
@@ -49,6 +52,18 @@
     max-width: 90%;
     border-radius: 12px;
   }
+}
+
+/* When work modal is open: hide scrollbar on html (scrollbar-gutter: stable is in style.css) */
+html.work-modal-open {
+  overflow: hidden;
+  height: 100%;
+  overscroll-behavior: none;
+}
+html.work-modal-open::-webkit-scrollbar {
+  overflow: hidden;
+  height: 100%;
+  overscroll-behavior: none;
 }
 
 /* Work case study modals (cantrace, timeline, applemusic) */

@@ -174,6 +174,7 @@ function openWorkModal(triggerOrProject) {
   workModal.classList.add("active");
   workModal.setAttribute("aria-hidden", "false");
   document.body.style.overflow = "hidden";
+  document.documentElement.classList.add("work-modal-open");
 }
 
 function closeWorkModal(event) {
@@ -188,6 +189,7 @@ function closeWorkModal(event) {
   var iframe = workModal.querySelector(".work-modal-iframe");
   if (iframe) iframe.src = "";
   document.body.style.overflow = "";
+  document.documentElement.classList.remove("work-modal-open");
 }
 
 document.addEventListener("DOMContentLoaded", function () {

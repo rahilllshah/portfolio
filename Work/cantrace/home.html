@@ -52,18 +52,29 @@
     ></script>
 
     <link rel="stylesheet" type="text/css" href="../../global.css" />
+    <link rel="stylesheet" type="text/css" href="../../work-case-study-nav.css" />
     <link rel="stylesheet" type="text/css" href="cantrace.css" />
   </head>
 
   <body>
     <article>
-      <div class="row">
+      <nav class="case-study-nav">
+        <ul class="case-study-nav-list" role="list">
+          <li><a href="#intro">Intro</a></li>
+          <li><a href="#research">Research</a></li>
+          <li><a href="#ideate">Ideate</a></li>
+          <li><a href="#define">Define</a></li>
+          <li><a href="#test">Test</a></li>
+          <li><a href="#final-designs">Final Designs</a></li> 
+        </ul>
+      </nav>
+      <div class="row" id="intro">
         <div class="col-12">
           <img class="headimg" src="Images/cantrace header.png" />
         </div>
       </div>
 
-      <div class="landing">
+      <div class="landing" >
         <div class="row section-header">
           <div class="col-sm-12 section-header-title-col">
             <h5 class="section-eyebrow">Case Study</h5>
@@ -105,23 +116,11 @@
         <div class="row">
           <div class="col-12">
             <div class="intro-card">
-              <h5 class="gray">Problem</h5>
-              <h3 class="mt-3 lightgray">
-                As quarantine restrictions eased, manual monitoring was too slow
-                to prevent new waves of infection. While existing measures aimed
-                to "flatten the curve," the healthcare system lacked a scalable,
-                automated tool to expedite contact identification and curb
-                transmission in real-time.
+    
+              <h3 class="lightgray">
+                As quarantine restrictions eased, it became clear that manual monitoring was simply too slow to prevent new waves of infection or effectively "flatten the curve." To address this, we developed OpenTracer to bridge the gap between technology and public health. By automating the tracing process with privacy-first digital tools, we empower people to protect their communities, expedite recovery, and preserve civil liberties through "privacy by design."
               </h3>
 
-              <h5 class="mt-5 gray">Solution</h5>
-              <h3 class="mt-3 lightgray">
-                OpenTracer bridges the gap between technology and public health.
-                By automating the tracing process with privacy-first digital
-                tools, we empower people to protect their communities, expedite
-                recovery, and preserve civil liberties through "privacy by
-                design."
-              </h3>
             </div>
           </div>
         </div>
@@ -154,7 +153,7 @@
       </div>
     </div>
 
-      <div class="section">
+      <div class="section" id="research">
         <div class="row">
         <div class="col-lg-4 col-sm-12">
           <h5>Secondary Market Research</h5>
@@ -266,7 +265,7 @@
       </div>
 
 
-      <div class="section">
+      <div class="section" id="ideate">
         <div class="row">
         <div class="col-lg-4 col-sm-12">
           <h5>Storyboarding</h5>
@@ -316,7 +315,7 @@
       </div>
 
 
-      <div class="section">
+      <div class="section" id="define">
         <div class="row">
         <div class="col-lg-4 col-sm-12">
           <h5>Problem Definition</h5>
@@ -389,7 +388,7 @@
         </div>
       </div>
 
-      <div class="section">
+      <div class="section" id="test">
         <div class="row">
         <div class="col-lg-4 col-sm-12">
           <h5>Design Iterations</h5>
@@ -444,7 +443,7 @@
         </div>
       </div>
 
-      <div class="section">
+      <div class="section" id="final-designs">
         <div class="row">
         <div class="col-lg-8 col-sm-12">
           <h2>Building Immediate Trust</h2>
