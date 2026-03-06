@@ -58,15 +58,21 @@ html {
 /* When work modal is open: hide scrollbar on html (scrollbar-gutter: stable is in style.css) */
 html.work-modal-open {
   overflow: hidden;
-  height: 100%;
-
+  height: 100vh;
   overscroll-behavior: none;
+  /* Disable smooth scroll while modal is open to prevent background shifting */
+  scroll-behavior: auto !important;
+
+  width: 100%;
 }
 html.work-modal-open::-webkit-scrollbar {
   overflow: hidden;
-  height: 100%;
-
+  height: 100vh;
   overscroll-behavior: none;
+  /* Disable smooth scroll while modal is open to prevent background shifting */
+  scroll-behavior: auto !important;
+
+  width: 100%;
 }
 
 /* Work case study modals (cantrace, timeline, applemusic) */
@@ -80,8 +86,6 @@ html.work-modal-open::-webkit-scrollbar {
   height: 100%;
   overflow: hidden;
   height: 100vh;
-  /* backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px); */
   justify-content: center;
   align-items: center;
   opacity: 0;
@@ -94,6 +98,8 @@ html.work-modal-open::-webkit-scrollbar {
 .work-modal.active {
   opacity: 1;
   visibility: visible;
+  overflow: hidden;
+  height: 100vh;
 }
 
 .work-modal-backdrop {
