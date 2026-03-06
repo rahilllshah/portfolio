@@ -219,3 +219,36 @@ document.addEventListener("keydown", function (event) {
     if (modal) closeModal(event);
   }
 });
+
+// Case study nav: highlight active section on scroll
+document.addEventListener("DOMContentLoaded", function () {
+  var nav = document.querySelector(".case-study-nav");
+  if (!nav) return;
+  var links = nav.querySelectorAll('a[href^="#"]');
+  var sectionIds = Array.from(links).map(function (a) {
+    return a.getAttribute("href").slice(1);
+  });
+  var activeThreshold = 120;
+
+  function setActiveSection() {
+    var scrollY = window.scrollY || window.pageYOffset;
+    var activeId = null;
+    for (var i = sectionIds.length - 1; i >= 0; i--) {
+      var el = document.getElementById(sectionIds[i]);
+      if (!el) continue;
+      var top = el.getBoundingClientRect().top + scrollY;
+      if (scrollY >= top - activeThreshold) {
+        activeId = sectionIds[i];
+        break;
+      }
+    }
+    if (!activeId && sectionIds.length) activeId = sectionIds[0];
+    links.forEach(function (a) {
+      var id = a.getAttribute("href").slice(1);
+      a.classList.toggle("active", id === activeId);
+    });
+  }
+
+  setActiveSection();
+  window.addEventListener("scroll", setActiveSection, { passive: true });
+});

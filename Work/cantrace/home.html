@@ -520,6 +520,7 @@ While the federal government eventually partnered with Shopify and BlackBerry fo
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="jQuery.progressBar.js"></script>
+    <script src="../../script.js"></script>
     <script>
       $("article").progressBar({
         throttleTime: 100,
@@ -528,6 +529,24 @@ While the federal government eventually partnered with Shopify and BlackBerry fo
         progressBarColor: "#FFFFFF",
         progressBarValueColor: "#8080E6",
       });
+    </script>
+    <script>
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault(); // Stop the browser's default "jump"
+    
+    const targetId = this.getAttribute('href');
+    const targetElement = document.querySelector(targetId);
+
+    if (targetElement) {
+      targetElement.scrollIntoView({
+        behavior: 'smooth', // Optional: adds a nice slide effect
+        block: 'start'      // Keeps the alignment consistent
+      });
+    }
+  });
+});
+      
     </script>
   </body>
 </html>

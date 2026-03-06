@@ -75,7 +75,9 @@
   text-decoration: none;
   border-radius: 999px;
   white-space: nowrap;
-  transition: color 0.2s ease;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
 }
 
 .case-study-nav-list a:hover {
@@ -89,4 +91,8 @@
 .case-study-nav-list a.active {
   background: rgba(0, 0, 0, 0.04);
   color: rgba(0, 0, 0, 0.95);
+}
+
+.section {
+  scroll-margin-top: 56px;
 }
