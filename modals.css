@@ -2,6 +2,7 @@
  * Shared modal styles for image lightbox (index + about me).
  */
 html {
+  scroll-behavior: smooth;
   scrollbar-gutter: stable;
 }
 
@@ -58,11 +59,13 @@ html {
 html.work-modal-open {
   overflow: hidden;
   height: 100%;
+
   overscroll-behavior: none;
 }
 html.work-modal-open::-webkit-scrollbar {
   overflow: hidden;
   height: 100%;
+
   overscroll-behavior: none;
 }
 
@@ -98,6 +101,7 @@ html.work-modal-open::-webkit-scrollbar {
 }
 
 .work-modal-container {
+  overflow: hidden;
   position: relative;
   width: 90%;
   max-width: 1200px;

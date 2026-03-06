@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const a = parseFloat(values[0]);
         const b = parseFloat(values[1]);
         polaroid.dataset.rotation = Math.round(
-          Math.atan2(b, a) * (180 / Math.PI)
+          Math.atan2(b, a) * (180 / Math.PI),
         );
       }
     }
@@ -165,8 +165,14 @@ function openWorkModal(triggerOrProject) {
   const iframe = workModal && workModal.querySelector(".work-modal-iframe");
   if (!workModal || !iframe) return;
   var src;
-  if (typeof triggerOrProject === "object" && triggerOrProject && triggerOrProject.getAttribute) {
-    src = triggerOrProject.getAttribute("data-work-modal-src") || ("Work/" + triggerOrProject.getAttribute("data-work-modal") + "/home.html");
+  if (
+    typeof triggerOrProject === "object" &&
+    triggerOrProject &&
+    triggerOrProject.getAttribute
+  ) {
+    src =
+      triggerOrProject.getAttribute("data-work-modal-src") ||
+      "Work/" + triggerOrProject.getAttribute("data-work-modal") + "/home.html";
   } else {
     src = "Work/" + triggerOrProject + "/home.html";
   }
@@ -182,7 +188,11 @@ function closeWorkModal(event) {
   if (!workModal) return;
   if (event && event.key && event.key !== "Escape") return;
   if (event && event.type === "click") {
-    if (!event.target.classList.contains("work-modal-backdrop") && !event.target.closest(".work-modal-close")) return;
+    if (
+      !event.target.classList.contains("work-modal-backdrop") &&
+      !event.target.closest(".work-modal-close")
+    )
+      return;
   }
   workModal.classList.remove("active");
   workModal.setAttribute("aria-hidden", "true");
@@ -202,7 +212,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
   var workModal = document.getElementById("work-modal");
   if (workModal) {
-    workModal.querySelector(".work-modal-backdrop").addEventListener("click", closeWorkModal);
+    workModal
+      .querySelector(".work-modal-backdrop")
+      .addEventListener("click", closeWorkModal);
     var closeBtn = workModal.querySelector(".work-modal-close");
     if (closeBtn) closeBtn.addEventListener("click", closeWorkModal);
   }
@@ -220,7 +232,7 @@ document.addEventListener("keydown", function (event) {
   }
 });
 
-// Case study nav: highlight active section on scroll
+// Case study in-page nav: highlight active section on scroll
 document.addEventListener("DOMContentLoaded", function () {
   var nav = document.querySelector(".case-study-nav");
   if (!nav) return;
