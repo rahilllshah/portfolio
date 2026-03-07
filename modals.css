@@ -109,7 +109,7 @@ body.image-modal-open {
 .work-modal-container {
   position: relative;
   width: 90%;
-  max-width: 1560px;
+  max-width: 1400px;
   height: 90vh;
   max-height: 1000px;
   background: #fff;
