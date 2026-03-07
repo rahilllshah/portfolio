@@ -147,7 +147,11 @@ function openModal(source) {
   if (!modal || !modalImage) return;
   modalImage.src = typeof source === "string" ? source : source.src;
   modal.classList.add("active");
-  document.body.style.overflow = "hidden";
+  var scrollY = window.scrollY || window.pageYOffset;
+  document.body.dataset.scrollY = String(scrollY);
+  document.body.style.top = "-" + scrollY + "px";
+  document.body.classList.add("image-modal-open");
+  document.documentElement.classList.add("image-modal-open");
 }
 
 function closeModal(event) {
@@ -156,7 +160,17 @@ function closeModal(event) {
   if (event && event.key && event.key !== "Escape") return;
   if (event && event.target !== modal && !event.key) return;
   modal.classList.remove("active");
+  var scrollY = parseInt(document.body.dataset.scrollY || "0", 10);
+  var html = document.documentElement;
+  var prevScrollBehavior = html.style.scrollBehavior;
+  html.style.scrollBehavior = "auto";
+  document.body.classList.remove("image-modal-open");
+  document.body.style.top = "";
   document.body.style.overflow = "";
+  delete document.body.dataset.scrollY;
+  document.documentElement.classList.remove("image-modal-open");
+  document.documentElement.scrollTop = document.body.scrollTop = scrollY;
+  html.style.scrollBehavior = prevScrollBehavior;
 }
 
 // Work case study modals (cantrace, timeline, applemusic, deltahacks, instagram PDF)

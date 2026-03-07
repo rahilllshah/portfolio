@@ -75,7 +75,9 @@
   text-decoration: none;
   border-radius: 999px;
   white-space: nowrap;
-  transition: color 0.2s ease;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
 }
 
 .case-study-nav-list a:hover {
@@ -93,4 +95,27 @@
 
 .section {
   scroll-margin-top: 56px;
+}
+
+@media (max-width: 920px) {
+  .case-study-nav {
+    bottom: max(14px, env(safe-area-inset-bottom));
+    max-width: calc(100vw - 24px);
+    padding: 6px 8px;
+  }
+
+  .case-study-nav-list {
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    -webkit-overflow-scrolling: touch;
+    gap: 4px;
+  }
+
+  .case-study-nav-list::-webkit-scrollbar {
+    display: none;
+  }
 }

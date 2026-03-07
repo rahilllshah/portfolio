@@ -55,6 +55,25 @@ html {
   }
 }
 
+/* When image modal is open: lock background scroll (same behaviour as work modal) */
+html.image-modal-open,
+body.image-modal-open {
+  overflow: hidden;
+  overscroll-behavior: none;
+}
+html.image-modal-open {
+  height: 100vh;
+  width: 100%;
+  scroll-behavior: auto !important;
+}
+body.image-modal-open {
+  position: fixed;
+  left: 0;
+  right: 0;
+  width: 100%;
+  /* top set via JS to -scrollY */
+}
+
 /* When work modal is open: lock scroll so iframe link clicks don't scroll background (Safari) */
 html.work-modal-open {
   overflow: hidden;
