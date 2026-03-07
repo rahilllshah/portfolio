@@ -203,15 +203,15 @@ function closeWorkModal(event) {
   var iframe = workModal.querySelector(".work-modal-iframe");
   if (iframe) iframe.src = "";
   var scrollY = parseInt(document.body.dataset.scrollY || "0", 10);
+  var html = document.documentElement;
+  var prevScrollBehavior = html.style.scrollBehavior;
+  html.style.scrollBehavior = "auto";
   document.body.classList.remove("work-modal-open");
   document.body.style.top = "";
   document.body.style.overflow = "";
   delete document.body.dataset.scrollY;
   document.documentElement.classList.remove("work-modal-open");
-  var html = document.documentElement;
-  var prevScrollBehavior = html.style.scrollBehavior;
-  html.style.scrollBehavior = "auto";
-  window.scrollTo(0, scrollY);
+  document.documentElement.scrollTop = document.body.scrollTop = scrollY;
   html.style.scrollBehavior = prevScrollBehavior;
 }
 
