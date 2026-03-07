@@ -179,7 +179,11 @@ function openWorkModal(triggerOrProject) {
   iframe.src = src;
   workModal.classList.add("active");
   workModal.setAttribute("aria-hidden", "false");
+  var scrollY = window.scrollY || window.pageYOffset;
   document.body.style.overflow = "hidden";
+  document.body.dataset.scrollY = String(scrollY);
+  document.body.style.top = "-" + scrollY + "px";
+  document.body.classList.add("work-modal-open");
   document.documentElement.classList.add("work-modal-open");
 }
 
@@ -198,8 +202,17 @@ function closeWorkModal(event) {
   workModal.setAttribute("aria-hidden", "true");
   var iframe = workModal.querySelector(".work-modal-iframe");
   if (iframe) iframe.src = "";
+  var scrollY = parseInt(document.body.dataset.scrollY || "0", 10);
+  document.body.classList.remove("work-modal-open");
+  document.body.style.top = "";
   document.body.style.overflow = "";
+  delete document.body.dataset.scrollY;
   document.documentElement.classList.remove("work-modal-open");
+  var html = document.documentElement;
+  var prevScrollBehavior = html.style.scrollBehavior;
+  html.style.scrollBehavior = "auto";
+  window.scrollTo(0, scrollY);
+  html.style.scrollBehavior = prevScrollBehavior;
 }
 
 document.addEventListener("DOMContentLoaded", function () {

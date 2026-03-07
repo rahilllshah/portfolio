@@ -55,23 +55,29 @@ html {
   }
 }
 
-/* When work modal is open: hide scrollbar on html (scrollbar-gutter: stable is in style.css) */
+/* When work modal is open: lock scroll so iframe link clicks don't scroll background (Safari) */
 html.work-modal-open {
   overflow: hidden;
   height: 100vh;
   overscroll-behavior: none;
-  /* Disable smooth scroll while modal is open to prevent background shifting */
   scroll-behavior: auto !important;
-
   width: 100%;
+}
+/* Body position:fixed prevents background from scrolling when iframe is focused or scroll chains */
+body.work-modal-open {
+  position: fixed;
+  left: 0;
+  right: 0;
+  width: 100%;
+  overflow: hidden;
+  overscroll-behavior: none;
+  /* top is set via JS to -scrollY so layout doesn't jump */
 }
 html.work-modal-open::-webkit-scrollbar {
   overflow: hidden;
   height: 100vh;
   overscroll-behavior: none;
-  /* Disable smooth scroll while modal is open to prevent background shifting */
   scroll-behavior: auto !important;
-
   width: 100%;
 }
 
@@ -86,6 +92,7 @@ html.work-modal-open::-webkit-scrollbar {
   height: 100%;
   overflow: hidden;
   height: 100vh;
+  overscroll-behavior: contain;
   justify-content: center;
   align-items: center;
   opacity: 0;
@@ -118,6 +125,7 @@ html.work-modal-open::-webkit-scrollbar {
   border-radius: 24px;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
   overflow: hidden;
+  overscroll-behavior: contain;
   z-index: 1;
   transform: scale(0.9);
   transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
