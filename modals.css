@@ -31,7 +31,7 @@ html {
 
 .modal-content {
   max-height: 80%;
-  max-width: 50%;
+  max-width: 60%;
   width: auto;
   height: auto;
   border-radius: 2vw;
@@ -109,9 +109,9 @@ body.image-modal-open {
 .work-modal-container {
   position: relative;
   width: 90%;
-  max-width: 1200px;
-  height: 80vh;
-  max-height: 900px;
+  max-width: 1400px;
+  height: 90vh;
+  max-height: 1000px;
   background: #fff;
   border-radius: 24px;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);

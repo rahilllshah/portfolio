@@ -16,7 +16,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  max-width: min(920px, calc(100vw - 32px));
+  max-width: 80%;
   padding: 6px 10px;
   border-radius: 999px;
   background-color: hsla(0, 0%, 100%, 0.5);
@@ -101,8 +101,8 @@
 
 @media (max-width: 920px) {
   .case-study-nav {
-    bottom: max(14px, env(safe-area-inset-bottom));
-    max-width: calc(100vw - 24px);
+    /* Sit above browser chrome + safe area (home indicator, notch). env() needs viewport-fit=cover in meta viewport. */
+    bottom: calc(32px + env(safe-area-inset-bottom, 0px));
     padding: 6px 8px;
   }
 
