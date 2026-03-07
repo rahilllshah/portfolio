@@ -64,6 +64,20 @@ body {
   }
 }
 
+/* Fade-in on scroll (sections below landing) */
+.scroll-fade {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 0.65s ease-out,
+    transform 0.65s ease-out;
+}
+
+.scroll-fade.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 /*Global Font Formats and Containers*/
 
 .container {
@@ -923,16 +937,4 @@ a:hover {
     flex-wrap: wrap;
     text-align: center;
   }
-}
-
-/* Fade-in on scroll (sections below landing) */
-.scroll-fade {
-  opacity: 0;
-  transform: translateY(28px);
-  transition: opacity 0.65s ease-out, transform 0.65s ease-out;
-}
-
-.scroll-fade.is-visible {
-  opacity: 1;
-  transform: translateY(0);
 }
