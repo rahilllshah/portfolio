@@ -209,10 +209,10 @@ html.work-modal-open::-webkit-scrollbar {
   }
 
   .work-modal-close {
-    top: 16px;
-    right: 16px;
-    width: 40px;
-    height: 40px;
-    font-size: 24px;
+    top: 18px;
+    right: 18px;
+    width: 42px;
+    height: 42px;
+    font-size: 28px;
   }
 }
