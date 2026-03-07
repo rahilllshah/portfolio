@@ -102,7 +102,7 @@
 @media (max-width: 920px) {
   .case-study-nav {
     /* Sit above browser chrome + safe area (home indicator, notch). env() needs viewport-fit=cover in meta viewport. */
-    bottom: calc(32px + env(safe-area-inset-bottom, 0px));
+    /* bottom: calc(32px + env(safe-area-inset-bottom, 0px)); */
     padding: 6px 8px;
   }
 
