@@ -1,3 +1,22 @@
+// Fade-in on scroll for sections below landing
+document.addEventListener("DOMContentLoaded", function () {
+  var fadeEls = document.querySelectorAll(".scroll-fade");
+  if (!fadeEls.length) return;
+  var observer = new IntersectionObserver(
+    function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+        }
+      });
+    },
+    { rootMargin: "0px 0px -10% 0px", threshold: 0 },
+  );
+  fadeEls.forEach(function (el) {
+    observer.observe(el);
+  });
+});
+
 // Nav hamburger toggle (nav is inlined in index.html and aboutme.html)
 document.addEventListener("DOMContentLoaded", function () {
   var icon = document.getElementById("nav-icon");

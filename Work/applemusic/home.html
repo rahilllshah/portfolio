@@ -48,17 +48,27 @@
 
     <link rel="stylesheet" type="text/css" href="../../global.css" />
     <link rel="stylesheet" type="text/css" href="applemusic.css" />
+    <link rel="stylesheet" type="text/css" href="../../work-case-study-nav.css" />
   </head>
 
   <body>
     <article>
-      <div class="row">
+      <nav class="case-study-nav">
+        <ul class="case-study-nav-list" role="list">
+          <li><a href="#intro">Intro</a></li>
+          <li><a href="#research">Research</a></li>
+          <li><a href="#ideate">Ideate</a></li>
+          <li><a href="#define">Define</a></li>
+          <li><a href="#final-designs">Final Designs</a></li> 
+        </ul>
+      </nav>
+      <div class="row" id="intro">
         <div class="col-12">
           <img class="headimg" src="Images/Apple Music Header.png" />
         </div>
       </div>
 
-      <div class="landing">
+      <div class="landing" >
         <div class="row section-header">
           <div class="col-sm-12 section-header-title-col">
             <h5 class="section-eyebrow">Case Study</h5>
@@ -83,24 +93,8 @@
         <div class="row">
           <div class="col-12">
             <div class="intro-card">
-              <h5 class="gray">Problem</h5>
-              <h3 class="mt-3 lightgray">
-                Like all music streaming platforms, Apple Music is a service
-                that is used by millions of people around the world. People
-                genuinely love the platform and what it has to offer but there
-                are aspects of it that can be enhanced. The goal was to recreate
-                something that was easier and more seamless to use and provided
-                that sense of improvement sought out by some of their most
-                beloved users.
-              </h3>
-
-              <h5 class="mt-5 gray">Solution</h5>
-              <h3 class="mt-3 lightgray">
-                I reimagined the desktop version For You section which is
-                supposed to recommend personalized music. I focused on the core
-                experience and visual interface. <br /><br />1. Keeping it
-                consistent with iOS<br />2. Revamped Layout<br />3. Redone
-                Artwork<br />4. Multitasking
+              <h3 class="lightgray">
+                Despite its global popularity, Apple Music’s desktop experience often feels disconnected from the seamless mobile interface users love. To address this, I reimagined the "For You" section by aligning its visual identity with iOS through redone artwork and a revamped layout. By focusing on a more intuitive core experience and enhanced multitasking, this redesign transforms personalized music discovery into a smoother, more cohesive process for desktop users.
               </h3>
             </div>
           </div>
@@ -127,7 +121,7 @@
       </div>
     </div>
 
-    <div class="section">
+    <div class="section" id="research">
       <div class="row">
       <div class="col-lg-4 col-sm-12">
         <h5>User Interviews</h5>
@@ -185,7 +179,7 @@
   </div>
 
 
-  <div class="section">
+  <div class="section" id="ideate">
     <div class="row">
     <div class="col-lg-4 col-sm-12">
       <h5>Ideation</h5>
@@ -206,7 +200,7 @@
     </div>
   </div>
 
-  <div class="section">
+  <div class="section" id="define">
     <div class="row">
     <div class="col-lg-4 col-sm-12">
       <h5>Solution</h5>
@@ -247,7 +241,7 @@
   </div>
 
 
-  <div class="section">
+  <div class="section" id="final-designs">
     <div class="row">
     <div class="col-lg-4 col-sm-12">
       <h5>Design Language</h5>
@@ -394,6 +388,7 @@
 
     </article>
 
+    <script src="../../script.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="jQuery.progressBar.js"></script>
     <script>
