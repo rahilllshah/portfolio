@@ -887,24 +887,39 @@ a:hover {
     gap: 0;
   }
 
-  /* Stack year and role vertically on mobile */
+  /* Mobile: 2 columns — year + role name stacked at start; pill vertically centered at end */
   .experience-row {
-    grid-template-columns: 1fr;
-    padding: 20px 0;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: auto auto;
+    row-gap: 8px;
+    align-items: start;
+    padding: 32px 0;
   }
 
-  .role {
-    flex-direction: row;
-    align-items: center;
-    gap: 12px;
-    justify-content: space-between;
-    width: 100%;
+  .experience-row .year {
+    grid-column: 1;
+    grid-row: 1;
   }
 
-  /* Prevent pill text wrapping on mobile */
-  .pill {
+  .experience-row .role {
+    display: contents;
+  }
+
+  .experience-row .role > span:first-child {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  .experience-row .pill {
+    grid-column: 2;
+    grid-row: 1 / -1;
+    align-self: center;
     white-space: nowrap;
     flex-shrink: 0;
+  }
+
+  .experience-row .arrow {
+    display: none;
   }
 
   /* Ensure Instagram experience row has border-bottom on mobile */
@@ -936,5 +951,9 @@ a:hover {
     align-items: center;
     flex-wrap: wrap;
     text-align: center;
+  }
+
+  .footer-name {
+    margin-right: -16px; /* cancel trailing space from letter-spacing so text stays centered */
   }
 }

@@ -1,4 +1,8 @@
-/* Nav: logo + links left, Resume/LinkedIn right; mobile = hamburger + expand */
+/*
+ * NAV: logo + links left, Resume/LinkedIn right.
+ * Mobile: hamburger toggles a full-width dropdown; open/close is driven by
+ * the checkbox #nav-check (checked = menu open). No JS needed for open/close.
+ */
 body {
   letter-spacing: 0.04em;
   font-weight: 400;
@@ -9,7 +13,9 @@ body {
     sans-serif;
 }
 
-/* --- Desktop load animation (home only) --- */
+/* --- Desktop load animation (home page only) ---
+ * On first load, nav pill expands from center and items fade in with stagger.
+ */
 @keyframes navExpandFromCenter {
   from {
     width: 100px;
@@ -82,6 +88,7 @@ body {
   transition: 0.1s;
 }
 
+/* Hidden checkbox: when checked, menu is open. Used by ~ selectors for open state. */
 .nav-check {
   position: absolute;
   opacity: 0;
@@ -212,6 +219,7 @@ body {
   transform-origin: center;
 }
 
+/* Hamburger → X when open (JS adds .open to #nav-icon; mobile also uses :checked ~ .nav-toggle) */
 .nav-icon.open span:nth-child(1) {
   transform: translateY(6px) rotate(45deg);
 }
@@ -219,8 +227,26 @@ body {
   transform: translateY(-4px) rotate(-45deg);
 }
 
-/* --- Mobile: expandable menu, logo + hamburger fixed --- */
+/* --- Mobile: keyframe for each link sliding up + fading in (staggered on open) --- */
+@keyframes navMobileLinkIn {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ========== MOBILE NAV: OPEN / CLOSE ==========
+ * State is driven by #nav-check (checkbox). Label toggles it on tap.
+ * OPEN  = .nav-check:checked  (or .nav:has(.nav-check:checked))
+ * CLOSED = default
+ */
+
 @media (max-width: 920px) {
+  /* Disable desktop load animations on small screens */
   .nav,
   .nav-logo-img,
   .nav-links.nav-links-desktop li,
@@ -229,10 +255,15 @@ body {
     opacity: 1;
   }
 
+  /* ----- Nav bar container (pill) -----
+   * CLOSED: pill shape, centered. OPEN: same but border-radius animates to 24px below.
+   */
   .nav {
-    width: 90%;
-    max-width: 90%;
-    margin: 4vw 5%;
+    width: 87%;
+    max-width: 87%;
+    margin: 4vw auto;
+    left: 0;
+    right: 0;
     height: auto;
     min-height: var(--nav-height);
     padding-top: var(--nav-height);
@@ -243,6 +274,7 @@ body {
       border-radius 0.45s ease-out 0.35s;
   }
 
+  /* OPEN: pill becomes rounded rectangle (border-radius 24px), no delay on close */
   .nav:has(.nav-check:checked) {
     border-radius: 24px;
     transition:
@@ -250,6 +282,7 @@ body {
       border-radius 0s;
   }
 
+  /* Logo and hamburger stay in top row; hamburger is the toggle (label for #nav-check) */
   .nav-left {
     position: absolute;
     left: 24px;
@@ -271,6 +304,7 @@ body {
     padding: 0;
   }
 
+  /* OPEN: hamburger lines rotate into X */
   .nav-check:checked ~ .nav-toggle .nav-icon span:nth-child(1) {
     transform: translateY(6px) rotate(45deg);
   }
@@ -278,6 +312,10 @@ body {
     transform: translateY(-4px) rotate(-45deg);
   }
 
+  /* ----- Dropdown panel (.nav-menu) -----
+   * CLOSED: max-height 0, opacity 0, overflow hidden → panel is collapsed and invisible.
+   * Closing: transition runs so panel shrinks and fades out.
+   */
   .nav-menu {
     width: 100%;
     flex-basis: 100%;
@@ -296,13 +334,14 @@ body {
       opacity 0.3s ease-out;
   }
 
+  /* OPEN: panel expands (max-height 80vh) and fades in; slightly delayed opacity for smooth open */
   .nav-check:checked ~ .nav-menu {
     max-height: 80vh;
     opacity: 1;
     padding: 0 20px 24px;
     transition:
-      max-height 0.35s ease-out,
-      opacity 0.3s ease-out;
+      max-height 1s ease-out,
+      opacity 0.5s ease-out 0.2s;
   }
 
   .nav-links-desktop {
@@ -313,6 +352,10 @@ body {
     display: flex;
   }
 
+  /* ----- Link lists inside dropdown -----
+   * CLOSED: lists have opacity 0 (panel is hidden anyway).
+   * OPEN: opacity 1 after a short delay so they appear as panel opens.
+   */
   .nav-menu .nav-links,
   .nav-menu .nav-right {
     flex-direction: column;
@@ -333,6 +376,32 @@ body {
   .nav-menu .nav-right li {
     width: 100%;
     text-align: center;
+  }
+
+  /* ----- OPEN: links animate in one by one -----
+   * Each li runs navMobileLinkIn (fade + slide up). animation-fill-mode: both
+   * keeps them invisible until their delay, then visible after the animation.
+   * Delays: Experience → Work → About → Resume → LinkedIn.
+   */
+  .nav-check:checked ~ .nav-menu .nav-links li,
+  .nav-check:checked ~ .nav-menu .nav-right li {
+    opacity: 0;
+    animation: navMobileLinkIn 0.35s ease-out both;
+  }
+  .nav-check:checked ~ .nav-menu .nav-links li:nth-child(1) {
+    animation-delay: 0.05s;
+  }
+  .nav-check:checked ~ .nav-menu .nav-links li:nth-child(2) {
+    animation-delay: 0.1s;
+  }
+  .nav-check:checked ~ .nav-menu .nav-links li:nth-child(3) {
+    animation-delay: 0.15s;
+  }
+  .nav-check:checked ~ .nav-menu .nav-right li:nth-child(1) {
+    animation-delay: 0.2s;
+  }
+  .nav-check:checked ~ .nav-menu .nav-right li:nth-child(2) {
+    animation-delay: 0.25s;
   }
 
   .nav-menu .nav-links a,
