@@ -143,7 +143,7 @@ a:hover {
   }
 }
 
-.landingsub1 {
+/* .landingsub1 {
   font-size: 16px;
   letter-spacing: 16px;
   transition: 0.01s;
@@ -156,7 +156,7 @@ a:hover {
   background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: meshDrift 5s ease-in-out infinite;
-}
+} */
 
 .landingsub2 {
   font-size: 20px;
@@ -171,7 +171,7 @@ a:hover {
 
 .solid-btn {
   font-size: 16px;
-
+  gap: 2px;
   color: white;
   padding: 12px 16px;
   display: flex;
@@ -823,28 +823,49 @@ a:hover {
   }
 
   .landing {
-    width: 90%;
+    width: 100%;
     padding-top: 15vh;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .landing > [class*="col-"] {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .me {
+    margin-bottom: -200px;
   }
 
   .title {
     font-size: 34px;
-    line-height: 1.1;
+    line-height: 1.2;
   }
 
-  .landingsub1 {
+  /* .landingsub1 {
     font-size: 14px;
-  }
+  } */
 
   .landingsub2 {
     font-size: 16px;
     margin-top: 6px;
+    line-height: 1.6;
+    max-width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .landing .button-row {
+    justify-content: center;
   }
 
   .solid-btn {
     font-size: 14px;
+    gap: 4px;
+    font-weight: 500;
   }
 
   .get-in-touch-btn {
@@ -860,11 +881,11 @@ a:hover {
 
   .landing > .col-lg-3 {
     order: -1;
-    margin-bottom: 30px;
+    margin-bottom: 16px;
   }
 
   .me-wrapper {
-    max-width: 150px;
+    max-width: 180px;
     width: 100%;
     margin: 0 auto;
   }
