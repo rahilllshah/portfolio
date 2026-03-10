@@ -1,3 +1,14 @@
+// Anchor current history entry to this page URL (avoids Back going to about:blank in Safari/WebKit).
+function anchorHistory() {
+  if (window.location.href === "about:blank") return;
+  var url = window.location.pathname + window.location.search + (window.location.hash || "");
+  if (!url) url = "/";
+  try {
+    history.replaceState(history.state || {}, "", url);
+  } catch (e) {}
+}
+anchorHistory();
+
 // Fade-in on scroll for sections below landing
 document.addEventListener("DOMContentLoaded", function () {
   var fadeEls = document.querySelectorAll(".scroll-fade");
@@ -181,7 +192,10 @@ function closeModal(event) {
   if (event && event.key && event.key !== "Escape") return;
   if (event && event.target !== modal && !event.key) return;
   modal.classList.remove("active");
-  if (history.state && history.state.imageModalOpen) history.back();
+  if (history.state && history.state.imageModalOpen) {
+    var url = window.location.pathname + window.location.search + (window.location.hash || "");
+    history.replaceState({}, "", url);
+  }
   var scrollY = parseInt(document.body.dataset.scrollY || "0", 10);
   var html = document.documentElement;
   var prevScrollBehavior = html.style.scrollBehavior;
@@ -198,7 +212,8 @@ function closeModal(event) {
 // Work case study modals (cantrace, timeline, applemusic, deltahacks, instagram PDF)
 function openWorkModal(triggerOrProject) {
   const workModal = document.getElementById("work-modal");
-  const container = workModal && workModal.querySelector(".work-modal-container");
+  const container =
+    workModal && workModal.querySelector(".work-modal-container");
   if (!workModal || !container) return;
   var src;
   if (
@@ -212,24 +227,39 @@ function openWorkModal(triggerOrProject) {
   } else {
     src = "Work/" + triggerOrProject + "/home.html";
   }
-  // Replace iframe with a fresh one so it has only one history entry (no about:blank).
-  // Otherwise the first Back goes to the iframe and the second to the parent.
   var oldIframe = container.querySelector(".work-modal-iframe");
   var iframe = document.createElement("iframe");
   iframe.className = "work-modal-iframe";
   iframe.title = "Work case study";
-  iframe.src = src;
+  iframe.setAttribute("tabindex", "-1");
+  // Use srcdoc + location.replace so the iframe's initial about:blank history
+  // entry is replaced by the case study URL. This avoids Safari/WebKit showing
+  // about:blank inside the iframe when the user presses Back.
+  var escapedSrc = src.replace(/"/g, "&quot;");
+  iframe.setAttribute(
+    "srcdoc",
+    '<!doctype html><html><head><meta charset="utf-8"></head><body><script>location.replace("' +
+      escapedSrc +
+      '")</' +
+      "script></body></html>",
+  );
   if (oldIframe) oldIframe.replaceWith(iframe);
   else container.appendChild(iframe);
   workModal.classList.add("active");
   workModal.setAttribute("aria-hidden", "false");
-  history.pushState({ workModalOpen: true }, "", window.location.href);
+  var baseUrl = window.location.pathname + window.location.search;
+  if (!baseUrl || window.location.href === "about:blank") baseUrl = "/";
+  var keepHash = window.location.hash && window.location.hash !== "#work-modal" ? window.location.hash : "";
+  history.replaceState({}, "", baseUrl + keepHash);
+  history.pushState({ workModalOpen: true }, "", baseUrl + "#work-modal");
   var scrollY = window.scrollY || window.pageYOffset;
   document.body.style.overflow = "hidden";
   document.body.dataset.scrollY = String(scrollY);
   document.body.style.top = "-" + scrollY + "px";
   document.body.classList.add("work-modal-open");
   document.documentElement.classList.add("work-modal-open");
+  var closeBtn = workModal.querySelector(".work-modal-close");
+  if (closeBtn) setTimeout(function () { closeBtn.focus(); }, 0);
 }
 
 function closeWorkModal(event) {
@@ -248,7 +278,10 @@ function closeWorkModal(event) {
   workModal.setAttribute("aria-hidden", "true");
   var iframe = workModal.querySelector(".work-modal-iframe");
   if (iframe) iframe.src = "";
-  if (history.state && history.state.workModalOpen) history.back();
+  if (history.state && history.state.workModalOpen) {
+    var baseUrl = window.location.pathname + window.location.search;
+    history.replaceState({}, "", baseUrl + (window.location.hash === "#work-modal" ? "" : (window.location.hash || "")));
+  }
   var scrollY = parseInt(document.body.dataset.scrollY || "0", 10);
   var html = document.documentElement;
   var prevScrollBehavior = html.style.scrollBehavior;
@@ -263,6 +296,7 @@ function closeWorkModal(event) {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
+  anchorHistory(); // Re-anchor in Safari/WebKit after load
   document.querySelectorAll("[data-work-modal]").forEach(function (trigger) {
     trigger.addEventListener("click", function (e) {
       e.preventDefault();
@@ -293,7 +327,7 @@ document.addEventListener("keydown", function (event) {
 });
 
 // Browser back button closes iframe/work modal or image modal
-window.addEventListener("popstate", function () {
+function handleBackNavigation() {
   var workModal = document.getElementById("work-modal");
   if (workModal && workModal.classList.contains("active")) {
     closeWorkModal();
@@ -301,6 +335,11 @@ window.addEventListener("popstate", function () {
   }
   var modal = document.querySelector(".modal.active");
   if (modal) closeModal();
+}
+
+window.addEventListener("popstate", handleBackNavigation);
+window.addEventListener("hashchange", function () {
+  if (window.location.hash !== "#work-modal") handleBackNavigation();
 });
 
 // Case study in-page nav: highlight active section on scroll + use replaceState so Back closes modal once
