@@ -166,6 +166,7 @@ function openModal(source) {
   if (!modal || !modalImage) return;
   modalImage.src = typeof source === "string" ? source : source.src;
   modal.classList.add("active");
+  history.pushState({ imageModalOpen: true }, "", window.location.href);
   var scrollY = window.scrollY || window.pageYOffset;
   document.body.dataset.scrollY = String(scrollY);
   document.body.style.top = "-" + scrollY + "px";
@@ -176,9 +177,11 @@ function openModal(source) {
 function closeModal(event) {
   const modal = document.querySelector(".modal");
   if (!modal) return;
+  if (!modal.classList.contains("active")) return;
   if (event && event.key && event.key !== "Escape") return;
   if (event && event.target !== modal && !event.key) return;
   modal.classList.remove("active");
+  if (history.state && history.state.imageModalOpen) history.back();
   var scrollY = parseInt(document.body.dataset.scrollY || "0", 10);
   var html = document.documentElement;
   var prevScrollBehavior = html.style.scrollBehavior;
@@ -195,8 +198,8 @@ function closeModal(event) {
 // Work case study modals (cantrace, timeline, applemusic, deltahacks, instagram PDF)
 function openWorkModal(triggerOrProject) {
   const workModal = document.getElementById("work-modal");
-  const iframe = workModal && workModal.querySelector(".work-modal-iframe");
-  if (!workModal || !iframe) return;
+  const container = workModal && workModal.querySelector(".work-modal-container");
+  if (!workModal || !container) return;
   var src;
   if (
     typeof triggerOrProject === "object" &&
@@ -209,9 +212,18 @@ function openWorkModal(triggerOrProject) {
   } else {
     src = "Work/" + triggerOrProject + "/home.html";
   }
+  // Replace iframe with a fresh one so it has only one history entry (no about:blank).
+  // Otherwise the first Back goes to the iframe and the second to the parent.
+  var oldIframe = container.querySelector(".work-modal-iframe");
+  var iframe = document.createElement("iframe");
+  iframe.className = "work-modal-iframe";
+  iframe.title = "Work case study";
   iframe.src = src;
+  if (oldIframe) oldIframe.replaceWith(iframe);
+  else container.appendChild(iframe);
   workModal.classList.add("active");
   workModal.setAttribute("aria-hidden", "false");
+  history.pushState({ workModalOpen: true }, "", window.location.href);
   var scrollY = window.scrollY || window.pageYOffset;
   document.body.style.overflow = "hidden";
   document.body.dataset.scrollY = String(scrollY);
@@ -223,6 +235,7 @@ function openWorkModal(triggerOrProject) {
 function closeWorkModal(event) {
   const workModal = document.getElementById("work-modal");
   if (!workModal) return;
+  if (!workModal.classList.contains("active")) return;
   if (event && event.key && event.key !== "Escape") return;
   if (event && event.type === "click") {
     if (
@@ -235,6 +248,7 @@ function closeWorkModal(event) {
   workModal.setAttribute("aria-hidden", "true");
   var iframe = workModal.querySelector(".work-modal-iframe");
   if (iframe) iframe.src = "";
+  if (history.state && history.state.workModalOpen) history.back();
   var scrollY = parseInt(document.body.dataset.scrollY || "0", 10);
   var html = document.documentElement;
   var prevScrollBehavior = html.style.scrollBehavior;
@@ -276,6 +290,17 @@ document.addEventListener("keydown", function (event) {
     var modal = document.querySelector(".modal.active");
     if (modal) closeModal(event);
   }
+});
+
+// Browser back button closes iframe/work modal or image modal
+window.addEventListener("popstate", function () {
+  var workModal = document.getElementById("work-modal");
+  if (workModal && workModal.classList.contains("active")) {
+    closeWorkModal();
+    return;
+  }
+  var modal = document.querySelector(".modal.active");
+  if (modal) closeModal();
 });
 
 // Case study in-page nav: highlight active section on scroll
