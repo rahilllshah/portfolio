@@ -1,7 +1,10 @@
 // Anchor current history entry to this page URL (avoids Back going to about:blank in Safari/WebKit).
 function anchorHistory() {
   if (window.location.href === "about:blank") return;
-  var url = window.location.pathname + window.location.search + (window.location.hash || "");
+  var url =
+    window.location.pathname +
+    window.location.search +
+    (window.location.hash || "");
   if (!url) url = "/";
   try {
     history.replaceState(history.state || {}, "", url);
@@ -193,7 +196,10 @@ function closeModal(event) {
   if (event && event.target !== modal && !event.key) return;
   modal.classList.remove("active");
   if (history.state && history.state.imageModalOpen) {
-    var url = window.location.pathname + window.location.search + (window.location.hash || "");
+    var url =
+      window.location.pathname +
+      window.location.search +
+      (window.location.hash || "");
     history.replaceState({}, "", url);
   }
   var scrollY = parseInt(document.body.dataset.scrollY || "0", 10);
@@ -249,9 +255,9 @@ function openWorkModal(triggerOrProject) {
   workModal.setAttribute("aria-hidden", "false");
   var baseUrl = window.location.pathname + window.location.search;
   if (!baseUrl || window.location.href === "about:blank") baseUrl = "/";
-  var keepHash = window.location.hash && window.location.hash !== "#work-modal" ? window.location.hash : "";
-  history.replaceState({}, "", baseUrl + keepHash);
-  history.pushState({ workModalOpen: true }, "", baseUrl + "#work-modal");
+  var currentUrl = baseUrl + (window.location.hash || "");
+  history.replaceState({}, "", currentUrl);
+  history.pushState({ workModalOpen: true }, "", currentUrl);
   var scrollY = window.scrollY || window.pageYOffset;
   document.body.style.overflow = "hidden";
   document.body.dataset.scrollY = String(scrollY);
@@ -259,7 +265,10 @@ function openWorkModal(triggerOrProject) {
   document.body.classList.add("work-modal-open");
   document.documentElement.classList.add("work-modal-open");
   var closeBtn = workModal.querySelector(".work-modal-close");
-  if (closeBtn) setTimeout(function () { closeBtn.focus(); }, 0);
+  if (closeBtn)
+    setTimeout(function () {
+      closeBtn.focus();
+    }, 0);
 }
 
 function closeWorkModal(event) {
@@ -280,7 +289,7 @@ function closeWorkModal(event) {
   if (iframe) iframe.src = "";
   if (history.state && history.state.workModalOpen) {
     var baseUrl = window.location.pathname + window.location.search;
-    history.replaceState({}, "", baseUrl + (window.location.hash === "#work-modal" ? "" : (window.location.hash || "")));
+    history.replaceState({}, "", baseUrl + (window.location.hash || ""));
   }
   var scrollY = parseInt(document.body.dataset.scrollY || "0", 10);
   var html = document.documentElement;
@@ -338,9 +347,6 @@ function handleBackNavigation() {
 }
 
 window.addEventListener("popstate", handleBackNavigation);
-window.addEventListener("hashchange", function () {
-  if (window.location.hash !== "#work-modal") handleBackNavigation();
-});
 
 // Case study in-page nav: highlight active section on scroll + use replaceState so Back closes modal once
 document.addEventListener("DOMContentLoaded", function () {
