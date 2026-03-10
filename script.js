@@ -303,7 +303,7 @@ window.addEventListener("popstate", function () {
   if (modal) closeModal();
 });
 
-// Case study in-page nav: highlight active section on scroll
+// Case study in-page nav: highlight active section on scroll + use replaceState so Back closes modal once
 document.addEventListener("DOMContentLoaded", function () {
   var nav = document.querySelector(".case-study-nav");
   if (!nav) return;
@@ -312,6 +312,22 @@ document.addEventListener("DOMContentLoaded", function () {
     return a.getAttribute("href").slice(1);
   });
   var activeThreshold = 120;
+
+  // Intercept nav clicks: scroll to section but don't push history (use replaceState).
+  // Keeps iframe at one history entry so one Back press closes the parent modal.
+  links.forEach(function (a) {
+    a.addEventListener("click", function (e) {
+      var id = this.getAttribute("href").slice(1);
+      if (!id) return;
+      var el = document.getElementById(id);
+      if (!el) return;
+      e.preventDefault();
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
+      var hash = "#" + id;
+      var url = document.location.pathname + document.location.search + hash;
+      history.replaceState(undefined, "", url);
+    });
+  });
 
   function setActiveSection() {
     var scrollY = window.scrollY || window.pageYOffset;
