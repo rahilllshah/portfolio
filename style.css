@@ -145,6 +145,7 @@ a:hover {
 
 .landingsub2 {
   font-size: 20px;
+  font-weight: 450;
   margin-top: 16px;
   color: gray;
 }
@@ -760,6 +761,7 @@ a:hover {
 
   .landingsub2 {
     font-size: 16px;
+
     margin-top: 6px;
     line-height: 1.6;
     max-width: 80%;
