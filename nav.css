@@ -410,9 +410,3 @@ body {
     line-height: 48px;
   }
 }
-
-@media (max-width: 768px) {
-  .nav {
-    top: env(safe-area-inset-top, 0px);
-  }
-}
