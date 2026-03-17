@@ -245,7 +245,7 @@ body {
  * CLOSED = default
  */
 
-@media (max-width: 920px) {
+@media (max-width: 1120px) {
   /* Disable desktop load animations on small screens */
   .nav,
   .nav-logo-img,

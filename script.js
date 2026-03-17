@@ -31,6 +31,27 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
+// Size landing "me" image to landing content height (title + sub + button) so image doesn't change with viewport width
+document.addEventListener("DOMContentLoaded", function () {
+  var landingContent = document.querySelector(".landing-content");
+  var meWrapper = document.querySelector(".me-wrapper");
+  if (!landingContent || !meWrapper) return;
+
+  function sizeMeToContent() {
+    if (window.innerWidth < 992) {
+      meWrapper.style.height = "";
+      return;
+    }
+    var h = landingContent.getBoundingClientRect().height;
+    meWrapper.style.height = h + "px";
+  }
+
+  sizeMeToContent();
+  var ro = new ResizeObserver(sizeMeToContent);
+  ro.observe(landingContent);
+  window.addEventListener("resize", sizeMeToContent);
+});
+
 // Nav hamburger toggle (nav is inlined in index.html and aboutme.html)
 document.addEventListener("DOMContentLoaded", function () {
   var icon = document.getElementById("nav-icon");

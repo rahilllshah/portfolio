@@ -100,7 +100,7 @@ a:hover {
 }
 
 .title {
-  font-size: 92px;
+  font-size: 86px;
   font-weight: 700;
   letter-spacing: 0;
   line-height: 1.02;
@@ -224,9 +224,10 @@ a:hover {
 
 .me-wrapper {
   position: relative;
-  width: 100%;
-  aspect-ratio: 1;
+  width: auto;
+  max-height: 100%;
   display: inline-block;
+  /* height set by JS to match .landing-content height so image scales with content height, not viewport width */
 }
 
 .c-container {
@@ -315,8 +316,9 @@ a:hover {
 
 .me {
   display: block;
-  width: 100%;
   height: 100%;
+  width: auto;
+  max-width: 100%;
   object-fit: cover;
   border-radius: 50%;
   position: relative;
@@ -325,7 +327,7 @@ a:hover {
 }
 
 .arrowA {
-  font-size: 2vw;
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
   color: lightgray;
   opacity: 0.75;
   text-decoration: none;
@@ -382,6 +384,9 @@ a:hover {
   margin: 0;
 }
 
+@media (max-width: 1280px) {
+}
+
 /*Experience*/
 
 .experience-section {
@@ -402,12 +407,28 @@ a:hover {
 .experience-row {
   display: grid;
   align-items: center;
-  grid-template-columns: 120px 1fr;
+  grid-template-columns: 1fr auto;
+  gap: 16px;
   padding: 24px 0;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   position: relative;
   cursor: pointer;
   transition: 0.25s ease;
+}
+
+.experience-row-left {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.experience-row-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  position: relative;
+  flex-shrink: 0;
 }
 
 .experience-row:hover {
@@ -416,7 +437,6 @@ a:hover {
   padding-left: 24px;
   border-bottom: 0;
   border-top: 0;
-  padding-right: 24px;
   transition: 0.25s ease;
 }
 
@@ -467,62 +487,51 @@ a:hover {
   text-decoration: none;
 }
 
-/* Role text color on hover of experience-row - matches pill brand colors */
-.role > span:first-child {
+/* Role name and year color on hover - matches pill brand colors */
+.role-name {
+  font-size: 14px;
+  color: gray;
   transition: color 0.5s ease;
 }
 
-.experience-row:has(.pill.stealth):hover .role > span:first-child,
+.experience-row:has(.pill.stealth):hover .role-name,
 .experience-row:has(.pill.stealth):hover .year {
   color: rgba(104, 104, 104, 1);
 }
 
-.experience-row:has(.pill.beavr):hover .role > span:first-child,
+.experience-row:has(.pill.beavr):hover .role-name,
 .experience-row:has(.pill.beavr):hover .year {
   color: rgba(110, 142, 138, 1);
 }
 
-.experience-row:has(.pill.garden):hover .role > span:first-child,
+.experience-row:has(.pill.garden):hover .role-name,
 .experience-row:has(.pill.garden):hover .year {
   color: rgba(29, 44, 47, 1);
 }
 
-.experience-row:has(.pill.instagram):hover .role > span:first-child,
+.experience-row:has(.pill.instagram):hover .role-name,
 .experience-row:has(.pill.instagram):hover .year {
   color: rgba(201, 33, 169, 1);
 }
 
-.experience-row:has(.pill.shopify):hover .role > span:first-child,
+.experience-row:has(.pill.shopify):hover .role-name,
 .experience-row:has(.pill.shopify):hover .year {
   color: rgba(149, 191, 71, 1);
 }
 
-.experience-row:has(.pill.robinhood):hover .role > span:first-child,
+.experience-row:has(.pill.robinhood):hover .role-name,
 .experience-row:has(.pill.robinhood):hover .year {
   color: rgba(0, 207, 152, 1);
 }
 
-.experience-row:has(.pill.twitch):hover .role > span:first-child,
+.experience-row:has(.pill.twitch):hover .role-name,
 .experience-row:has(.pill.twitch):hover .year {
   color: rgba(145, 70, 255, 1);
 }
 
-.experience-row:has(.pill.deltahacks):hover .role > span:first-child,
+.experience-row:has(.pill.deltahacks):hover .role-name,
 .experience-row:has(.pill.deltahacks):hover .year {
   color: rgba(30, 184, 201, 1);
-}
-
-.role {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  gap: 12px;
-  font-size: 14px;
-
-  color: gray;
-  padding-right: 0;
-  transition: padding-right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .pill {
@@ -586,48 +595,12 @@ a:hover {
   border: 1px solid rgba(30, 184, 201, 0.1);
 }
 
-/* Arrow */
-.arrow {
-  position: absolute;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%) translateX(-6px);
-
-  width: 16px;
-  height: 16px;
-
-  opacity: 0;
-  pointer-events: none;
-
-  transition:
-    opacity 0.2s ease,
-    transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.experience-row:hover .role {
-  padding-right: 24px; /* space created ONLY on hover */
-}
-
 .experience-row:hover .pill {
-  transform: translateX(-2px);
-}
-
-.experience-row:hover .arrow {
-  opacity: 0.5;
-  transform: translateY(-50%) translateX(0);
-}
-
-.experience > .experience-row:first-child:hover .role {
-  padding-right: 0;
+  transform: translateX(-24px);
 }
 
 .experience > .experience-row:first-child:hover .pill {
   transform: none;
-}
-
-.experience > .experience-row:first-child:hover .arrow {
-  transform: none;
-  opacity: 0;
 }
 
 /* Work */
@@ -725,20 +698,39 @@ a:hover {
   }
 }
 
-@media (max-width: 1440px) {
+@media (max-width: 1370px) {
   .title {
-    font-size: 62px;
+    font-size: 70px;
   }
 }
 
-@media (max-width: 920px) {
-  .container {
+@media (max-width: 1280px) {
+  .title {
+    font-size: 62px;
+  }
+
+  .section-header {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    row-gap: 16px;
+  }
+
+  .section-header > [class*="col-"] {
+    width: 100%;
     max-width: 100%;
+  }
+}
+
+@media (max-width: 1120px) {
+  .title {
+    font-size: 50px;
+    /* margin-top: 24px; */
   }
 
   .landing {
     width: 100%;
-    padding-top: 15vh;
+    padding-top: 20vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -748,25 +740,6 @@ a:hover {
   .landing > [class*="col-"] {
     width: 100%;
     max-width: 100%;
-  }
-
-  .me {
-    margin-bottom: -200px;
-  }
-
-  .title {
-    font-size: 34px;
-    line-height: 1.2;
-  }
-
-  .landingsub2 {
-    font-size: 16px;
-
-    margin-top: 6px;
-    line-height: 1.6;
-    max-width: 80%;
-    margin-left: auto;
-    margin-right: auto;
   }
 
   .landing .button-row {
@@ -784,10 +757,6 @@ a:hover {
     padding: 10px 20px;
   }
 
-  .arrowA {
-    font-size: 6vw;
-  }
-
   /* Fix me image size on mobile and move to top */
 
   .landing > .col-lg-3 {
@@ -796,62 +765,59 @@ a:hover {
   }
 
   .me-wrapper {
+    aspect-ratio: 1;
     max-width: 180px;
     width: 100%;
     margin: 0 auto;
+    height: auto !important; /* override JS so mobile uses aspect-ratio */
+  }
+}
+
+@media (max-width: 920px) {
+  .container {
+    max-width: 100%;
+  }
+
+  .landing {
+    padding-top: 15vh;
+  }
+
+  .title {
+    font-size: 34px;
+    line-height: 1.2;
+    margin-top: 0;
+  }
+
+  .landingsub2 {
+    font-size: 16px;
+    margin-top: 6px;
+    line-height: 1.6;
+    max-width: 80%;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .section-title {
     font-size: 32px;
   }
 
-  .section-lead {
-    margin-top: 12px;
-  }
-
-  /* Experience Section - Single Column on Mobile */
   .experience-section {
     padding-bottom: 10vh;
   }
+
+  /* Experience Section - Single Column on Mobile */
 
   .experience-grid {
     grid-template-columns: 1fr;
     gap: 0;
   }
 
-  /* Mobile: 2 columns — year + role name stacked at start; pill vertically centered at end */
   .experience-row {
-    grid-template-columns: 1fr auto;
-    grid-template-rows: auto auto;
-    row-gap: 8px;
-    align-items: start;
     padding: 32px 0;
   }
 
-  .experience-row .year {
-    grid-column: 1;
-    grid-row: 1;
-  }
-
-  .experience-row .role {
-    display: contents;
-  }
-
-  .experience-row .role > span:first-child {
-    grid-column: 1;
-    grid-row: 2;
-  }
-
   .experience-row .pill {
-    grid-column: 2;
-    grid-row: 1 / -1;
-    align-self: center;
     white-space: nowrap;
-    flex-shrink: 0;
-  }
-
-  .experience-row .arrow {
-    display: none;
   }
 
   /* Ensure Instagram experience row has border-bottom on mobile */
