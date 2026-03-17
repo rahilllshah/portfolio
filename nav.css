@@ -36,7 +36,7 @@ body {
   }
 }
 
-@media (min-width: 921px) {
+@media (min-width: 769px) {
   body.home .nav {
     animation: navExpandFromCenter 2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
   }
@@ -408,5 +408,11 @@ body {
   .nav-menu .nav-right a {
     display: block;
     line-height: 48px;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav {
+    top: env(safe-area-inset-top, 0px);
   }
 }

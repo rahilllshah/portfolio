@@ -686,7 +686,7 @@ a:hover {
 
 @media (max-width: 1560px) {
   .title {
-    font-size: 76px;
+    font-size: 72px;
   }
 
   .landingsub1 {
@@ -725,9 +725,27 @@ a:hover {
 @media (max-width: 1120px) {
   .title {
     font-size: 50px;
-    /* margin-top: 24px; */
   }
 
+  .landingsub2 {
+    font-size: 16px;
+    margin-top: 6px;
+    line-height: 1.6;
+  }
+
+  .solid-btn {
+    font-size: 14px;
+    gap: 4px;
+    font-weight: 500;
+  }
+
+  .get-in-touch-btn {
+    margin-top: 20px;
+    padding: 10px 20px;
+  }
+}
+
+@media (max-width: 990px) {
   .landing {
     width: 100%;
     padding-top: 20vh;
@@ -771,35 +789,6 @@ a:hover {
     margin: 0 auto;
     height: auto !important; /* override JS so mobile uses aspect-ratio */
   }
-}
-
-@media (max-width: 920px) {
-  .container {
-    max-width: 100%;
-  }
-
-  .landing {
-    padding-top: 15vh;
-  }
-
-  .title {
-    font-size: 34px;
-    line-height: 1.2;
-    margin-top: 0;
-  }
-
-  .landingsub2 {
-    font-size: 16px;
-    margin-top: 6px;
-    line-height: 1.6;
-    max-width: 80%;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .section-title {
-    font-size: 32px;
-  }
 
   .experience-section {
     padding-bottom: 10vh;
@@ -823,6 +812,34 @@ a:hover {
   /* Ensure Instagram experience row has border-bottom on mobile */
   .experience-row:has(.pill.instagram) {
     border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    max-width: 100%;
+  }
+
+  .landing {
+    padding-top: 15vh;
+  }
+
+  .title {
+    font-size: 34px;
+    line-height: 1.2;
+    margin-top: 0;
+  }
+
+  .landingsub2 {
+    margin-top: 6px;
+    line-height: 1.6;
+    max-width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .section-title {
+    font-size: 32px;
   }
 
   .work-section {

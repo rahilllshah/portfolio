@@ -280,10 +280,19 @@ body {
   animation-delay: 0.8s;
 }
 
-@media (max-width: 920px) {
+@media (max-width: 1120px) {
+  body {
+    max-width: 80%;
+  }
+
+  /* Override nav.css: keep nav pill 50% on about me page (nav.css sets 87% for mobile layout) */
+  body.aboutme .nav {
+    width: 50%;
+  }
+
   .about-me-container {
     flex-direction: column;
-    padding-top: 80px;
+    padding-top: 120px;
     padding-bottom: 100px;
     max-width: 100%;
     margin: 0;
@@ -321,6 +330,88 @@ body {
     max-width: 100%;
     width: 100%;
     position: relative;
+  }
+
+  .polaroid-1,
+  .polaroid-2,
+  .polaroid-3,
+  .polaroid-4,
+  .polaroid-5,
+  .polaroid-6,
+  .polaroid-7,
+  .polaroid-8 {
+    width: 180px;
+  }
+
+  .polaroid-1 {
+    top: 5%;
+    left: 2%;
+  }
+
+  .polaroid-2 {
+    top: 10%;
+    left: 35%;
+  }
+
+  .polaroid-3 {
+    top: 2%;
+    left: 60%;
+  }
+
+  .polaroid-4 {
+    top: 40%;
+    left: 5%;
+  }
+
+  .polaroid-5 {
+    top: 45%;
+    left: 55%;
+  }
+
+  .polaroid-6 {
+    top: 70%;
+    left: 15%;
+  }
+
+  .polaroid-7 {
+    top: 55%;
+    left: 40%;
+  }
+
+  .polaroid-8 {
+    top: 60%;
+    left: 60%;
+  }
+
+  .container {
+    padding-top: 18vh;
+  }
+}
+
+.clickable-text {
+  cursor: pointer;
+  text-decoration: none;
+  color: rgba(75, 133, 231, 1);
+  transition: 0.3s;
+}
+
+.clickable-text:hover {
+  opacity: 0.5;
+  transition: 0.3s;
+}
+
+@media (max-width: 768px) {
+  body {
+    max-width: 100%;
+  }
+
+  body.aboutme .nav {
+    width: 87%;
+    max-width: 87%;
+  }
+
+  .about-me-container {
+    padding-top: 80px;
   }
 
   .polaroid-1,
@@ -373,20 +464,4 @@ body {
     top: 80%;
     left: 60%;
   }
-
-  .container {
-    padding-top: 18vh;
-  }
-}
-
-.clickable-text {
-  cursor: pointer;
-  text-decoration: none;
-  color: rgba(75, 133, 231, 1);
-  transition: 0.3s;
-}
-
-.clickable-text:hover {
-  opacity: 0.5;
-  transition: 0.3s;
 }
