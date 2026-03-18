@@ -64,6 +64,34 @@ body {
   }
 }
 
+/* Top progressive blur fade (home landing only) */
+body.home .top-blur {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 180px;
+
+  /* Keep below nav (nav z-index is 10) */
+  z-index: 9;
+
+  pointer-events: none;
+
+  /* Color behind the blur so it blends even on light backgrounds */
+  /* background: rgba(255, 255, 255, 1); */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  mask-image: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 1) 40%,
+    rgba(255, 255, 255, 0.8) 50%,
+    rgba(255, 255, 255, 0.4) 60%,
+    rgba(255, 255, 255, 0.2) 80%,
+    rgba(255, 255, 255, 0) 100%
+  );
+}
+
 /* Fade-in on scroll (sections below landing) */
 .scroll-fade {
   opacity: 0;
