@@ -60,6 +60,32 @@ document.addEventListener("DOMContentLoaded", function () {
       $(this).toggleClass("open");
     });
   }
+
+  // On mobile, close the dropdown when tapping Experience/Work.
+  // Mobile nav open/close is driven by the checkbox (#nav-check) via CSS.
+  var navCheck = document.getElementById("nav-check");
+  if (!navCheck) return;
+
+  function closeMobileNav() {
+    navCheck.checked = false;
+    navCheck.dispatchEvent(new Event("change", { bubbles: true }));
+    if (icon) icon.classList.remove("open");
+  }
+
+  var mobileLinks = document.querySelectorAll(
+    '.nav-links-mobile a[href="#experience"], .nav-links-mobile a[href="#work"]',
+  );
+  if (!mobileLinks.length) return;
+
+  // Use a single click handler to avoid duplicate closures.
+  mobileLinks.forEach(function (a) {
+    a.addEventListener("click", function () {
+      // Only necessary on mobile breakpoint, but safe even if desktop.
+      if (window.matchMedia && window.matchMedia("(max-width: 1120px)").matches) {
+        closeMobileNav();
+      }
+    });
+  });
 });
 
 // Drag functionality for polaroids
