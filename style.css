@@ -460,44 +460,46 @@ a:hover {
   flex-shrink: 0;
 }
 
-.experience-row:hover {
-  background-color: rgba(0, 0, 0, 0.02);
-  border-radius: 16px;
-  padding-left: 24px;
-  border-bottom: 0;
-  border-top: 0;
-  transition: 0.25s ease;
-}
+@media (hover: hover) and (pointer: fine) {
+  .experience-row:hover {
+    background-color: rgba(0, 0, 0, 0.02);
+    border-radius: 16px;
+    padding-left: 24px;
+    border-bottom: 0;
+    border-top: 0;
+    transition: 0.25s ease;
+  }
 
-/* Hide border-bottom of the previous row when hovering over current row */
-.experience-row:hover ~ .experience-row,
-.role-link:hover ~ .role-link .experience-row {
-  border-top: 0;
-  transition: 0.25s ease;
-}
+  /* Hide border-bottom of the previous row when hovering over current row */
+  .experience-row:hover ~ .experience-row,
+  .role-link:hover ~ .role-link .experience-row {
+    border-top: 0;
+    transition: 0.25s ease;
+  }
 
-/* Hide border-bottom of previous sibling when hovering - target the row that comes before the hovered one */
-.experience > .role-link:has(+ .role-link:hover) .experience-row,
-.experience > .experience-row:has(+ .role-link:hover),
-.experience > .role-link:has(+ .experience-row:hover) .experience-row,
-.experience > .experience-row:has(+ .experience-row:hover),
-.experience > .role-link:has(+ *:hover) .experience-row,
-.experience > .experience-row:has(+ *:hover) {
-  border-bottom: 0 !important;
-  transition: 0.25s ease;
+  /* Hide border-bottom of previous sibling when hovering - target the row that comes before the hovered one */
+  .experience > .role-link:has(+ .role-link:hover) .experience-row,
+  .experience > .experience-row:has(+ .role-link:hover),
+  .experience > .role-link:has(+ .experience-row:hover) .experience-row,
+  .experience > .experience-row:has(+ .experience-row:hover),
+  .experience > .role-link:has(+ *:hover) .experience-row,
+  .experience > .experience-row:has(+ *:hover) {
+    border-bottom: 0 !important;
+    transition: 0.25s ease;
+  }
+
+  .experience > .experience-row:first-child:hover {
+    background-color: transparent;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
+    padding-left: 0;
+    padding-right: 0;
+    border-radius: 0;
+  }
 }
 
 /* First experience-row (Stealth) is not clickable, so use default cursor and no hover background */
 .experience > .experience-row:first-child {
   cursor: default;
-}
-
-.experience > .experience-row:first-child:hover {
-  background-color: transparent;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
-  padding-left: 0;
-  padding-right: 0;
-  border-radius: 0;
 }
 
 .experience > .role-link:last-child .experience-row,
@@ -523,44 +525,46 @@ a:hover {
   transition: color 0.5s ease;
 }
 
-.experience-row:has(.pill.stealth):hover .role-name,
-.experience-row:has(.pill.stealth):hover .year {
-  color: rgba(104, 104, 104, 1);
-}
+@media (hover: hover) and (pointer: fine) {
+  .experience-row:has(.pill.stealth):hover .role-name,
+  .experience-row:has(.pill.stealth):hover .year {
+    color: rgba(104, 104, 104, 1);
+  }
 
-.experience-row:has(.pill.beavr):hover .role-name,
-.experience-row:has(.pill.beavr):hover .year {
-  color: rgba(110, 142, 138, 1);
-}
+  .experience-row:has(.pill.beavr):hover .role-name,
+  .experience-row:has(.pill.beavr):hover .year {
+    color: rgba(110, 142, 138, 1);
+  }
 
-.experience-row:has(.pill.garden):hover .role-name,
-.experience-row:has(.pill.garden):hover .year {
-  color: rgba(29, 44, 47, 1);
-}
+  .experience-row:has(.pill.garden):hover .role-name,
+  .experience-row:has(.pill.garden):hover .year {
+    color: rgba(29, 44, 47, 1);
+  }
 
-.experience-row:has(.pill.instagram):hover .role-name,
-.experience-row:has(.pill.instagram):hover .year {
-  color: rgba(201, 33, 169, 1);
-}
+  .experience-row:has(.pill.instagram):hover .role-name,
+  .experience-row:has(.pill.instagram):hover .year {
+    color: rgba(201, 33, 169, 1);
+  }
 
-.experience-row:has(.pill.shopify):hover .role-name,
-.experience-row:has(.pill.shopify):hover .year {
-  color: rgba(149, 191, 71, 1);
-}
+  .experience-row:has(.pill.shopify):hover .role-name,
+  .experience-row:has(.pill.shopify):hover .year {
+    color: rgba(149, 191, 71, 1);
+  }
 
-.experience-row:has(.pill.robinhood):hover .role-name,
-.experience-row:has(.pill.robinhood):hover .year {
-  color: rgba(0, 207, 152, 1);
-}
+  .experience-row:has(.pill.robinhood):hover .role-name,
+  .experience-row:has(.pill.robinhood):hover .year {
+    color: rgba(0, 207, 152, 1);
+  }
 
-.experience-row:has(.pill.twitch):hover .role-name,
-.experience-row:has(.pill.twitch):hover .year {
-  color: rgba(145, 70, 255, 1);
-}
+  .experience-row:has(.pill.twitch):hover .role-name,
+  .experience-row:has(.pill.twitch):hover .year {
+    color: rgba(145, 70, 255, 1);
+  }
 
-.experience-row:has(.pill.deltahacks):hover .role-name,
-.experience-row:has(.pill.deltahacks):hover .year {
-  color: rgba(30, 184, 201, 1);
+  .experience-row:has(.pill.deltahacks):hover .role-name,
+  .experience-row:has(.pill.deltahacks):hover .year {
+    color: rgba(30, 184, 201, 1);
+  }
 }
 
 .pill {
@@ -624,12 +628,14 @@ a:hover {
   border: 1px solid rgba(30, 184, 201, 0.1);
 }
 
-.experience-row:hover .pill {
-  transform: translateX(-24px);
-}
+@media (hover: hover) and (pointer: fine) {
+  .experience-row:hover .pill {
+    transform: translateX(-24px);
+  }
 
-.experience > .experience-row:first-child:hover .pill {
-  transform: none;
+  .experience > .experience-row:first-child:hover .pill {
+    transform: none;
+  }
 }
 
 /* Work */
@@ -663,19 +669,21 @@ a:hover {
   transition: transform 0.5s ease;
 }
 
-.work-section .work-item a:hover img,
-.work-section .work-item img.work-item-img:hover {
-  cursor: pointer;
-  transform: scale(0.97);
+@media (hover: hover) and (pointer: fine) {
+  .work-section .work-item a:hover img,
+  .work-section .work-item img.work-item-img:hover {
+    cursor: pointer;
+    transform: scale(0.97);
+  }
+
+  .comingsoon:hover {
+    cursor: default;
+    transform: scale(1);
+  }
 }
 
 .comingsoon {
   cursor: default;
-}
-
-.comingsoon:hover {
-  cursor: default;
-  transform: scale(1);
 }
 
 /*Footer*/

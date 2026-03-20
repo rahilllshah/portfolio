@@ -61,7 +61,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // On mobile, close the dropdown when tapping Experience/Work.
+  // On mobile, close the dropdown when tapping Experience/Work/About.
   // Mobile nav open/close is driven by the checkbox (#nav-check) via CSS.
   var navCheck = document.getElementById("nav-check");
   if (!navCheck) return;
@@ -72,8 +72,9 @@ document.addEventListener("DOMContentLoaded", function () {
     if (icon) icon.classList.remove("open");
   }
 
+  // *#experience* / *#work* cover index.html (#section) and aboutme.html (full URL with hash).
   var mobileLinks = document.querySelectorAll(
-    '.nav-links-mobile a[href="#experience"], .nav-links-mobile a[href="#work"]',
+    '.nav-links-mobile a[href*="#experience"], .nav-links-mobile a[href*="#work"], .nav-links-mobile a[href*="aboutme"]',
   );
   if (!mobileLinks.length) return;
 
