@@ -81,7 +81,7 @@ body {
   margin: 42px auto;
   padding: 0 24px;
   border-radius: 1000px;
-  background-color: hsla(0, 0%, 100%, 0.75);
+  background-color: hsla(0, 0%, 100%, 0.7);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   box-shadow: 4px 4px 40px 4px rgba(0, 0, 0, 0.05);
@@ -270,14 +270,17 @@ body {
     flex-wrap: wrap;
     align-content: flex-start;
     transition:
+      background-color 0.5s ease,
       box-shadow 0.3s ease,
       border-radius 0.45s ease-out 0.35s;
   }
 
   /* OPEN: pill becomes rounded rectangle (border-radius 24px), no delay on close */
   .nav:has(.nav-check:checked) {
+    background-color: hsla(0, 0%, 100%, 0.9);
     border-radius: 24px;
     transition:
+      background-color 0.5s ease,
       box-shadow 0.3s ease,
       border-radius 0s;
   }

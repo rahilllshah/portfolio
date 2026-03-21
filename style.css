@@ -1,23 +1,41 @@
 /* Mesh gradient used for title, subtitles, gradient button (define once) */
 :root {
   --mesh-gradient:
-    radial-gradient(at 10% 20%, #5a67d8 0%, transparent 45%),
-    radial-gradient(at 30% 80%, #764ada 0%, transparent 45%),
-    radial-gradient(at 60% 10%, #00affa 0%, transparent 45%),
-    radial-gradient(at 85% 40%, #0190cd 0%, transparent 45%),
-    radial-gradient(at 20% 60%, #9f7aea 0%, transparent 45%),
-    radial-gradient(at 70% 85%, #4fd1c5 0%, transparent 45%),
-    radial-gradient(at 50% 50%, #5a67d8 0%, transparent 55%),
-    radial-gradient(at 10% 20%, #7953cd 0%, transparent 45%),
-    radial-gradient(at 30% 80%, #764ada 0%, transparent 45%);
+    radial-gradient(ellipse 85% 70% at 6% 18%, #6366f1 0%, transparent 52%),
+    radial-gradient(ellipse 60% 90% at 94% 12%, #22d3ee 0%, transparent 48%),
+    radial-gradient(ellipse 70% 65% at 38% 88%, #c084fc 0%, transparent 55%),
+    radial-gradient(ellipse 55% 80% at 72% 6%, #38bdf8 0%, transparent 45%),
+    radial-gradient(ellipse 90% 55% at 18% 62%, #818cf8 0%, transparent 50%),
+    radial-gradient(ellipse 50% 70% at 88% 58%, #2dd4bf 0%, transparent 46%),
+    radial-gradient(ellipse 75% 75% at 52% 42%, #a855f7 0%, transparent 58%),
+    radial-gradient(ellipse 65% 60% at 12% 92%, #f472b6 0%, transparent 44%),
+    radial-gradient(ellipse 80% 50% at 82% 82%, #34d399 0%, transparent 51%),
+    radial-gradient(ellipse 45% 85% at 48% 8%, #fcd34d 0%, transparent 40%),
+    radial-gradient(ellipse 70% 70% at 28% 34%, #7c3aed 0%, transparent 53%),
+    radial-gradient(ellipse 55% 65% at 65% 72%, #0ea5e9 0%, transparent 47%),
+    radial-gradient(ellipse 95% 45% at 55% 95%, #fb923c 0%, transparent 42%),
+    radial-gradient(ellipse 50% 55% at 3% 48%, #4f46e5 0%, transparent 49%),
+    radial-gradient(ellipse 60% 95% at 96% 38%, #14b8a6 0%, transparent 45%),
+    radial-gradient(ellipse 85% 60% at 44% 52%, #5b21b6 0%, transparent 56%),
+    radial-gradient(ellipse 40% 70% at 76% 28%, #e879f9 0%, transparent 38%);
   --mesh-gradient-btn:
-    radial-gradient(at 10% 20%, #7953cd 0%, transparent 45%),
-    radial-gradient(at 30% 80%, #764ada 0%, transparent 45%),
-    radial-gradient(at 60% 10%, #00affa 0%, transparent 45%),
-    radial-gradient(at 85% 40%, #0190cd 0%, transparent 45%),
-    radial-gradient(at 20% 60%, #9f7aea 0%, transparent 45%),
-    radial-gradient(at 70% 85%, #4fd1c5 0%, transparent 45%),
-    radial-gradient(at 50% 50%, #5a67d8 0%, transparent 55%), #4f46e5;
+    radial-gradient(ellipse 80% 65% at 8% 22%, #6366f1 0%, transparent 50%),
+    radial-gradient(ellipse 65% 85% at 92% 14%, #22d3ee 0%, transparent 46%),
+    radial-gradient(ellipse 72% 62% at 40% 90%, #c084fc 0%, transparent 52%),
+    radial-gradient(ellipse 58% 78% at 70% 8%, #38bdf8 0%, transparent 44%),
+    radial-gradient(ellipse 88% 52% at 16% 58%, #818cf8 0%, transparent 48%),
+    radial-gradient(ellipse 52% 72% at 86% 62%, #2dd4bf 0%, transparent 45%),
+    radial-gradient(ellipse 78% 72% at 50% 45%, #a855f7 0%, transparent 54%),
+    radial-gradient(ellipse 62% 58% at 14% 88%, #f472b6 0%, transparent 42%),
+    radial-gradient(ellipse 82% 48% at 84% 78%, #34d399 0%, transparent 49%),
+    radial-gradient(ellipse 48% 82% at 46% 10%, #fcd34d 0%, transparent 38%),
+    radial-gradient(ellipse 68% 68% at 30% 38%, #7c3aed 0%, transparent 51%),
+    radial-gradient(ellipse 54% 62% at 68% 68%, #0ea5e9 0%, transparent 46%),
+    radial-gradient(ellipse 92% 42% at 58% 92%, #fb923c 0%, transparent 40%),
+    radial-gradient(ellipse 52% 58% at 5% 44%, #4f46e5 0%, transparent 47%),
+    radial-gradient(ellipse 58% 92% at 94% 36%, #14b8a6 0%, transparent 43%),
+    radial-gradient(ellipse 82% 58% at 42% 54%, #5b21b6 0%, transparent 53%),
+    #4f46e5;
 }
 
 * {
@@ -136,38 +154,56 @@ a:hover {
   filter: saturate(1.1) contrast(1.04);
 
   background: var(--mesh-gradient);
-  background-size: 200% 200%;
+  background-size: 320% 300%;
   background-position: 0% 0%;
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: meshDrift 5s ease-in-out infinite;
+  animation: meshDrift 20s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
 }
 
 @keyframes meshDrift {
   0% {
-    background-position: 30% 20%;
+    background-position: 22% 18%;
   }
-  15% {
-    background-position: 30% 10%;
+  7% {
+    background-position: 61% 9%;
   }
-  30% {
-    background-position: 70% 40%;
+  13% {
+    background-position: 88% 34%;
   }
-  45% {
-    background-position: 100% 70%;
+  21% {
+    background-position: 41% 71%;
   }
-  60% {
-    background-position: 65% 100%;
+  29% {
+    background-position: 12% 52%;
   }
-  75% {
-    background-position: 25% 80%;
+  37% {
+    background-position: 95% 88%;
   }
-  90% {
-    background-position: 10% 40%;
+  44% {
+    background-position: 53% 28%;
+  }
+  52% {
+    background-position: 7% 91%;
+  }
+  61% {
+    background-position: 78% 46%;
+  }
+  68% {
+    background-position: 34% 12%;
+  }
+  76% {
+    background-position: 100% 62%;
+  }
+  84% {
+    background-position: 19% 38%;
+  }
+  92% {
+    background-position: 66% 84%;
   }
   100% {
-    background-position: 30% 20%;
+    background-position: 22% 18%;
   }
 }
 
@@ -198,15 +234,14 @@ a:hover {
   cursor: pointer;
   text-decoration: none;
   background: var(--mesh-gradient-btn);
-  background-size: 350% 350%;
+  background-size: 380% 360%;
   background-position: 0% 0%;
-  animation: meshDrift 5s ease-in-out infinite;
+  animation: meshDrift 20s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
   transition: transform 0.2s;
 }
 
 .solid-btn:link,
 .solid-btn:visited,
-.solid-btn:hover,
 .solid-btn:active {
   color: white;
   text-decoration: none;
@@ -225,16 +260,18 @@ a:hover {
   transition: all 0.3s ease-in-out;
 }
 
-.solid-btn:hover .svg-wrapper {
-  animation: fly-1 0.6s ease-in-out infinite alternate;
-}
+@media (hover: hover) and (pointer: fine) {
+  .solid-btn:hover .svg-wrapper {
+    animation: fly-1 0.6s ease-in-out infinite alternate;
+  }
 
-.solid-btn:hover svg {
-  transform: translateX(3em) rotate(45deg) scale(1.1);
-}
+  .solid-btn:hover svg {
+    transform: translateX(3em) rotate(45deg) scale(1.1);
+  }
 
-.solid-btn:hover span {
-  transform: translateX(8em);
+  .solid-btn:hover span {
+    transform: translateX(8em);
+  }
 }
 
 .solid-btn:active {
@@ -675,15 +712,6 @@ a:hover {
     cursor: pointer;
     transform: scale(0.97);
   }
-
-  .comingsoon:hover {
-    cursor: default;
-    transform: scale(1);
-  }
-}
-
-.comingsoon {
-  cursor: default;
 }
 
 /*Footer*/
