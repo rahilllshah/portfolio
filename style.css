@@ -176,22 +176,22 @@ a:hover {
     background-position: 41% 71%;
   }
   29% {
-    background-position: 12% 52%;
+    background-position: 62% 12%;
   }
   37% {
     background-position: 95% 88%;
   }
   44% {
-    background-position: 53% 28%;
+    background-position: 73% 58%;
   }
   52% {
-    background-position: 7% 91%;
+    background-position: 57% 91%;
   }
   61% {
     background-position: 78% 46%;
   }
   68% {
-    background-position: 34% 12%;
+    background-position: 34% 72%;
   }
   76% {
     background-position: 100% 62%;
@@ -234,7 +234,7 @@ a:hover {
   cursor: pointer;
   text-decoration: none;
   background: var(--mesh-gradient-btn);
-  background-size: 380% 360%;
+  background-size: 500% 500%;
   background-position: 0% 0%;
   animation: meshDrift 20s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
   transition: transform 0.2s;
@@ -524,19 +524,6 @@ a:hover {
     border-bottom: 0 !important;
     transition: 0.25s ease;
   }
-
-  .experience > .experience-row:first-child:hover {
-    background-color: transparent;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
-    padding-left: 0;
-    padding-right: 0;
-    border-radius: 0;
-  }
-}
-
-/* First experience-row (Stealth) is not clickable, so use default cursor and no hover background */
-.experience > .experience-row:first-child {
-  cursor: default;
 }
 
 .experience > .role-link:last-child .experience-row,
@@ -668,10 +655,6 @@ a:hover {
 @media (hover: hover) and (pointer: fine) {
   .experience-row:hover .pill {
     transform: translateX(-24px);
-  }
-
-  .experience > .experience-row:first-child:hover .pill {
-    transform: none;
   }
 }
 
