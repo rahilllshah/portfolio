@@ -74,7 +74,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // *#experience* / *#work* cover index.html (#section) and aboutme.html (full URL with hash).
   var mobileLinks = document.querySelectorAll(
-    '.nav-links-mobile a[href*="#experience"], .nav-links-mobile a[href*="#work"], .nav-links-mobile a[href*="aboutme"]',
+    '.nav-links-mobile a[href*="#experience"], .nav-links-mobile a[href*="#work"], .nav-links-mobile a[href*="#testimonials"], .nav-links-mobile a[href*="aboutme"]',
   );
   if (!mobileLinks.length) return;
 
