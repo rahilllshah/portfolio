@@ -211,7 +211,7 @@ a:hover {
   font-size: 20px;
   font-weight: 450;
   margin-top: 16px;
-  color: gray;
+  color: rgb(104, 104, 104);
 }
 
 .button-row {
@@ -227,7 +227,7 @@ a:hover {
   padding: 12px 16px;
   display: flex;
   align-items: center;
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  border: 0.5px solid rgba(0, 0, 0, 0.1);
   border-radius: 100px;
   overflow: hidden;
   transition: all 0.2s;
@@ -272,10 +272,40 @@ a:hover {
   .solid-btn:hover span {
     transform: translateX(8em);
   }
+
+  .gray-btn:hover .svg-wrapper {
+    animation: none;
+  }
+
+  .gray-btn:hover svg {
+    transform: none;
+  }
+
+  .gray-btn:hover span {
+    transform: none;
+  }
+
+  .gray-btn:hover {
+    background-color: rgba(104, 104, 104, 0.08);
+    transition: 0.25s;
+  }
 }
 
 .solid-btn:active {
   transform: scale(0.95);
+}
+
+.gray-btn {
+  background: #eeeeee;
+  color: #333;
+  animation: none;
+  transition: 0.25s;
+}
+
+.gray-btn:link,
+.gray-btn:visited,
+.gray-btn:active {
+  color: rgb(104, 104, 104);
 }
 
 @keyframes fly-1 {
@@ -487,11 +517,14 @@ a:hover {
 }
 
 .experience-row-right {
-  display: flex;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
   align-items: center;
   gap: 12px;
   position: relative;
   flex-shrink: 0;
+  min-width: 0;
+  justify-items: start;
 }
 
 @media (hover: hover) and (pointer: fine) {
@@ -599,6 +632,28 @@ a:hover {
   transition: transform 0.25s ease;
 }
 
+.experience-row-right .ext-arrow {
+  justify-self: end;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.25s ease;
+}
+
+.experience-row-right .ext-arrow svg {
+  width: 16px;
+  height: 16px;
+  display: block;
+}
+
+.experience-row-right .ext-arrow svg path {
+  fill: none;
+  stroke: #ababab;
+  stroke-width: 1.75;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
 /* Brand colors */
 
 .stealth {
@@ -650,7 +705,8 @@ a:hover {
 }
 
 @media (hover: hover) and (pointer: fine) {
-  .experience-row:hover .pill {
+  .experience-row:hover .pill,
+  .experience-row:hover .ext-arrow {
     transform: translateX(-24px);
   }
 }
