@@ -266,7 +266,7 @@ a:hover {
   }
 
   .solid-btn:hover svg {
-    transform: translateX(3em) rotate(45deg) scale(1.1);
+    transform: translateX(2.5em) rotate(45deg) scale(1.1);
   }
 
   .solid-btn:hover span {
@@ -289,10 +289,6 @@ a:hover {
     background-color: rgba(104, 104, 104, 0.08);
     transition: 0.25s;
   }
-}
-
-.solid-btn:active {
-  transform: scale(0.95);
 }
 
 .gray-btn {
