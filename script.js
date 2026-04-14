@@ -82,7 +82,10 @@ document.addEventListener("DOMContentLoaded", function () {
   mobileLinks.forEach(function (a) {
     a.addEventListener("click", function () {
       // Only necessary on mobile breakpoint, but safe even if desktop.
-      if (window.matchMedia && window.matchMedia("(max-width: 1120px)").matches) {
+      if (
+        window.matchMedia &&
+        window.matchMedia("(max-width: 1120px)").matches
+      ) {
         closeMobileNav();
       }
     });

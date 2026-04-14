@@ -167,6 +167,12 @@ h5 {
   align-items: center;
   margin-left: 2px;
   vertical-align: middle;
+  transition: transform 0.3s ease;
+  transform-origin: center;
+}
+
+a:hover .nav-ext-arrow {
+  transform: rotate(45deg);
 }
 
 .nav-ext-arrow svg {

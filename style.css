@@ -211,7 +211,7 @@ a:hover {
   font-size: 20px;
   font-weight: 450;
   margin-top: 16px;
-  color: rgb(104, 104, 104);
+  color: rgb(110, 110, 110);
 }
 
 .button-row {
@@ -286,14 +286,14 @@ a:hover {
   }
 
   .gray-btn:hover {
-    background-color: rgba(104, 104, 104, 0.07);
+    background-color: rgba(110, 110, 110, 0.07);
     transition: 0.25s;
   }
 }
 
 .gray-btn {
   background: #eeeeee;
-  color: #333;
+
   animation: none;
   transition: 0.25s;
 }
@@ -301,7 +301,7 @@ a:hover {
 .gray-btn:link,
 .gray-btn:visited,
 .gray-btn:active {
-  color: rgb(104, 104, 104);
+  color: rgb(110, 110, 110);
 }
 
 @keyframes fly-1 {
@@ -634,6 +634,7 @@ a:hover {
   align-items: center;
   justify-content: center;
   transition: transform 0.25s ease;
+  transform-origin: center;
 }
 
 .experience-row-right .ext-arrow svg {
@@ -701,9 +702,12 @@ a:hover {
 }
 
 @media (hover: hover) and (pointer: fine) {
-  .experience-row:hover .pill,
-  .experience-row:hover .ext-arrow {
+  .experience-row:hover .pill {
     transform: translateX(-24px);
+  }
+
+  .experience-row:hover .ext-arrow {
+    transform: translateX(-24px) rotate(45deg);
   }
 }
 
