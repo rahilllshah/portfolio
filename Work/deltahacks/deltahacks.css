@@ -1,8 +1,0 @@
-/* DeltaHacks project – base styles in global.css */
-.color {
-  background: linear-gradient(45deg, #1db8c9, #ef4e67, #fbd966);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  color: transparent;
-}

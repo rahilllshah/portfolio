@@ -528,6 +528,14 @@ While the federal government eventually partnered with Shopify and BlackBerry fo
         progressBarValueColor: "#8080E6",
       });
     </script>
+    <script>
+      if (window.innerWidth > 768) {
+        document.querySelectorAll("video").forEach(function (v) {
+          v.autoplay = true;
+          v.play();
+        });
+      }
+    </script>
     
   </body>
 </html>
