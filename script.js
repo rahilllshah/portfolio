@@ -223,13 +223,29 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
-// Shared image modal (index + about me)
-// openModal(source): source = <img> element or string URL
+// Shared image/video modal (index + about me)
 function openModal(source) {
   const modal = document.querySelector(".modal");
-  const modalImage = document.querySelector(".modal .modal-content");
-  if (!modal || !modalImage) return;
-  modalImage.src = typeof source === "string" ? source : source.src;
+  const modalImage = modal.querySelector(".modal-img");
+  const modalVideo = modal.querySelector(".modal-video");
+  if (!modal) return;
+
+  const isVideo = source.tagName === "VIDEO";
+  const src = typeof source === "string" ? source : source.src;
+
+  if (isVideo) {
+    modalVideo.src = src;
+    modalVideo.style.display = "block";
+    modalImage.style.display = "none";
+    modalImage.src = "";
+    modalVideo.play();
+  } else {
+    modalImage.src = src;
+    modalImage.style.display = "block";
+    modalVideo.style.display = "none";
+    modalVideo.src = "";
+  }
+
   modal.classList.add("active");
   history.pushState({ imageModalOpen: true }, "", window.location.href);
   var scrollY = window.scrollY || window.pageYOffset;
@@ -245,6 +261,11 @@ function closeModal(event) {
   if (!modal.classList.contains("active")) return;
   if (event && event.key && event.key !== "Escape") return;
   if (event && event.target !== modal && !event.key) return;
+  const modalVideo = modal.querySelector(".modal-video");
+  if (modalVideo) {
+    modalVideo.pause();
+    modalVideo.src = "";
+  }
   modal.classList.remove("active");
   if (history.state && history.state.imageModalOpen) {
     var url =
@@ -373,6 +394,123 @@ document.addEventListener("DOMContentLoaded", function () {
     if (closeBtn) closeBtn.addEventListener("click", closeWorkModal);
   }
 });
+
+// Hold B + click to interact with mesh background
+(function () {
+  var bHeld = false;
+  var meshBg = null;
+  var focusPoll = null;
+  var releaseWatchdog = null;
+  // Browser key-repeat fires keydown ~30-60ms while a key is held. If we go
+  // longer than this without seeing one, the key is almost certainly released
+  // (covers the case where the iframe stole focus and ate our keyup).
+  var RELEASE_WATCHDOG_MS = 600;
+
+  function bumpReleaseWatchdog() {
+    if (releaseWatchdog) clearTimeout(releaseWatchdog);
+    releaseWatchdog = setTimeout(deactivate, RELEASE_WATCHDOG_MS);
+  }
+
+  function activate() {
+    if (meshBg) {
+      meshBg.style.zIndex = "2";
+      meshBg.style.pointerEvents = "auto";
+    }
+    document.documentElement.classList.add("mesh-grab");
+    if (focusPoll) clearInterval(focusPoll);
+    focusPoll = setInterval(function () {
+      if (!bHeld) {
+        clearInterval(focusPoll);
+        focusPoll = null;
+        return;
+      }
+      if (!document.hasFocus()) {
+        try {
+          window.focus();
+        } catch (_) {}
+      }
+    }, 50);
+    bumpReleaseWatchdog();
+  }
+
+  function deactivate() {
+    bHeld = false;
+    if (meshBg) {
+      meshBg.style.zIndex = "";
+      meshBg.style.pointerEvents = "";
+    }
+    document.documentElement.classList.remove("mesh-grab");
+    if (focusPoll) {
+      clearInterval(focusPoll);
+      focusPoll = null;
+    }
+    if (releaseWatchdog) {
+      clearTimeout(releaseWatchdog);
+      releaseWatchdog = null;
+    }
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    meshBg = document.querySelector(".mesh-bg");
+
+    document.addEventListener("mouseup", function () {
+      if (bHeld) {
+        try {
+          window.focus();
+        } catch (_) {}
+      }
+    });
+  });
+
+  // Capture phase on window so nothing can swallow the key event before us.
+  window.addEventListener(
+    "keydown",
+    function (e) {
+      if (e.key !== "b" && e.key !== "B") return;
+      var t = e.target;
+      if (
+        t &&
+        (t.tagName === "INPUT" ||
+          t.tagName === "TEXTAREA" ||
+          t.isContentEditable)
+      ) {
+        return;
+      }
+      if (!bHeld) {
+        bHeld = true;
+        activate();
+      } else {
+        bumpReleaseWatchdog();
+      }
+    },
+    true,
+  );
+
+  window.addEventListener(
+    "keyup",
+    function (e) {
+      if (e.key === "b" || e.key === "B") deactivate();
+    },
+    true,
+  );
+
+  window.addEventListener("blur", function () {
+    setTimeout(function () {
+      if (!document.hasFocus()) deactivate();
+    }, 250);
+  });
+
+  document.addEventListener("visibilitychange", function () {
+    if (document.hidden) deactivate();
+  });
+
+  document.addEventListener("mouseleave", function () {
+    if (bHeld && overlay) {
+      overlay.style.cursor = "grab";
+      overlay.style.pointerEvents = "";
+    }
+  });
+})();
 
 document.addEventListener("keydown", function (event) {
   if (event.key === "Escape") {

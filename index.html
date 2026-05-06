@@ -59,6 +59,8 @@
   <body class="home">
     <script type="text/javascript" src="script.js"></script>
 
+    <iframe class="mesh-bg" loading="lazy" src="https://meshbg-lhaemysyr-chasedavis-projects.vercel.app/embed/0.6320884016731518" aria-hidden="true"></iframe>
+
     <div class="top-blur" aria-hidden="true"></div>
 
     <div class="row">
@@ -390,30 +392,47 @@
         </a>
       </div>
 
-      <div class="work-item work-item-third scroll-fade">
-        <img class="work-item-img" src="Images/1A.jpg" alt="AA" onclick="openModal(this)" />
-      </div>
-      <div class="work-item work-item-third scroll-fade">
-        <img class="work-item-img" src="Images/1B.png" alt="BB" onclick="openModal(this)" />
-      </div>
-      <div class="work-item work-item-third scroll-fade">
-        <img class="work-item-img" src="Images/1C.jpg" alt="CC" onclick="openModal(this)" />
-      </div>
       <div class="work-item work-item-half scroll-fade">
         <img class="work-item-img" src="Images/2A.jpg" alt="DD" onclick="openModal(this)" />
       </div>
       <div class="work-item work-item-half scroll-fade">
         <img class="work-item-img" src="Images/2B.jpg" alt="EE" onclick="openModal(this)" />
       </div>
+
+
       <div class="work-item work-item-third scroll-fade">
-        <img class="work-item-img" src="Images/3A.jpg" alt="FF" onclick="openModal(this)" />
+        <img class="work-item-img" src="Images/1A.jpg" alt="AA" onclick="openModal(this)" />
       </div>
       <div class="work-item work-item-third scroll-fade">
-        <img class="work-item-img" src="Images/3B.jpg" alt="GG" onclick="openModal(this)" />
+        <video class="work-item-img" src="Images/VA.mp4" autoplay muted loop playsinline onclick="openModal(this)"></video>
       </div>
       <div class="work-item work-item-third scroll-fade">
-        <img class="work-item-img" src="Images/3C.jpg" alt="HH" onclick="openModal(this)" />
+        <img class="work-item-img" src="Images/1B.png" alt="AA" onclick="openModal(this)" />
       </div>
+
+
+      <div class="work-item work-item-third scroll-fade">
+        <video class="work-item-img" src="Images/VB.mp4" autoplay muted loop playsinline onclick="openModal(this)"></video>
+      </div>
+      <div class="work-item work-item-third scroll-fade">
+        <img class="work-item-img" src="Images/1C.jpg" alt="AA" onclick="openModal(this)" />
+      </div>
+      <div class="work-item work-item-third scroll-fade">
+        <img class="work-item-img" src="Images/3A.jpg" alt="BB" onclick="openModal(this)" />
+      </div>
+
+
+      <div class="work-item work-item-third scroll-fade">
+        <img class="work-item-img" src="Images/3B.jpg" alt="FF" onclick="openModal(this)" />
+      </div>
+      <div class="work-item work-item-third scroll-fade">
+        <img class="work-item-img" src="Images/3C.jpg" alt="GG" onclick="openModal(this)" />
+      </div>
+      <div class="work-item work-item-third scroll-fade">
+        <video class="work-item-img" src="Images/VC.mp4" autoplay muted loop playsinline onclick="openModal(this)"></video>
+      </div>
+
+
     </div>
   </div>
 
@@ -628,8 +647,22 @@
       });
     </script>
 
+    <div class="bg-hint" aria-hidden="true">
+      <span class="bg-hint-key">B</span>
+      <span class="bg-hint-plus">+</span>
+      <span class="bg-hint-mouse">
+        <svg class="bg-hint-mouse-icon" viewBox="0 0 24 36" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="3" y="3" width="18" height="30" rx="9" />
+          <line x1="12" y1="9" x2="12" y2="14" />
+        </svg>
+        <span class="bg-hint-mouse-trail"></span>
+      </span>
+      <span class="bg-hint-text">to move background</span>
+    </div>
+
     <div class="modal" onclick="closeModal(event)">
-      <img class="modal-content" alt="" />
+      <img class="modal-content modal-img" alt="" />
+      <video class="modal-content modal-video" controls playsinline loop></video>
     </div>
 
     <div id="work-modal" class="work-modal">

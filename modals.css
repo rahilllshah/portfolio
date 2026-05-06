@@ -41,6 +41,10 @@ html {
   object-fit: contain;
 }
 
+.modal-video {
+  display: none;
+}
+
 .modal.active .modal-content {
   transform: scale(1);
 }
