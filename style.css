@@ -284,7 +284,7 @@ a:hover {
 
 @media (hover: hover) and (pointer: fine) {
   .solid-btn:hover {
-    transform: scale(0.97);
+    transform: scale(0.96);
     transition: 0.25s;
   }
 
@@ -313,7 +313,7 @@ a:hover {
   }
 
   .gray-btn:hover {
-    transform: scale(0.97);
+    transform: scale(0.96);
     transition: 0.25s;
   }
 }
@@ -353,6 +353,11 @@ a:hover {
 }
 
 .me {
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  /* box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05); */
   display: block;
   height: 100%;
   width: auto;
@@ -865,7 +870,7 @@ a:hover {
   background: rgba(255, 255, 255, 0.55);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(0, 0, 0, 0.06);
+  /* border: 1px solid rgba(0, 0, 0, 0.06); */
   border-radius: 100px;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
   font-size: 13px;
@@ -953,16 +958,77 @@ html.mesh-grab .bg-hint {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 18px;
+  width: 22px;
   height: 24px;
+  margin-bottom: 1px;
   animation: bgHintMouseDrag 2.6s ease-in-out infinite;
 }
 
 .bg-hint-mouse-icon {
-  width: 16px;
-  height: 22px;
+  width: 22px;
+  height: 24px;
   stroke: rgba(0, 0, 0, 0.72);
   display: block;
+  overflow: visible;
+  transform-origin: center top;
+  animation: bgHintMousePress 2.6s ease-in-out infinite;
+}
+
+.bg-hint-mouse-click {
+  fill: rgba(0, 0, 0, 0.25);
+  stroke: none;
+  opacity: 0;
+  transform-origin: center top;
+  animation: bgHintMouseClickFade 2.6s ease-in-out infinite;
+}
+
+.bg-hint-mouse-rays {
+  stroke: rgba(0, 0, 0, 0.65);
+  stroke-width: 1.6;
+  opacity: 0;
+  transform-origin: 5px 5px;
+  animation: bgHintMouseRays 2.6s ease-in-out infinite;
+}
+
+@keyframes bgHintMouseRays {
+  0%,
+  14%,
+  88%,
+  100% {
+    opacity: 0;
+    transform: scale(0.55);
+  }
+  20%,
+  82% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* @keyframes bgHintMousePress {
+  0%,
+  14%,
+  88%,
+  100% {
+    transform: scaleY(1);
+  }
+  20%,
+  82% {
+    transform: scaleY(0.96);
+  }
+} */
+
+@keyframes bgHintMouseClickFade {
+  0%,
+  14%,
+  88%,
+  100% {
+    opacity: 0;
+  }
+  20%,
+  82% {
+    opacity: 1;
+  }
 }
 
 /* .bg-hint-mouse-trail {
@@ -1018,11 +1084,16 @@ html.mesh-grab .bg-hint {
 @media (prefers-reduced-motion: reduce) {
   .bg-hint-key,
   .bg-hint-mouse,
-  .bg-hint-mouse-trail {
+  .bg-hint-mouse-icon,
+  .bg-hint-mouse-trail,
+  .bg-hint-mouse-click,
+  .bg-hint-mouse-rays {
     animation: none;
   }
-  .bg-hint-mouse-trail {
-    opacity: 0.5;
+  .bg-hint-mouse-trail,
+  .bg-hint-mouse-click,
+  .bg-hint-mouse-rays {
+    opacity: 0;
   }
 }
 
