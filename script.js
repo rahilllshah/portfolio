@@ -52,6 +52,26 @@ document.addEventListener("DOMContentLoaded", function () {
   window.addEventListener("resize", sizeMeToContent);
 });
 
+// Landing arrow cue: hide after scrolling past hero, show when back up.
+document.addEventListener("DOMContentLoaded", function () {
+  var landing = document.getElementById("landing");
+  var landingArrow = document.querySelector(".arrowA");
+  if (!landing || !landingArrow) return;
+
+  function updateLandingArrowVisibility() {
+    var landingHeight = landing.getBoundingClientRect().height;
+    var hideThreshold = Math.max(64, landingHeight - window.innerHeight * 0.75);
+    var shouldHide = window.scrollY > hideThreshold;
+    landingArrow.classList.toggle("is-hidden", shouldHide);
+  }
+
+  updateLandingArrowVisibility();
+  window.addEventListener("scroll", updateLandingArrowVisibility, {
+    passive: true,
+  });
+  window.addEventListener("resize", updateLandingArrowVisibility);
+});
+
 // Nav hamburger toggle (nav is inlined in index.html and aboutme.html)
 document.addEventListener("DOMContentLoaded", function () {
   var icon = document.getElementById("nav-icon");

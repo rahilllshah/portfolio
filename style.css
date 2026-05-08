@@ -259,7 +259,7 @@ a:hover {
   background-position: 0% 0%;
   animation: meshDrift 20s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
   transition: transform 0.2s;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.18);
 }
 
 .solid-btn:link,
@@ -323,7 +323,7 @@ a:hover {
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   /* border: 1px solid rgba(0, 0, 0, 0.06); */
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.04);
   animation: none;
   transition: 0.25s;
 }
@@ -375,6 +375,16 @@ a:hover {
   opacity: 0.75;
   text-decoration: none;
   text-align: center;
+  transform: translateY(0);
+  transition:
+    opacity 0.28s ease,
+    transform 0.28s ease;
+}
+
+.arrowA.is-hidden {
+  opacity: 0;
+  transform: translateY(10px);
+  pointer-events: none;
 }
 
 .bounce {
@@ -758,7 +768,7 @@ a:hover {
   -webkit-column-break-inside: avoid;
   margin-bottom: 24px;
   padding: 24px;
-  background-color: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.5);
   border-radius: 24px;
   display: inline-block;
   width: 100%;
