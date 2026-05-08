@@ -46,7 +46,17 @@
   border: none;
   z-index: -1;
   pointer-events: none;
-  opacity: 0.35;
+  opacity: 0;
+  animation: meshBgFadeIn 2s ease-out forwards;
+}
+
+@keyframes meshBgFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 0.35;
+  }
 }
 
 html.mesh-grab,
@@ -90,6 +100,10 @@ body {
 
 .page-content {
   animation: pageLoadIn 0.6s ease-out forwards;
+}
+
+body.home .page-content {
+  animation: none;
 }
 
 @keyframes pageLoadIn {
