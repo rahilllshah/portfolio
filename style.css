@@ -47,7 +47,7 @@
   z-index: -1;
   pointer-events: none;
   opacity: 0;
-  animation: meshBgFadeIn 2s ease-out forwards;
+  animation: meshBgFadeIn 2.5s ease-out forwards;
 }
 
 @keyframes meshBgFadeIn {
