@@ -400,14 +400,33 @@ document.addEventListener("DOMContentLoaded", function () {
   var meshBg = null;
   var focusPoll = null;
   var releaseWatchdog = null;
-  // Browser key-repeat fires keydown ~30-60ms while a key is held. If we go
-  // longer than this without seeing one, the key is almost certainly released
-  // (covers the case where the iframe stole focus and ate our keyup).
+  // Browser key-repeat fires keydown ~30-60ms while a key is held. If no
+  // repeats arrive for this long, B has been released.
   var RELEASE_WATCHDOG_MS = 600;
 
   function bumpReleaseWatchdog() {
     if (releaseWatchdog) clearTimeout(releaseWatchdog);
     releaseWatchdog = setTimeout(deactivate, RELEASE_WATCHDOG_MS);
+  }
+
+  function startFocusPoll() {
+    if (focusPoll) clearInterval(focusPoll);
+    // When the user clicks the cross-origin mesh iframe, focus moves into it
+    // and the parent stops receiving key-repeats / keyup. Reclaim focus on a
+    // short interval so the watchdog can still detect B release. Mouse
+    // capture is independent of focus, so the drag interaction continues.
+    focusPoll = setInterval(function () {
+      if (!bHeld) {
+        clearInterval(focusPoll);
+        focusPoll = null;
+        return;
+      }
+      if (document.activeElement === meshBg) {
+        try {
+          window.focus();
+        } catch (_) {}
+      }
+    }, 100);
   }
 
   function activate() {
@@ -416,19 +435,7 @@ document.addEventListener("DOMContentLoaded", function () {
       meshBg.style.pointerEvents = "auto";
     }
     document.documentElement.classList.add("mesh-grab");
-    if (focusPoll) clearInterval(focusPoll);
-    focusPoll = setInterval(function () {
-      if (!bHeld) {
-        clearInterval(focusPoll);
-        focusPoll = null;
-        return;
-      }
-      if (!document.hasFocus()) {
-        try {
-          window.focus();
-        } catch (_) {}
-      }
-    }, 50);
+    startFocusPoll();
     bumpReleaseWatchdog();
   }
 
@@ -454,14 +461,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   document.addEventListener("DOMContentLoaded", function () {
     meshBg = document.querySelector(".mesh-bg");
-
-    document.addEventListener("mouseup", function () {
-      if (bHeld) {
-        try {
-          window.focus();
-        } catch (_) {}
-      }
-    });
   });
 
   // Capture phase on window so nothing can swallow the key event before us.
@@ -501,19 +500,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
   window.addEventListener("blur", function () {
     setTimeout(function () {
+      // Iframe focus is fine — that's just the user grabbing the mesh, and
+      // the focus poll will reclaim. Real focus loss (alt-tab, devtools)
+      // means activeElement is body/null and document.hasFocus() is false.
+      if (document.activeElement === meshBg) return;
       if (!document.hasFocus()) deactivate();
     }, 250);
   });
 
   document.addEventListener("visibilitychange", function () {
     if (document.hidden) deactivate();
-  });
-
-  document.addEventListener("mouseleave", function () {
-    if (bHeld && overlay) {
-      overlay.style.cursor = "grab";
-      overlay.style.pointerEvents = "";
-    }
   });
 })();
 
