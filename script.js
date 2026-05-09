@@ -447,6 +447,9 @@ document.addEventListener("DOMContentLoaded", function () {
       clearTimeout(releaseWatchdog);
       releaseWatchdog = null;
     }
+    try {
+      window.focus();
+    } catch (_) {}
   }
 
   document.addEventListener("DOMContentLoaded", function () {
@@ -475,10 +478,13 @@ document.addEventListener("DOMContentLoaded", function () {
       ) {
         return;
       }
-      if (!bHeld) {
+      // A real new key press (!repeat) must always arm grab mode. If the iframe
+      // had focus, we often miss keyup and bHeld stays true; the old "only when
+      // !bHeld" branch then ignored the first new press and felt like "B twice".
+      if (!e.repeat) {
         bHeld = true;
         activate();
-      } else {
+      } else if (bHeld) {
         bumpReleaseWatchdog();
       }
     },
