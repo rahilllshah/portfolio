@@ -69,6 +69,33 @@ html.mesh-grab *:active {
   cursor: grabbing;
 }
 
+/* Foreground eases out while B is held so the mesh reads clearly; restores on keyup.
+ * Fade .nav directly — opacity on the .row wrapper composes badly with position:fixed
+ * + backdrop-filter (nav can pop or skip interpolation). pointer-events:none on .row
+ * alone does not disable hits on descendants, so the nav strip must be cleared too. */
+body.home > .top-blur,
+body.home > .page {
+  transition: opacity 0.75s ease;
+}
+
+body.home .nav {
+  transition:
+    all 0.1s ease,
+    opacity 0.75s ease;
+}
+
+html.mesh-grab body.home > .top-blur,
+html.mesh-grab body.home .nav,
+html.mesh-grab body.home > .page {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+html.mesh-grab body.home > .row,
+html.mesh-grab body.home > .row * {
+  pointer-events: none;
+}
+
 * {
   padding: 0;
   margin: 0;
