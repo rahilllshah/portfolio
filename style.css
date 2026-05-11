@@ -78,12 +78,6 @@ body.home > .page {
   transition: opacity 0.75s ease;
 }
 
-body.home .nav {
-  transition:
-    all 0.1s ease,
-    opacity 0.75s ease;
-}
-
 html.mesh-grab body.home > .top-blur,
 html.mesh-grab body.home .nav,
 html.mesh-grab body.home > .page {
