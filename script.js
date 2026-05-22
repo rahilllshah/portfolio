@@ -286,7 +286,7 @@ function closeModal(event) {
   html.style.scrollBehavior = prevScrollBehavior;
 }
 
-// Work case study modals (cantrace, timeline, applemusic, deltahacks, instagram PDF)
+// Work case study modals (beacon, timeline, applemusic, deltahacks, instagram PDF)
 function openWorkModal(triggerOrProject) {
   const workModal = document.getElementById("work-modal");
   const container =

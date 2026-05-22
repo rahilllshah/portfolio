@@ -76,7 +76,7 @@ body.image-modal-open {
   /* top set via JS to -scrollY */
 }
 
-/* Work case study modals (cantrace, timeline, applemusic) */
+/* Work case study modals (beacon, timeline, applemusic) */
 .work-modal {
   display: flex;
   position: fixed;
