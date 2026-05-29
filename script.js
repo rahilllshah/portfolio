@@ -31,6 +31,45 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
+// Reel video progress bar — drive width from currentTime via rAF for smoothness
+document.addEventListener("DOMContentLoaded", function () {
+  var video = document.querySelector(".reel-video");
+  var fill = document.querySelector(".reel-progress-fill");
+  if (!video || !fill) return;
+
+  var rafId = null;
+
+  function tick() {
+    if (video.duration && isFinite(video.duration)) {
+      var pct = (video.currentTime / video.duration) * 100;
+      fill.style.width = pct + "%";
+    }
+    rafId = requestAnimationFrame(tick);
+  }
+
+  function start() {
+    if (rafId == null) rafId = requestAnimationFrame(tick);
+  }
+
+  function stop() {
+    if (rafId != null) {
+      cancelAnimationFrame(rafId);
+      rafId = null;
+    }
+  }
+
+  video.addEventListener("play", start);
+  video.addEventListener("playing", start);
+  video.addEventListener("pause", stop);
+  video.addEventListener("ended", stop);
+  document.addEventListener("visibilitychange", function () {
+    if (document.hidden) stop();
+    else if (!video.paused) start();
+  });
+
+  if (!video.paused) start();
+});
+
 // Landing arrow cue: hide after scrolling past hero, show when back up.
 document.addEventListener("DOMContentLoaded", function () {
   var landing = document.getElementById("landing");
