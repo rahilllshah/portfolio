@@ -188,8 +188,17 @@
             preload="metadata"
           ></video>
           <div class="reel-sheen" aria-hidden="true"></div>
-          <div class="reel-progress" aria-hidden="true">
-            <div class="reel-progress-fill"></div>
+          <div
+            class="reel-progress"
+            role="slider"
+            aria-label="Seek reel video"
+            aria-valuemin="0"
+            aria-valuemax="100"
+            aria-valuenow="0"
+          >
+            <div class="reel-progress-track">
+              <div class="reel-progress-fill"></div>
+            </div>
           </div>
         </div>
       </div>
@@ -432,7 +441,7 @@
 
 
       <div class="work-item work-item-third scroll-fade">
-        <video class="work-item-img" src="Images/VB.mp4" autoplay muted loop playsinline onclick="openModal(this)"></video>
+        <video class="work-item-img" src="Images/VC.webm" type="video/webm" autoplay muted loop playsinline onclick="openModal(this)"></video>
       </div>
       <div class="work-item work-item-third scroll-fade">
         <img class="work-item-img" src="Images/1C.jpg" alt="AA" onclick="openModal(this)" />
@@ -449,7 +458,7 @@
         <img class="work-item-img" src="Images/3C.jpg" alt="GG" onclick="openModal(this)" />
       </div>
       <div class="work-item work-item-third scroll-fade">
-        <video class="work-item-img" src="Images/VC.webm" type="video/webm" autoplay muted loop playsinline onclick="openModal(this)"></video>
+        <video class="work-item-img" src="Images/VB.mp4" autoplay muted loop playsinline onclick="openModal(this)"></video>
       </div>
 
 

@@ -31,18 +31,24 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-// Reel video progress bar — drive width from currentTime via rAF for smoothness
+// Reel video progress bar — auto-tracks via rAF, scrubbable via pointer drag
 document.addEventListener("DOMContentLoaded", function () {
   var video = document.querySelector(".reel-video");
+  var progress = document.querySelector(".reel-progress");
   var fill = document.querySelector(".reel-progress-fill");
-  if (!video || !fill) return;
+  if (!video || !progress || !fill) return;
 
   var rafId = null;
+  var isScrubbing = false;
+
+  function setFill(pct) {
+    fill.style.width = pct + "%";
+    progress.setAttribute("aria-valuenow", String(Math.round(pct)));
+  }
 
   function tick() {
-    if (video.duration && isFinite(video.duration)) {
-      var pct = (video.currentTime / video.duration) * 100;
-      fill.style.width = pct + "%";
+    if (!isScrubbing && video.duration && isFinite(video.duration)) {
+      setFill((video.currentTime / video.duration) * 100);
     }
     rafId = requestAnimationFrame(tick);
   }
@@ -57,6 +63,52 @@ document.addEventListener("DOMContentLoaded", function () {
       rafId = null;
     }
   }
+
+  // Scrubbing: ratio is computed from pointer X within the bar's bounding box
+  function ratioFromEvent(e) {
+    var rect = progress.getBoundingClientRect();
+    var x = e.clientX - rect.left;
+    var r = x / rect.width;
+    if (r < 0) r = 0;
+    if (r > 1) r = 1;
+    return r;
+  }
+
+  function seekTo(e) {
+    if (!video.duration || !isFinite(video.duration)) return;
+    var ratio = ratioFromEvent(e);
+    video.currentTime = ratio * video.duration;
+    // While scrubbing, drive the fill directly so it never lags behind the cursor
+    setFill(ratio * 100);
+  }
+
+  progress.addEventListener("pointerdown", function (e) {
+    if (e.button != null && e.button !== 0) return;
+    isScrubbing = true;
+    progress.classList.add("is-scrubbing");
+    try {
+      progress.setPointerCapture(e.pointerId);
+    } catch (_) {}
+    e.preventDefault();
+    seekTo(e);
+  });
+
+  progress.addEventListener("pointermove", function (e) {
+    if (!isScrubbing) return;
+    seekTo(e);
+  });
+
+  function endScrub(e) {
+    if (!isScrubbing) return;
+    isScrubbing = false;
+    progress.classList.remove("is-scrubbing");
+    try {
+      progress.releasePointerCapture(e.pointerId);
+    } catch (_) {}
+  }
+
+  progress.addEventListener("pointerup", endScrub);
+  progress.addEventListener("pointercancel", endScrub);
 
   video.addEventListener("play", start);
   video.addEventListener("playing", start);

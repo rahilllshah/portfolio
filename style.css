@@ -499,13 +499,28 @@ a:hover {
   left: 0;
   right: 0;
   bottom: 0;
+  height: 24px; /* expanded hit area for easier scrubbing */
+  display: flex;
+  align-items: flex-end;
+  z-index: 2;
+  cursor: pointer;
+  touch-action: none;
+}
+
+.reel-progress-track {
+  position: relative;
+  width: 100%;
   height: 6px;
   background: rgba(255, 255, 255, 0.18);
-  z-index: 2;
-  pointer-events: none;
   overflow: hidden;
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
+  transition: height 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reel-progress:hover .reel-progress-track,
+.reel-progress.is-scrubbing .reel-progress-track {
+  height: 10px;
 }
 
 .reel-progress-fill {
