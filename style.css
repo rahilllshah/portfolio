@@ -427,7 +427,7 @@ a:hover {
 .bounce {
   position: absolute;
   left: 50%;
-  bottom: 6vh;
+  bottom: 8vh;
   animation: bounce 2s infinite;
 }
 
@@ -458,7 +458,7 @@ a:hover {
   position: relative;
   width: 100%;
   aspect-ratio: 2460 / 900;
-  border-radius: 1.6vw;
+  border-radius: 2vw;
   overflow: hidden;
   isolation: isolate;
   background: linear-gradient(135deg, rgba(0, 0, 0, 0.06), rgba(0, 0, 0, 0.12));
