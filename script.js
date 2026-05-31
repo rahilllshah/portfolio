@@ -148,6 +148,41 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
+// Work grid videos: defer download + play only while on screen.
+// (autoplay was removed so the files don't download until needed.)
+document.addEventListener("DOMContentLoaded", function () {
+  var vids = document.querySelectorAll("video.work-item-img[data-autoplay]");
+  if (!vids.length) return;
+
+  function play(v) {
+    var p = v.play();
+    if (p && typeof p.catch === "function") p.catch(function () {});
+  }
+
+  if (!("IntersectionObserver" in window)) {
+    vids.forEach(play);
+    return;
+  }
+
+  var observer = new IntersectionObserver(
+    function (entries) {
+      entries.forEach(function (entry) {
+        var v = entry.target;
+        if (entry.isIntersecting) {
+          if (v.preload === "none") v.preload = "auto";
+          play(v);
+        } else if (!v.paused) {
+          v.pause();
+        }
+      });
+    },
+    { rootMargin: "200px 0px", threshold: 0.1 },
+  );
+  vids.forEach(function (v) {
+    observer.observe(v);
+  });
+});
+
 // Landing arrow cue: visible on load, fades in/out smoothly as the user
 // scrolls through the first 20% of the viewport (one-fifth of a "page").
 document.addEventListener("DOMContentLoaded", function () {
@@ -173,9 +208,9 @@ document.addEventListener("DOMContentLoaded", function () {
 // Nav hamburger toggle (nav is inlined in index.html and aboutme.html)
 document.addEventListener("DOMContentLoaded", function () {
   var icon = document.getElementById("nav-icon");
-  if (icon && window.$) {
-    $(icon).click(function () {
-      $(this).toggleClass("open");
+  if (icon) {
+    icon.addEventListener("click", function () {
+      icon.classList.toggle("open");
     });
   }
 
