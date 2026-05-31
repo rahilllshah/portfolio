@@ -120,19 +120,47 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   if (!video.paused) start();
+
+  // Start playback only after at least 50% of the reel is in view.
+  if ("IntersectionObserver" in window) {
+    var hasStarted = false;
+    var reelObserver = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (
+            !hasStarted &&
+            entry.isIntersecting &&
+            entry.intersectionRatio >= 0.5
+          ) {
+            hasStarted = true;
+            var p = video.play();
+            if (p && typeof p.catch === "function") p.catch(function () {});
+            reelObserver.disconnect();
+          }
+        });
+      },
+      { threshold: 0.5 },
+    );
+    reelObserver.observe(video);
+  } else {
+    var p = video.play();
+    if (p && typeof p.catch === "function") p.catch(function () {});
+  }
 });
 
-// Landing arrow cue: hide after scrolling past hero, show when back up.
+// Landing arrow cue: visible on load, fades in/out smoothly as the user
+// scrolls through the first 20% of the viewport (one-fifth of a "page").
 document.addEventListener("DOMContentLoaded", function () {
-  var landing = document.getElementById("landing");
   var landingArrow = document.querySelector(".arrowA");
-  if (!landing || !landingArrow) return;
+  if (!landingArrow) return;
+
+  var BASE_OPACITY = 0.75;
 
   function updateLandingArrowVisibility() {
-    var landingHeight = landing.getBoundingClientRect().height;
-    var hideThreshold = Math.max(64, landingHeight - window.innerHeight * 0.75);
-    var shouldHide = window.scrollY > hideThreshold;
-    landingArrow.classList.toggle("is-hidden", shouldHide);
+    var fadeRange = Math.max(window.innerHeight * 0.2, 1);
+    var progress = Math.min(Math.max(window.scrollY / fadeRange, 0), 1);
+    landingArrow.style.opacity = String(BASE_OPACITY * (1 - progress));
+    landingArrow.classList.toggle("is-hidden", progress >= 1);
   }
 
   updateLandingArrowVisibility();

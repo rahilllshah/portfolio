@@ -195,6 +195,7 @@ a:hover {
 /*Landing*/
 
 .landing {
+  position: relative;
   height: 90vh;
   width: 80%;
   margin: auto;
@@ -404,25 +405,29 @@ a:hover {
 }
 
 .arrowA {
-  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   color: lightgray;
   opacity: 0.75;
   text-decoration: none;
   text-align: center;
-  transform: translateY(0);
-  transition:
-    opacity 0.28s ease,
-    transform 0.28s ease;
+}
+
+.arrowA svg {
+  width: clamp(28px, 3vw, 40px);
+  height: clamp(28px, 3vw, 40px);
+  display: block;
 }
 
 .arrowA.is-hidden {
-  opacity: 0;
-  transform: translateY(10px);
   pointer-events: none;
 }
 
 .bounce {
-  margin: auto;
+  position: absolute;
+  left: 50%;
+  bottom: 6vh;
   animation: bounce 2s infinite;
 }
 
@@ -432,13 +437,13 @@ a:hover {
   50%,
   80%,
   100% {
-    transform: translateY(0);
+    transform: translate(-50%, 0);
   }
   40% {
-    transform: translateY(-30px);
+    transform: translate(-50%, -30px);
   }
   60% {
-    transform: translateY(-15px);
+    transform: translate(-50%, -15px);
   }
 }
 
@@ -457,6 +462,9 @@ a:hover {
   overflow: hidden;
   isolation: isolate;
   background: linear-gradient(135deg, rgba(0, 0, 0, 0.06), rgba(0, 0, 0, 0.12));
+  box-shadow:
+    0 30px 80px rgba(0, 0, 0, 0.18),
+    0 10px 32px rgba(0, 0, 0, 0.08);
   transform-origin: center center;
   will-change: transform, opacity, filter;
 }
