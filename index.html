@@ -34,6 +34,7 @@
       crossorigin="anonymous"
     />
 
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
     <script defer src="script.js"></script>
 
     <link rel="stylesheet" type="text/css" href="nav.css" />
@@ -165,20 +166,15 @@
     <div class="row container reel-section">
       <div class="col-12">
         <div class="reel-frame" aria-label="Highlight reel">
-          <video
-            class="reel-video"
-            src="Images/Sizzle Reel.mp4#t=0.001"
-            muted
-            loop
-            playsinline
-            preload="auto"
-          ></video>
-          <div class="reel-loading" aria-hidden="true"></div>
+          <div
+            class="reel-lottie"
+            data-clips="Images/lottie/reel-1.json,Images/lottie/reel-2.json,Images/lottie/reel-3.json"
+          ></div>
           <div class="reel-sheen" aria-hidden="true"></div>
           <div
             class="reel-progress"
             role="slider"
-            aria-label="Seek reel video"
+            aria-label="Seek reel"
             aria-valuemin="0"
             aria-valuemax="100"
             aria-valuenow="0"
