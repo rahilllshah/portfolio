@@ -640,12 +640,71 @@ a:hover {
   }
 }
 
+/* "Click to expand" hint — hidden on desktop, sheens on mobile */
+.reel-expand-hint {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45em;
+  margin: 1.4vh auto 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-align: center;
+  cursor: pointer;
+}
+
+.reel-expand-icon {
+  width: 1.05em;
+  height: 1.05em;
+  flex-shrink: 0;
+}
+
 @media (max-width: 768px) {
   .reel-section {
     padding-bottom: 6vh;
   }
   .reel-frame {
     border-radius: 4vw;
+  }
+  .reel-video {
+    cursor: pointer;
+  }
+  .reel-expand-hint {
+    display: flex;
+    color: rgba(0, 0, 0, 0.45);
+    background: linear-gradient(
+      100deg,
+      rgba(0, 0, 0, 0.45) 0%,
+      rgba(0, 0, 0, 0.45) 42%,
+      rgba(0, 0, 0, 0.95) 50%,
+      rgba(0, 0, 0, 0.45) 58%,
+      rgba(0, 0, 0, 0.45) 100%
+    );
+    background-size: 300% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: reelHintSheen 2.2s linear infinite;
+  }
+}
+
+@keyframes reelHintSheen {
+  0% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: 0% 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reel-expand-hint {
+    animation: none;
   }
 }
 

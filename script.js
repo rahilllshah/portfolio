@@ -123,6 +123,35 @@ document.addEventListener("DOMContentLoaded", function () {
   progress.addEventListener("pointerup", endScrub);
   progress.addEventListener("pointercancel", endScrub);
 
+  // Tap the video (or the hint) to expand into the native fullscreen player.
+  // Mobile only — desktop keeps the inline reel with no expand behavior.
+  var hint = document.querySelector(".reel-expand-hint");
+  var mobileQuery = window.matchMedia("(max-width: 768px)");
+  function expandVideo() {
+    if (!mobileQuery.matches) return;
+    if (typeof video.webkitEnterFullscreen === "function") {
+      // iOS Safari: native inline-video fullscreen player.
+      try {
+        video.webkitEnterFullscreen();
+        return;
+      } catch (_) {}
+    }
+    var target = reelFrame || video;
+    var req =
+      target.requestFullscreen ||
+      target.webkitRequestFullscreen ||
+      video.requestFullscreen ||
+      video.webkitRequestFullscreen;
+    if (req) {
+      try {
+        var r = req.call(target.requestFullscreen ? target : video);
+        if (r && typeof r.catch === "function") r.catch(function () {});
+      } catch (_) {}
+    }
+  }
+  video.addEventListener("click", expandVideo);
+  if (hint) hint.addEventListener("click", expandVideo);
+
   video.addEventListener("play", start);
   video.addEventListener("playing", start);
   video.addEventListener("pause", stop);
