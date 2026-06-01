@@ -491,7 +491,7 @@ a:hover {
     0 10px 32px rgba(0, 0, 0, 0.08);
 }
 
-.reel-lottie {
+.reel-video {
   position: absolute;
   inset: 0;
   width: 100%;
@@ -499,12 +499,6 @@ a:hover {
   object-fit: cover;
   display: block;
   background: #0a0a0a;
-}
-
-/* Lottie injects an <svg> — make it fill the frame like object-fit: cover */
-.reel-lottie svg {
-  width: 100% !important;
-  height: 100% !important;
 }
 
 /* Playback progress bar pinned to bottom of the reel */
@@ -585,6 +579,51 @@ a:hover {
   }
 }
 
+/* Looped loading shimmer shown over the black frame until the reel can play */
+.reel-loading {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    linear-gradient(
+      115deg,
+      rgba(255, 255, 255, 0) 35%,
+      rgba(255, 255, 255, 0.12) 50%,
+      rgba(255, 255, 255, 0) 65%
+    ),
+    #0a0a0a;
+  background-size:
+    200% 100%,
+    auto;
+  background-repeat: no-repeat;
+  background-position:
+    -150% 0,
+    0 0;
+  animation: reelLoadingSheen 1.6s linear infinite;
+  opacity: 1;
+  transition: opacity 0.5s ease-out;
+}
+
+/* Once the reel is ready, fade the shimmer out and stop animating */
+.reel-frame.is-loaded .reel-loading {
+  opacity: 0;
+  animation: none;
+}
+
+@keyframes reelLoadingSheen {
+  0% {
+    background-position:
+      -150% 0,
+      0 0;
+  }
+  100% {
+    background-position:
+      250% 0,
+      0 0;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .reel-frame.scroll-fade {
     transition:
@@ -594,6 +633,9 @@ a:hover {
     filter: none;
   }
   .reel-frame.is-visible .reel-sheen {
+    animation: none;
+  }
+  .reel-loading {
     animation: none;
   }
 }

@@ -31,109 +31,72 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-// Reel — plays 3 Lottie clips back-to-back on a loop.
-// Progress bar auto-tracks across the combined timeline and stays scrubbable.
+// Reel video progress bar — auto-tracks via rAF, scrubbable via pointer drag
 document.addEventListener("DOMContentLoaded", function () {
-  var container = document.querySelector(".reel-lottie");
+  var video = document.querySelector(".reel-video");
   var progress = document.querySelector(".reel-progress");
   var fill = document.querySelector(".reel-progress-fill");
-  if (!container || !progress || !fill || typeof lottie === "undefined") return;
+  if (!video || !progress || !fill) return;
 
-  var sources = (container.getAttribute("data-clips") || "")
-    .split(",")
-    .map(function (s) {
-      return s.trim();
-    })
-    .filter(Boolean);
-  if (!sources.length) return;
+  // Hide the looping loading shimmer once the reel actually starts rendering frames.
+  var reelFrame = video.closest(".reel-frame");
+  function markReelLoaded() {
+    if (reelFrame) reelFrame.classList.add("is-loaded");
+  }
+  if (video.readyState >= 3) {
+    markReelLoaded();
+  } else {
+    video.addEventListener("playing", markReelLoaded);
+    video.addEventListener("canplay", markReelLoaded);
+    video.addEventListener("loadeddata", markReelLoaded);
+  }
 
-  var reelFrame = container.closest(".reel-frame");
-
-  var clips = []; // { data, frames, duration }
-  var totalDuration = 0;
-  var currentIndex = 0;
-  var anim = null;
+  var rafId = null;
   var isScrubbing = false;
-  var playbackStarted = false;
 
   function setFill(pct) {
     fill.style.width = pct + "%";
     progress.setAttribute("aria-valuenow", String(Math.round(pct)));
   }
 
-  // seconds elapsed before clip i starts
-  function offsetBefore(i) {
-    var s = 0;
-    for (var k = 0; k < i; k++) s += clips[k].duration;
-    return s;
+  function tick() {
+    if (!isScrubbing && video.duration && isFinite(video.duration)) {
+      setFill((video.currentTime / video.duration) * 100);
+    }
+    rafId = requestAnimationFrame(tick);
   }
 
-  function updateProgress() {
-    if (isScrubbing || !anim || !totalDuration) return;
-    var clip = clips[currentIndex];
-    var within = clip.frames ? (anim.currentFrame / clip.frames) * clip.duration : 0;
-    setFill(((offsetBefore(currentIndex) + within) / totalDuration) * 100);
+  function start() {
+    if (rafId == null) rafId = requestAnimationFrame(tick);
   }
 
-  // Load clip i into the container; optionally seek to a starting frame.
-  // Pass autoplay=false to render the first frame but stay paused.
-  function playClip(i, fromFrame, autoplay) {
-    if (autoplay === undefined) autoplay = true;
-    currentIndex = i;
-    if (anim) anim.destroy();
-    anim = lottie.loadAnimation({
-      container: container,
-      renderer: "svg",
-      loop: false,
-      autoplay: false,
-      animationData: clips[i].data,
-      rendererSettings: { preserveAspectRatio: "xMidYMid slice" },
-    });
-    anim.addEventListener("DOMLoaded", function () {
-      // Always render the starting frame so the reel is never blank/black.
-      if (autoplay) anim.goToAndPlay(fromFrame || 0, true);
-      else anim.goToAndStop(fromFrame || 0, true);
-    });
-    anim.addEventListener("enterFrame", updateProgress);
-    anim.addEventListener("complete", function () {
-      playClip((i + 1) % clips.length, 0); // chain to next, wrap to loop
-    });
+  function stop() {
+    if (rafId != null) {
+      cancelAnimationFrame(rafId);
+      rafId = null;
+    }
   }
 
   // Scrubbing: ratio is computed from pointer X within the bar's bounding box
   function ratioFromEvent(e) {
     var rect = progress.getBoundingClientRect();
-    var r = (e.clientX - rect.left) / rect.width;
+    var x = e.clientX - rect.left;
+    var r = x / rect.width;
     if (r < 0) r = 0;
     if (r > 1) r = 1;
     return r;
   }
 
   function seekTo(e) {
-    if (!totalDuration) return;
+    if (!video.duration || !isFinite(video.duration)) return;
     var ratio = ratioFromEvent(e);
-    var target = ratio * totalDuration; // seconds into the combined timeline
-    var i = 0;
-    var acc = 0;
-    while (i < clips.length - 1 && acc + clips[i].duration <= target) {
-      acc += clips[i].duration;
-      i++;
-    }
-    var within = target - acc;
-    var frame = clips[i].duration
-      ? (within / clips[i].duration) * clips[i].frames
-      : 0;
-    setFill(ratio * 100); // drive fill directly so it never lags the cursor
-    if (i !== currentIndex) {
-      playClip(i, frame);
-    } else if (anim) {
-      anim.goToAndPlay(frame, true);
-    }
+    video.currentTime = ratio * video.duration;
+    // While scrubbing, drive the fill directly so it never lags behind the cursor
+    setFill(ratio * 100);
   }
 
   progress.addEventListener("pointerdown", function (e) {
     if (e.button != null && e.button !== 0) return;
-    if (!clips.length) return;
     isScrubbing = true;
     progress.classList.add("is-scrubbing");
     try {
@@ -160,66 +123,42 @@ document.addEventListener("DOMContentLoaded", function () {
   progress.addEventListener("pointerup", endScrub);
   progress.addEventListener("pointercancel", endScrub);
 
+  video.addEventListener("play", start);
+  video.addEventListener("playing", start);
+  video.addEventListener("pause", stop);
+  video.addEventListener("ended", stop);
   document.addEventListener("visibilitychange", function () {
-    if (!anim || !playbackStarted) return;
-    if (document.hidden) anim.pause();
-    else if (!isScrubbing) anim.play();
+    if (document.hidden) stop();
+    else if (!video.paused) start();
   });
 
-  function startReel() {
-    playbackStarted = true;
-    // First clip is already rendered (paused on frame 1) — just play it.
-    if (anim && currentIndex === 0) anim.play();
-    else playClip(0, 0, true);
+  if (!video.paused) start();
+
+  // Start playback only after at least 50% of the reel is in view.
+  if ("IntersectionObserver" in window) {
+    var hasStarted = false;
+    var reelObserver = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (
+            !hasStarted &&
+            entry.isIntersecting &&
+            entry.intersectionRatio >= 0.5
+          ) {
+            hasStarted = true;
+            var p = video.play();
+            if (p && typeof p.catch === "function") p.catch(function () {});
+            reelObserver.disconnect();
+          }
+        });
+      },
+      { threshold: 0.5 },
+    );
+    reelObserver.observe(video);
+  } else {
+    var p = video.play();
+    if (p && typeof p.catch === "function") p.catch(function () {});
   }
-
-  // Fetch all clips up front so we know each duration (needed for the combined
-  // progress bar / scrubbing), then begin once the reel is in view.
-  Promise.all(
-    sources.map(function (src) {
-      return fetch(src).then(function (r) {
-        return r.json();
-      });
-    }),
-  )
-    .then(function (datas) {
-      clips = datas.map(function (data) {
-        var frames = (data.op || 0) - (data.ip || 0);
-        var fr = data.fr || 30;
-        return { data: data, frames: frames, duration: frames / fr };
-      });
-      totalDuration = clips.reduce(function (s, c) {
-        return s + c.duration;
-      }, 0);
-
-      // Render the first frame right away so the reel shows artwork, not black.
-      playClip(0, 0, false);
-
-      // Start playback only after at least 50% of the reel is in view.
-      if ("IntersectionObserver" in window) {
-        var hasStarted = false;
-        var reelObserver = new IntersectionObserver(
-          function (entries) {
-            entries.forEach(function (entry) {
-              if (
-                !hasStarted &&
-                entry.isIntersecting &&
-                entry.intersectionRatio >= 0.5
-              ) {
-                hasStarted = true;
-                startReel();
-                reelObserver.disconnect();
-              }
-            });
-          },
-          { threshold: 0.5 },
-        );
-        reelObserver.observe(reelFrame || container);
-      } else {
-        startReel();
-      }
-    })
-    .catch(function () {});
 });
 
 // Work grid videos: defer download + play only while on screen.
