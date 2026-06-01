@@ -902,9 +902,6 @@ a:hover {
   width: 16px;
   height: 16px;
   display: block;
-}
-
-.experience-row-right .ext-arrow svg path {
   fill: none;
   stroke: #ababab;
   stroke-width: 1.75;

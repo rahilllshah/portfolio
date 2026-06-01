@@ -1,5 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;500;600;700&display=swap");
-
 /*
  * Global styles for portfolio project pages (Work + Experience).
  * Typography, layout, round buttons, and shared components.
@@ -153,31 +151,6 @@ h5 {
 .link-text a:hover {
   opacity: 0.75;
   transition: 0.3s;
-}
-
-.nav-ext-arrow {
-  width: 16px;
-  height: 16px;
-  stroke: currentColor;
-  fill: none;
-  stroke-width: 2;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  display: inline-flex;
-  align-items: center;
-  margin-left: 2px;
-  vertical-align: middle;
-  transition: transform 0.3s ease;
-  transform-origin: center;
-}
-
-a:hover .nav-ext-arrow {
-  transform: rotate(45deg);
-}
-
-.nav-ext-arrow svg {
-  display: block;
-  color: currentColor;
 }
 
 .intro-card {
