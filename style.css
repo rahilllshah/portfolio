@@ -920,8 +920,8 @@ a:hover {
   grid-template-columns: repeat(12, 1fr);
   padding-top: 2vh;
   padding-bottom: 12vh;
-  column-gap: 6vh;
-  row-gap: 6vh;
+  column-gap: 5vh;
+  row-gap: 5vh;
 }
 
 .work-item-full {
@@ -953,6 +953,11 @@ a:hover {
   .work-section .work-item video.work-item-img:hover {
     cursor: pointer;
     transform: scale(0.97);
+  }
+
+  .work-section .work-item img.work-item-img.no-hover:hover {
+    cursor: default;
+    transform: none;
   }
 }
 
