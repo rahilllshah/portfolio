@@ -152,21 +152,6 @@ document.addEventListener("DOMContentLoaded", function () {
   video.addEventListener("click", expandVideo);
   if (hint) hint.addEventListener("click", expandVideo);
 
-  // Exiting the native player can leave the inline reel paused — keep it playing.
-  function resumePlayback() {
-    if (document.hidden) return;
-    if (video.paused) {
-      var p = video.play();
-      if (p && typeof p.catch === "function") p.catch(function () {});
-    }
-  }
-  video.addEventListener("webkitendfullscreen", function () {
-    setTimeout(resumePlayback, 0);
-  });
-  document.addEventListener("fullscreenchange", function () {
-    if (!document.fullscreenElement) setTimeout(resumePlayback, 0);
-  });
-
   video.addEventListener("play", start);
   video.addEventListener("playing", start);
   video.addEventListener("pause", stop);
