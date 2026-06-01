@@ -38,6 +38,19 @@ document.addEventListener("DOMContentLoaded", function () {
   var fill = document.querySelector(".reel-progress-fill");
   if (!video || !progress || !fill) return;
 
+  // Hide the looping loading shimmer once the reel actually starts rendering frames.
+  var reelFrame = video.closest(".reel-frame");
+  function markReelLoaded() {
+    if (reelFrame) reelFrame.classList.add("is-loaded");
+  }
+  if (video.readyState >= 3) {
+    markReelLoaded();
+  } else {
+    video.addEventListener("playing", markReelLoaded);
+    video.addEventListener("canplay", markReelLoaded);
+    video.addEventListener("loadeddata", markReelLoaded);
+  }
+
   var rafId = null;
   var isScrubbing = false;
 
