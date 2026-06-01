@@ -54,6 +54,7 @@ document.addEventListener("DOMContentLoaded", function () {
   var currentIndex = 0;
   var anim = null;
   var isScrubbing = false;
+  var playbackStarted = false;
 
   function setFill(pct) {
     fill.style.width = pct + "%";
@@ -75,19 +76,23 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // Load clip i into the container; optionally seek to a starting frame.
-  function playClip(i, fromFrame) {
+  // Pass autoplay=false to render the first frame but stay paused.
+  function playClip(i, fromFrame, autoplay) {
+    if (autoplay === undefined) autoplay = true;
     currentIndex = i;
     if (anim) anim.destroy();
     anim = lottie.loadAnimation({
       container: container,
       renderer: "svg",
       loop: false,
-      autoplay: true,
+      autoplay: false,
       animationData: clips[i].data,
       rendererSettings: { preserveAspectRatio: "xMidYMid slice" },
     });
     anim.addEventListener("DOMLoaded", function () {
-      if (fromFrame) anim.goToAndPlay(fromFrame, true);
+      // Always render the starting frame so the reel is never blank/black.
+      if (autoplay) anim.goToAndPlay(fromFrame || 0, true);
+      else anim.goToAndStop(fromFrame || 0, true);
     });
     anim.addEventListener("enterFrame", updateProgress);
     anim.addEventListener("complete", function () {
@@ -156,13 +161,16 @@ document.addEventListener("DOMContentLoaded", function () {
   progress.addEventListener("pointercancel", endScrub);
 
   document.addEventListener("visibilitychange", function () {
-    if (!anim) return;
+    if (!anim || !playbackStarted) return;
     if (document.hidden) anim.pause();
     else if (!isScrubbing) anim.play();
   });
 
   function startReel() {
-    playClip(0, 0);
+    playbackStarted = true;
+    // First clip is already rendered (paused on frame 1) — just play it.
+    if (anim && currentIndex === 0) anim.play();
+    else playClip(0, 0, true);
   }
 
   // Fetch all clips up front so we know each duration (needed for the combined
@@ -183,6 +191,9 @@ document.addEventListener("DOMContentLoaded", function () {
       totalDuration = clips.reduce(function (s, c) {
         return s + c.duration;
       }, 0);
+
+      // Render the first frame right away so the reel shows artwork, not black.
+      playClip(0, 0, false);
 
       // Start playback only after at least 50% of the reel is in view.
       if ("IntersectionObserver" in window) {
