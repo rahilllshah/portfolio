@@ -11,7 +11,7 @@ body {
     -apple-system,
     BlinkMacSystemFont,
     sans-serif;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
 body {
