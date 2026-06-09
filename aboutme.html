@@ -3,7 +3,10 @@
   <head>
     <meta charset="utf-8" />
     <title>About Me</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+    />
     <meta name="apple-mobile-web-app-capable" content="yes" />
 
     <link
@@ -48,23 +51,25 @@
   </head>
 
   <body class="aboutme">
+    <!-- Reusable icon: external/diagonal arrow, referenced via <use href="#arrow-ne"> -->
+    <svg width="0" height="0" aria-hidden="true" style="position: absolute">
+      <symbol id="arrow-ne" viewBox="0 0 24 24">
+        <path d="M7 17L17 7" />
+        <path d="M7 7h10v10" />
+      </symbol>
+    </svg>
 
     <div class="row">
       <div class="col-12">
         <nav class="nav">
-          <input
-            type="checkbox"
-            id="nav-check"
-            class="nav-check"
-            aria-hidden="true"
-          />
-          <label for="nav-check" class="nav-toggle" aria-label="Toggle menu">
+          <input type="checkbox" id="nav-check" class="nav-check" />
+          <label for="nav-check" class="nav-toggle">
             <span id="nav-icon" class="nav-icon"
               ><span></span><span></span
             ></span>
           </label>
           <div class="nav-left">
-            <a href="https://rahil.me/" class="nav-logo">
+            <a href="#landing" class="nav-logo">
               <img
                 src="Images/Logo.png"
                 alt="Rahil Shah"
@@ -72,32 +77,23 @@
               />
             </a>
             <ul class="nav-links nav-links-desktop">
-              <li>
-                <a href="https://rahil.me/#experience">Experience</a>
-              </li>
-              <li><a href="https://rahil.me/#work">Work</a></li>
-              <li><a href="https://rahil.me/#testimonials">Testimonials</a></li>
+              <li><a href="#experience">Journey</a></li>
+              <li><a href="#work">Craft</a></li>
+              <li><a href="#testimonials">Kudos</a></li>
             </ul>
           </div>
           <div class="nav-menu">
             <ul class="nav-links nav-links-mobile">
-              <li>
-                <a href="https://rahil.me/#experience">Experience</a>
-              </li>
-              <li><a href="https://rahil.me/#work">Work</a></li>
-              <li><a href="https://rahil.me/#testimonials">Testimonials</a></li>
+              <li><a href="#experience">Journey</a></li>
+              <li><a href="#work">Craft</a></li>
+              <li><a href="#testimonials">Kudos</a></li>
             </ul>
             <ul class="nav-right">
               <li>
                 <a href="RahilShah_Resume.pdf" target="_blank" rel="noopener"
-                  >Resume<span class="nav-ext-arrow" aria-hidden="true"
-                    ><svg
-                      class="nav-ext-arrow"
-                      aria-hidden="true"
-                      viewBox="0 0 24 24"
-                    >
-                      <path d="M7 17L17 7" />
-                      <path d="M7 7h10v10" /></svg></span
+                  >Resume<span class="nav-ext-arrow"
+                    ><svg class="nav-ext-arrow" viewBox="0 0 24 24">
+                      <use href="#arrow-ne" /></svg></span
                 ></a>
               </li>
               <li>
@@ -105,14 +101,9 @@
                   href="https://www.linkedin.com/in/rahilllshah"
                   target="_blank"
                   rel="noopener"
-                  >LinkedIn<span class="nav-ext-arrow" aria-hidden="true"
-                    ><svg
-                      class="nav-ext-arrow"
-                      aria-hidden="true"
-                      viewBox="0 0 24 24"
-                    >
-                      <path d="M7 17L17 7" />
-                      <path d="M7 7h10v10" /></svg></span
+                  >LinkedIn<span class="nav-ext-arrow"
+                    ><svg class="nav-ext-arrow" viewBox="0 0 24 24">
+                      <use href="#arrow-ne" /></svg></span
                 ></a>
               </li>
             </ul>
@@ -120,6 +111,7 @@
         </nav>
       </div>
     </div>
+
     <div class="page">
       <div class="page-content">
         <div class="about-me-container">
@@ -182,31 +174,66 @@
               </div>
 
               <div class="polaroid polaroid-2">
-                <img src="Life Images/calipolaroid.png" alt="Photo 2" loading="lazy" decoding="async" />
+                <img
+                  src="Life Images/calipolaroid.png"
+                  alt="Photo 2"
+                  loading="lazy"
+                  decoding="async"
+                />
               </div>
 
               <div class="polaroid polaroid-3">
-                <img src="Life Images/dubai.png" alt="Photo 3" loading="lazy" decoding="async" />
+                <img
+                  src="Life Images/dubai.png"
+                  alt="Photo 3"
+                  loading="lazy"
+                  decoding="async"
+                />
               </div>
 
               <div class="polaroid polaroid-4">
-                <img src="Life Images/camping.png" alt="Photo 4" loading="lazy" decoding="async" />
+                <img
+                  src="Life Images/camping.png"
+                  alt="Photo 4"
+                  loading="lazy"
+                  decoding="async"
+                />
               </div>
 
               <div class="polaroid polaroid-5">
-                <img src="Life Images/grassway.jpg" alt="Photo 5" loading="lazy" decoding="async" />
+                <img
+                  src="Life Images/grassway.jpg"
+                  alt="Photo 5"
+                  loading="lazy"
+                  decoding="async"
+                />
               </div>
 
               <div class="polaroid polaroid-6">
-                <img src="Life Images/fall.jpg" alt="Photo 6" loading="lazy" decoding="async" />
+                <img
+                  src="Life Images/fall.jpg"
+                  alt="Photo 6"
+                  loading="lazy"
+                  decoding="async"
+                />
               </div>
 
               <div class="polaroid polaroid-7">
-                <img src="Life Images/boats.png" alt="Photo 7" loading="lazy" decoding="async" />
+                <img
+                  src="Life Images/boats.png"
+                  alt="Photo 7"
+                  loading="lazy"
+                  decoding="async"
+                />
               </div>
 
               <div class="polaroid polaroid-8">
-                <img src="Life Images/bermuda.jpg" alt="Photo 8" loading="lazy" decoding="async" />
+                <img
+                  src="Life Images/bermuda.jpg"
+                  alt="Photo 8"
+                  loading="lazy"
+                  decoding="async"
+                />
               </div>
             </div>
           </div>
@@ -215,7 +242,8 @@
     </div>
 
     <div class="modal" onclick="closeModal(event)">
-      <img class="modal-content" alt="" />
+      <img class="modal-content modal-img" alt="" />
+      <video class="modal-content modal-video" controls playsinline loop></video>
     </div>
   </body>
 </html>
