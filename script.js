@@ -657,6 +657,29 @@ document.addEventListener("DOMContentLoaded", function () {
 
   document.addEventListener("DOMContentLoaded", function () {
     meshBg = document.querySelector(".mesh-bg");
+    if (!meshBg) return;
+
+    // Fade the mesh in only when it has truly finished loading, so we never
+    // flash a blank canvas or pop in mid-render.
+    var reveal = function () {
+      meshBg.classList.add("is-loaded");
+    };
+
+    // The mesh is a heavy third-party WebGL iframe and purely decorative, so we
+    // hold off kicking off its load until the browser is idle after the main
+    // content has painted. This keeps it from competing on the critical path.
+    var startMesh = function () {
+      var src = meshBg.getAttribute("data-src");
+      if (!src || meshBg.src) return;
+      meshBg.addEventListener("load", reveal, { once: true });
+      meshBg.src = src;
+    };
+
+    if ("requestIdleCallback" in window) {
+      requestIdleCallback(startMesh, { timeout: 2000 });
+    } else {
+      setTimeout(startMesh, 200);
+    }
   });
 
   // Capture phase on window so nothing can swallow the key event before us.
