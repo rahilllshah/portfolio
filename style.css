@@ -451,7 +451,7 @@ a:hover {
 
 .reel-section {
   padding-top: 2vh;
-  padding-bottom: 8vh;
+  padding-bottom: 16vh;
 }
 
 .reel-frame {
@@ -499,6 +499,7 @@ a:hover {
   object-fit: cover;
   display: block;
   background: #0a0a0a;
+  transform: scale(1.02);
 }
 
 /* Playback progress bar pinned to bottom of the reel */
