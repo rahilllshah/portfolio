@@ -454,17 +454,28 @@ a:hover {
   padding-bottom: 16vh;
 }
 
+/* Shadow lives on an unclipped wrapper. clip-path on the frame (needed to
+   round the composited <video> in Safari) would otherwise clip the box-shadow
+   away, since clip-path clips the element's entire painted output. */
+.reel-shadow {
+  border-radius: 2vw;
+  box-shadow:
+    0 30px 80px rgba(0, 0, 0, 0.18),
+    0 10px 32px rgba(0, 0, 0, 0.08);
+}
+
 .reel-frame {
   position: relative;
   width: 100%;
   aspect-ratio: 2460 / 900;
   border-radius: 2vw;
   overflow: hidden;
+  /* Safari/WebKit won't clip the composited <video> layer to the rounded
+     corners with overflow:hidden alone. clip-path clips at the compositor
+     level so the corners round reliably. */
+  clip-path: inset(0 round 2vw);
   isolation: isolate;
   background: linear-gradient(135deg, rgba(0, 0, 0, 0.06), rgba(0, 0, 0, 0.12));
-  box-shadow:
-    0 30px 80px rgba(0, 0, 0, 0.18),
-    0 10px 32px rgba(0, 0, 0, 0.08);
   transform-origin: center center;
   will-change: transform, opacity, filter;
 }
@@ -669,8 +680,12 @@ a:hover {
   .reel-section {
     padding-bottom: 6vh;
   }
+  .reel-shadow {
+    border-radius: 4vw;
+  }
   .reel-frame {
     border-radius: 4vw;
+    clip-path: inset(0 round 4vw);
   }
   .reel-video {
     cursor: pointer;
