@@ -845,6 +845,34 @@ a:hover {
   text-decoration: none;
 }
 
+.role-static,
+.role-static .experience-row {
+  cursor: default;
+}
+
+.role-static .experience-row-right {
+  grid-template-columns: auto;
+  gap: 0;
+  justify-content: end;
+  justify-items: end;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .role-static .experience-row,
+  .role-static .experience-row:hover {
+    background-color: transparent;
+    border-radius: 0;
+    padding-left: 0;
+    border-top: 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    transition: none;
+  }
+
+  .role-static .pill {
+    transition: none;
+  }
+}
+
 /* Role name and year color on hover - matches pill brand colors */
 .role-name {
   font-size: 14px;
@@ -853,11 +881,6 @@ a:hover {
 }
 
 @media (hover: hover) and (pointer: fine) {
-  .experience-row:has(.pill.stealth):hover .role-name,
-  .experience-row:has(.pill.stealth):hover .year {
-    color: rgba(104, 104, 104, 1);
-  }
-
   .experience-row:has(.pill.beavr):hover .role-name,
   .experience-row:has(.pill.beavr):hover .year {
     color: rgba(110, 142, 138, 1);
@@ -982,6 +1005,10 @@ a:hover {
 
   .experience-row:hover .ext-arrow {
     transform: translateX(-24px) rotate(45deg);
+  }
+
+  .role-static .experience-row:hover .pill {
+    transform: none;
   }
 }
 
