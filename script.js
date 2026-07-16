@@ -31,6 +31,59 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
+// Let's Chat — copy email + toast
+document.addEventListener("DOMContentLoaded", function () {
+  var btn = document.querySelector(".copy-email-btn");
+  if (!btn) return;
+
+  var wrap = btn.closest(".chat-btn-wrap");
+  var toast = wrap && wrap.querySelector(".email-toast");
+  var hideTimer = null;
+
+  function copyText(text) {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      return navigator.clipboard.writeText(text);
+    }
+    return new Promise(function (resolve, reject) {
+      var ta = document.createElement("textarea");
+      ta.value = text;
+      ta.setAttribute("readonly", "");
+      ta.style.position = "fixed";
+      ta.style.opacity = "0";
+      document.body.appendChild(ta);
+      ta.select();
+      try {
+        if (!document.execCommand("copy")) reject(new Error("copy failed"));
+        else resolve();
+      } catch (err) {
+        reject(err);
+      } finally {
+        document.body.removeChild(ta);
+      }
+    });
+  }
+
+  function showToast() {
+    if (!toast) return;
+    if (hideTimer) clearTimeout(hideTimer);
+    toast.classList.add("is-visible");
+    toast.setAttribute("aria-hidden", "false");
+    hideTimer = setTimeout(function () {
+      toast.classList.remove("is-visible");
+      toast.setAttribute("aria-hidden", "true");
+      hideTimer = null;
+    }, 1500);
+  }
+
+  btn.addEventListener("click", function () {
+    var email = btn.getAttribute("data-email");
+    if (!email) return;
+    copyText(email)
+      .then(showToast)
+      .catch(function () {});
+  });
+});
+
 // Reel video progress bar — auto-tracks via rAF, scrubbable via pointer drag
 document.addEventListener("DOMContentLoaded", function () {
   var video = document.querySelector(".reel-video");

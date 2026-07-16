@@ -15,6 +15,43 @@ body {
     sans-serif;
 }
 
+/* Chrome draws a default blue focus ring on click; Safari usually doesn't. */
+a,
+button,
+input,
+textarea,
+select,
+summary,
+label,
+[onclick],
+[tabindex],
+[role="button"] {
+  -webkit-tap-highlight-color: transparent;
+}
+
+a:focus,
+a:focus-visible,
+button:focus,
+button:focus-visible,
+input:focus,
+input:focus-visible,
+textarea:focus,
+textarea:focus-visible,
+select:focus,
+select:focus-visible,
+summary:focus,
+summary:focus-visible,
+label:focus,
+label:focus-visible,
+[onclick]:focus,
+[onclick]:focus-visible,
+[tabindex]:focus,
+[tabindex]:focus-visible,
+[role="button"]:focus,
+[role="button"]:focus-visible {
+  outline: none;
+}
+
 /* --- Desktop load animation (home page only) ---
  * On first load, nav pill expands from center and items fade in with stagger.
  */

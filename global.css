@@ -42,6 +42,43 @@ body {
   letter-spacing: 0.04em;
 }
 
+/* Chrome draws a default blue focus ring on click; Safari usually doesn't. */
+a,
+button,
+input,
+textarea,
+select,
+summary,
+label,
+[onclick],
+[tabindex],
+[role="button"] {
+  -webkit-tap-highlight-color: transparent;
+}
+
+a:focus,
+a:focus-visible,
+button:focus,
+button:focus-visible,
+input:focus,
+input:focus-visible,
+textarea:focus,
+textarea:focus-visible,
+select:focus,
+select:focus-visible,
+summary:focus,
+summary:focus-visible,
+label:focus,
+label:focus-visible,
+[onclick]:focus,
+[onclick]:focus-visible,
+[tabindex]:focus,
+[tabindex]:focus-visible,
+[role="button"]:focus,
+[role="button"]:focus-visible {
+  outline: none;
+}
+
 /* Typography */
 h1 {
   font-size: var(--font-size-h1);
