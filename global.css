@@ -230,6 +230,11 @@ h5 + h3 {
     width: 80%;
   }
 
+  /* Title column stacks above body on mobile — restore breathing room */
+  .section h2 {
+    margin-bottom: 24px;
+  }
+
   .video {
     margin-top: 5vh;
   }
