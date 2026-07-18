@@ -1662,7 +1662,7 @@ html.mesh-grab .bg-hint {
 
 @media (max-width: 768px) {
   .container {
-    max-width: 100%;
+    max-width: 90%;
   }
 
   .landing {
@@ -1675,8 +1675,8 @@ html.mesh-grab .bg-hint {
   }
 
   .landingsub2 {
-    margin-top: 6px;
-    max-width: 80%;
+    margin-top: 12px;
+    max-width: 90%;
     margin-left: auto;
     margin-right: auto;
   }
@@ -1712,5 +1712,6 @@ html.mesh-grab .bg-hint {
 
   .footer-name {
     margin-right: -16px; /* cancel trailing space from letter-spacing so text stays centered */
+    margin-bottom: 12px;
   }
 }
