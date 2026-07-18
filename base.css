@@ -233,6 +233,9 @@ a:hover .nav-ext-arrow {
 .nav-toggle {
   display: none;
   cursor: pointer;
+  touch-action: manipulation;
+  -webkit-user-select: none;
+  user-select: none;
 }
 
 .nav-icon {
@@ -241,7 +244,7 @@ a:hover .nav-ext-arrow {
   justify-content: center;
   gap: 7.5px;
   width: 24px;
-  /* height: 26px; */
+  pointer-events: none; /* taps hit the label, not the icon — avoids double-toggle glitches */
 }
 
 .nav-icon span {
@@ -250,18 +253,9 @@ a:hover .nav-ext-arrow {
   height: 4.5px;
   background: black;
   border-radius: 100px;
-  transition:
-    transform 0.25s ease-out,
-    opacity 0.25s ease-out;
+  transition: transform 0.25s ease-out;
   transform-origin: center;
-}
-
-/* Hamburger → X when open (JS adds .open to #nav-icon; mobile also uses :checked ~ .nav-toggle) */
-.nav-icon.open span:nth-child(1) {
-  transform: translateY(6px) rotate(45deg);
-}
-.nav-icon.open span:nth-child(2) {
-  transform: translateY(-4px) rotate(-45deg);
+  will-change: transform;
 }
 
 /* --- Mobile: keyframe for each link sliding up + fading in (staggered on open) --- */
@@ -334,22 +328,24 @@ a:hover .nav-ext-arrow {
 
   .nav-toggle {
     position: absolute;
-    right: 12px;
+    right: 10px;
     top: 0;
-    width: 50px;
+    width: 56px;
+    min-width: 56px;
     height: var(--nav-height);
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 0;
+    z-index: 2;
   }
 
-  /* OPEN: hamburger lines rotate into X */
+  /* OPEN: lines meet at center (gap 7.5 + half heights → 6px each) then rotate into X */
   .nav-check:checked ~ .nav-toggle .nav-icon span:nth-child(1) {
-    transform: translateY(8px) rotate(45deg);
+    transform: translateY(6px) rotate(45deg);
   }
   .nav-check:checked ~ .nav-toggle .nav-icon span:nth-child(2) {
-    transform: translateY(-4px) rotate(-45deg);
+    transform: translateY(-6px) rotate(-45deg);
   }
 
   /* ----- Dropdown panel (.nav-menu) -----

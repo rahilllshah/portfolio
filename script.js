@@ -300,24 +300,17 @@ document.addEventListener("DOMContentLoaded", function () {
   window.addEventListener("resize", updateLandingArrowVisibility);
 });
 
-// Nav hamburger toggle (nav is inlined in index.html and aboutme.html)
+// Nav hamburger: open/close is checkbox-driven (#nav-check) via CSS only.
+// Do not toggle a separate .open class on the icon — that desyncs with the
+// label/checkbox and glitches the hamburger ↔ X animation.
 document.addEventListener("DOMContentLoaded", function () {
-  var icon = document.getElementById("nav-icon");
-  if (icon) {
-    icon.addEventListener("click", function () {
-      icon.classList.toggle("open");
-    });
-  }
-
   // On mobile, close the dropdown when tapping Experience/Work/About.
-  // Mobile nav open/close is driven by the checkbox (#nav-check) via CSS.
   var navCheck = document.getElementById("nav-check");
   if (!navCheck) return;
 
   function closeMobileNav() {
     navCheck.checked = false;
     navCheck.dispatchEvent(new Event("change", { bubbles: true }));
-    if (icon) icon.classList.remove("open");
   }
 
   // *#experience* / *#work* cover index.html (#section) and aboutme.html (full URL with hash).
