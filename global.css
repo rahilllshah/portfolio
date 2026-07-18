@@ -1,17 +1,13 @@
 /*
  * Global styles for portfolio project pages (Work + Experience).
- * Typography, layout, round buttons, and shared components.
+ * Layout, round buttons, and shared components.
+ * Fonts / type tokens: core.css
  */
 
-:root {
-  --font-size-h1: 52px;
-  --font-size-h2: 32px;
-  --font-size-h3: 16px;
-  --font-size-h4: 16px;
-  --font-size-h5: 16px;
-  --font-weight: 400;
-  --color-black: rgba(0, 0, 0, 0.75);
-  --color-gray: rgba(0, 0, 0, 0.5);
+/* Case study body copy — roomier than site default */
+h3,
+h4 {
+  line-height: 1.7;
 }
 
 * {
@@ -27,19 +23,10 @@ body {
   width: 100%;
   margin: auto;
   overflow-x: hidden;
-  font-family:
-    Urbanist,
-    -apple-system,
-    BlinkMacSystemFont,
-    sans-serif;
 }
 
 html {
   scroll-behavior: smooth;
-}
-
-body {
-  letter-spacing: 0.04em;
 }
 
 /* Chrome draws a default blue focus ring on click; Safari usually doesn't. */
@@ -77,39 +64,6 @@ label:focus-visible,
 [role="button"]:focus,
 [role="button"]:focus-visible {
   outline: none;
-}
-
-/* Typography */
-h1 {
-  font-size: var(--font-size-h1);
-  font-weight: var(--font-weight);
-  color: var(--color-black);
-}
-
-h2 {
-  font-size: var(--font-size-h2);
-  font-weight: var(--font-weight);
-  color: var(--color-black);
-}
-
-h3 {
-  font-size: var(--font-size-h3);
-  font-weight: var(--font-weight);
-  line-height: 1.5;
-  color: var(--color-black);
-}
-
-h4 {
-  font-size: var(--font-size-h4);
-  font-weight: var(--font-weight);
-  line-height: 1.6;
-  color: var(--color-gray);
-}
-
-h5 {
-  font-size: var(--font-size-h5);
-  font-weight: var(--font-weight);
-  color: var(--color-gray);
 }
 
 /* Layout */
@@ -169,12 +123,21 @@ h5 {
 .section-eyebrow {
   color: rgba(0, 0, 0, 0.5);
   font-size: 18px;
-  margin-bottom: 6px;
+  margin-bottom: 0;
 }
 
 .section-title {
   font-size: 52px;
   margin: 0;
+}
+
+/* Eyebrow → title / meta value spacing in case study sections */
+h5 + h2 {
+  margin-top: 10px;
+}
+
+h5 + h3 {
+  margin-top: 6px;
 }
 
 .link-text,

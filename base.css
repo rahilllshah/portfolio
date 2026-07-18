@@ -1,19 +1,11 @@
 /* base.css — shared nav + modal styles (index + aboutme). Edit here once. */
+/* Fonts / type tokens: core.css */
 
 /*
  * NAV: logo + links left, Resume/LinkedIn right.
  * Mobile: hamburger toggles a full-width dropdown; open/close is driven by
  * the checkbox #nav-check (checked = menu open). No JS needed for open/close.
  */
-body {
-  letter-spacing: 0.04em;
-  font-weight: 400;
-  font-family:
-    Urbanist,
-    -apple-system,
-    BlinkMacSystemFont,
-    sans-serif;
-}
 
 /* Chrome draws a default blue focus ring on click; Safari usually doesn't. */
 a,
@@ -601,14 +593,16 @@ body.image-modal-open {
   border-radius: 50%;
   background: rgba(0, 0, 0, 0.1);
   color: gray;
-  font-size: 32px;
-  font-weight: 300;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 0;
   transition: 0.3s ease;
+}
+
+.work-modal-close svg {
+  display: block;
 }
 
 .work-modal-close:hover {
@@ -677,6 +671,5 @@ html.work-modal-open::-webkit-scrollbar {
     right: 16px;
     width: 42px;
     height: 42px;
-    font-size: 26px;
   }
 }

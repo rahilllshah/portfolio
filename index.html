@@ -22,25 +22,18 @@
       type="image/png"
     />
     <link rel="apple-touch-icon" href="Images/apple-touch-icon.png" />
-
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;500;600;700&display=swap"
-      rel="stylesheet"
+      rel="preload"
+      href="fonts/urbanist-latin-wght-normal.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
     />
 
-    <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-      crossorigin="anonymous"
-    />
-
+    <link rel="stylesheet" href="core.css" />
+    <link rel="stylesheet" href="base.css" />
+    <link rel="stylesheet" href="styles.css" />
     <script defer src="script.js"></script>
-
-    <link rel="stylesheet" type="text/css" href="base.css" />
-    <link rel="stylesheet" type="text/css" href="styles.css" />
   </head>
 
   <body class="home">
@@ -54,8 +47,8 @@
 
     <iframe
       class="mesh-bg"
-      loading="lazy"
-      src="https://meshbg-1waynbq09-chasedavis-projects.vercel.app/embed/0.10984868903949896"
+      data-src="https://meshbg-1waynbq09-chasedavis-projects.vercel.app/embed/0.10984868903949896"
+      title=""
       aria-hidden="true"
     ></iframe>
 
@@ -982,7 +975,20 @@
     <div id="work-modal" class="work-modal">
       <div class="work-modal-backdrop"></div>
       <div class="work-modal-container">
-        <button type="button" class="work-modal-close">&times;</button>
+        <button type="button" class="work-modal-close" aria-label="Close">
+          <svg
+            viewBox="0 0 24 24"
+            width="18"
+            height="18"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="3"
+            stroke-linecap="round"
+            aria-hidden="true"
+          >
+            <path d="M6 6l12 12M18 6L6 18" />
+          </svg>
+        </button>
         <iframe class="work-modal-iframe" title="Work case study"></iframe>
       </div>
     </div>

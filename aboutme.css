@@ -6,11 +6,6 @@
 html,
 body {
   overflow-x: hidden;
-  font-family:
-    Urbanist,
-    -apple-system,
-    BlinkMacSystemFont,
-    sans-serif;
   overflow-y: auto;
 }
 
@@ -25,8 +20,6 @@ body {
 
 .page {
   overflow-y: hidden;
-  letter-spacing: 0.04em;
-  font-weight: 450;
 }
 
 .page-content {
@@ -69,7 +62,7 @@ body {
 
 .content-left h1 {
   font-size: 36px;
-  line-height: 1.1;
+  line-height: var(--lh-tight);
   color: black;
   margin-bottom: 12px;
 }
@@ -87,7 +80,7 @@ body {
   gap: 10px;
   font-size: 14px;
   color: gray;
-  line-height: 1.5;
+  line-height: var(--lh-snug);
 }
 
 .detail-icon {
@@ -99,7 +92,7 @@ body {
 .bio-content {
   font-size: 14px;
   color: gray;
-  line-height: 1.8;
+  line-height: var(--lh-body);
   margin-bottom: 40px;
 }
 
