@@ -80,7 +80,7 @@
           <div class="col-12">
             <div class="intro-card">
               <h3 class="lightgray">
-                Manual monitoring was simply too slow to prevent new waves of
+                Manual monitoring is simply too slow to prevent new waves of
                 infection or effectively "flatten the curve." To address this,
                 we developed Beacon to bridge the gap between technology and
                 public health. By automating the tracing process with
@@ -102,19 +102,13 @@
           <div class="col-lg-1"></div>
           <div class="col-lg-7 col-sm-12">
             <h4 class="">
-              Contact tracing is the vital process of identifying and monitoring
-              individuals exposed to a communicable disease to prevent further
-              transmission. While traditionally effective, manual tracing is
-              labor-intensive, time-consuming, and heavily reliant on a
-              patient's memory. These shortcomings became strikingly evident
-              during the COVID-19 pandemic, where high infectivity rates in
-              densely populated areas overwhelmed public health resources.
+              Contact tracing helps identify and notify people exposed to
+              infectious diseases, but manual methods are slow and depend on
+              memory. During COVID-19, these limitations became clear.
               <br /><br />
-              Our goal was to develop Beacon, a digital contact tracing solution
-              for Canada. By leveraging smartphone technology to track proximity
-              interactions, we aimed to address the limitations of physical
-              tracing through superior speed and scalability, centralizing the
-              process to make it simpler for both the public and health
+              Our goal was to design Beacon, a digital contact tracing app for
+              Canada that uses smartphone proximity tracking to make tracing
+              faster, more scalable, and easier for both the public and health
               officials.
             </h4>
           </div>
@@ -130,20 +124,13 @@
           <div class="col-lg-1"></div>
           <div class="col-lg-7 col-sm-12">
             <h4 class="">
-              To build a product that people would actually use, we conducted
-              extensive market research into two key areas: global adoption
-              rates of tracing apps and Canadian government survey data. This
-              allowed us to identify why certain apps failed and who our primary
-              users would be.
+              We researched global contact tracing apps and Canadian government
+              studies to understand adoption and user needs.
               <br /><br />
-              Research found that older Canadians were actually more likely to
-              use contact tracing apps than younger demographics, despite
-              potential technology barriers. The biggest obstacle to adoption
-              was privacy concerns, particularly fears around government
-              surveillance and the misuse of sensitive location data. Additional
-              challenges included poor integration with existing healthcare
-              systems and a lack of clear, actionable guidance within the apps
-              themselves.
+              Our research found that privacy concerns were the biggest barrier,
+              while older Canadians were surprisingly more willing to adopt
+              tracing apps. We also identified poor healthcare integration and
+              unclear guidance as major weaknesses.
             </h4>
           </div>
         </div>
@@ -167,19 +154,12 @@
           <div class="col-lg-1"></div>
           <div class="col-lg-7 col-sm-12">
             <h4 class="">
-              We investigated several technical modalities to conduct tracing
-              safely and reliably. While GPS and Bluetooth Low Energy (BLE) were
-              the industry leaders, they offered very different benefits. GPS
-              provides excellent location context and helps identifies infection
-              "hotspots," but it struggles with accuracy near physical barriers
-              and cannot distinguish between users on different floors of the
-              same building.
-              <br /><br />Ultimately, we chose BLE because it can detect short
-              distances between individuals regardless of elevation or physical
-              barriers like tunnels and subways. Most importantly, BLE
-              configures proximity traces without processing or storing
-              sensitive GPS location data, directly addressing the privacy
-              concerns raised in our research.
+              We evaluated GPS and Bluetooth Low Energy (BLE) for contact
+              tracing. While GPS provides location context, it lacks accuracy in
+              many real-world situations and raises privacy concerns.
+              <br /><br />We chose BLE because it accurately detects nearby
+              devices without collecting location data, making it both more
+              reliable and more privacy-friendly.
             </h4>
           </div>
         </div>
@@ -199,14 +179,12 @@
           <div class="col-lg-1"></div>
           <div class="col-lg-7 col-sm-12">
             <h4 class="">
-              Initially, iOS required apps to stay "awake" in the foreground for
-              BLE to work. Furthermore, communication between Android and iOS
-              devices was often inconsistent, leading to missed exposures.
+              Early BLE implementations were limited because iOS required apps
+              to remain active, and Android/iOS communication was inconsistent.
               <br /><br />
-              To solve this, Apple and Google partnered to create a unified API.
-              This framework resolved background processing issues, ensured
-              compatibility, and set a privacy-first standard while maintaining
-              technical efficiency.
+              Apple and Google solved this with a shared Exposure Notification
+              API that enabled reliable background tracing while maintaining
+              strong privacy protections.
             </h4>
           </div>
         </div>
@@ -221,14 +199,10 @@
           <div class="col-lg-1"></div>
           <div class="col-lg-7 col-sm-12">
             <h4 class="">
-              We audited several existing contact tracing apps to understand why
-              their adoption rates remained low. Our analysis confirmed that
-              users gravitated toward apps using BLE technology and those that
-              integrated the Apple/Google API for better security. However, we
-              found a consistent weakness across all competitors: a very shallow
-              level of healthcare integration. Most apps notified the user of
-              exposure but offered no support thereafter, leaving a critical gap
-              in the user journey.
+              We analyzed existing contact tracing apps to understand why
+              adoption remained low. Most competitors successfully used BLE and
+              the Apple/Google API but stopped at exposure notifications,
+              offering little guidance or healthcare support afterward.
             </h4>
           </div>
         </div>
@@ -248,12 +222,10 @@
           <div class="col-lg-1"></div>
           <div class="col-lg-7 col-sm-12">
             <h4 class="">
-              Using insights from our research and story boarding, we defined
-              key user personas to stay aligned with real needs throughout the
-              process. Because the virus affects everyone, we focused especially
-              on the elderly while also considering younger users. This
-              reinforced the need to design a product that is simple,
-              accessible, and easy to use.
+              Using research and storyboarding, we created personas that
+              reflected a wide range of users, with a particular focus on older
+              adults. This reinforced the need for a simple, accessible
+              experience that worked for everyone.
             </h4>
           </div>
         </div>
@@ -279,12 +251,10 @@
           <div class="col-lg-1"></div>
           <div class="col-lg-7 col-sm-12">
             <h4 class="">
-              We mapped out user journeys to understand the real-world impact of
-              our product. In our model, Robert doesn't just receive an alert;
-              he is immediately connected to guidance from healthcare
-              professionals. This empathy-led approach reminded us that while
-              the technology is complex, the interface must remain incredibly
-              simple for those on the front lines and those most at risk.
+              We mapped user journeys to understand how people would interact
+              with Beacon during stressful situations. Rather than simply
+              notifying users of exposure, we designed an experience that
+              immediately connects them with guidance and healthcare resources.
             </h4>
           </div>
         </div>
@@ -304,11 +274,10 @@
           <div class="col-lg-1"></div>
           <div class="col-lg-7 col-sm-12">
             <h4 class="">
-              Through our research, we narrowed our focus to three main
-              problems: privacy fears, technical reliability, and the
-              "notification-only" limitation of current apps. Existing solutions
-              fell short because they only informed users of risk without
-              providing a path to recovery.
+              Our research highlighted three core problems: privacy concerns,
+              technical reliability, and limited healthcare integration.
+              Existing apps stopped at notifying users. Beacon extends the
+              journey by helping users navigate the next steps after exposure.
             </h4>
           </div>
         </div>
@@ -342,12 +311,10 @@
           <div class="col-lg-1"></div>
           <div class="col-lg-7 col-sm-12">
             <h4 class="">
-              Beacon operates within the secure API framework but adds a vital
-              layer of healthcare integration. By creating a bridge between
-              technology and public health units, we developed a tool that not
-              only notifies users of exposure but also expedites their recovery
-              and helps manage the spread, all while preserving the civil
-              liberties of Canadians.
+              Beacon builds on the Apple/Google framework by integrating
+              directly with public health services. Instead of only notifying
+              users of exposure, it connects them with guidance while protecting
+              privacy and personal data.
             </h4>
           </div>
         </div>
@@ -381,15 +348,10 @@
           <div class="col-lg-1"></div>
           <div class="col-lg-7 col-sm-12">
             <h4 class="">
-              We began with early wireframes to visualize the user flow and
-              identify potential pain points. As we moved into visual design, we
-              focused on professional branding that instilled trust. Through
-              three rounds of iterations and direct user feedback, we polished
-              the UI to be accessible for all ages. <br /><br />
-              We tested the prototype with 12 participants across three critical
-              tasks: onboarding, uploading a positive diagnosis, and completing
-              a self-assessment. The completion rate was 100% and the error-free
-              rate was 91.67%.
+              We started with low-fidelity wireframes before refining the
+              experience through three rounds of user testing and iteration.
+              Testing with 12 participants resulted in a 100% task completion
+              rate and a 91.7% error-free rate.
             </h4>
           </div>
         </div>
@@ -428,11 +390,10 @@
           <div class="col-lg-1"></div>
           <div class="col-lg-7 col-sm-12">
             <h4 class="">
-              An intuitive onboarding flow that communicates privacy and value
-              from the start. To ensure localized support without compromising
-              anonymity, users provide only their city, safely connecting them
-              to a Public Health Unit without storing personally identifiable
-              data.
+              The onboarding flow clearly explains privacy and value from the
+              start. Users only provide their city, allowing Beacon to connect
+              them with their local Public Health Unit without collecting
+              personally identifiable information.
             </h4>
           </div>
         </div>
@@ -451,10 +412,9 @@
           <div class="col-lg-1"></div>
           <div class="col-lg-7 col-sm-12">
             <h4 class="">
-              The interface features a clean, three-tab layout: a main dashboard
-              for exposure history and public health advice, a statistics screen
-              tracking local case data and hotspots, and an account page giving
-              users direct control over their account and data.
+              Beacon centers around three core screens: a dashboard for exposure
+              updates, local health statistics, and an account page where users
+              manage their data and settings.
             </h4>
           </div>
         </div>
@@ -473,11 +433,10 @@
           <div class="col-lg-1"></div>
           <div class="col-lg-7 col-sm-12">
             <h4 class="">
-              A built-in triage self-assessment tool evaluates the specific
-              nature of close contacts. By analyzing the actual level of
-              exposure, the app delivers personalized medical guidance and clear
-              next steps, preventing unnecessary anxiety and healthcare system
-              strain.
+              A built-in self-assessment evaluates a user's level of exposure
+              and provides personalized guidance. This helps users make informed
+              decisions while reducing unnecessary strain on healthcare
+              services.
             </h4>
           </div>
         </div>
@@ -496,11 +455,10 @@
           <div class="col-lg-1"></div>
           <div class="col-lg-7 col-sm-12">
             <h4 class="">
-              When a user tests positive, they can quickly report it using a
-              secure verification code from their health unit. Upon entry, the
-              app seamlessly shifts from a tracking tool to a supportive
-              resource hub, providing curated clinical steps and materials to
-              manage their diagnosis.
+              Users who test positive can securely report their diagnosis using
+              a verification code from their Public Health Unit. Beacon then
+              shifts from a tracking tool into a recovery resource, providing
+              personalized guidance and next steps.
             </h4>
           </div>
         </div>
@@ -520,24 +478,15 @@
           <div class="col-lg-1"></div>
           <div class="col-lg-7 col-sm-12">
             <h4 class="">
-              Designing for 35 million Canadians required a mindset focused on
-              precision and deep empathy. The primary hurdle was earning user
-              trust, as privacy concerns were the leading deterrent against
-              adoption. To solve this, I researched apps with massive, diverse
-              demographics and collaborated closely with legal and privacy
-              experts to ensure our design was both secure and accessible to all
-              ages. By prioritizing a transparent and simple user experience, we
-              transformed a complex technical requirement into an intuitive,
-              trustworthy tool.
+              Designing for millions of Canadians reinforced the importance of
+              trust, accessibility, and privacy. By simplifying complex
+              technology, we created an experience that felt secure and
+              approachable.
               <br /><br />
-              While the federal government eventually partnered with Shopify and
-              BlackBerry for the official COVID Alert app, it was a significant
-              validation to see several of our features integrated into the
-              final national release. This experience taught me the critical
-              importance of agility in product design. In high-stakes
-              environments, the ability to think and move swiftly is just as
-              vital as the design itself, as the window of opportunity can close
-              at a moment's notice.
+              Although Canada's official COVID Alert app followed a different
+              path, seeing several of our ideas reflected in the final product
+              validated our approach. The project also taught me the importance
+              of moving quickly and adapting in fast-changing environments.
             </h4>
           </div>
         </div>
