@@ -270,6 +270,26 @@ a:hover {
   color: rgb(110, 110, 110);
 }
 
+.prev-logos {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-left: 6px;
+  vertical-align: middle;
+}
+
+.prev-logos img {
+  width: 18px;
+  height: 18px;
+  display: block;
+  flex-shrink: 0;
+}
+
+.prev-logo-sep {
+  margin-right: 2px;
+  color: inherit;
+}
+
 .button-row {
   display: flex;
   gap: 16px;
