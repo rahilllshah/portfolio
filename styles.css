@@ -270,24 +270,16 @@ a:hover {
   color: rgb(110, 110, 110);
 }
 
-.prev-logos {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  margin-left: 6px;
-  vertical-align: middle;
+.prev-company.shopify {
+  color: #95bf47;
 }
 
-.prev-logos img {
-  width: 18px;
-  height: 18px;
-  display: block;
-  flex-shrink: 0;
+.prev-company.robinhood {
+  color: #00cf98;
 }
 
-.prev-logo-sep {
-  margin-right: 2px;
-  color: inherit;
+.prev-company.twitch {
+  color: #9146ff;
 }
 
 .button-row {
@@ -1009,8 +1001,8 @@ a:hover {
 .pill {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 8px 12px;
+  gap: 6px;
+  padding: 8px 14px;
   border-radius: 100px;
 
   font-size: 14px;
@@ -1039,52 +1031,70 @@ a:hover {
 
 /* Brand colors */
 
-.stealth {
+.pill.stealth {
   background-color: rgba(104, 104, 104, 0.05);
   color: rgba(104, 104, 104, 1);
-  border: 1px solid rgba(104, 104, 104, 0.1);
 }
 
-.beavr {
+.pill.beavr {
   background-color: rgba(110, 142, 138, 0.05);
   color: rgba(110, 142, 138, 1);
-  border: 1px solid rgba(110, 142, 138, 0.1);
 }
 
-.garden {
+.pill.garden {
   background-color: rgba(29, 44, 47, 0.05);
   color: rgba(29, 44, 47, 1);
-  border: 1px solid rgba(29, 44, 47, 0.1);
 }
 
-.instagram {
-  background-color: rgba(201, 33, 169, 0.05);
-  color: rgba(201, 33, 169, 1);
-  border: 1px solid rgba(201, 33, 169, 0.1);
+.pill.instagram {
+  background: linear-gradient(
+    45deg,
+    rgba(245, 133, 41, 0.05),
+    rgba(221, 42, 123, 0.05),
+    rgba(129, 52, 175, 0.05),
+    rgba(81, 91, 212, 0.05)
+  );
 }
 
-.shopify {
+.pill.instagram .pill-label,
+.prev-company.instagram .pill-label {
+  background: linear-gradient(45deg, #f58529, #dd2a7b, #8134af, #515bd4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+.pill.shopify {
   background-color: rgba(149, 191, 71, 0.05);
   color: rgba(149, 191, 71, 1);
-  border: 1px solid rgba(149, 191, 71, 0.1);
 }
 
-.robinhood {
+.pill.robinhood {
   background-color: rgba(0, 207, 152, 0.05);
   color: rgba(0, 207, 152, 1);
-  border: 1px solid rgba(0, 207, 152, 0.1);
 }
 
-.twitch {
+.pill.twitch {
   background-color: rgba(145, 70, 255, 0.05);
   color: rgba(145, 70, 255, 1);
-  border: 1px solid rgba(145, 70, 255, 0.1);
 }
 
-.deltahacks {
-  background-color: rgba(30, 184, 201, 0.05);
-  color: rgba(30, 184, 201, 1);
-  border: 1px solid rgba(30, 184, 201, 0.1);
+.pill.deltahacks {
+  background: linear-gradient(
+    45deg,
+    rgba(29, 184, 201, 0.05),
+    rgba(239, 78, 103, 0.05),
+    rgba(251, 217, 102, 0.05)
+  );
+}
+
+.pill.deltahacks .pill-label {
+  background: linear-gradient(45deg, #1db8c9, #ef4e67, #fbd966);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
 }
 
 @media (hover: hover) and (pointer: fine) {
