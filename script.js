@@ -703,25 +703,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   document.addEventListener("DOMContentLoaded", function () {
     meshBg = document.querySelector(".mesh-bg");
-    if (!meshBg) return;
-
-    // Defer third-party mesh embed so it doesn't compete with LCP/CSS/fonts.
-    var src = meshBg.getAttribute("data-src");
-    if (!src) return;
-
-    function loadMesh() {
-      if (!meshBg || meshBg.getAttribute("src")) return;
-      meshBg.setAttribute("src", src);
-      meshBg.removeAttribute("data-src");
-    }
-
-    if ("requestIdleCallback" in window) {
-      requestIdleCallback(loadMesh, { timeout: 2000 });
-    } else {
-      window.addEventListener("load", function () {
-        setTimeout(loadMesh, 1);
-      });
-    }
   });
 
   // Capture phase on window so nothing can swallow the key event before us.
