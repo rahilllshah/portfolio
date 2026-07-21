@@ -1,10 +1,10 @@
 /* Mesh gradient used for title, subtitles, gradient button (define once) */
 :root {
   --mesh-gradient:
-    radial-gradient(ellipse 85% 70% at 6% 18%, #6366f1 0%, transparent 52%),
-    radial-gradient(ellipse 60% 90% at 94% 12%, #22d3ee 0%, transparent 48%),
-    radial-gradient(ellipse 70% 65% at 38% 88%, #c084fc 0%, transparent 55%),
-    radial-gradient(ellipse 55% 80% at 72% 6%, #38bdf8 0%, transparent 45%),
+    radial-gradient(ellipse 85% 70% at 6% 18%, #f58529 0%, transparent 52%),
+    radial-gradient(ellipse 60% 90% at 94% 12%, #dd2a7b 0%, transparent 48%),
+    radial-gradient(ellipse 70% 65% at 38% 88%, #8134af 0%, transparent 55%),
+    radial-gradient(ellipse 55% 80% at 72% 6%, #515bd4 0%, transparent 45%),
     radial-gradient(ellipse 90% 55% at 18% 62%, #818cf8 0%, transparent 50%),
     radial-gradient(ellipse 50% 70% at 88% 58%, #2dd4bf 0%, transparent 46%),
     radial-gradient(ellipse 75% 75% at 52% 42%, #a855f7 0%, transparent 58%),
@@ -19,10 +19,10 @@
     radial-gradient(ellipse 85% 60% at 44% 52%, #5b21b6 0%, transparent 56%),
     radial-gradient(ellipse 40% 70% at 76% 28%, #e879f9 0%, transparent 38%);
   --mesh-gradient-btn:
-    radial-gradient(ellipse 80% 65% at 8% 22%, #6366f1 0%, transparent 50%),
-    radial-gradient(ellipse 65% 85% at 92% 14%, #22d3ee 0%, transparent 46%),
-    radial-gradient(ellipse 72% 62% at 40% 90%, #c084fc 0%, transparent 52%),
-    radial-gradient(ellipse 58% 78% at 70% 8%, #38bdf8 0%, transparent 44%),
+    radial-gradient(ellipse 80% 65% at 8% 22%, #f58529 0%, transparent 50%),
+    radial-gradient(ellipse 65% 85% at 92% 14%, #dd2a7b 0%, transparent 46%),
+    radial-gradient(ellipse 72% 62% at 40% 90%, #8134af 0%, transparent 52%),
+    radial-gradient(ellipse 58% 78% at 70% 8%, #515bd4 0%, transparent 44%),
     radial-gradient(ellipse 88% 52% at 16% 58%, #818cf8 0%, transparent 48%),
     radial-gradient(ellipse 52% 72% at 86% 62%, #2dd4bf 0%, transparent 45%),
     radial-gradient(ellipse 78% 72% at 50% 45%, #a855f7 0%, transparent 54%),
@@ -266,7 +266,7 @@ a:hover {
   font-size: 20px;
   font-weight: 450;
   margin-top: 16px;
-  line-height: var(--lh-body);
+  line-height: 1.7;
   color: rgb(110, 110, 110);
 }
 
