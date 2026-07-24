@@ -94,6 +94,10 @@ label:focus-visible,
     opacity: 0;
     animation: navFadeIn 2s cubic-bezier(0.22, 1, 0.36, 1) 0.5s forwards;
   }
+  body.home .nav-right li:nth-child(3) {
+    opacity: 0;
+    animation: navFadeIn 2s cubic-bezier(0.22, 1, 0.36, 1) 0.4s forwards;
+  }
 }
 
 /* --- Base nav --- */
