@@ -375,11 +375,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     ctx.fillStyle = "#ffffff";
     var range = document.createRange();
-    var walker = document.createTreeWalker(
-      title,
-      NodeFilter.SHOW_TEXT,
-      null,
-    );
+    var walker = document.createTreeWalker(title, NodeFilter.SHOW_TEXT, null);
     var node;
     while ((node = walker.nextNode())) {
       var text = node.textContent || "";
@@ -428,11 +424,7 @@ document.addEventListener("DOMContentLoaded", function () {
   function collectGlyphTargets(rootRect) {
     var targets = [];
     var range = document.createRange();
-    var walker = document.createTreeWalker(
-      title,
-      NodeFilter.SHOW_TEXT,
-      null,
-    );
+    var walker = document.createTreeWalker(title, NodeFilter.SHOW_TEXT, null);
     var node;
     while ((node = walker.nextNode())) {
       var text = node.textContent || "";
@@ -488,10 +480,7 @@ document.addEventListener("DOMContentLoaded", function () {
     var maskId = buildLetterMask(defs, rootRect, titleRect);
     svg.appendChild(defs);
 
-    var layer = el(
-      "g",
-      maskId ? { mask: "url(#" + maskId + ")" } : null,
-    );
+    var layer = el("g", maskId ? { mask: "url(#" + maskId + ")" } : null);
     svg.appendChild(layer);
 
     var glyphTargets = collectGlyphTargets(rootRect);
@@ -527,7 +516,7 @@ document.addEventListener("DOMContentLoaded", function () {
             glyphTargets.length - 1,
             Math.floor(
               (companyT * 0.7 +
-                (s + 0.5) / STROKES_PER_COMPANY * 0.3 +
+                ((s + 0.5) / STROKES_PER_COMPANY) * 0.3 +
                 r3 * 0.08) *
                 glyphTargets.length,
             ),
@@ -751,15 +740,8 @@ document.addEventListener("DOMContentLoaded", function () {
   // Safety: always reveal the mesh if the intro never completes.
   window.setTimeout(feedTitle, 4200);
 
-  if (document.fonts && document.fonts.ready) {
-    document.fonts.ready.then(function () {
-      window.requestAnimationFrame(animateFeeds);
-    });
-  } else {
-    window.setTimeout(function () {
-      window.requestAnimationFrame(animateFeeds);
-    }, 80);
-  }
+  // Start on the next frame — don't wait on fonts.ready (Safari can stall).
+  window.requestAnimationFrame(animateFeeds);
 
   window.addEventListener("resize", onResize);
 });
