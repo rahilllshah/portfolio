@@ -211,7 +211,7 @@ a:hover {
   height: 100%;
   overflow: visible;
   pointer-events: none;
-  /* Above the title so masked tips can tint letterforms; subtitle stays higher. */
+  /* Above the title; subtitle/buttons stay higher. */
   z-index: 2;
 }
 
@@ -221,7 +221,6 @@ a:hover {
   stroke-linejoin: round;
   stroke-width: 1.5;
   opacity: 0;
-  filter: url(#feed-glow);
 }
 
 .title-feed .feed-path.is-drawing {

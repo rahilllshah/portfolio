@@ -346,81 +346,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  // Mask: strokes stay fully visible outside the title, but inside the title
-  // box they only appear within letter boxes — nothing in the gaps.
-  function buildLetterMask(defs, rootRect, titleRect) {
-    var w = rootRect.width;
-    var h = rootRect.height;
-    var dpr = Math.min(window.devicePixelRatio || 1, 2);
-    var canvas = document.createElement("canvas");
-    canvas.width = Math.max(1, Math.ceil(w * dpr));
-    canvas.height = Math.max(1, Math.ceil(h * dpr));
-    var ctx = canvas.getContext("2d");
-    if (!ctx) return null;
-
-    ctx.scale(dpr, dpr);
-    ctx.fillStyle = "#ffffff";
-    ctx.fillRect(0, 0, w, h);
-
-    var tx = titleRect.left - rootRect.left;
-    var ty = titleRect.top - rootRect.top;
-    var pad = 6;
-    ctx.fillStyle = "#000000";
-    ctx.fillRect(
-      tx - pad,
-      ty - pad,
-      titleRect.width + pad * 2,
-      titleRect.height + pad * 2,
-    );
-
-    ctx.fillStyle = "#ffffff";
-    var range = document.createRange();
-    var walker = document.createTreeWalker(title, NodeFilter.SHOW_TEXT, null);
-    var node;
-    while ((node = walker.nextNode())) {
-      var text = node.textContent || "";
-      for (var i = 0; i < text.length; i++) {
-        if (/\s/.test(text.charAt(i))) continue;
-        range.setStart(node, i);
-        range.setEnd(node, i + 1);
-        var rects = range.getClientRects();
-        for (var j = 0; j < rects.length; j++) {
-          var r = rects[j];
-          if (r.width < 0.5 || r.height < 0.5) continue;
-          var inset = Math.min(r.width, r.height) * 0.08;
-          ctx.fillRect(
-            r.left - rootRect.left + inset,
-            r.top - rootRect.top + inset,
-            Math.max(0.5, r.width - inset * 2),
-            Math.max(0.5, r.height - inset * 2),
-          );
-        }
-      }
-    }
-
-    var mask = el("mask", {
-      id: "feed-letter-mask",
-      maskUnits: "userSpaceOnUse",
-      x: "0",
-      y: "0",
-      width: String(w),
-      height: String(h),
-    });
-    var image = el("image", {
-      x: "0",
-      y: "0",
-      width: String(w),
-      height: String(h),
-      preserveAspectRatio: "none",
-    });
-    var url = canvas.toDataURL("image/png");
-    image.setAttribute("href", url);
-    image.setAttributeNS("http://www.w3.org/1999/xlink", "href", url);
-    mask.appendChild(image);
-    defs.appendChild(mask);
-    return "feed-letter-mask";
-  }
-
   function collectGlyphTargets(rootRect) {
     var targets = [];
     var range = document.createRange();
@@ -462,25 +387,9 @@ document.addEventListener("DOMContentLoaded", function () {
     while (svg.firstChild) svg.removeChild(svg.firstChild);
 
     var defs = el("defs");
-    var glow = el("filter", {
-      id: "feed-glow",
-      x: "-60%",
-      y: "-60%",
-      width: "220%",
-      height: "220%",
-    });
-    glow.appendChild(
-      el("feGaussianBlur", { stdDeviation: "1.35", result: "blur" }),
-    );
-    var merge = el("feMerge");
-    merge.appendChild(el("feMergeNode", { in: "blur" }));
-    merge.appendChild(el("feMergeNode", { in: "SourceGraphic" }));
-    glow.appendChild(merge);
-
-    var maskId = buildLetterMask(defs, rootRect, titleRect);
     svg.appendChild(defs);
 
-    var layer = el("g", maskId ? { mask: "url(#" + maskId + ")" } : null);
+    var layer = el("g");
     svg.appendChild(layer);
 
     var glyphTargets = collectGlyphTargets(rootRect);
