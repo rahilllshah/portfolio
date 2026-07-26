@@ -550,33 +550,42 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Pour into the title: erase from the company origin so the tip is last
   // to fade — reading as color depositing into the mesh.
+  // Safari mishandles negative stroke-dashoffset (0 → -len), which makes the
+  // wipe look staggered/jumpy. Use positive equivalents instead: 2L ≡ 0 and
+  // L ≡ -L (mod 2L), so 2L → L is the same continuous origin→tip clear.
   function absorbIntoTitle(item) {
     var path = item.path;
     var len = path.getTotalLength();
     var absorbMs = 900 + hash(item.globalIndex + 2) * 280;
+    var dash = len + " " + len;
 
     path.style.transition = "none";
-    path.style.strokeDasharray = String(len);
-    path.style.strokeDashoffset = "0";
+    path.style.strokeDasharray = dash;
+    // Fully visible, equivalent to offset 0 — avoids a negative-from state.
+    path.style.strokeDashoffset = String(len * 2);
+    path.style.opacity = "0.72";
+    // Force style commit before transitioning (Safari needs the extra frame).
     path.getBoundingClientRect();
 
     window.requestAnimationFrame(function () {
-      path.classList.remove("is-drawing");
-      path.classList.add("is-absorbing");
-      path.style.transition =
-        "opacity " +
-        absorbMs +
-        "ms cubic-bezier(0.4, 0, 0.2, 1)," +
-        " stroke-dashoffset " +
-        absorbMs +
-        "ms cubic-bezier(0.33, 1, 0.68, 1)," +
-        " stroke-width " +
-        absorbMs +
-        "ms ease";
-      // Negative offset clears the path from the start → tip last.
-      path.style.strokeDashoffset = String(-len);
-      path.style.opacity = "0";
-      path.style.strokeWidth = "0.55";
+      window.requestAnimationFrame(function () {
+        path.classList.remove("is-drawing");
+        path.classList.add("is-absorbing");
+        path.style.transition =
+          "opacity " +
+          absorbMs +
+          "ms cubic-bezier(0.4, 0, 0.2, 1)," +
+          " stroke-dashoffset " +
+          absorbMs +
+          "ms cubic-bezier(0.33, 1, 0.68, 1)," +
+          " stroke-width " +
+          absorbMs +
+          "ms ease";
+        // Positive L clears from the start → tip last (≡ animating to -L).
+        path.style.strokeDashoffset = String(len);
+        path.style.opacity = "0";
+        path.style.strokeWidth = "0.55";
+      });
     });
 
     window.setTimeout(function () {
@@ -602,8 +611,8 @@ document.addEventListener("DOMContentLoaded", function () {
       var path = item.path;
       var len = path.getTotalLength();
       var thisDraw = drawMs + hash(item.globalIndex) * 200;
+      // No base delay — feed is the first motion on the page.
       var delay =
-        140 +
         item.companyIndex * companyStagger +
         item.stroke * strokeStagger +
         hash(item.globalIndex + 9) * 50;
@@ -612,7 +621,8 @@ document.addEventListener("DOMContentLoaded", function () {
       var tipAt = delay + thisDraw * 0.78;
       if (tipAt < earliestTip) earliestTip = tipAt;
 
-      path.style.strokeDasharray = String(len);
+      // Two-value dasharray keeps Safari aligned with Chrome for later absorb.
+      path.style.strokeDasharray = len + " " + len;
       path.style.strokeDashoffset = String(len);
       path.style.opacity = "0";
 
