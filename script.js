@@ -278,6 +278,492 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
+// Landing title feed: brand colors draw from each prev company into the
+// headline tip, then absorb into the mesh gradient that fills the type.
+document.addEventListener("DOMContentLoaded", function () {
+  var root = document.querySelector(".landing-content");
+  var svg = root && root.querySelector(".title-feed");
+  var title = root && root.querySelector(".title");
+  var chatBtn = root && root.querySelector(".copy-email-btn");
+  var companies = root
+    ? Array.prototype.slice.call(
+        root.querySelectorAll(".prev-company[data-feed]"),
+      )
+    : [];
+  if (!root || !svg || !title || !companies.length) {
+    if (title) title.classList.remove("is-awaiting-feed");
+    if (chatBtn) chatBtn.classList.remove("is-awaiting-feed");
+    return;
+  }
+
+  var STROKES_PER_COMPANY = 4;
+  var STROKE_WIDTH = 1.75;
+
+  var FEEDS = {
+    instagram: {
+      colors: ["#f58529", "#dd2a7b", "#8134af", "#515bd4"],
+    },
+    shopify: {
+      colors: ["#b4d96a", "#95bf47", "#6fa32e", "#95bf47"],
+    },
+    robinhood: {
+      colors: ["#5ef0c2", "#00cf98", "#0ea5e9", "#2dd4bf"],
+    },
+    twitch: {
+      colors: ["#bf94ff", "#9146ff", "#a855f7", "#7c3aed"],
+    },
+  };
+
+  function hash(n) {
+    var x = Math.sin(n * 127.1 + 311.7) * 43758.5453;
+    return x - Math.floor(x);
+  }
+
+  var NS = "http://www.w3.org/2000/svg";
+  var paths = [];
+  var done = false;
+  var resizeTimer = null;
+  var titleFed = false;
+
+  function el(name, attrs) {
+    var node = document.createElementNS(NS, name);
+    if (attrs) {
+      Object.keys(attrs).forEach(function (key) {
+        node.setAttribute(key, attrs[key]);
+      });
+    }
+    return node;
+  }
+
+  function feedTitle() {
+    if (titleFed) return;
+    titleFed = true;
+    title.classList.remove("is-awaiting-feed");
+    title.classList.add("is-fed");
+    if (chatBtn) {
+      chatBtn.classList.remove("is-awaiting-feed");
+      chatBtn.classList.add("is-fed");
+    }
+  }
+
+  // Mask: strokes stay fully visible outside the title, but inside the title
+  // box they only appear within letter boxes — nothing in the gaps.
+  function buildLetterMask(defs, rootRect, titleRect) {
+    var w = rootRect.width;
+    var h = rootRect.height;
+    var dpr = Math.min(window.devicePixelRatio || 1, 2);
+    var canvas = document.createElement("canvas");
+    canvas.width = Math.max(1, Math.ceil(w * dpr));
+    canvas.height = Math.max(1, Math.ceil(h * dpr));
+    var ctx = canvas.getContext("2d");
+    if (!ctx) return null;
+
+    ctx.scale(dpr, dpr);
+    ctx.fillStyle = "#ffffff";
+    ctx.fillRect(0, 0, w, h);
+
+    var tx = titleRect.left - rootRect.left;
+    var ty = titleRect.top - rootRect.top;
+    var pad = 6;
+    ctx.fillStyle = "#000000";
+    ctx.fillRect(
+      tx - pad,
+      ty - pad,
+      titleRect.width + pad * 2,
+      titleRect.height + pad * 2,
+    );
+
+    ctx.fillStyle = "#ffffff";
+    var range = document.createRange();
+    var walker = document.createTreeWalker(
+      title,
+      NodeFilter.SHOW_TEXT,
+      null,
+    );
+    var node;
+    while ((node = walker.nextNode())) {
+      var text = node.textContent || "";
+      for (var i = 0; i < text.length; i++) {
+        if (/\s/.test(text.charAt(i))) continue;
+        range.setStart(node, i);
+        range.setEnd(node, i + 1);
+        var rects = range.getClientRects();
+        for (var j = 0; j < rects.length; j++) {
+          var r = rects[j];
+          if (r.width < 0.5 || r.height < 0.5) continue;
+          var inset = Math.min(r.width, r.height) * 0.08;
+          ctx.fillRect(
+            r.left - rootRect.left + inset,
+            r.top - rootRect.top + inset,
+            Math.max(0.5, r.width - inset * 2),
+            Math.max(0.5, r.height - inset * 2),
+          );
+        }
+      }
+    }
+
+    var mask = el("mask", {
+      id: "feed-letter-mask",
+      maskUnits: "userSpaceOnUse",
+      x: "0",
+      y: "0",
+      width: String(w),
+      height: String(h),
+    });
+    var image = el("image", {
+      x: "0",
+      y: "0",
+      width: String(w),
+      height: String(h),
+      preserveAspectRatio: "none",
+    });
+    var url = canvas.toDataURL("image/png");
+    image.setAttribute("href", url);
+    image.setAttributeNS("http://www.w3.org/1999/xlink", "href", url);
+    mask.appendChild(image);
+    defs.appendChild(mask);
+    return "feed-letter-mask";
+  }
+
+  function collectGlyphTargets(rootRect) {
+    var targets = [];
+    var range = document.createRange();
+    var walker = document.createTreeWalker(
+      title,
+      NodeFilter.SHOW_TEXT,
+      null,
+    );
+    var node;
+    while ((node = walker.nextNode())) {
+      var text = node.textContent || "";
+      for (var i = 0; i < text.length; i++) {
+        if (/\s/.test(text.charAt(i))) continue;
+        range.setStart(node, i);
+        range.setEnd(node, i + 1);
+        var rects = range.getClientRects();
+        for (var j = 0; j < rects.length; j++) {
+          var r = rects[j];
+          if (r.width < 1 || r.height < 1) continue;
+          targets.push({
+            x: r.left - rootRect.left + r.width * 0.5,
+            y: r.top - rootRect.top + r.height * 0.55,
+            w: r.width,
+            h: r.height,
+          });
+        }
+      }
+    }
+    return targets;
+  }
+
+  function buildSvg() {
+    var rootRect = root.getBoundingClientRect();
+    var titleRect = title.getBoundingClientRect();
+    if (rootRect.width < 8 || titleRect.height < 8) return false;
+
+    svg.setAttribute(
+      "viewBox",
+      "0 0 " + rootRect.width + " " + rootRect.height,
+    );
+    svg.setAttribute("width", String(rootRect.width));
+    svg.setAttribute("height", String(rootRect.height));
+    while (svg.firstChild) svg.removeChild(svg.firstChild);
+
+    var defs = el("defs");
+    var glow = el("filter", {
+      id: "feed-glow",
+      x: "-60%",
+      y: "-60%",
+      width: "220%",
+      height: "220%",
+    });
+    glow.appendChild(
+      el("feGaussianBlur", { stdDeviation: "1.35", result: "blur" }),
+    );
+    var merge = el("feMerge");
+    merge.appendChild(el("feMergeNode", { in: "blur" }));
+    merge.appendChild(el("feMergeNode", { in: "SourceGraphic" }));
+    glow.appendChild(merge);
+
+    var maskId = buildLetterMask(defs, rootRect, titleRect);
+    svg.appendChild(defs);
+
+    var layer = el(
+      "g",
+      maskId ? { mask: "url(#" + maskId + ")" } : null,
+    );
+    svg.appendChild(layer);
+
+    var glyphTargets = collectGlyphTargets(rootRect);
+    paths = [];
+    var companyCount = companies.length;
+    var strokeIndex = 0;
+
+    companies.forEach(function (company, companyIndex) {
+      var key = company.getAttribute("data-feed");
+      var feed = FEEDS[key];
+      if (!feed) return;
+
+      var cRect = company.getBoundingClientRect();
+      var companyT =
+        companyCount === 1 ? 0.5 : companyIndex / (companyCount - 1);
+
+      for (var s = 0; s < STROKES_PER_COMPANY; s++) {
+        var seed = companyIndex * 17 + s * 3.1 + 1;
+        var r1 = hash(seed);
+        var r2 = hash(seed + 1.7);
+        var r3 = hash(seed + 3.3);
+        var r4 = hash(seed + 5.9);
+
+        var startX =
+          cRect.left - rootRect.left + cRect.width * (0.16 + r1 * 0.68);
+        var startY = cRect.top - rootRect.top + 2 + r2 * 3;
+
+        // Aim tips into real glyph boxes so they land inside letters.
+        var endX;
+        var endY;
+        if (glyphTargets.length) {
+          var targetIndex = Math.min(
+            glyphTargets.length - 1,
+            Math.floor(
+              (companyT * 0.7 +
+                (s + 0.5) / STROKES_PER_COMPANY * 0.3 +
+                r3 * 0.08) *
+                glyphTargets.length,
+            ),
+          );
+          // Spread strokes across nearby glyphs instead of stacking one cell.
+          targetIndex = Math.max(
+            0,
+            Math.min(
+              glyphTargets.length - 1,
+              targetIndex + Math.floor((r4 - 0.5) * 6),
+            ),
+          );
+          var target = glyphTargets[targetIndex];
+          endX = target.x + (r1 - 0.5) * target.w * 0.35;
+          endY = target.y + (r2 - 0.5) * target.h * 0.25;
+        } else {
+          endX =
+            titleRect.left -
+            rootRect.left +
+            titleRect.width *
+              (0.06 +
+                companyT * 0.62 +
+                r3 * 0.22 +
+                (s / STROKES_PER_COMPANY) * 0.1);
+          endY =
+            titleRect.top -
+            rootRect.top +
+            titleRect.height * (0.16 + r4 * 0.68);
+        }
+
+        var rise = Math.max(40, startY - endY);
+        var sway =
+          (r1 - 0.5) * 64 +
+          (s - (STROKES_PER_COMPANY - 1) / 2) * 12 +
+          (companyIndex % 2 === 0 ? -8 : 10);
+        var c1x = startX + sway * (0.22 + r2 * 0.32);
+        var c1y = startY - rise * (0.3 + r3 * 0.22);
+        var c2x = endX - sway * (0.12 + r4 * 0.28);
+        var c2y = endY + rise * (0.16 + r1 * 0.2);
+
+        var colorA = feed.colors[s % feed.colors.length];
+        var colorB = feed.colors[(s + 1) % feed.colors.length];
+        var tipColor = feed.colors[(s + 2) % feed.colors.length];
+        var gradId = "feed-grad-" + key + "-" + s;
+        var grad = el("linearGradient", {
+          id: gradId,
+          gradientUnits: "userSpaceOnUse",
+          x1: startX.toFixed(2),
+          y1: startY.toFixed(2),
+          x2: endX.toFixed(2),
+          y2: endY.toFixed(2),
+        });
+        // Soft origin → bright tip at the title, so color visibly feeds in.
+        grad.appendChild(
+          el("stop", {
+            offset: "0%",
+            "stop-color": colorA,
+            "stop-opacity": "0",
+          }),
+        );
+        grad.appendChild(
+          el("stop", {
+            offset: "18%",
+            "stop-color": colorA,
+            "stop-opacity": "0.55",
+          }),
+        );
+        grad.appendChild(
+          el("stop", {
+            offset: "62%",
+            "stop-color": colorB,
+            "stop-opacity": "0.85",
+          }),
+        );
+        grad.appendChild(
+          el("stop", {
+            offset: "100%",
+            "stop-color": tipColor,
+            "stop-opacity": "1",
+          }),
+        );
+        defs.appendChild(grad);
+
+        var d =
+          "M " +
+          startX.toFixed(2) +
+          " " +
+          startY.toFixed(2) +
+          " C " +
+          c1x.toFixed(2) +
+          " " +
+          c1y.toFixed(2) +
+          ", " +
+          c2x.toFixed(2) +
+          " " +
+          c2y.toFixed(2) +
+          ", " +
+          endX.toFixed(2) +
+          " " +
+          endY.toFixed(2);
+
+        var path = el("path", {
+          class: "feed-path",
+          d: d,
+          stroke: "url(#" + gradId + ")",
+          "stroke-width": String(STROKE_WIDTH),
+        });
+
+        layer.appendChild(path);
+        paths.push({
+          path: path,
+          companyIndex: companyIndex,
+          stroke: s,
+          globalIndex: strokeIndex,
+        });
+        strokeIndex += 1;
+      }
+    });
+
+    return paths.length > 0;
+  }
+
+  // Pour into the title: erase from the company origin so the tip is last
+  // to fade — reading as color depositing into the mesh.
+  function absorbIntoTitle(item) {
+    var path = item.path;
+    var len = path.getTotalLength();
+    var absorbMs = 900 + hash(item.globalIndex + 2) * 280;
+
+    path.style.transition = "none";
+    path.style.strokeDasharray = String(len);
+    path.style.strokeDashoffset = "0";
+    path.getBoundingClientRect();
+
+    window.requestAnimationFrame(function () {
+      path.classList.remove("is-drawing");
+      path.classList.add("is-absorbing");
+      path.style.transition =
+        "opacity " +
+        absorbMs +
+        "ms cubic-bezier(0.4, 0, 0.2, 1)," +
+        " stroke-dashoffset " +
+        absorbMs +
+        "ms cubic-bezier(0.33, 1, 0.68, 1)," +
+        " stroke-width " +
+        absorbMs +
+        "ms ease";
+      // Negative offset clears the path from the start → tip last.
+      path.style.strokeDashoffset = String(-len);
+      path.style.opacity = "0";
+      path.style.strokeWidth = "0.55";
+    });
+
+    window.setTimeout(function () {
+      if (path.parentNode) path.parentNode.removeChild(path);
+    }, absorbMs + 60);
+  }
+
+  function animateFeeds() {
+    if (done) return;
+    if (!buildSvg()) {
+      // Don’t leave the headline stuck in the muted pre-feed state.
+      feedTitle();
+      return;
+    }
+    done = true;
+
+    var drawMs = 1200;
+    var companyStagger = 100;
+    var strokeStagger = 50;
+    var earliestTip = Infinity;
+
+    paths.forEach(function (item) {
+      var path = item.path;
+      var len = path.getTotalLength();
+      var thisDraw = drawMs + hash(item.globalIndex) * 200;
+      var delay =
+        140 +
+        item.companyIndex * companyStagger +
+        item.stroke * strokeStagger +
+        hash(item.globalIndex + 9) * 50;
+
+      // Tip reaches the title near the end of the draw.
+      var tipAt = delay + thisDraw * 0.78;
+      if (tipAt < earliestTip) earliestTip = tipAt;
+
+      path.style.strokeDasharray = String(len);
+      path.style.strokeDashoffset = String(len);
+      path.style.opacity = "0";
+
+      window.setTimeout(function () {
+        path.classList.add("is-drawing");
+        path.style.transition =
+          "stroke-dashoffset " +
+          thisDraw +
+          "ms cubic-bezier(0.4, 0, 0.2, 1), opacity 0.28s ease";
+        path.getBoundingClientRect();
+        path.style.strokeDashoffset = "0";
+        path.style.opacity = "0.72";
+      }, delay);
+
+      // Absorb just as the tip lands — color becomes the mesh.
+      window.setTimeout(function () {
+        absorbIntoTitle(item);
+      }, tipAt);
+    });
+
+    // Wake the mesh as the first brand tips arrive.
+    window.setTimeout(feedTitle, Math.max(earliestTip - 40, 180));
+  }
+
+  function onResize() {
+    // One-shot intro — don’t rebuild after it has played.
+    if (done) return;
+    window.clearTimeout(resizeTimer);
+    resizeTimer = window.setTimeout(function () {
+      buildSvg();
+    }, 120);
+  }
+
+  // Safety: always reveal the mesh if the intro never completes.
+  window.setTimeout(feedTitle, 4200);
+
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(function () {
+      window.requestAnimationFrame(animateFeeds);
+    });
+  } else {
+    window.setTimeout(function () {
+      window.requestAnimationFrame(animateFeeds);
+    }, 80);
+  }
+
+  window.addEventListener("resize", onResize);
+});
+
 // Landing arrow cue: visible on load, fades in/out smoothly as the user
 // scrolls through the first 20% of the viewport (one-fifth of a "page").
 document.addEventListener("DOMContentLoaded", function () {

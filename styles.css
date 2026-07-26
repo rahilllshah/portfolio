@@ -200,6 +200,49 @@ a:hover {
   padding-top: 30vh;
 }
 
+.landing-content {
+  position: relative;
+}
+
+.title-feed {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  pointer-events: none;
+  /* Above the title so masked tips can tint letterforms; subtitle stays higher. */
+  z-index: 2;
+}
+
+.title-feed .feed-path {
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.5;
+  opacity: 0;
+  filter: url(#feed-glow);
+}
+
+.title-feed .feed-path.is-drawing {
+  opacity: 0.72;
+}
+
+.title-feed .feed-path.is-absorbing {
+  opacity: 0;
+}
+
+.title {
+  position: relative;
+  z-index: 1;
+}
+
+.landingsub2,
+.button-row {
+  position: relative;
+  z-index: 3;
+}
+
 .title {
   font-size: 86px;
   font-weight: 700;
@@ -215,6 +258,31 @@ a:hover {
   background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: meshDrift 20s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
+}
+
+/* Mute the mesh until brand color arrives, then bloom into the full gradient. */
+.title.is-awaiting-feed,
+.solid-btn.copy-email-btn.is-awaiting-feed {
+  filter: saturate(0.08) contrast(0.96) brightness(1.08);
+  opacity: 0.62;
+  transition:
+    filter 1.5s cubic-bezier(0.33, 1, 0.68, 1),
+    opacity 1.5s cubic-bezier(0.33, 1, 0.68, 1);
+}
+
+.title.is-fed,
+.solid-btn.copy-email-btn.is-fed {
+  filter: saturate(1.1) contrast(1.04);
+  opacity: 1;
+  transition:
+    filter 1.5s cubic-bezier(0.33, 1, 0.68, 1),
+    opacity 1.5s cubic-bezier(0.33, 1, 0.68, 1),
+    transform 0.2s;
+}
+
+.prev-company {
+  position: relative;
+  display: inline-block;
 }
 
 @keyframes meshDrift {
@@ -280,6 +348,12 @@ a:hover {
 
 .prev-company.twitch {
   color: #9146ff;
+}
+
+@media (max-width: 768px) {
+  .title-feed .feed-path.is-drawing {
+    opacity: 0.58;
+  }
 }
 
 .button-row {
