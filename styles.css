@@ -113,9 +113,23 @@ body {
   transition: all 1s ease;
 }
 
-/* Full-page loader — logo + progress ring until sizzle reel can play */
-body.is-loading {
+/* Full-page loader — lock scroll until the overlay is fully gone (incl. blur-out) */
+html.is-loader-scroll-lock,
+body.is-loader-scroll-lock {
   overflow: hidden;
+  overscroll-behavior: none;
+}
+
+html.is-loader-scroll-lock {
+  scroll-behavior: auto !important;
+}
+
+body.is-loader-scroll-lock {
+  position: fixed;
+  left: 0;
+  right: 0;
+  width: 100%;
+  /* top set via JS to -scrollY so layout doesn't jump */
 }
 
 .page-loader {

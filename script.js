@@ -15,6 +15,22 @@ anchorHistory();
 // Page loader — tracks sizzle reel buffer, then blurs out when playable.
 // At 100%: start nav + feed intros immediately, then blur the loader away over them.
 (function initPageLoader() {
+  var lockedScrollY = 0;
+
+  function lockScroll() {
+    lockedScrollY = window.scrollY || window.pageYOffset || 0;
+    document.documentElement.classList.add("is-loader-scroll-lock");
+    document.body.classList.add("is-loader-scroll-lock");
+    document.body.style.top = "-" + lockedScrollY + "px";
+  }
+
+  function unlockScroll() {
+    document.documentElement.classList.remove("is-loader-scroll-lock");
+    document.body.classList.remove("is-loader-scroll-lock");
+    document.body.style.top = "";
+    window.scrollTo(0, lockedScrollY);
+  }
+
   function signalPageReady() {
     if (document.body.classList.contains("is-ready")) return;
     document.body.classList.remove("is-loading");
@@ -24,9 +40,19 @@ anchorHistory();
 
   var loader = document.getElementById("page-loader");
   if (!loader) {
+    unlockScroll();
     signalPageReady();
     return;
   }
+
+  lockScroll();
+
+  // Block wheel/touch scroll while the loader is up (Safari/iOS belt-and-suspenders)
+  function preventScroll(e) {
+    e.preventDefault();
+  }
+  window.addEventListener("wheel", preventScroll, { passive: false });
+  window.addEventListener("touchmove", preventScroll, { passive: false });
 
   var ring = loader.querySelector(".page-loader-ring-progress");
   var video = document.querySelector(".reel-video");
@@ -56,9 +82,7 @@ anchorHistory();
   function paintRing(pct) {
     loader.setAttribute("aria-valuenow", String(Math.round(pct)));
     if (ring) {
-      ring.style.strokeDashoffset = String(
-        circumference * (1 - pct / 100),
-      );
+      ring.style.strokeDashoffset = String(circumference * (1 - pct / 100));
     }
   }
 
@@ -142,7 +166,10 @@ anchorHistory();
     }
     displayPct = 100;
     paintRing(100);
-    // Intros start once the ring completes — loader blurs out over them
+    // Unlock scroll, then start intros + blur-out
+    window.removeEventListener("wheel", preventScroll);
+    window.removeEventListener("touchmove", preventScroll);
+    unlockScroll();
     signalPageReady();
     // Next frame so nav/feed paint before the overlay begins fading
     requestAnimationFrame(function () {
