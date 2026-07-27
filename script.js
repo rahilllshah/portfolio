@@ -12,6 +12,139 @@ function anchorHistory() {
 }
 anchorHistory();
 
+// Page loader — tracks sizzle reel buffer, then blurs out when playable
+(function initPageLoader() {
+  var loader = document.getElementById("page-loader");
+  if (!loader) {
+    document.body.classList.remove("is-loading");
+    return;
+  }
+
+  var pctEl = loader.querySelector(".page-loader-pct-num");
+  var video = document.querySelector(".reel-video");
+  var displayPct = 0;
+  var targetPct = 0;
+  var ready = false;
+  var dismissed = false;
+  var rafId = null;
+  var safetyTimer = null;
+
+  function setDisplayed(n) {
+    displayPct = n;
+    if (pctEl) pctEl.textContent = String(Math.round(n));
+  }
+
+  function bufferedPercent() {
+    if (!video) return 100;
+    if (video.readyState >= 4) return 100;
+    var duration = video.duration;
+    if (!duration || !isFinite(duration) || duration <= 0) {
+      if (video.readyState >= 3) return 90;
+      if (video.readyState >= 2) return 55;
+      if (video.readyState >= 1) return 20;
+      return targetPct;
+    }
+    if (!video.buffered || video.buffered.length === 0) {
+      return video.readyState >= 2 ? Math.max(targetPct, 35) : targetPct;
+    }
+    var end = 0;
+    for (var i = 0; i < video.buffered.length; i++) {
+      var e = video.buffered.end(i);
+      if (e > end) end = e;
+    }
+    return Math.min(100, (end / duration) * 100);
+  }
+
+  function tickPct() {
+    var diff = targetPct - displayPct;
+    if (Math.abs(diff) < 0.35) {
+      setDisplayed(targetPct);
+      rafId = null;
+      if (ready && targetPct >= 100) dismiss();
+      return;
+    }
+    setDisplayed(displayPct + diff * 0.18);
+    rafId = requestAnimationFrame(tickPct);
+  }
+
+  function updateProgress(next) {
+    if (dismissed) return;
+    if (next < targetPct) next = targetPct;
+    if (next > 100) next = 100;
+    // Hold just under 100 until the reel is actually ready to play
+    if (!ready && next >= 100) next = 99;
+    targetPct = next;
+    if (rafId == null) rafId = requestAnimationFrame(tickPct);
+  }
+
+  function dismiss() {
+    if (dismissed) return;
+    dismissed = true;
+    if (rafId != null) {
+      cancelAnimationFrame(rafId);
+      rafId = null;
+    }
+    if (safetyTimer != null) {
+      clearTimeout(safetyTimer);
+      safetyTimer = null;
+    }
+    setDisplayed(100);
+    loader.classList.add("is-done");
+    loader.setAttribute("aria-busy", "false");
+    document.body.classList.remove("is-loading");
+
+    function cleanup() {
+      loader.removeEventListener("transitionend", onEnd);
+      if (loader.parentNode) loader.parentNode.removeChild(loader);
+    }
+    function onEnd(e) {
+      if (e.target !== loader || e.propertyName !== "opacity") return;
+      cleanup();
+    }
+    loader.addEventListener("transitionend", onEnd);
+    setTimeout(cleanup, 1200);
+  }
+
+  function markReady() {
+    if (ready) return;
+    ready = true;
+    updateProgress(100);
+    if (displayPct >= 99.5) dismiss();
+  }
+
+  if (!video) {
+    markReady();
+    return;
+  }
+
+  function onProgress() {
+    updateProgress(bufferedPercent());
+  }
+
+  video.addEventListener("loadstart", onProgress);
+  video.addEventListener("loadedmetadata", onProgress);
+  video.addEventListener("progress", onProgress);
+  video.addEventListener("canplay", markReady);
+  video.addEventListener("canplaythrough", markReady);
+  video.addEventListener("loadeddata", function () {
+    if (video.readyState >= 3) markReady();
+  });
+  video.addEventListener("error", markReady);
+
+  if (video.readyState >= 4) {
+    markReady();
+  } else if (video.readyState >= 3) {
+    updateProgress(Math.max(bufferedPercent(), 90));
+    // HAVE_FUTURE_DATA is enough for a short reel to feel ready
+    markReady();
+  } else {
+    onProgress();
+  }
+
+  // Never trap the user if the network stalls
+  safetyTimer = setTimeout(markReady, 12000);
+})();
+
 // Fade-in on scroll for sections below landing
 document.addEventListener("DOMContentLoaded", function () {
   var fadeEls = document.querySelectorAll(".scroll-fade");

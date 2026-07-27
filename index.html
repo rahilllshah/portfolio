@@ -35,7 +35,30 @@
     <script defer src="script.js"></script>
   </head>
 
-  <body class="home">
+  <body class="home is-loading">
+    <div
+      class="page-loader"
+      id="page-loader"
+      role="status"
+      aria-live="polite"
+      aria-busy="true"
+      aria-label="Loading"
+    >
+      <div class="page-loader-inner">
+        <img
+          src="Images/Logo.png"
+          alt=""
+          class="page-loader-logo"
+          width="48"
+          height="48"
+        />
+        <div class="page-loader-pct">
+          <span class="page-loader-pct-num">0</span
+          ><span class="page-loader-pct-suffix">%</span>
+        </div>
+      </div>
+    </div>
+
     <!-- Reusable icon: external/diagonal arrow, referenced via <use href="#arrow-ne"> -->
     <svg width="0" height="0" aria-hidden="true" style="position: absolute">
       <symbol id="arrow-ne" viewBox="0 0 24 24">
