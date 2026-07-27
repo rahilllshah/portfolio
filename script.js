@@ -30,11 +30,16 @@ anchorHistory();
 
   var ring = loader.querySelector(".page-loader-ring-progress");
   var video = document.querySelector(".reel-video");
-  var currentPct = 0;
+  var displayPct = 0;
+  var targetPct = 8; // always start with visible progress
   var ready = false;
   var dismissed = false;
-  var dismissTimer = null;
+  var rafId = null;
   var safetyTimer = null;
+  var startTime = performance.now();
+  // Soft ceiling while waiting on the reel — time-based progress eases toward this
+  var AUTO_CEILING = 92;
+  var AUTO_MS = 2200;
   var circumference = 289.026;
   if (ring) {
     var fromCss = getComputedStyle(loader)
@@ -44,12 +49,11 @@ anchorHistory();
     if (isFinite(parsed) && parsed > 0) circumference = parsed;
     ring.style.strokeDasharray = String(circumference);
     ring.style.strokeDashoffset = String(circumference);
+    // rAF drives the ring — disable CSS transition so it doesn't fight easing
+    ring.style.transition = "none";
   }
 
-  function setProgress(n) {
-    var pct = Math.max(0, Math.min(100, n));
-    if (pct < currentPct) pct = currentPct;
-    currentPct = pct;
+  function paintRing(pct) {
     loader.setAttribute("aria-valuenow", String(Math.round(pct)));
     if (ring) {
       ring.style.strokeDashoffset = String(
@@ -65,11 +69,11 @@ anchorHistory();
     if (!duration || !isFinite(duration) || duration <= 0) {
       if (video.readyState >= 3) return 90;
       if (video.readyState >= 2) return 55;
-      if (video.readyState >= 1) return 20;
-      return currentPct;
+      if (video.readyState >= 1) return 22;
+      return 0;
     }
     if (!video.buffered || video.buffered.length === 0) {
-      return video.readyState >= 2 ? Math.max(currentPct, 35) : currentPct;
+      return video.readyState >= 2 ? 35 : 0;
     }
     var end = 0;
     for (var i = 0; i < video.buffered.length; i++) {
@@ -79,32 +83,65 @@ anchorHistory();
     return Math.min(100, (end / duration) * 100);
   }
 
-  function updateProgress(next) {
-    if (dismissed) return;
-    if (next > 100) next = 100;
-    // Hold just under 100 until the reel is actually ready to play
-    if (!ready && next >= 100) next = 99;
-    setProgress(next);
-    if (ready && next >= 100) {
-      if (dismissTimer == null) {
-        // Let the ring ease to full before blur-out
-        dismissTimer = setTimeout(dismiss, 380);
-      }
+  // Ease-out curve so early movement is fast, then settles near the ceiling
+  function autoProgress(now) {
+    var t = Math.min(1, (now - startTime) / AUTO_MS);
+    var eased = 1 - Math.pow(1 - t, 3);
+    return 8 + (AUTO_CEILING - 8) * eased;
+  }
+
+  function computeTarget(now) {
+    var buffered = bufferedPercent();
+    var auto = autoProgress(now);
+    var next = Math.max(buffered, auto, targetPct);
+    if (!ready) {
+      if (next >= AUTO_CEILING) next = AUTO_CEILING;
+    } else {
+      next = 100;
     }
+    return next;
+  }
+
+  function tick(now) {
+    if (dismissed) return;
+    targetPct = computeTarget(now);
+    var diff = targetPct - displayPct;
+    // Smooth chase — snappier near the end once ready
+    var ease = ready ? 0.16 : 0.085;
+    if (Math.abs(diff) < 0.15) {
+      displayPct = targetPct;
+    } else {
+      displayPct += diff * ease;
+    }
+    paintRing(displayPct);
+
+    if (ready && displayPct >= 99.6) {
+      displayPct = 100;
+      paintRing(100);
+      rafId = null;
+      dismiss();
+      return;
+    }
+    rafId = requestAnimationFrame(tick);
+  }
+
+  function startTicker() {
+    if (rafId == null) rafId = requestAnimationFrame(tick);
   }
 
   function dismiss() {
     if (dismissed) return;
     dismissed = true;
-    if (dismissTimer != null) {
-      clearTimeout(dismissTimer);
-      dismissTimer = null;
+    if (rafId != null) {
+      cancelAnimationFrame(rafId);
+      rafId = null;
     }
     if (safetyTimer != null) {
       clearTimeout(safetyTimer);
       safetyTimer = null;
     }
-    setProgress(100);
+    displayPct = 100;
+    paintRing(100);
     // Intros start once the ring completes — loader blurs out over them
     signalPageReady();
     // Next frame so nav/feed paint before the overlay begins fading
@@ -129,18 +166,23 @@ anchorHistory();
   }
 
   function markReady() {
-    if (ready) return;
+    if (ready || dismissed) return;
     ready = true;
-    updateProgress(100);
+    targetPct = 100;
+    startTicker();
   }
+
+  function onProgress() {
+    targetPct = Math.max(targetPct, bufferedPercent());
+    startTicker();
+  }
+
+  paintRing(displayPct);
+  startTicker();
 
   if (!video) {
     markReady();
     return;
-  }
-
-  function onProgress() {
-    updateProgress(bufferedPercent());
   }
 
   video.addEventListener("loadstart", onProgress);
@@ -153,11 +195,7 @@ anchorHistory();
   });
   video.addEventListener("error", markReady);
 
-  if (video.readyState >= 4) {
-    markReady();
-  } else if (video.readyState >= 3) {
-    updateProgress(Math.max(bufferedPercent(), 90));
-    // HAVE_FUTURE_DATA is enough for a short reel to feel ready
+  if (video.readyState >= 3) {
     markReady();
   } else {
     onProgress();
@@ -452,7 +490,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   var STROKES_PER_COMPANY = 4;
-  var STROKE_WIDTH = 1.75;
+  var STROKE_WIDTH = 2;
 
   var FEEDS = {
     instagram: {
@@ -711,14 +749,14 @@ document.addEventListener("DOMContentLoaded", function () {
   function absorbIntoTitle(item) {
     var path = item.path;
     var len = path.getTotalLength();
-    var absorbMs = 900 + hash(item.globalIndex + 2) * 280;
+    var absorbMs = 1200 + hash(item.globalIndex + 2) * 160;
     var dash = len + " " + len;
 
     path.style.transition = "none";
     path.style.strokeDasharray = dash;
     // Fully visible, equivalent to offset 0 — avoids a negative-from state.
     path.style.strokeDashoffset = String(len * 2);
-    path.style.opacity = "0.72";
+    path.style.opacity = "0.78";
     // Force style commit before transitioning (Safari needs the extra frame).
     path.getBoundingClientRect();
 
@@ -729,13 +767,13 @@ document.addEventListener("DOMContentLoaded", function () {
         path.style.transition =
           "opacity " +
           absorbMs +
-          "ms cubic-bezier(0.4, 0, 0.2, 1)," +
+          "ms cubic-bezier(0.33, 0, 0.2, 1)," +
           " stroke-dashoffset " +
           absorbMs +
-          "ms cubic-bezier(0.33, 1, 0.68, 1)," +
+          "ms cubic-bezier(0.33, 0, 0.2, 1)," +
           " stroke-width " +
           absorbMs +
-          "ms ease";
+          "ms cubic-bezier(0.33, 0, 0.2, 1)";
         // Positive L clears from the start → tip last (≡ animating to -L).
         path.style.strokeDashoffset = String(len);
         path.style.opacity = "0";
@@ -745,7 +783,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     window.setTimeout(function () {
       if (path.parentNode) path.parentNode.removeChild(path);
-    }, absorbMs + 60);
+    }, absorbMs + 80);
   }
 
   function animateFeeds() {
@@ -757,23 +795,23 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     done = true;
 
-    var drawMs = 1200;
-    var companyStagger = 100;
-    var strokeStagger = 50;
+    var drawMs = 1650;
+    var companyStagger = 140;
+    var strokeStagger = 70;
     var earliestTip = Infinity;
 
     paths.forEach(function (item) {
       var path = item.path;
       var len = path.getTotalLength();
-      var thisDraw = drawMs + hash(item.globalIndex) * 200;
-      // No base delay — feed is the first motion on the page.
+      var thisDraw = drawMs + hash(item.globalIndex) * 80;
+      // Gentle cascade — fewer strokes, longer ease for a smoother pour.
       var delay =
         item.companyIndex * companyStagger +
         item.stroke * strokeStagger +
-        hash(item.globalIndex + 9) * 50;
+        hash(item.globalIndex + 9) * 24;
 
       // Tip reaches the title near the end of the draw.
-      var tipAt = delay + thisDraw * 0.78;
+      var tipAt = delay + thisDraw * 0.82;
       if (tipAt < earliestTip) earliestTip = tipAt;
 
       // Two-value dasharray keeps Safari aligned with Chrome for later absorb.
@@ -786,10 +824,10 @@ document.addEventListener("DOMContentLoaded", function () {
         path.style.transition =
           "stroke-dashoffset " +
           thisDraw +
-          "ms cubic-bezier(0.4, 0, 0.2, 1), opacity 0.28s ease";
+          "ms cubic-bezier(0.33, 0, 0.2, 1), opacity 0.55s cubic-bezier(0.33, 0, 0.2, 1)";
         path.getBoundingClientRect();
         path.style.strokeDashoffset = "0";
-        path.style.opacity = "0.72";
+        path.style.opacity = "0.78";
       }, delay);
 
       // Absorb just as the tip lands — color becomes the mesh.
