@@ -212,24 +212,105 @@ anchorHistory();
     return;
   }
 
-  video.addEventListener("loadstart", onProgress);
-  video.addEventListener("loadedmetadata", onProgress);
-  video.addEventListener("progress", onProgress);
-  video.addEventListener("canplay", markReady);
-  video.addEventListener("canplaythrough", markReady);
-  video.addEventListener("loadeddata", function () {
+  var reelSrc =
+    video.getAttribute("src") || video.currentSrc || "Images/sizzle-reel.mp4";
+
+  function attachReadyListeners() {
+    video.addEventListener("progress", onProgress);
+    video.addEventListener("canplay", markReady);
+    video.addEventListener("canplaythrough", markReady);
+    video.addEventListener("loadeddata", function () {
+      if (video.readyState >= 3) markReady();
+    });
+    video.addEventListener("error", markReady);
     if (video.readyState >= 3) markReady();
-  });
-  video.addEventListener("error", markReady);
+  }
+
+  // iOS/Android often defer offscreen <video preload> — force the bytes down
+  // via fetch so the loader isn't stuck waiting on a viewport-gated load.
+  function forceFetchReel() {
+    if (typeof fetch !== "function") {
+      kickNativeLoad();
+      return;
+    }
+
+    fetch(reelSrc)
+      .then(function (res) {
+        if (!res.ok) throw new Error("reel fetch failed");
+        var total = parseInt(res.headers.get("content-length") || "0", 10);
+        if (
+          res.body &&
+          typeof res.body.getReader === "function" &&
+          total > 0
+        ) {
+          var reader = res.body.getReader();
+          var chunks = [];
+          var loaded = 0;
+          function pump() {
+            return reader.read().then(function (result) {
+              if (result.done) {
+                return new Blob(chunks, { type: "video/mp4" });
+              }
+              chunks.push(result.value);
+              loaded +=
+                result.value.byteLength || result.value.length || 0;
+              targetPct = Math.max(
+                targetPct,
+                Math.min(AUTO_CEILING, (loaded / total) * 100),
+              );
+              startTicker();
+              return pump();
+            });
+          }
+          return pump();
+        }
+        return res.blob();
+      })
+      .then(function (blob) {
+        if (dismissed || !blob) return;
+        var url = URL.createObjectURL(blob);
+        video.preload = "auto";
+        video.src = url;
+        attachReadyListeners();
+        try {
+          video.load();
+        } catch (_) {}
+        // Whole file is local now — finish as soon as it's decode-ready
+        if (video.readyState >= 3) markReady();
+      })
+      .catch(function () {
+        kickNativeLoad();
+      });
+  }
+
+  function kickNativeLoad() {
+    video.preload = "auto";
+    attachReadyListeners();
+    try {
+      video.load();
+    } catch (_) {}
+    // Muted play/pause can coax mobile browsers into starting the buffer
+    // even when the reel is still below the fold.
+    var p = video.play();
+    if (p && typeof p.then === "function") {
+      p.then(function () {
+        video.pause();
+        try {
+          video.currentTime = 0;
+        } catch (_) {}
+      }).catch(function () {});
+    }
+    onProgress();
+  }
 
   if (video.readyState >= 3) {
     markReady();
   } else {
-    onProgress();
+    forceFetchReel();
   }
 
   // Never trap the user if the network stalls
-  safetyTimer = setTimeout(markReady, 12000);
+  safetyTimer = setTimeout(markReady, 10000);
 })();
 
 // Fade-in on scroll for sections below landing
