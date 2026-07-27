@@ -206,6 +206,26 @@ body.is-loader-scroll-lock {
   object-fit: contain;
 }
 
+.page-loader-pct {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: max(2.75rem, calc(env(safe-area-inset-bottom, 0px) + 2rem));
+  text-align: center;
+  font-family: var(--font-family);
+  font-size: 15px;
+  font-weight: 450;
+  letter-spacing: 0.06em;
+  line-height: 1;
+  color: rgba(0, 0, 0, 0.28);
+  font-variant-numeric: tabular-nums;
+  pointer-events: none;
+}
+
+.page-loader-pct-num {
+  font-variant-numeric: tabular-nums;
+}
+
 @keyframes pageLoaderIn {
   from {
     opacity: 0;

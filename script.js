@@ -55,17 +55,18 @@ anchorHistory();
   window.addEventListener("touchmove", preventScroll, { passive: false });
 
   var ring = loader.querySelector(".page-loader-ring-progress");
+  var pctNum = loader.querySelector(".page-loader-pct-num");
   var video = document.querySelector(".reel-video");
-  var displayPct = 0;
-  var targetPct = 8; // always start with visible progress
+  var displayPct = 1; // never start at 0
+  var targetPct = 1;
   var ready = false;
   var dismissed = false;
   var rafId = null;
   var safetyTimer = null;
   var startTime = performance.now();
-  // Soft ceiling while waiting on the reel — time-based progress eases toward this
-  var AUTO_CEILING = 92;
-  var AUTO_MS = 2200;
+  // Steady time-based climb toward this ceiling while the reel loads
+  var AUTO_CEILING = 90;
+  var AUTO_MS = 3200; // ~linear climb 1% → 90% over 3.2s
   var circumference = 289.026;
   if (ring) {
     var fromCss = getComputedStyle(loader)
@@ -80,9 +81,13 @@ anchorHistory();
   }
 
   function paintRing(pct) {
-    loader.setAttribute("aria-valuenow", String(Math.round(pct)));
+    var shown = Math.max(1, Math.min(100, Math.round(pct)));
+    loader.setAttribute("aria-valuenow", String(shown));
+    if (pctNum) pctNum.textContent = String(shown);
     if (ring) {
-      ring.style.strokeDashoffset = String(circumference * (1 - pct / 100));
+      ring.style.strokeDashoffset = String(
+        circumference * (1 - Math.max(pct, 1) / 100),
+      );
     }
   }
 
@@ -107,36 +112,35 @@ anchorHistory();
     return Math.min(100, (end / duration) * 100);
   }
 
-  // Ease-out curve so early movement is fast, then settles near the ceiling
+  // Pure elapsed-time climb — does not depend on the reel starting
   function autoProgress(now) {
-    var t = Math.min(1, (now - startTime) / AUTO_MS);
-    var eased = 1 - Math.pow(1 - t, 3);
-    return 8 + (AUTO_CEILING - 8) * eased;
-  }
-
-  function computeTarget(now) {
-    var buffered = bufferedPercent();
-    var auto = autoProgress(now);
-    var next = Math.max(buffered, auto, targetPct);
-    if (!ready) {
-      if (next >= AUTO_CEILING) next = AUTO_CEILING;
-    } else {
-      next = 100;
+    var elapsed = Math.max(0, now - startTime);
+    if (elapsed <= AUTO_MS) {
+      return 1 + (AUTO_CEILING - 1) * (elapsed / AUTO_MS);
     }
-    return next;
+    // Past the main climb: keep creeping so it never looks frozen
+    var crawl = ((elapsed - AUTO_MS) / 14000) * 6;
+    return Math.min(96, AUTO_CEILING + crawl);
   }
 
   function tick(now) {
     if (dismissed) return;
-    targetPct = computeTarget(now);
-    var diff = targetPct - displayPct;
-    // Smooth chase — snappier near the end once ready
-    var ease = ready ? 0.16 : 0.085;
-    if (Math.abs(diff) < 0.15) {
-      displayPct = targetPct;
+
+    if (!ready) {
+      var auto = autoProgress(now);
+      var buffered = bufferedPercent();
+      // Time always drives progress; reel buffer can only pull it forward
+      targetPct = Math.min(96, Math.max(auto, buffered, targetPct));
+      // Follow the clock closely for a steady % tick-up
+      displayPct = Math.max(displayPct, targetPct);
     } else {
-      displayPct += diff * ease;
+      targetPct = 100;
+      var diff = 100 - displayPct;
+      if (diff < 0.2) displayPct = 100;
+      else displayPct += diff * 0.2;
     }
+
+    if (displayPct < 1) displayPct = 1;
     paintRing(displayPct);
 
     if (ready && displayPct >= 99.6) {
