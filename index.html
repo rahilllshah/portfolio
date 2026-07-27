@@ -39,23 +39,29 @@
     <div
       class="page-loader"
       id="page-loader"
-      role="status"
-      aria-live="polite"
+      role="progressbar"
+      aria-valuemin="0"
+      aria-valuemax="100"
+      aria-valuenow="0"
       aria-busy="true"
       aria-label="Loading"
     >
       <div class="page-loader-inner">
+        <svg
+          class="page-loader-ring"
+          viewBox="0 0 100 100"
+          aria-hidden="true"
+        >
+          <circle class="page-loader-ring-track" cx="50" cy="50" r="46" />
+          <circle class="page-loader-ring-progress" cx="50" cy="50" r="46" />
+        </svg>
         <img
           src="Images/Logo.png"
           alt=""
           class="page-loader-logo"
-          width="48"
-          height="48"
+          width="40"
+          height="40"
         />
-        <div class="page-loader-pct">
-          <span class="page-loader-pct-num">0</span
-          ><span class="page-loader-pct-suffix">%</span>
-        </div>
       </div>
     </div>
 

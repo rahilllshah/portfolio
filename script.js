@@ -12,26 +12,50 @@ function anchorHistory() {
 }
 anchorHistory();
 
-// Page loader — tracks sizzle reel buffer, then blurs out when playable
+// Page loader — tracks sizzle reel buffer, then blurs out when playable.
+// At 100%: start nav + feed intros immediately, then blur the loader away over them.
 (function initPageLoader() {
+  function signalPageReady() {
+    if (document.body.classList.contains("is-ready")) return;
+    document.body.classList.remove("is-loading");
+    document.body.classList.add("is-ready");
+    document.dispatchEvent(new CustomEvent("pageready"));
+  }
+
   var loader = document.getElementById("page-loader");
   if (!loader) {
-    document.body.classList.remove("is-loading");
+    signalPageReady();
     return;
   }
 
-  var pctEl = loader.querySelector(".page-loader-pct-num");
+  var ring = loader.querySelector(".page-loader-ring-progress");
   var video = document.querySelector(".reel-video");
-  var displayPct = 0;
-  var targetPct = 0;
+  var currentPct = 0;
   var ready = false;
   var dismissed = false;
-  var rafId = null;
+  var dismissTimer = null;
   var safetyTimer = null;
+  var circumference = 289.026;
+  if (ring) {
+    var fromCss = getComputedStyle(loader)
+      .getPropertyValue("--loader-circumference")
+      .trim();
+    var parsed = parseFloat(fromCss);
+    if (isFinite(parsed) && parsed > 0) circumference = parsed;
+    ring.style.strokeDasharray = String(circumference);
+    ring.style.strokeDashoffset = String(circumference);
+  }
 
-  function setDisplayed(n) {
-    displayPct = n;
-    if (pctEl) pctEl.textContent = String(Math.round(n));
+  function setProgress(n) {
+    var pct = Math.max(0, Math.min(100, n));
+    if (pct < currentPct) pct = currentPct;
+    currentPct = pct;
+    loader.setAttribute("aria-valuenow", String(Math.round(pct)));
+    if (ring) {
+      ring.style.strokeDashoffset = String(
+        circumference * (1 - pct / 100),
+      );
+    }
   }
 
   function bufferedPercent() {
@@ -42,10 +66,10 @@ anchorHistory();
       if (video.readyState >= 3) return 90;
       if (video.readyState >= 2) return 55;
       if (video.readyState >= 1) return 20;
-      return targetPct;
+      return currentPct;
     }
     if (!video.buffered || video.buffered.length === 0) {
-      return video.readyState >= 2 ? Math.max(targetPct, 35) : targetPct;
+      return video.readyState >= 2 ? Math.max(currentPct, 35) : currentPct;
     }
     var end = 0;
     for (var i = 0; i < video.buffered.length; i++) {
@@ -55,45 +79,44 @@ anchorHistory();
     return Math.min(100, (end / duration) * 100);
   }
 
-  function tickPct() {
-    var diff = targetPct - displayPct;
-    if (Math.abs(diff) < 0.35) {
-      setDisplayed(targetPct);
-      rafId = null;
-      if (ready && targetPct >= 100) dismiss();
-      return;
-    }
-    setDisplayed(displayPct + diff * 0.18);
-    rafId = requestAnimationFrame(tickPct);
-  }
-
   function updateProgress(next) {
     if (dismissed) return;
-    if (next < targetPct) next = targetPct;
     if (next > 100) next = 100;
     // Hold just under 100 until the reel is actually ready to play
     if (!ready && next >= 100) next = 99;
-    targetPct = next;
-    if (rafId == null) rafId = requestAnimationFrame(tickPct);
+    setProgress(next);
+    if (ready && next >= 100) {
+      if (dismissTimer == null) {
+        // Let the ring ease to full before blur-out
+        dismissTimer = setTimeout(dismiss, 380);
+      }
+    }
   }
 
   function dismiss() {
     if (dismissed) return;
     dismissed = true;
-    if (rafId != null) {
-      cancelAnimationFrame(rafId);
-      rafId = null;
+    if (dismissTimer != null) {
+      clearTimeout(dismissTimer);
+      dismissTimer = null;
     }
     if (safetyTimer != null) {
       clearTimeout(safetyTimer);
       safetyTimer = null;
     }
-    setDisplayed(100);
-    loader.classList.add("is-done");
-    loader.setAttribute("aria-busy", "false");
-    document.body.classList.remove("is-loading");
+    setProgress(100);
+    // Intros start once the ring completes — loader blurs out over them
+    signalPageReady();
+    // Next frame so nav/feed paint before the overlay begins fading
+    requestAnimationFrame(function () {
+      loader.classList.add("is-done");
+      loader.setAttribute("aria-busy", "false");
+    });
 
+    var finished = false;
     function cleanup() {
+      if (finished) return;
+      finished = true;
       loader.removeEventListener("transitionend", onEnd);
       if (loader.parentNode) loader.parentNode.removeChild(loader);
     }
@@ -109,7 +132,6 @@ anchorHistory();
     if (ready) return;
     ready = true;
     updateProgress(100);
-    if (displayPct >= 99.5) dismiss();
   }
 
   if (!video) {
@@ -789,11 +811,19 @@ document.addEventListener("DOMContentLoaded", function () {
     }, 120);
   }
 
-  // Safety: always reveal the mesh if the intro never completes.
-  window.setTimeout(feedTitle, 4200);
+  function startFeedIntro() {
+    // Safety: always reveal the mesh if the intro never completes.
+    window.setTimeout(feedTitle, 4200);
+    // Start on the next frame — don't wait on fonts.ready (Safari can stall).
+    window.requestAnimationFrame(animateFeeds);
+  }
 
-  // Start on the next frame — don't wait on fonts.ready (Safari can stall).
-  window.requestAnimationFrame(animateFeeds);
+  // Wait until the loader hits 100% (pageready) so feed runs under the blur-out.
+  if (document.body.classList.contains("is-loading")) {
+    document.addEventListener("pageready", startFeedIntro, { once: true });
+  } else {
+    startFeedIntro();
+  }
 
   window.addEventListener("resize", onResize);
 });
