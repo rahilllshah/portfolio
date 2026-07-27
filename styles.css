@@ -399,7 +399,7 @@ a:hover {
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: meshDrift 20s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
+  animation: meshDrift 18s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
 }
 
 /* Mute the mesh until brand color arrives, then bloom into the full gradient. */
@@ -584,7 +584,7 @@ a:hover {
   background: var(--mesh-gradient-btn);
   background-size: 500% 500%;
   background-position: 0% 0%;
-  animation: meshDrift 20s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
+  animation: meshDrift 18s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
   transition: transform 0.2s;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.18);
   -webkit-appearance: none;
