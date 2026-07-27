@@ -57,8 +57,8 @@ anchorHistory();
   var ring = loader.querySelector(".page-loader-ring-progress");
   var pctNum = loader.querySelector(".page-loader-pct-num");
   var video = document.querySelector(".reel-video");
-  var displayPct = 1; // never start at 0
-  var targetPct = 1;
+  var displayPct = 0;
+  var targetPct = 0;
   var ready = false;
   var dismissed = false;
   var rafId = null;
@@ -66,7 +66,7 @@ anchorHistory();
   var startTime = performance.now();
   // Steady time-based climb toward this ceiling while the reel loads
   var AUTO_CEILING = 90;
-  var AUTO_MS = 3200; // ~linear climb 1% → 90% over 3.2s
+  var AUTO_MS = 3200; // ~linear climb 0% → 90% over 3.2s
   var circumference = 289.026;
   if (ring) {
     var fromCss = getComputedStyle(loader)
@@ -81,12 +81,12 @@ anchorHistory();
   }
 
   function paintRing(pct) {
-    var shown = Math.max(1, Math.min(100, Math.round(pct)));
+    var shown = Math.max(0, Math.min(100, Math.round(pct)));
     loader.setAttribute("aria-valuenow", String(shown));
     if (pctNum) pctNum.textContent = String(shown);
     if (ring) {
       ring.style.strokeDashoffset = String(
-        circumference * (1 - Math.max(pct, 1) / 100),
+        circumference * (1 - Math.max(pct, 0) / 100),
       );
     }
   }
@@ -116,7 +116,7 @@ anchorHistory();
   function autoProgress(now) {
     var elapsed = Math.max(0, now - startTime);
     if (elapsed <= AUTO_MS) {
-      return 1 + (AUTO_CEILING - 1) * (elapsed / AUTO_MS);
+      return AUTO_CEILING * (elapsed / AUTO_MS);
     }
     // Past the main climb: keep creeping so it never looks frozen
     var crawl = ((elapsed - AUTO_MS) / 14000) * 6;
@@ -140,7 +140,7 @@ anchorHistory();
       else displayPct += diff * 0.2;
     }
 
-    if (displayPct < 1) displayPct = 1;
+    if (displayPct < 0) displayPct = 0;
     paintRing(displayPct);
 
     if (ready && displayPct >= 99.6) {
@@ -242,11 +242,7 @@ anchorHistory();
       .then(function (res) {
         if (!res.ok) throw new Error("reel fetch failed");
         var total = parseInt(res.headers.get("content-length") || "0", 10);
-        if (
-          res.body &&
-          typeof res.body.getReader === "function" &&
-          total > 0
-        ) {
+        if (res.body && typeof res.body.getReader === "function" && total > 0) {
           var reader = res.body.getReader();
           var chunks = [];
           var loaded = 0;
@@ -256,8 +252,7 @@ anchorHistory();
                 return new Blob(chunks, { type: "video/mp4" });
               }
               chunks.push(result.value);
-              loaded +=
-                result.value.byteLength || result.value.length || 0;
+              loaded += result.value.byteLength || result.value.length || 0;
               targetPct = Math.max(
                 targetPct,
                 Math.min(AUTO_CEILING, (loaded / total) * 100),
@@ -601,7 +596,7 @@ document.addEventListener("DOMContentLoaded", function () {
     return;
   }
 
-  var STROKES_PER_COMPANY = 4;
+  var STROKES_PER_COMPANY = 2;
   var STROKE_WIDTH = 2;
 
   var FEEDS = {
