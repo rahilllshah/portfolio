@@ -1917,12 +1917,13 @@ html.mesh-grab .bg-hint {
 
   .title {
     font-size: 34px;
+    line-height: 1.2;
     margin-top: 0;
   }
 
   .landingsub2 {
     font-size: 14px;
-    margin-top: 12px;
+    margin-top: 6px;
     max-width: 90%;
     margin-left: auto;
     margin-right: auto;
