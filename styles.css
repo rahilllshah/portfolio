@@ -358,19 +358,21 @@ a:hover {
   z-index: 2;
 }
 
-.title-feed .feed-path {
+.title-feed .feed-guide {
   fill: none;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke-width: 1.5;
+  stroke: none;
+  pointer-events: none;
+}
+
+.title-feed .feed-orb {
   opacity: 0;
 }
 
-.title-feed .feed-path.is-drawing {
-  opacity: 0.72;
+.title-feed .feed-orb.is-traveling {
+  opacity: 0.92;
 }
 
-.title-feed .feed-path.is-absorbing {
+.title-feed .feed-orb.is-absorbing {
   opacity: 0;
 }
 
@@ -493,8 +495,8 @@ a:hover {
 }
 
 @media (max-width: 768px) {
-  .title-feed .feed-path.is-drawing {
-    opacity: 0.58;
+  .title-feed .feed-orb.is-traveling {
+    opacity: 0.78;
   }
 }
 

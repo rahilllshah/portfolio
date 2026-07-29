@@ -578,8 +578,8 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-// Landing title feed: brand colors draw from each prev company into the
-// headline tip, then absorb into the mesh gradient that fills the type.
+// Landing title feed: brand-colored orbs travel from each prev company into
+// the headline, then shrink into the mesh gradient that fills the type.
 document.addEventListener("DOMContentLoaded", function () {
   var root = document.querySelector(".landing-content");
   var svg = root && root.querySelector(".title-feed");
@@ -596,8 +596,8 @@ document.addEventListener("DOMContentLoaded", function () {
     return;
   }
 
-  var STROKES_PER_COMPANY = 2;
-  var STROKE_WIDTH = 2;
+  var ORBS_PER_COMPANY = 4;
+  var ORB_RADIUS = 3.2;
 
   var FEEDS = {
     instagram: {
@@ -619,11 +619,17 @@ document.addEventListener("DOMContentLoaded", function () {
     return x - Math.floor(x);
   }
 
+  // Ease-out cubic — accelerate toward the title for a suction feel.
+  function easeInCubic(t) {
+    return t * t * t;
+  }
+
   var NS = "http://www.w3.org/2000/svg";
-  var paths = [];
+  var orbs = [];
   var done = false;
   var resizeTimer = null;
   var titleFed = false;
+  var rafIds = [];
 
   function el(name, attrs) {
     var node = document.createElementNS(NS, name);
@@ -686,16 +692,13 @@ document.addEventListener("DOMContentLoaded", function () {
     svg.setAttribute("height", String(rootRect.height));
     while (svg.firstChild) svg.removeChild(svg.firstChild);
 
-    var defs = el("defs");
-    svg.appendChild(defs);
-
     var layer = el("g");
     svg.appendChild(layer);
 
     var glyphTargets = collectGlyphTargets(rootRect);
-    paths = [];
+    orbs = [];
     var companyCount = companies.length;
-    var strokeIndex = 0;
+    var orbIndex = 0;
 
     companies.forEach(function (company, companyIndex) {
       var key = company.getAttribute("data-feed");
@@ -706,7 +709,7 @@ document.addEventListener("DOMContentLoaded", function () {
       var companyT =
         companyCount === 1 ? 0.5 : companyIndex / (companyCount - 1);
 
-      for (var s = 0; s < STROKES_PER_COMPANY; s++) {
+      for (var s = 0; s < ORBS_PER_COMPANY; s++) {
         var seed = companyIndex * 17 + s * 3.1 + 1;
         var r1 = hash(seed);
         var r2 = hash(seed + 1.7);
@@ -717,7 +720,7 @@ document.addEventListener("DOMContentLoaded", function () {
           cRect.left - rootRect.left + cRect.width * (0.16 + r1 * 0.68);
         var startY = cRect.top - rootRect.top + 2 + r2 * 3;
 
-        // Aim tips into real glyph boxes so they land inside letters.
+        // Aim into real glyph boxes so orbs land inside letters.
         var endX;
         var endY;
         if (glyphTargets.length) {
@@ -725,12 +728,11 @@ document.addEventListener("DOMContentLoaded", function () {
             glyphTargets.length - 1,
             Math.floor(
               (companyT * 0.7 +
-                ((s + 0.5) / STROKES_PER_COMPANY) * 0.3 +
+                ((s + 0.5) / ORBS_PER_COMPANY) * 0.3 +
                 r3 * 0.08) *
                 glyphTargets.length,
             ),
           );
-          // Spread strokes across nearby glyphs instead of stacking one cell.
           targetIndex = Math.max(
             0,
             Math.min(
@@ -749,7 +751,7 @@ document.addEventListener("DOMContentLoaded", function () {
               (0.06 +
                 companyT * 0.62 +
                 r3 * 0.22 +
-                (s / STROKES_PER_COMPANY) * 0.1);
+                (s / ORBS_PER_COMPANY) * 0.1);
           endY =
             titleRect.top -
             rootRect.top +
@@ -759,55 +761,15 @@ document.addEventListener("DOMContentLoaded", function () {
         var rise = Math.max(40, startY - endY);
         var sway =
           (r1 - 0.5) * 64 +
-          (s - (STROKES_PER_COMPANY - 1) / 2) * 12 +
+          (s - (ORBS_PER_COMPANY - 1) / 2) * 10 +
           (companyIndex % 2 === 0 ? -8 : 10);
         var c1x = startX + sway * (0.22 + r2 * 0.32);
         var c1y = startY - rise * (0.3 + r3 * 0.22);
         var c2x = endX - sway * (0.12 + r4 * 0.28);
         var c2y = endY + rise * (0.16 + r1 * 0.2);
 
-        var colorA = feed.colors[s % feed.colors.length];
-        var colorB = feed.colors[(s + 1) % feed.colors.length];
-        var tipColor = feed.colors[(s + 2) % feed.colors.length];
-        var gradId = "feed-grad-" + key + "-" + s;
-        var grad = el("linearGradient", {
-          id: gradId,
-          gradientUnits: "userSpaceOnUse",
-          x1: startX.toFixed(2),
-          y1: startY.toFixed(2),
-          x2: endX.toFixed(2),
-          y2: endY.toFixed(2),
-        });
-        // Soft origin → bright tip at the title, so color visibly feeds in.
-        grad.appendChild(
-          el("stop", {
-            offset: "0%",
-            "stop-color": colorA,
-            "stop-opacity": "0",
-          }),
-        );
-        grad.appendChild(
-          el("stop", {
-            offset: "18%",
-            "stop-color": colorA,
-            "stop-opacity": "0.55",
-          }),
-        );
-        grad.appendChild(
-          el("stop", {
-            offset: "62%",
-            "stop-color": colorB,
-            "stop-opacity": "0.85",
-          }),
-        );
-        grad.appendChild(
-          el("stop", {
-            offset: "100%",
-            "stop-color": tipColor,
-            "stop-opacity": "1",
-          }),
-        );
-        defs.appendChild(grad);
+        var color = feed.colors[s % feed.colors.length];
+        var radius = ORB_RADIUS * (0.72 + r3 * 0.55);
 
         var d =
           "M " +
@@ -827,70 +789,106 @@ document.addEventListener("DOMContentLoaded", function () {
           " " +
           endY.toFixed(2);
 
-        var path = el("path", {
-          class: "feed-path",
+        var guide = el("path", {
+          class: "feed-guide",
           d: d,
-          stroke: "url(#" + gradId + ")",
-          "stroke-width": String(STROKE_WIDTH),
         });
+        layer.appendChild(guide);
 
-        layer.appendChild(path);
-        paths.push({
-          path: path,
+        var orb = el("circle", {
+          class: "feed-orb",
+          cx: startX.toFixed(2),
+          cy: startY.toFixed(2),
+          r: radius.toFixed(2),
+          fill: color,
+        });
+        layer.appendChild(orb);
+
+        orbs.push({
+          guide: guide,
+          orb: orb,
+          radius: radius,
           companyIndex: companyIndex,
           stroke: s,
-          globalIndex: strokeIndex,
+          globalIndex: orbIndex,
         });
-        strokeIndex += 1;
+        orbIndex += 1;
       }
     });
 
-    return paths.length > 0;
+    return orbs.length > 0;
   }
 
-  // Pour into the title: erase from the company origin so the tip is last
-  // to fade — reading as color depositing into the mesh.
-  // Safari mishandles negative stroke-dashoffset (0 → -len), which makes the
-  // wipe look staggered/jumpy. Use positive equivalents instead: 2L ≡ 0 and
-  // L ≡ -L (mod 2L), so 2L → L is the same continuous origin→tip clear.
+  function animateOrb(item, travelMs, onArrive) {
+    var guide = item.guide;
+    var orb = item.orb;
+    var len = guide.getTotalLength();
+    var start = null;
+    var arrived = false;
+    var peakOpacity = 0.92;
+    // Fade in over the first stretch so orbs emerge from the company labels.
+    var fadeInEnd = 0.22;
+
+    orb.classList.add("is-traveling");
+    orb.style.opacity = "0";
+
+    function frame(now) {
+      if (start === null) start = now;
+      var t = Math.min(1, (now - start) / travelMs);
+      // Ease-in so orbs gather speed as they’re pulled into the type.
+      var p = easeInCubic(t);
+      var pt = guide.getPointAtLength(p * len);
+      orb.setAttribute("cx", pt.x.toFixed(2));
+      orb.setAttribute("cy", pt.y.toFixed(2));
+
+      var opacity = peakOpacity;
+      if (t < fadeInEnd) {
+        var fadeIn = t / fadeInEnd;
+        // Soft ease-out on the fade so they bloom from the labels.
+        opacity = peakOpacity * (1 - Math.pow(1 - fadeIn, 2));
+      }
+
+      // Begin shrinking in the final stretch — sucked into the letter.
+      if (t > 0.72) {
+        var suck = (t - 0.72) / 0.28;
+        var scale = 1 - suck * suck;
+        orb.setAttribute("r", (item.radius * Math.max(scale, 0.08)).toFixed(2));
+        opacity = peakOpacity * (1 - suck * 0.35);
+      }
+
+      orb.style.opacity = String(opacity);
+
+      if (t < 1) {
+        var id = window.requestAnimationFrame(frame);
+        rafIds.push(id);
+        return;
+      }
+
+      if (!arrived) {
+        arrived = true;
+        onArrive();
+      }
+    }
+
+    var id = window.requestAnimationFrame(frame);
+    rafIds.push(id);
+  }
+
   function absorbIntoTitle(item) {
-    var path = item.path;
-    var len = path.getTotalLength();
-    var absorbMs = 1200 + hash(item.globalIndex + 2) * 160;
-    var dash = len + " " + len;
+    var orb = item.orb;
+    var absorbMs = 280 + hash(item.globalIndex + 2) * 120;
 
-    path.style.transition = "none";
-    path.style.strokeDasharray = dash;
-    // Fully visible, equivalent to offset 0 — avoids a negative-from state.
-    path.style.strokeDashoffset = String(len * 2);
-    path.style.opacity = "0.78";
-    // Force style commit before transitioning (Safari needs the extra frame).
-    path.getBoundingClientRect();
-
-    window.requestAnimationFrame(function () {
-      window.requestAnimationFrame(function () {
-        path.classList.remove("is-drawing");
-        path.classList.add("is-absorbing");
-        path.style.transition =
-          "opacity " +
-          absorbMs +
-          "ms cubic-bezier(0.33, 0, 0.2, 1)," +
-          " stroke-dashoffset " +
-          absorbMs +
-          "ms cubic-bezier(0.33, 0, 0.2, 1)," +
-          " stroke-width " +
-          absorbMs +
-          "ms cubic-bezier(0.33, 0, 0.2, 1)";
-        // Positive L clears from the start → tip last (≡ animating to -L).
-        path.style.strokeDashoffset = String(len);
-        path.style.opacity = "0";
-        path.style.strokeWidth = "0.55";
-      });
-    });
+    orb.classList.remove("is-traveling");
+    orb.classList.add("is-absorbing");
+    orb.style.transition =
+      "opacity " + absorbMs + "ms cubic-bezier(0.33, 0, 0.2, 1)";
+    orb.setAttribute("r", "0.2");
+    orb.style.opacity = "0";
 
     window.setTimeout(function () {
-      if (path.parentNode) path.parentNode.removeChild(path);
-    }, absorbMs + 80);
+      if (orb.parentNode) orb.parentNode.removeChild(orb);
+      if (item.guide.parentNode) item.guide.parentNode.removeChild(item.guide);
+    }, absorbMs + 40);
   }
 
   function animateFeeds() {
@@ -902,48 +900,30 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     done = true;
 
-    var drawMs = 1650;
-    var companyStagger = 140;
-    var strokeStagger = 70;
+    var travelMs = 1450;
+    var companyStagger = 120;
+    var orbStagger = 55;
     var earliestTip = Infinity;
 
-    paths.forEach(function (item) {
-      var path = item.path;
-      var len = path.getTotalLength();
-      var thisDraw = drawMs + hash(item.globalIndex) * 80;
-      // Gentle cascade — fewer strokes, longer ease for a smoother pour.
+    orbs.forEach(function (item) {
+      var thisTravel = travelMs + hash(item.globalIndex) * 160;
       var delay =
         item.companyIndex * companyStagger +
-        item.stroke * strokeStagger +
-        hash(item.globalIndex + 9) * 24;
+        item.stroke * orbStagger +
+        hash(item.globalIndex + 9) * 30;
 
-      // Tip reaches the title near the end of the draw.
-      var tipAt = delay + thisDraw * 0.82;
+      // Orb reaches the title near the end of its travel.
+      var tipAt = delay + thisTravel * 0.88;
       if (tipAt < earliestTip) earliestTip = tipAt;
 
-      // Two-value dasharray keeps Safari aligned with Chrome for later absorb.
-      path.style.strokeDasharray = len + " " + len;
-      path.style.strokeDashoffset = String(len);
-      path.style.opacity = "0";
-
       window.setTimeout(function () {
-        path.classList.add("is-drawing");
-        path.style.transition =
-          "stroke-dashoffset " +
-          thisDraw +
-          "ms cubic-bezier(0.33, 0, 0.2, 1), opacity 0.55s cubic-bezier(0.33, 0, 0.2, 1)";
-        path.getBoundingClientRect();
-        path.style.strokeDashoffset = "0";
-        path.style.opacity = "0.78";
+        animateOrb(item, thisTravel, function () {
+          absorbIntoTitle(item);
+        });
       }, delay);
-
-      // Absorb just as the tip lands — color becomes the mesh.
-      window.setTimeout(function () {
-        absorbIntoTitle(item);
-      }, tipAt);
     });
 
-    // Wake the mesh as the first brand tips arrive.
+    // Wake the mesh as the first brand orbs arrive.
     window.setTimeout(feedTitle, Math.max(earliestTip - 40, 180));
   }
 
