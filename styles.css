@@ -1180,14 +1180,24 @@ a:hover {
 }
 
 @media (hover: hover) and (pointer: fine) {
+  .experience-row:has(.pill.brex):hover .role-name,
+  .experience-row:has(.pill.brex):hover .year {
+    color: #000000;
+  }
+
+  .experience-row:has(.pill.stealth):hover .role-name,
+  .experience-row:has(.pill.stealth):hover .year {
+    color: rgba(104, 104, 104, 1);
+  }
+
   .experience-row:has(.pill.beavr):hover .role-name,
   .experience-row:has(.pill.beavr):hover .year {
     color: rgba(110, 142, 138, 1);
   }
 
-  .experience-row:has(.pill.garden):hover .role-name,
-  .experience-row:has(.pill.garden):hover .year {
-    color: rgba(29, 44, 47, 1);
+  .experience-row:has(.pill.simip):hover .role-name,
+  .experience-row:has(.pill.simip):hover .year {
+    color: rgba(28, 71, 199, 1);
   }
 
   .experience-row:has(.pill.instagram):hover .role-name,
@@ -1208,11 +1218,6 @@ a:hover {
   .experience-row:has(.pill.twitch):hover .role-name,
   .experience-row:has(.pill.twitch):hover .year {
     color: rgba(145, 70, 255, 1);
-  }
-
-  .experience-row:has(.pill.deltahacks):hover .role-name,
-  .experience-row:has(.pill.deltahacks):hover .year {
-    color: rgba(30, 184, 201, 1);
   }
 }
 
@@ -1249,6 +1254,11 @@ a:hover {
 
 /* Brand colors */
 
+.pill.brex {
+  background-color: rgba(0, 0, 0, 0.05);
+  color: #000000;
+}
+
 .pill.stealth {
   background-color: rgba(104, 104, 104, 0.05);
   color: rgba(104, 104, 104, 1);
@@ -1259,9 +1269,9 @@ a:hover {
   color: rgba(110, 142, 138, 1);
 }
 
-.pill.garden {
-  background-color: rgba(29, 44, 47, 0.05);
-  color: rgba(29, 44, 47, 1);
+.pill.simip {
+  background-color: rgba(28, 71, 199, 0.05);
+  color: #1c47c7;
 }
 
 .pill.instagram {
@@ -1296,23 +1306,6 @@ a:hover {
 .pill.twitch {
   background-color: rgba(145, 70, 255, 0.05);
   color: rgba(145, 70, 255, 1);
-}
-
-.pill.deltahacks {
-  background: linear-gradient(
-    45deg,
-    rgba(29, 184, 201, 0.05),
-    rgba(239, 78, 103, 0.05),
-    rgba(251, 217, 102, 0.05)
-  );
-}
-
-.pill.deltahacks .pill-label {
-  background: linear-gradient(45deg, #1db8c9, #ef4e67, #fbd966);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  color: transparent;
 }
 
 @media (hover: hover) and (pointer: fine) {
