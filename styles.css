@@ -1896,7 +1896,7 @@ html.mesh-grab .bg-hint {
   }
 
   /* Ensure Instagram experience row has border-bottom on mobile */
-  .experience-row:has(.pill.instagram) {
+  .experience-row:has(.pill.garden) {
     border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
   }
 }
