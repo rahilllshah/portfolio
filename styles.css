@@ -1195,9 +1195,9 @@ a:hover {
     color: rgba(110, 142, 138, 1);
   }
 
-  .experience-row:has(.pill.simip):hover .role-name,
-  .experience-row:has(.pill.simip):hover .year {
-    color: rgba(28, 71, 199, 1);
+  .experience-row:has(.pill.garden):hover .role-name,
+  .experience-row:has(.pill.garden):hover .year {
+    color: rgba(48, 121, 86, 1);
   }
 
   .experience-row:has(.pill.instagram):hover .role-name,
@@ -1269,9 +1269,9 @@ a:hover {
   color: rgba(110, 142, 138, 1);
 }
 
-.pill.simip {
-  background-color: rgba(28, 71, 199, 0.05);
-  color: #1c47c7;
+.pill.garden {
+  background-color: rgba(48, 121, 86, 0.05);
+  color: rgba(48, 121, 86, 1);
 }
 
 .pill.instagram {
